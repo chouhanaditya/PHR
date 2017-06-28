@@ -1,0 +1,77 @@
+<br>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row">
+
+    <div *ngFor="let module of SubHeading" class="col-sm-3" align="center">
+      <a routerLink="/{{module.ModuleName}}">
+        <img
+          [src]="module.IconUrl"
+          [alt]="module.ModuleName"
+          class="img-responsive"
+          style="max-height: 70px;" width="70px">
+        <h2> {{module.ModuleName}} </h2>
+      </a>
+     </div>
+
+    <div class="col-sm-3" align="center">
+      <input type="text" placeholder="Enter search string" class="input-lg">
+      <button type="button" class="btn btn-default" style="size: ">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+
+    </div>
+
+  </div>
+  <br>
+  <br>
+
+ <div class="row">
+    <div *ngFor="let module of modules1" class="col-sm-3" align="center">
+      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
+      <img
+          [src]="module.IconUrl"
+          alt="{{ module.ModuleName }}"
+          class="img-responsive"
+          style="max-height: 200px;" width="200px">
+       <h2> {{ module.ModuleName }}</h2>
+      </a>
+
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div *ngFor="let module of modules2" class="col-sm-3" align="center">
+      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
+        <img
+          [src]="module.IconUrl"
+          alt="{{ module.ModuleName }}"
+          class="img-responsive"
+          style="max-height: 200px;" width="200px">
+        <h2> {{ module.ModuleName }}</h2>
+      </a>
+
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+  <div class="row">
+    <div *ngFor="let module of modules3" class="col-sm-3" align="center">
+      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
+        <img
+          [src]="module.IconUrl"
+          alt="{{ module.ModuleName }}"
+          class="img-responsive"
+          style="max-height: 200px;" width="200px">
+        <h2> {{ module.ModuleName }}</h2>
+      </a>
+
+    </div>
+  </div>
+
+</div>
