@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaregiversComponent implements OnInit {
 
-  caregiversList : {name:string, ImageURL:string}[];
+  caregiversList : {id:number, name:string, ImageURL:string}[];
   constructor() { }
 
   ngOnInit() {
     this.caregiversList = [
-      {        "name":"Tom","ImageURL" :"" },
-      {        "name":"Yves","ImageURL" :"" },
-      {        "name":"Adi","ImageURL" :"" },
+      {        "id" : 1,"name":"Tom","ImageURL" :"" },
+      {        "id" : 2,"name":"Yves","ImageURL" :"" },
+      {        "id" : 3,"name":"Adi","ImageURL" :"" },
     ];
   }
 
