@@ -1,20 +1,135 @@
 <div class="container-fluid">
-  <div class="row">
+  <div >
+    <div class="row table-bordered" style="padding-left: 1.5%">
+        <h3>Caregiver Personal Details</h3>
+        <br>
+        <div class="col-sm-10">
+          <div class="row">
+               <div class="col-sm-3">
+                 <label style="font-size: large"> Name: </label>
+                 <input type="text" class="form-inline" style="font-size: large" value="Tom Windle" *ngIf="!IsPersonalDetailsEditable; else Name" readonly>
+                 <ng-template #Name>
+                   <input type="text" class="form-inline" style="font-size: large" value="">
+                 </ng-template>
+              </div>
+
+            <div class="col-sm-3">
+              <label style="font-size: large"> Relationship: </label>
+              <input type="text" *ngIf="!IsPersonalDetailsEditable; else Relationship" class="form-inline" style="font-size: large" value="Father" readonly>
+              <ng-template #Relationship>
+                <input type="text" class="form-inline" style="font-size: large" value="">
+              </ng-template>
+            </div>
+
+            <div class="col-sm-3">
+              <label style="font-size: large"> Email Id: </label>
+              <input type="email" class="form-inline" style="font-size: large" value="Tom.Windle@unmc.edu"  *ngIf="!IsPersonalDetailsEditable; else Email" readonly>
+              <ng-template #Email>
+                <input type="text" class="form-inline" style="font-size: large" value="">
+              </ng-template>
+
+            </div>
+
+            <div class="col-sm-3">
+              <label style="font-size: large"> Contact Details: </label>
+              <input type="text" class="form-inline" style="font-size: large" value="(402)913-4882"  *ngIf="!IsPersonalDetailsEditable; else Contact" readonly>
+              <ng-template #Contact>
+                <input type="text" class="form-inline" style="font-size: large" value="">
+              </ng-template>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+
+          <button *ngIf="!IsPersonalDetailsEditable" class="btn-primary button" align="middle" (click)="OnPersonalEditClick()">  <span class="glyphicon glyphicon-edit"></span>    Edit Personal Details </button>
+
+          <button *ngIf="IsPersonalDetailsEditable" class="btn-primary button" align="middle" (click)="OnPersonalSaveClick()"> <span class="glyphicon glyphicon-floppy-save"></span>    Save Personal Details </button>
+
+        </div>
+
+      <br>
+      <br> <br>
+
+    </div>
     <br>
-    <div class="col-sm-2">
+    <div class="row table-bordered" style="padding-left: 1.5%">
       <h3>Caregiver Privelages</h3>
+      <br>
+      <div class="row">
+        <div class="col-sm-10">
+          <div class="row">
+            <div class="col-sm-3">
+              <label style="font-size: large"> Power of Attorney: </label>
+              <label class="form-inline" style="font-size: large" *ngIf="!IsPrivelagesEditable; else Power"> No </label>
+              <ng-template #Power>
+                <ui-switch size="large"></ui-switch>
+              </ng-template>
+            </div>
+
+            <div class="col-sm-3">
+              <label style="font-size: large"> View Reports: </label>
+              <label *ngIf="!IsPrivelagesEditable; else Reports" class="form-inline" style="font-size: large"> Yes </label>
+              <ng-template #Reports>
+                <ui-switch size="large" ></ui-switch>
+              </ng-template>
+            </div>
+
+            <div class="col-sm-3">
+              <label style="font-size: large"> View AVS: </label>
+              <label class="form-inline" style="font-size: large" value="Tom.Windle@unmc.edu"  *ngIf="!IsPrivelagesEditable; else AVS"> No </label>
+              <ng-template #AVS>
+                <ui-switch size="large"></ui-switch>
+              </ng-template>
+
+            </div>
+
+            <div class="col-sm-3">
+              <label style="font-size: large"> View  Health at a Glance: </label>
+              <label class="form-inline" style="font-size: large" value="(402)913-4882"  *ngIf="!IsPrivelagesEditable; else Health"> Yes </label>
+              <ng-template #Health>
+                <ui-switch size="large"></ui-switch>
+              </ng-template>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+
+          <button *ngIf="!IsPrivelagesEditable" class="btn-primary button" align="middle" (click)="OnPrivelagesEditClick()">  <span class="glyphicon glyphicon-edit"></span>    Edit Privelages </button>
+
+          <button *ngIf="IsPrivelagesEditable" class="btn-primary button" align="middle" (click)="OnPrivelagesSaveClick()"> <span class="glyphicon glyphicon-floppy-save"></span>    Save Privelages </button>
+
+        </div>
+      </div>
+      <br> <br>
+      <div class="row">
+
+        <div class="col-sm-6">
+            <div class="form-group">
+            <label style="font-size: large"> Providers: </label>
+                <ul>
+                  <li>
+                    View Providers
+                  </li>
+                  <li>
+                    Manage Providers
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+
+        </div>
+
+      </div>
+
+      <br>
     </div>
-
-    <div class="col-sm-10" align="right">
-      <input type="button" value="Edit Profile" class="btn-primary" style="font-size: large">
-    </div>
-
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p> Power of Attorney</p>
-
-    </div>
-
   </div>
 </div>

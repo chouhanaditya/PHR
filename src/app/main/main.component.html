@@ -4,7 +4,7 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div *ngFor="let module of SubHeading" class="col-sm-3" align="center">
+    <div *ngFor="let module of SubHeading" class="col-sm-4" align="center">
       <a routerLink="/{{module.ModuleName}}">
         <img
           [src]="module.IconUrl"
@@ -15,9 +15,9 @@
       </a>
      </div>
 
-    <div class="col-sm-3" align="center">
+    <div class="col-sm-4" align="center">
       <input type="text" placeholder="Enter search string" class="input-lg">
-      <button type="button" class="btn btn-default" style="size: ">
+      <button type="button" class="btn btn-default">
         <span class="glyphicon glyphicon-search"></span>
       </button>
 

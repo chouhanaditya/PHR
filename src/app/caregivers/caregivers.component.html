@@ -7,24 +7,32 @@
       <br>
       <br>
       <a routerLink="/NewCaregiver" style="font-size: 25px;padding-left: 10%">
-        <span class="	glyphicon glyphicon-plus-sign" ></span><u> Add new Caregiver</u>
+        <span class="	glyphicon glyphicon-plus-sign" ></span><u> Add New Caregiver</u>
       </a>
       <br>
       <br>
       <br>
       <h3 style="padding-left: 10% ">Below are your caregivers- </h3>
-      <ul class="list-group" style="padding-left: 10% ">
-      <li *ngFor="let caregiver of caregiversList" class="list-group-item" style="font-size: large">
-        <a
-          [routerLink]="['/Caregivers',caregiver.id]">
-          {{caregiver.name}}
-        </a>
-      </li>
+      <ul class="list-group ul-shadow" style="padding-left: 10% ">
+
+        <li *ngFor="let caregiver of caregiversList" class="list-group-item" style="font-size: large">
+          <!--<span class="glyphicon glyphicon-ok"></span> -->
+          <a [routerLink]="['/Caregivers',caregiver.id]" (click)="OnClick()" > {{caregiver.name}} </a>
+        </li>
+
       </ul>
     </div>
 
     <div class="col-sm-10">
-      <router-outlet></router-outlet>
+        <div class="container-fluid">
+          <div class="row">
+            <br>
+            <p style="font-size: large" *ngIf="!CaregiverSelected">
+              {{CaregiverDescription}}
+          </p>
+          </div>
+        <router-outlet *ngIf=CaregiverSelected></router-outlet>
+      </div>
     </div>
 
   </div>

@@ -18,21 +18,21 @@ export class MainComponent implements OnInit {
   ngOnInit() {
 
     this.SubHeading =[
-      {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/ampeross/qetto-2/128/settings-icon.png"},
+      // {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/ampeross/qetto-2/128/settings-icon.png"},
       {"ModuleName":"Request an Appointment","IconUrl":"http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-appointment-new-icon.png"},
       {"ModuleName":"Request for Refill","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png"}
      ];
 
     this.modules1 = [
       {"ModuleName":"Appointments","IconUrl":"http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-appointment-new-icon.png"},
-      {"ModuleName":"Medications","IconUrl":"http://icons.iconarchive.com/icons/medicalwp/medical/128/Pills-blue-icon.png"},
+      {"ModuleName":"Contact My Doctor","IconUrl":"http://icons.iconarchive.com/icons/hopstarter/sleek-xp-basic/128/Mail-icon.png"},
       {"ModuleName":"Test Results","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/medical-report-icon.png"},
-      {"ModuleName":"Messages","IconUrl":"http://icons.iconarchive.com/icons/hopstarter/sleek-xp-basic/128/Mail-icon.png"}
+      {"ModuleName":"Medications","IconUrl":"http://icons.iconarchive.com/icons/medicalwp/medical/128/Pills-blue-icon.png"}
     ];
 
     this.modules2 = [
-       {"ModuleName":"History","IconUrl":"http://icons.iconarchive.com/icons/mcdo-design/smooth-leopard/128/History-Folder-Lavender-icon.png"},
-       {"ModuleName":"Pre Visit Questionaire","IconUrl":"http://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png"},
+       {"ModuleName":"Health at a Glance","IconUrl":"http://icons.iconarchive.com/icons/mcdo-design/smooth-leopard/128/History-Folder-Lavender-icon.png"},
+       {"ModuleName":"Patient Health Questionaire","IconUrl":"http://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png"},
        {"ModuleName":"After Visit Summary","IconUrl":"http://icons.iconarchive.com/icons/umut-pulat/tulliana-2/128/korganizer-icon.png"},
        {"ModuleName":"Patient Plan","IconUrl":"http://icons.iconarchive.com/icons/icojam/blue-bits/128/document-write-icon.png"}
     ];
