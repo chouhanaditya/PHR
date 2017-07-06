@@ -68,14 +68,14 @@
               <label style="font-size: large"> Power of Attorney: </label>
               <label class="form-inline" style="font-size: large" *ngIf="!IsPrivelagesEditable && SelectedCaregiver.IsPowerofAttorney == true">  Yes </label>
               <label class="form-inline" style="font-size: large" *ngIf="!IsPrivelagesEditable && SelectedCaregiver.IsPowerofAttorney == false">  No </label>
-              <ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>
+              <!--<ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>-->
             </div>
 
             <div class="col-sm-3">
               <label style="font-size: large"> View Reports: </label>
               <label *ngIf="!IsPrivelagesEditable && SelectedCaregiver.ViewReports == true" class="form-inline" style="font-size: large"> Yes </label>
               <label *ngIf="!IsPrivelagesEditable && SelectedCaregiver.ViewReports == false" class="form-inline" style="font-size: large"> No </label>
-              <ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>
+              <!--<ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>-->
 
             </div>
 
@@ -83,7 +83,7 @@
               <label style="font-size: large"> View AVS: </label>
               <label class="form-inline" style="font-size: large"  *ngIf="!IsPrivelagesEditable && SelectedCaregiver.ViewAVS == true"> Yes </label>
               <label class="form-inline" style="font-size: large"  *ngIf="!IsPrivelagesEditable && SelectedCaregiver.ViewAVS == false"> No </label>
-              <ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>
+              <!--<ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>-->
 
             </div>
 
@@ -91,7 +91,7 @@
               <label style="font-size: large"> View  Health at a Glance: </label>
               <label class="form-inline" style="font-size: large" *ngIf="!IsPrivelagesEditable && SelectedCaregiver.ViewHealthGlance == true"> Yes </label>
               <label class="form-inline" style="font-size: large" *ngIf="!IsPrivelagesEditable && SelectedCaregiver.ViewHealthGlance == false"> No </label>
-              <ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>
+              <!--<ui-switch size="large" *ngIf="IsPrivelagesEditable"></ui-switch>-->
 
 
             </div>
