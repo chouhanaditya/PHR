@@ -36,7 +36,6 @@ const appRoutes: Routes =[
     BrowserModule,
     FormsModule,
     HttpModule,
-
     RouterModule.forRoot(appRoutes)
   ],
   providers: [caregiverService],

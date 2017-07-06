@@ -19,9 +19,8 @@ export class CaregiversComponent implements OnInit {
   ngOnInit() {
     this.caregiversList = this.objCaregiver.getCaregiversList();
     this.caregiverGeneralDescription = this.objCaregiver.getCaregiverGeneralDescription();
-
-
   }
+
   OnClick()
   {
     this.IsCaregiverSelected=true;
