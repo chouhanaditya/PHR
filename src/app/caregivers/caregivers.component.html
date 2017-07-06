@@ -7,19 +7,18 @@
       <br>
       <br>
       <a routerLink="/NewCaregiver" style="font-size: 25px;padding-left: 10%">
-        <span class="	glyphicon glyphicon-plus-sign" ></span><u> Add New Caregiver</u>
+        <span class="	glyphicon glyphicon-plus-sign"></span><u> Add New Caregiver</u>
       </a>
       <br>
       <br>
       <br>
       <h3 style="padding-left: 10% ">Below are your caregivers- </h3>
-      <ul class="list-group ul-shadow" style="padding-left: 10% ">
+      <ul class="ul-shadow" style="padding-left: 10% ">
 
-        <li *ngFor="let caregiver of caregiversList" class="list-group-item" style="font-size: large">
-          <!--<span class="glyphicon glyphicon-ok"></span> -->
-          <a [routerLink]="['/Caregivers',caregiver.id]" (click)="OnClick()" > {{caregiver.name}} </a>
+        <li *ngFor="let caregiver of caregiversList" [class.clicked]="IsCaregiverSelected" class="list-group-item" style="font-size: large">
+          <span class="glyphicon glyphicon-ok" *ngIf="IsCaregiverSelected"></span>
+          <a [routerLink]="['/Caregivers',caregiver.Id]" (click)="OnClick()">&nbsp;{{caregiver.Name}} </a>
         </li>
-
       </ul>
     </div>
 
@@ -27,11 +26,11 @@
         <div class="container-fluid">
           <div class="row">
             <br>
-            <p style="font-size: large" *ngIf="!CaregiverSelected">
-              {{CaregiverDescription}}
+            <p style="font-size: large" *ngIf="!IsCaregiverSelected">
+              {{caregiverGeneralDescription}}
           </p>
           </div>
-        <router-outlet *ngIf=CaregiverSelected></router-outlet>
+        <router-outlet *ngIf = IsCaregiverSelected></router-outlet>
       </div>
     </div>
 

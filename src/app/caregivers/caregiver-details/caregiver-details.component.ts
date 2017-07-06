@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
+import {caregiver} from "../caregiver.Model";
+import {caregiverService} from "../caregiver.Service";
 
 @Component({
   selector: 'app-caregiver-details',
@@ -8,30 +11,38 @@ import { Component, OnInit } from '@angular/core';
 export class CaregiverDetailsComponent implements OnInit {
   IsPersonalDetailsEditable : boolean = false;
   IsPrivelagesEditable :boolean = false;
-  Relationships:string[];
+  Relationships:string[] = [ 'Son',
+  'Daughter',
+  'Brother',
+  'Sister',
+  'Friend',
+  'Father',
+  'Mother',
+  'Husband',
+  'Wife',
+  'GrandSon',
+  'GrandDaughter',
+  'GrandFather',
+  'GrandMother'];
 
-  constructor() { }
+  SelectedCaregiverId : number;
+  SelectedCaregiver : caregiver;
+
+  constructor(private route : ActivatedRoute, public objCaregiverService : caregiverService) { }
 
   ngOnInit() {
-    this.Relationships=[
-      'Son',
-      'Daughter',
-      'Brother',
-      'Sister',
-      'Friend',
-      'Father',
-      'Mother',
-      'Husband',
-      'Wife',
-      'GrandSon',
-      'GrandDaughter',
-      'GrandFather',
-      'GrandMother'
-    ];
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.SelectedCaregiverId = +params['id'];
+        this.SelectedCaregiver = this.objCaregiverService.getCaregiverDetails(this.SelectedCaregiverId);
+      }
+    );
+
   }
-  OnPersonalEditClick(){
-    this.IsPersonalDetailsEditable = true;
-}
+  OnPersonalEditClick()
+    {
+      this.IsPersonalDetailsEditable = true;
+    }
 
   OnPersonalSaveClick()
   {

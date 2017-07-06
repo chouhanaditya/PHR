@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import {caregiver} from "./caregiver.Model";
+import {caregiverService} from "./caregiver.Service";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-caregivers',
   templateUrl: './caregivers.component.html',
-  styleUrls: ['./caregivers.component.css']
+  styleUrls: ['./caregivers.component.css'],
 })
 export class CaregiversComponent implements OnInit {
 
-  CaregiverSelected :boolean = false;
-  CaregiverDescription :string;
+  IsCaregiverSelected : boolean = false;
+  caregiverGeneralDescription : string;
+  caregiversList : caregiver[];
 
-  caregiversList : {id:number, name:string, ImageURL:string}[];
-  constructor() { }
+  constructor(private route : ActivatedRoute, public objCaregiver : caregiverService ) { }
 
   ngOnInit() {
-       this.caregiversList = [
-      {        "id" : 1,"name":"Tom","ImageURL" :"" },
-      {        "id" : 2,"name":"Yves","ImageURL" :"" },
-      {        "id" : 3,"name":"Adi","ImageURL" :"" },
-    ];
+    this.caregiversList = this.objCaregiver.getCaregiversList();
+    this.caregiverGeneralDescription = this.objCaregiver.getCaregiverGeneralDescription();
 
-       this.CaregiverDescription=  "Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community. " +
-         "Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community";
+
   }
   OnClick()
   {
-    this.CaregiverSelected=true;
+    this.IsCaregiverSelected=true;
+
   }
 
 }

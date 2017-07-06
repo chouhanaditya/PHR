@@ -11,6 +11,7 @@ import { RouterModule, Routes} from "@angular/router";
 import { SubHeaderComponent } from './caregivers/sub-header/sub-header.component';
 import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregiver-details.component';
 import {UiSwitchComponent} from "angular2-ui-switch/dist/ui-switch.component";
+import {caregiverService} from "./caregivers/caregiver.Service";
 
 const appRoutes: Routes =[
   {  path: '', redirectTo: '/Home', pathMatch :'full'},
@@ -38,7 +39,7 @@ const appRoutes: Routes =[
 
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [caregiverService],
   bootstrap: [AppComponent]
 })
 

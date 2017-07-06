@@ -7,8 +7,8 @@ export class Module{
   IconUrl: string ;
 
   constructor(ModuleName :string, IconUrl : string){
-  this.ModuleName=ModuleName;
-  this.IconUrl=IconUrl;
+      this.ModuleName=ModuleName;
+      this.IconUrl=IconUrl;
   }
 
 }
