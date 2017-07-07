@@ -1,24 +1,40 @@
-.button{
+button{
   font-size: large;
   padding-left: 2%;
   padding-right: 2%;
-
+  margin: 20px;
 }
 
-.input
-{
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  padding-left: 3%;
+/*input*/
+/*{*/
+  /*border-right: none;*/
+  /*border-left: none;*/
+  /*border-top: none;*/
+  /*padding-left: 3%;*/
 
+/*}*/
+
+input{
+  /*margin: 15px 25px;*/
+  width: 200px;
+  /*display: block;*/
+  border: none;
+  padding-top: 10px;
+  border-bottom: solid 1px #1abc9c;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  font-size: large;
 }
 
 .input-Editable
 {
-  /*border-bottom: solid;*/
-  border-bottom-color: #761c19;
-  background: #dddddd;
+   background: #dddddd;
+   color: #0e6252;
 }
 
 .table-bordered
@@ -27,8 +43,37 @@
   padding-right: 1.5%;
 }
 
-.h3
+.table
+{
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+
+h3
 {
   font-size: x-large;
-  color: #337ab7;
+  color: darkred;
+  vertical-align: middle;
+}
+
+input:focus, input:valid {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+
+.my-pointer{
+  cursor: pointer;
+  vertical-align: middle;
+  padding: 10px 10px;
+}
+
+.badgebox
+{
+  opacity: 0;
+  display: inline;
+}
+
+.no-see {
+  visibility: hidden; margin: 0!important;padding: 0!important; width: 0!important; height: 0!important;
 }

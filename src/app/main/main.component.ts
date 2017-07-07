@@ -24,7 +24,7 @@ export class MainComponent implements OnInit {
      ];
 
     this.modules1 = [
-      {"ModuleName":"Appointments","IconUrl":"http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-appointment-new-icon.png"},
+      {"ModuleName":"Appointments","IconUrl":"http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/128/Apps-Calendar-Metro-icon.png"},
       {"ModuleName":"Contact My Doctor","IconUrl":"http://icons.iconarchive.com/icons/hopstarter/sleek-xp-basic/128/Mail-icon.png"},
       {"ModuleName":"Test Results","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/medical-report-icon.png"},
       {"ModuleName":"Medications","IconUrl":"http://icons.iconarchive.com/icons/medicalwp/medical/128/Pills-blue-icon.png"}

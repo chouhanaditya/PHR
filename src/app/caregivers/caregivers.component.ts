@@ -10,9 +10,9 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class CaregiversComponent implements OnInit {
 
-  IsCaregiverSelected : boolean = false;
   caregiverGeneralDescription : string;
   caregiversList : caregiver[];
+  IsClicked : boolean = false;
 
   constructor(private route : ActivatedRoute, public objCaregiver : caregiverService ) { }
 
@@ -21,10 +21,12 @@ export class CaregiversComponent implements OnInit {
     this.caregiverGeneralDescription = this.objCaregiver.getCaregiverGeneralDescription();
   }
 
-  OnClick()
+  OnDetailsClick()
   {
-    this.IsCaregiverSelected=true;
-
+    this.IsClicked = true;
   }
-
+  OnNewClick()
+  {
+    this.IsClicked = true;
+  }
 }

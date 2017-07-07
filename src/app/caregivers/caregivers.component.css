@@ -1,10 +1,15 @@
 a:active
 {
   font-weight: bold;
-  color: blueviolet!important;
+  color: darkred;
   border-bottom: solid 5px #005E63!important;
   background-color: grey;
 }
+
+/*a:link*/
+/*{*/
+  /*color:darkred;*/
+/*}*/
 
 .ul-shadow{
   -moz-box-shadow:    3px 1px 2px 1px #ccc;

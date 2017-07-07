@@ -11,12 +11,14 @@ import { RouterModule, Routes} from "@angular/router";
 import { SubHeaderComponent } from './caregivers/sub-header/sub-header.component';
 import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregiver-details.component';
 import {caregiverService} from "./caregivers/caregiver.Service";
+import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
 
 const appRoutes: Routes =[
   {  path: '', redirectTo: '/Home', pathMatch :'full'},
   { path: 'Home', component: MainComponent},
   { path : 'Caregivers', component : CaregiversComponent,
     children:[
+      { path : 'new', component : AddCaregiverComponent },
       { path : ':id', component : CaregiverDetailsComponent }
     ]},
   ];
@@ -28,7 +30,8 @@ const appRoutes: Routes =[
     MainComponent,
     CaregiversComponent,
     SubHeaderComponent,
-    CaregiverDetailsComponent
+    CaregiverDetailsComponent,
+    AddCaregiverComponent
   ],
   imports: [
     BrowserModule,

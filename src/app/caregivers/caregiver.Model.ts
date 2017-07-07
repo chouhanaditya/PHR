@@ -14,6 +14,7 @@ export class caregiver
     ViewReports : boolean ;
     ViewAVS : boolean ;
     ViewHealthGlance : boolean ;
+    EditHealthGlance : boolean;
     ViewProviders : boolean ;
     ManageProviders : boolean ;
     ViewMessages  : boolean ;
@@ -25,10 +26,13 @@ export class caregiver
     ViewAppointments : boolean ;
     ScheduleAppointments : boolean ;
     FillQuestionnaire : boolean ;
+    ViewPatientPlan : boolean;
+    EditPatientPlan : boolean;
 
-  constructor(Id : number, Name : string, ImageURL : string, EmailId : string, PhoneNumber : string , Relationship : string , IsPowerofAttorney : boolean, ViewReports : boolean, ViewAVS : boolean,
-              ViewHealthGlance : boolean , ViewProviders : boolean , ManageProviders : boolean ,ViewMessages  : boolean , SendMessages : boolean , ViewMedications : boolean ,
-              RefillMedication : boolean , ViewBills : boolean , PayBills : boolean , ViewAppointments : boolean , ScheduleAppointments : boolean , FillQuestionnaire : boolean )
+
+  constructor(Id : number, Name : string, ImageURL : string, EmailId : string, PhoneNumber : string , Relationship : string , IsPowerofAttorney : boolean, ViewReports : boolean, ViewAVS : boolean, ViewHealthGlance : boolean ,
+              EditHealthGlance  :boolean, ViewProviders : boolean , ManageProviders : boolean ,ViewMessages  : boolean , SendMessages : boolean , ViewMedications : boolean , RefillMedication : boolean , ViewBills : boolean ,
+              PayBills : boolean , ViewAppointments : boolean , ScheduleAppointments : boolean , FillQuestionnaire : boolean, ViewPatientPlan : boolean, EditPatientPlan : boolean )
   {
     this.Id = Id;
     this.Name = Name;
@@ -40,6 +44,7 @@ export class caregiver
     this.ViewReports = ViewReports ;
     this.ViewAVS = ViewAVS ;
     this.ViewHealthGlance = ViewHealthGlance ;
+    this.EditHealthGlance = EditHealthGlance;
     this.ViewProviders = ViewProviders ;
     this.ManageProviders = ManageProviders ;
     this.ViewMessages  = ViewMessages ;
@@ -51,6 +56,8 @@ export class caregiver
     this.ViewAppointments = ViewAppointments ;
     this.ScheduleAppointments = ScheduleAppointments ;
     this.FillQuestionnaire = FillQuestionnaire ;
+    this.ViewPatientPlan = ViewPatientPlan;
+    this.EditPatientPlan = EditPatientPlan;
 
   }
 }
