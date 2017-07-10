@@ -1,18 +1,248 @@
 <div class="container-fluid">
 
-  <div class="row">
-    <div class="col-sm-2 table-bordered" >
-      Test New caregiver!
-    </div>
 
-    <div class="col-sm-10">
-      <div class="container-fluid">
-        <div class="row">
+      <br>
+      <!--Personal Details-->
+            <div class="row table-bordered">
+
+                    <div class="row table">
+                          <div class="col-sm-6">
+                            <h3>Personal Details</h3>
+                          </div>
+                          <div class="col-sm-6">
+                          </div>
+
+                    </div>
+
+                    <div class="row table">
+                                    <div class="col-sm-3">
+                                          <label style="font-size: large"> Name: </label>
+                                          <input type="text" class="form-inline">
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                          <label style="font-size: large"> Email Id: </label>
+                                          <input type="email" class="form-inline"  >
+
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                            <label style="font-size: large"> Contact Details: </label>
+                                            <input type="text" class="form-inline" >
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                            <label style="font-size: large"> Relationship: </label>
+                                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">--Select--
+                                              <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="#">HTML</a></li>
+                                              <li><a href="#">CSS</a></li>
+                                              <li><a href="#">JavaScript</a></li>
+                                            </ul>
+
+                                    </div>
+
+                    </div>
+
+            </div>
+
+            <br>
+            <br>
+
+      <!--Privelages-->
+      <div class="row table-bordered">
+        <div class="row table">
+              <div class="col-sm-6">
+                    <h3>Select Privelages</h3>
+                    <br>
+              </div>
+              <div class="col-sm-6">
+              </div>
         </div>
 
-      </div>
-    </div>
+        <br>
 
-  </div>
+        <!--Privelages First Row-->
+            <div class="row table">
+
+                  <div class="col-sm-4">
+                    <label style="font-size: large"> Power of Attorney: </label>&nbsp;
+                    <input type="checkbox" class="badgebox no-see" style="zoom:1.5" value="Yes">
+                    <span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>
+                  </div>
+
+                  <div class="col-sm-4">
+                        <label style="font-size: large"> View Reports: </label>&nbsp;
+                        <input type="checkbox" class="badgebox no-see"  style="zoom:1.5">
+                        <span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>
+                  </div>
+
+                  <div class="col-sm-4">
+                    <label style="font-size: large"> View AVS: </label>&nbsp;
+                    &nbsp; &nbsp;
+                    <input type="checkbox" class="toggle-off" size="large" style="zoom:1.5">
+                  </div>
+
+            </div>
+
+            <br>
+
+        <!--Privelages Second Row-->
+            <div class="row table">
+
+              <div class="col-sm-3">
+                <div class="form-group" style="font-size: large">
+                  <label> Providers: </label>
+                  <ul class="list-group" style="font-size: large">
+                    <li class="list-group-item">
+                      <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewProviders == true "></span>
+                      <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ViewProviders == false "></span> &nbsp;View Providers
+                    </li>
+                    <li class="list-group-item">
+                      <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ManageProviders == true "></span>
+                      <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ManageProviders == false "></span> &nbsp;Manage Providers
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-sm-1">
+
+              </div>
+
+              <div class="col-sm-3">
+                <div class="form-group" style="font-size: large">
+                  <label> Messages: </label>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewMessages == true "></span>
+                      <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ViewMessages == false "></span> &nbsp;Read Messages
+                    </li>
+                    <li class="list-group-item">
+                      <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.SendMessages == true "></span>
+                      <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.SendMessages == false "></span>  &nbsp;Send/ Reply Messages
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-sm-1">
+
+              </div>
+
+              <div class="col-sm-3">
+                <div class="form-group" style="font-size: large">
+                  <label> Health at a Glance: </label>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewHealthGlance == true "></span>
+                      <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.EditHealthGlance == false "></span> &nbsp;View Health at a Glance
+                    </li>
+                    <li class="list-group-item">
+                      <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewHealthGlance == true "></span>
+                      <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.EditHealthGlance == false "></span>  &nbsp;Edit View Health at a Glance
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+          </div>
+
+          <br>
+
+          <!--Privelages Third Row-->
+          <div class="row table">
+
+            <div class="col-sm-3">
+              <div class="form-group" style="font-size: large">
+                <label style="font-size: large"> Payments: </label>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewBills == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ViewBills == false "></span> &nbsp;View Bills
+                  </li>
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.PayBills == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.PayBills == false "></span> &nbsp;Pay Bills
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-sm-1">
+
+            </div>
+
+            <div class="col-sm-3">
+              <div class="form-group" style="font-size: large">
+                <label style="font-size: large"> Medications: </label>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewMedications == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ViewMedications == false "></span> &nbsp;View Medication
+                  </li>
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.RefillMedication == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.RefillMedication == false "></span> &nbsp;Request for refill
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-sm-1">
+
+            </div>
+
+            <div class="col-sm-3">
+              <div class="form-group" style="font-size: large">
+                <label style="font-size: large"> Patient Plan: </label>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewPatientPlan == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ViewPatientPlan == false "></span> &nbsp;View Patient Plan
+                  </li>
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.EditPatientPlan == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.EditPatientPlan == false "></span> &nbsp;Patient Plan
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <!--Privelages Fourth Row-->
+          <div class="row table">
+
+            <div class="col-sm-3">
+              <div class="form-group" style="font-size: large">
+                <label style="font-size: large"> Appointments: </label>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ViewAppointments == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ViewAppointments == false "></span> &nbsp;View Appointments
+                  </li>
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.ScheduleAppointments == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.ScheduleAppointments == false "></span> &nbsp;Schedule Appointments
+                  </li>
+                  <li class="list-group-item">
+                    <span class="glyphicon glyphicon-ok" *ngIf="SelectedCaregiver.FillQuestionnaire == true "></span>
+                    <span class="glyphicon glyphicon-remove" *ngIf="SelectedCaregiver.FillQuestionnaire == false "></span> &nbsp;Fill Questionnaire
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+        <div class="row table">
+          <button class="btn-primary my-pointer" (click)="OnPrivelagesSaveClick()"> Save and Add &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+        </div>
+
+        </div>
+
 
 </div>
