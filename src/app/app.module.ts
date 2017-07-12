@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {UiSwitchModule} from "angular2-ui-switch";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -29,7 +28,6 @@ const appRoutes: Routes =[
 @NgModule({
   declarations: [
     AppComponent,
-    UiSwitchComponent,
     HeaderComponent,
     MainComponent,
     CaregiversComponent,
@@ -40,7 +38,6 @@ const appRoutes: Routes =[
   imports: [
     BrowserModule,
     FormsModule,
-    UiSwitchModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],

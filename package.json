@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "angular-bootstrap-toggle": "^0.1.2",
-    "angular2-ui-switch": "^1.2.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
