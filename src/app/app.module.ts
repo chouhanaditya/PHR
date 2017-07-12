@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {UiSwitchModule} from "angular2-ui-switch";
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -12,6 +13,7 @@ import { SubHeaderComponent } from './caregivers/sub-header/sub-header.component
 import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregiver-details.component';
 import {caregiverService} from "./caregivers/caregiver.Service";
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
+
 
 const appRoutes: Routes =[
   {  path: '', redirectTo: '/Home', pathMatch :'full'},
@@ -36,6 +38,7 @@ const appRoutes: Routes =[
   imports: [
     BrowserModule,
     FormsModule,
+    UiSwitchModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],

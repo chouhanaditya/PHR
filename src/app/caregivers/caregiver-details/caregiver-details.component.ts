@@ -27,6 +27,8 @@ export class CaregiverDetailsComponent implements OnInit {
 
   SelectedCaregiverId : number;
   SelectedCaregiver : caregiver;
+  IsPersonalSaveDialog : boolean = false;
+  IsPrivelagesSaveDialog : boolean = false;
 
   constructor(private route : ActivatedRoute, public objCaregiverService : caregiverService) { }
 
@@ -47,6 +49,7 @@ export class CaregiverDetailsComponent implements OnInit {
   OnPersonalSaveClick()
   {
     this.IsPersonalDetailsEditable = false;
+    this.IsPersonalSaveDialog = true;
   }
   OnPrivelagesEditClick()
   {
@@ -54,5 +57,14 @@ export class CaregiverDetailsComponent implements OnInit {
   }
   OnPrivelagesSaveClick(){
     this.IsPrivelagesEditable = false;
+    this.IsPrivelagesSaveDialog = true;
+  }
+  OnPrivelagesAlertClose()
+  {
+    this.IsPrivelagesSaveDialog = false;
+  }
+  OnPersonalAlertClose()
+  {
+    this.IsPersonalSaveDialog = false;
   }
 }

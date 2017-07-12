@@ -12,7 +12,7 @@ export class CaregiversComponent implements OnInit {
 
   caregiverGeneralDescription : string;
   caregiversList : caregiver[];
-  IsClicked : boolean = false;
+  IsCaregiverHome : boolean = true;
 
   constructor(private route : ActivatedRoute, public objCaregiver : caregiverService ) { }
 
@@ -23,10 +23,10 @@ export class CaregiversComponent implements OnInit {
 
   OnDetailsClick()
   {
-    this.IsClicked = true;
+    this.IsCaregiverHome = false;
   }
   OnNewClick()
   {
-    this.IsClicked = true;
+    this.IsCaregiverHome = false;
   }
 }

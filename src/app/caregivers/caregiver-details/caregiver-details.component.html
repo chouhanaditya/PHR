@@ -12,8 +12,8 @@
                       <div class="col-sm-6">
                       </div>
                       <div class="col-sm-3" style="text-align: right">
-                        <button *ngIf="!IsPersonalDetailsEditable" class="btn-primary my-pointer" align="middle" (click)="OnPersonalEditClick()"> Request for Edit&nbsp; <span class="glyphicon glyphicon-edit"></span> </button>
-                        <button *ngIf="IsPersonalDetailsEditable" class="btn-primary my-pointer" align="middle" (click)="OnPersonalSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+                        <button type="button" *ngIf="!IsPersonalDetailsEditable" class="btn-primary my-pointer" align="middle" (click)="OnPersonalEditClick()"> Request for Edit&nbsp; <span class="glyphicon glyphicon-edit"></span> </button>
+                        <button type="button" *ngIf="IsPersonalDetailsEditable" class="btn-primary my-pointer" align="middle"  (click)="OnPersonalSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
                       </div>
               </div>
 
@@ -39,6 +39,15 @@
                         <input type="text" class="form-inline" [value]="SelectedCaregiver.PhoneNumber"  [readonly]="IsPersonalDetailsEditable == false" [ngClass]="{'input-Editable':IsPersonalDetailsEditable == true}">
                       </div>
               </div>
+
+              <!--Dialog Box-->
+              <div class="row table" *ngIf="IsPersonalSaveDialog">
+                    <div class="alert alert-success alert-dismissable col-sm-12">
+                          <a class="close" (click)="OnPersonalAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
+                          <h4> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</h4>
+                    </div>
+              </div>
+
         </div>
 
         <br>
@@ -61,7 +70,13 @@
 
           </div>
 
-          <br>
+          <!--Dialog Box-->
+          <div class="row table" *ngIf="IsPrivelagesSaveDialog">
+            <div class="alert alert-success alert-dismissable col-sm-12">
+              <a (click)="OnPrivelagesAlertClose()" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <h4> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</h4>
+            </div>
+          </div>
 
           <!--Privelages First Row-->
           <div class="row table">
@@ -80,6 +95,9 @@
                   <!--<label class="form-inline" style="font-size: large" *ngIf="IsPrivelagesEditable && SelectedCaregiver.IsPowerofAttorney == true" style="zoom:1.5">-->
                     <!--<span class="glyphicon glyphicon-ok"></span> Yes-->
                   <!--</label>-->
+
+                  <ui-switch *ngIf="IsPrivelagesEditable" [checked]="SelectedCaregiver.IsPowerofAttorney==true" style="zoom:1.5" ></ui-switch>
+
 
                   <input type="checkbox" class="badgebox no-see" *ngIf="IsPrivelagesEditable && SelectedCaregiver.IsPowerofAttorney == true" style="zoom:1.5" value="Yes">
                   <span class="glyphicon glyphicon-ok" *ngIf="IsPrivelagesEditable && SelectedCaregiver.IsPowerofAttorney == true" style="zoom:1.5"></span>
