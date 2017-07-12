@@ -13,6 +13,7 @@ import { SubHeaderComponent } from './caregivers/sub-header/sub-header.component
 import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregiver-details.component';
 import {caregiverService} from "./caregivers/caregiver.Service";
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
+import {UiSwitchComponent} from "angular2-ui-switch/dist/ui-switch.component";
 
 
 const appRoutes: Routes =[
@@ -28,6 +29,7 @@ const appRoutes: Routes =[
 @NgModule({
   declarations: [
     AppComponent,
+    UiSwitchComponent,
     HeaderComponent,
     MainComponent,
     CaregiversComponent,
