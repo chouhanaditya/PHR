@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {UiSwitchModule} from '../../node_modules/angular2-ui-switch/src/index';
+import {UiSwitchModule} from '../../node_modules/angular2-ui-switch/src';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
