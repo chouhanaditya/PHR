@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {caregiver} from '../caregiver.Model';
-import {caregiverService} from '../caregiver.Service';
+import {Caregiver} from '../caregiver.Model';
+import {CaregiverService} from '../caregiver.Service';
 
 @Component({
   selector: 'app-caregiver-details',
@@ -32,9 +32,9 @@ export class CaregiverDetailsComponent implements OnInit {
                               ];
 
   SelectedCaregiverId: number;
-  SelectedCaregiver: caregiver;
+  SelectedCaregiver: Caregiver;
 
-  constructor(private route: ActivatedRoute, public objCaregiverService : caregiverService) { }
+  constructor(private route: ActivatedRoute, public objCaregiverService: CaregiverService) { }
 
   ngOnInit() {
     this.route.params.subscribe(

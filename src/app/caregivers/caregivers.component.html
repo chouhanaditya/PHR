@@ -1,110 +1,99 @@
 <app-sub-header></app-sub-header>
 
 <div class="container-fluid">
-
-    <div class="row">
+      <div class="row">
               <div class="col-sm-2 panel panel-default" >
 
-                    <br>
-                    <br>
-                    <br>
+                        <br> <br> <br>
 
-                    <a routerLink="/Caregivers/new" style="font-size: 26px;padding-left: 10%" (click)="OnNewClick()">
-                      <span class="	glyphicon glyphicon-plus-sign"></span><u> Add New Caregiver</u>
-                    </a>
+                        <a routerLink="/Caregivers/new" style="font-size: 26px;padding-left: 10%" (click)="OnNewClick()">
+                            <span class="	glyphicon glyphicon-plus-sign"></span>
+                            <u> Add new Caregiver</u>
+                        </a>
 
-                    <br>
-                    <br>
-                    <br>
+                        <br> <br> <br>
 
-                    <h3 style="padding-left: 10% ">Below are your caregivers- </h3>
-                    <br>
-                      <!--<ul style="padding-left: 10% ">-->
-                          <!--<li *ngFor="let caregiver of caregiversList;let i=index" [class.clicked]="IsCaregiverSelected" class="list-group-item" style="font-size: large">-->
-                                <!--<a [routerLink]="['/Caregivers',caregiver.Id]" (click)="OnDetailsClick()">&nbsp;{{caregiver.Name}}-->
-                                <!--</a>-->
-                                <!--&lt;!&ndash;<span class="	glyphicon glyphicon-triangle-right"></span>&ndash;&gt;-->
-                          <!--</li>-->
-                      <!--</ul>-->
+                        <h3 style="padding-left: 10% ">Below are your caregivers- </h3>
+                        <br>
 
-                <ul style="padding-left: 10% ">
-                  <a *ngFor="let caregiver of caregiversList;let i=index"
-                     [routerLink]="['/Caregivers',caregiver.Id]"
-                     (click)="OnDetailsClick()"
-                     [class.clicked]="IsCaregiverSelected"
-                     class="list-group-item"
-                     style="font-size: large">
-                   {{caregiver.Name}}
+                        <ul style="padding-left: 10% ">
+                            <a *ngFor="let caregiver of caregiversList;let i=index"
+                                [routerLink]="['/Caregivers',caregiver.Id]"
+                                (click)="OnDetailsClick()"
+                                [class.clicked]="IsCaregiverSelected"
+                                class="list-group-item"
+                                style="font-size: large">
+                                {{caregiver.Name}}
 
-                    <!--<span class="	glyphicon glyphicon-triangle-right"></span>-->
-                  </a>
-                </ul>
+                                <!--<span class="	glyphicon glyphicon-triangle-right"></span>-->
 
-                    <!--<br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br>-->
-
+                            </a>
+                        </ul>
+                        <!--<br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br>-->
               </div>
 
               <div class="col-sm-10">
-                      <div class="container-fluid">
-                                <div class="row" *ngIf="IsCaregiverHome">
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                    <div class="container-fluid">
+                            <div class="row table-bordered" *ngIf="IsCaregiverHome">
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
 
-                                          <br>
-                                          <p style="font-size: large">
-                                            {{caregiverGeneralDescription}}
-                                          </p>
-                                </div>
-                                <router-outlet *ngIf="!IsCaregiverHome"></router-outlet>
+                                      <br>
+                                      <p style="font-size: large">
+                                        {{caregiverGeneralDescription}}
+                                      </p>
+                            </div>
+                            <router-outlet *ngIf="!IsCaregiverHome">
+
+                            </router-outlet>
                       </div>
               </div>
-    </div>
-
+      </div>
 </div>

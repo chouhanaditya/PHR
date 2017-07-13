@@ -2,38 +2,39 @@
  * Created by aditya.chouhan on 7/5/2017.
  */
 
-export class caregiver
-{
-    Id : number;
-    Name : string;
-    ImageURL : string;
-    EmailId : string ;
-    PhoneNumber : string ;
-    Relationship : string ;
-    IsPowerofAttorney : boolean ;
-    ViewReports : boolean ;
-    ViewAVS : boolean ;
-    ViewHealthGlance : boolean ;
-    EditHealthGlance : boolean;
-    ViewProviders : boolean ;
-    ManageProviders : boolean ;
-    ViewMessages  : boolean ;
-    SendMessages : boolean ;
-    ViewMedications : boolean ;
-    RefillMedication : boolean ;
-    ViewBills : boolean ;
-    PayBills : boolean ;
-    ViewAppointments : boolean ;
-    ScheduleAppointments : boolean ;
-    FillQuestionnaire : boolean ;
-    ViewPatientPlan : boolean;
-    EditPatientPlan : boolean;
+export class Caregiver {
+    Id: number;
+    Name: string;
+    ImageURL: string;
+    EmailId: string ;
+    PhoneNumber: string ;
+    Relationship: string ;
+    IsPowerofAttorney: boolean ;
+    ViewReports: boolean ;
+    ViewAVS: boolean ;
+    ViewHealthGlance: boolean ;
+    EditHealthGlance: boolean;
+    ViewProviders: boolean ;
+    ManageProviders: boolean ;
+    ViewMessages: boolean ;
+    SendMessages: boolean ;
+    ViewMedications: boolean ;
+    RefillMedication: boolean ;
+    ViewBills: boolean ;
+    PayBills: boolean ;
+    ViewAppointments: boolean ;
+    ScheduleAppointments: boolean ;
+    FillQuestionnaire: boolean ;
+    ViewPatientPlan: boolean;
+    EditPatientPlan: boolean;
 
 
-  constructor(Id : number, Name : string, ImageURL : string, EmailId : string, PhoneNumber : string , Relationship : string , IsPowerofAttorney : boolean, ViewReports : boolean, ViewAVS : boolean, ViewHealthGlance : boolean ,
-              EditHealthGlance  :boolean, ViewProviders : boolean , ManageProviders : boolean ,ViewMessages  : boolean , SendMessages : boolean , ViewMedications : boolean , RefillMedication : boolean , ViewBills : boolean ,
-              PayBills : boolean , ViewAppointments : boolean , ScheduleAppointments : boolean , FillQuestionnaire : boolean, ViewPatientPlan : boolean, EditPatientPlan : boolean )
-  {
+  constructor(Id: number, Name: string, ImageURL: string, EmailId: string, PhoneNumber: string, Relationship: string,
+              IsPowerofAttorney: boolean, ViewReports: boolean, ViewAVS: boolean, ViewHealthGlance: boolean,
+              EditHealthGlance: boolean, ViewProviders: boolean , ManageProviders: boolean , ViewMessages: boolean ,
+              SendMessages: boolean, ViewMedications: boolean , RefillMedication: boolean , ViewBills: boolean,
+              PayBills: boolean , ViewAppointments: boolean , ScheduleAppointments: boolean , FillQuestionnaire: boolean,
+              ViewPatientPlan: boolean, EditPatientPlan: boolean ) {
     this.Id = Id;
     this.Name = Name;
     this.ImageURL = ImageURL;

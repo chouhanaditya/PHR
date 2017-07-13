@@ -11,7 +11,7 @@ import { CaregiversComponent } from './caregivers/caregivers.component';
 import { RouterModule, Routes} from '@angular/router';
 import { SubHeaderComponent } from './caregivers/sub-header/sub-header.component';
 import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregiver-details.component';
-import {caregiverService} from './caregivers/caregiver.Service';
+import {CaregiverService} from './caregivers/caregiver.Service';
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
 
 
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [caregiverService],
+  providers: [CaregiverService],
   bootstrap: [AppComponent]
 })
 

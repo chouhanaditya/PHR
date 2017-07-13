@@ -1,143 +1,177 @@
 <div class="container-fluid">
 
-
       <br>
       <!--Personal Details-->
-            <div class="row table-bordered">
+      <div class="row table-bordered">
 
-                  <div class="row table">
-                        <div class="col-sm-6">
-                          <h3>Personal Details</h3>
-                        </div>
-                        <div class="col-sm-6">
-                        </div>
+          <div class="row table">
+                <div class="col-sm-6">
+                  <h3>Personal Details</h3>
+                </div>
+                <div class="col-sm-6">
+                </div>
 
-                  </div>
+          </div>
 
-                  <div class="row table">
-                        <div class="col-sm-3">
-                              <label style="font-size: large"> Name: </label>
-                              <input type="text" class="form-inline">
-                        </div>
+          <div class="row table">
+                <div class="col-sm-3">
+                      <label style="font-size: large"> Name: </label>
+                      <input type="text" class="form-inline" >
+                </div>
 
-                        <div class="col-sm-3">
-                              <label style="font-size: large"> Email Id: </label>
-                              <input type="email" class="form-inline"  >
+                <div class="col-sm-3">
+                      <label style="font-size: large"> Email Id: </label>
+                      <input type="email" class="form-inline"   >
 
-                        </div>
+                </div>
 
-                        <div class="col-sm-3">
-                                <label style="font-size: large"> Contact Details: </label>
-                                <input type="text" class="form-inline" >
-                        </div>
+                <div class="col-sm-3">
+                        <label style="font-size: large"> Contact Details: </label>
+                        <input type="text" class="form-inline" >
+                </div>
 
-                        <div class="col-sm-3">
-                                <label style="font-size: large"> Relationship: </label>
-                          <input type="text" class="form-inline" value="">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">--Select--
-                                  <span class="caret"></span></button>
-                                <ul class="dropdown-menu" >
-                                  <li *ngFor="let item of relationships"><a>{{item}}</a></li>
-                                </ul>
+                <div class="col-sm-3">
+                        <label style="font-size: large"> Relationship: </label>
+                  <input type="text" class="form-inline" >
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">--Select--
+                          <span class="caret"></span></button>
+                        <ul class="dropdown-menu" >
+                          <li *ngFor="let item of relationships"><a>{{item}}</a></li>
+                        </ul>
 
-                        </div>
+                </div>
 
-                  </div>
+          </div>
 
-            </div>
+      </div>
 
-            <br>
-            <br>
-
+      <br>
+      <br>
       <!--Privelages-->
       <div class="row table-bordered">
-        <div class="row table">
-              <div class="col-sm-6">
-                    <h3>Select Privelages</h3>
-                    <br>
-              </div>
-              <div class="col-sm-6">
-              </div>
-        </div>
+          <div class="row table">
+                    <div class="col-sm-6">
+                          <h3>Select Privelages</h3>
+                          <br>
+                    </div>
 
-        <br>
+                    <div class="col-sm-6">
+                    </div>
 
-        <!--Privelages First Row-->
-            <div class="row table">
+          </div>
 
-                  <div class="col-sm-4">
-                    <label style="font-size: large"> Power of Attorney: </label>&nbsp;
-                    <input type="checkbox" class="badgebox no-see" style="zoom:1.5" value="Yes">
-                    <span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>
-                  </div>
+          <!--Privelages First Row-->
+          <div class="row table">
 
-                  <div class="col-sm-4">
-                        <label style="font-size: large"> View Reports: </label>&nbsp;
-                        <input type="checkbox" class="badgebox no-see"  style="zoom:1.5">
-                        <span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>
-                  </div>
+                    <div class="col-sm-3">
+                          <div class="form-group table-bordered">
+                                <label style="font-size: large"> Power of Attorney: </label>&nbsp;
 
-                  <div class="col-sm-4">
-                    <label style="font-size: large"> View AVS: </label>&nbsp;                    &nbsp; &nbsp;
-                    <input type="checkbox" class="toggle-off" size="large" style="zoom:1.5">
-                  </div>
+                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.IsPowerofAttorney"></ui-switch>
+                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.IsPowerofAttorney == true " style="zoom:1.5"></span>
+                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.IsPowerofAttorney == false" style="zoom:1.5" ></span>
+                          </div>
+                    </div>
 
-            </div>
+                    <div class="col-sm-1">
 
-            <br>
+                    </div>
 
-        <!--Privelages Second Row-->
-            <div class="row table">
+                    <div class="col-sm-3">
+                          <div class="form-group table-bordered">
+                                <label style="font-size: large"> View Reports: </label>&nbsp;
+                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewReports"></ui-switch>
+                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewReports == true " style="zoom:1.5"></span>
+                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewReports == false" style="zoom:1.5" ></span>
+                          </div>
+                    </div>
 
-              <div class="col-sm-3">
-                <div class="form-group" style="font-size: large">
-                  <label> Providers: </label>
-                  <ul class="list-group" style="font-size: large">
-                    <li class="list-group-item">
-                      <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Providers
-                    </li>
-                    <li class="list-group-item">
-                      <span class="glyphicon glyphicon-remove"></span> &nbsp;Manage Providers
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                      <div class="col-sm-1">
 
-              <div class="col-sm-1">
+                      </div>
 
-              </div>
+                    <div class="col-sm-3">
+                          <div class="form-group table-bordered">
+                                <label style="font-size: large"> View AVS: </label>&nbsp;
+                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewReports"></ui-switch>
+                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewReports == true " style="zoom:1.5"></span>
+                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewReports == false" style="zoom:1.5" ></span>&nbsp; &nbsp;
+                          </div>
+                    </div>
+          </div>
 
-              <div class="col-sm-3">
-                <div class="form-group" style="font-size: large">
-                  <label> Messages: </label>
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <span class="glyphicon glyphicon-remove" ></span> &nbsp;Read Messages
-                    </li>
-                    <li class="list-group-item">
-                      <span class="glyphicon glyphicon-remove" ></span>  &nbsp;Send/ Reply Messages
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          <br>
 
-              <div class="col-sm-1">
+          <!--Privelages Second Row-->
+          <div class="row table">
 
-              </div>
+                      <div class="col-sm-3">
+                              <div class="form-group" style="font-size: large">
+                                    <label> Providers: </label>
+                                    <ul class="list-group" style="font-size: large">
+                                          <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Providers
+                                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewProviders"></ui-switch>
+                                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewProviders == true " style="zoom:1.5"></span>
+                                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewProviders == false" style="zoom:1.5" ></span>
+                                          </li>
+                                          <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-remove"></span> &nbsp;Manage Providers
+                                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ManageProviders"></ui-switch>
+                                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ManageProviders == true " style="zoom:1.5"></span>
+                                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ManageProviders == false" style="zoom:1.5" ></span>
+                                          </li>
+                                    </ul>
+                              </div>
+                      </div>
 
-              <div class="col-sm-3">
-                <div class="form-group" style="font-size: large">
-                  <label> Health at a Glance: </label>
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Health at a Glance
-                    </li>
-                    <li class="list-group-item">
-                      <span class="glyphicon glyphicon-remove"></span>  &nbsp;Edit View Health at a Glance
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                      <div class="col-sm-1">
+
+                      </div>
+
+                      <div class="col-sm-3">
+                              <div class="form-group" style="font-size: large">
+                                    <label> Messages: </label>
+                                    <ul class="list-group">
+                                          <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-remove" ></span> &nbsp;Read Messages
+                                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewMessages"></ui-switch>
+                                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewMessages == true " style="zoom:1.5"></span>
+                                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewMessages == false" style="zoom:1.5" ></span>
+                                          </li>
+                                          <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-remove" ></span>  &nbsp;Send/ Reply Messages
+                                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.SendMessages"></ui-switch>
+                                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.SendMessages == true " style="zoom:1.5"></span>
+                                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.SendMessages == false" style="zoom:1.5" ></span>
+                                          </li>
+                                    </ul>
+                              </div>
+                      </div>
+
+                      <div class="col-sm-1">
+
+                      </div>
+
+                      <div class="col-sm-3">
+                            <div class="form-group" style="font-size: large">
+                                  <label> Health at a Glance: </label>
+                                  <ul class="list-group">
+                                        <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Health at a Glance
+                                              <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewHealthGlance"></ui-switch>
+                                              <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewHealthGlance == true " style="zoom:1.5"></span>
+                                              <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewHealthGlance == false" style="zoom:1.5" ></span>
+                                        </li>
+                                        <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-remove"></span>  &nbsp;Edit View Health at a Glance
+                                              <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.EditHealthGlance"></ui-switch>
+                                              <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.EditHealthGlance == true " style="zoom:1.5"></span>
+                                              <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.EditHealthGlance == false" style="zoom:1.5" ></span>
+                                        </li>
+                                  </ul>
+                            </div>
+                      </div>
 
           </div>
 
@@ -146,55 +180,73 @@
           <!--Privelages Third Row-->
           <div class="row table">
 
-            <div class="col-sm-3">
-              <div class="form-group" style="font-size: large">
-                <label style="font-size: large"> Payments: </label>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove"></span> &nbsp;View Bills
-                  </li>
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;Pay Bills
-                  </li>
-                </ul>
-              </div>
-            </div>
+                      <div class="col-sm-3">
+                              <div class="form-group" style="font-size: large">
+                                      <label style="font-size: large"> Payments: </label>
+                                      <ul class="list-group">
+                                            <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-remove"></span> &nbsp;View Bills
+                                                  <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewBills"></ui-switch>
+                                                  <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewBills == true " style="zoom:1.5"></span>
+                                                  <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewBills == false" style="zoom:1.5" ></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-remove" ></span> &nbsp;Pay Bills
+                                                  <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.PayBills"></ui-switch>
+                                                  <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.PayBills == true " style="zoom:1.5"></span>
+                                                  <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.PayBills == false" style="zoom:1.5" ></span>
+                                            </li>
+                                      </ul>
+                              </div>
+                      </div>
 
-            <div class="col-sm-1">
+                      <div class="col-sm-1">
 
-            </div>
+                      </div>
 
-            <div class="col-sm-3">
-              <div class="form-group" style="font-size: large">
-                <label style="font-size: large"> Medications: </label>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Medication
-                  </li>
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;Request for refill
-                  </li>
-                </ul>
-              </div>
-            </div>
+                      <div class="col-sm-3">
+                              <div class="form-group" style="font-size: large">
+                                    <label style="font-size: large"> Medications: </label>
+                                    <ul class="list-group">
+                                          <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Medication
+                                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewMedications"></ui-switch>
+                                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewMedications == true " style="zoom:1.5"></span>
+                                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewMedications == false" style="zoom:1.5" ></span>
+                                          </li>
+                                          <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-remove" ></span> &nbsp;Request for refill
+                                                <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.RefillMedication"></ui-switch>
+                                                <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.RefillMedication == true " style="zoom:1.5"></span>
+                                                <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.RefillMedication == false" style="zoom:1.5" ></span>
+                                          </li>
+                                    </ul>
+                              </div>
+                      </div>
 
-            <div class="col-sm-1">
+                      <div class="col-sm-1">
 
-            </div>
+                      </div>
 
-            <div class="col-sm-3">
-              <div class="form-group" style="font-size: large">
-                <label style="font-size: large"> Patient Plan: </label>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Patient Plan
-                  </li>
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;Patient Plan
-                  </li>
-                </ul>
-              </div>
-            </div>
+                      <div class="col-sm-3">
+                              <div class="form-group" style="font-size: large">
+                                <label style="font-size: large"> Patient Plan: </label>
+                                <ul class="list-group">
+                                        <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Patient Plan
+                                              <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewPatientPlan"></ui-switch>
+                                              <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewPatientPlan == true " style="zoom:1.5"></span>
+                                              <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewPatientPlan == false" style="zoom:1.5" ></span>
+                                        </li>
+                                        <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-remove" ></span> &nbsp;Edit Patient Plan
+                                              <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.EditPatientPlan"></ui-switch>
+                                              <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.EditPatientPlan == true " style="zoom:1.5"></span>
+                                              <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.EditPatientPlan == false" style="zoom:1.5" ></span>
+                                        </li>
+                                </ul>
+                              </div>
+                      </div>
           </div>
 
           <br>
@@ -202,30 +254,38 @@
           <!--Privelages Fourth Row-->
           <div class="row table">
 
-            <div class="col-sm-3">
-              <div class="form-group" style="font-size: large">
-                <label style="font-size: large"> Appointments: </label>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Appointments
-                  </li>
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;Schedule Appointments
-                  </li>
-                  <li class="list-group-item">
-                    <span class="glyphicon glyphicon-remove" ></span> &nbsp;Fill Questionnaire
-                  </li>
-                </ul>
-              </div>
-            </div>
+                      <div class="col-sm-3">
+                              <div class="form-group" style="font-size: large">
+                                      <label style="font-size: large"> Appointments: </label>
+                                      <ul class="list-group">
+                                            <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Appointments
+                                                  <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ViewAppointments"></ui-switch>
+                                                  <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ViewAppointments == true " style="zoom:1.5"></span>
+                                                  <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ViewAppointments == false" style="zoom:1.5" ></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-remove" ></span> &nbsp;Schedule Appointments
+                                                  <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.ScheduleAppointments"></ui-switch>
+                                                  <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.ScheduleAppointments == true " style="zoom:1.5"></span>
+                                                  <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.ScheduleAppointments == false" style="zoom:1.5" ></span>
+                                            </li>
+                                            <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-remove" ></span> &nbsp;Fill Questionnaire
+                                                  <ui-switch color="darkred" [(ngModel)]= "Newcaregiver.FillQuestionnaire"></ui-switch>
+                                                  <span class="glyphicon glyphicon-ok" *ngIf="Newcaregiver.FillQuestionnaire == true " style="zoom:1.5"></span>
+                                                  <span class="glyphicon glyphicon-remove" *ngIf = "Newcaregiver.FillQuestionnaire == false" style="zoom:1.5" ></span>
+                                            </li>
+                                      </ul>
+                              </div>
+                      </div>
 
           </div>
 
-        <div class="row table">
-          <button class="btn-primary my-pointer" > Save and Add &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
-        </div>
+          <div class="row table">
+            <button class="btn-primary my-pointer" (click)="OnSaveClick()" > Save and Add &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+          </div>
 
-        </div>
-
+      </div>
 
 </div>

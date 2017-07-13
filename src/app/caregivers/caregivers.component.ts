@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {caregiver} from "./caregiver.Model";
-import {caregiverService} from "./caregiver.Service";
-import {ActivatedRoute, Params} from "@angular/router";
+import {Caregiver} from './caregiver.Model';
+import {CaregiverService} from './caregiver.Service';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-caregivers',
@@ -10,11 +10,11 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class CaregiversComponent implements OnInit {
 
-  caregiverGeneralDescription : string;
-  caregiversList : caregiver[];
-  IsCaregiverHome : boolean = true;
+  caregiverGeneralDescription: string;
+  caregiversList: Caregiver[];
+  IsCaregiverHome: boolean = true;
 
-  constructor(private route : ActivatedRoute, public objCaregiver : caregiverService ) { }
+  constructor(private route: ActivatedRoute, public objCaregiver: CaregiverService ) { }
 
   ngOnInit() {
     this.caregiversList = this.objCaregiver.getCaregiversList();

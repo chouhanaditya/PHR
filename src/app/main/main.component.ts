@@ -8,16 +8,16 @@ import {Module} from "./Module.Model";
 })
 export class MainComponent implements OnInit {
 
-  SubHeading : Module[];
-  modules1 : Module[];
-  modules2 : Module[];
-  modules3 : Module[];
+  SubHeading: Module[];
+  modules1: Module[];
+  modules2: Module[];
+  modules3: Module[];
 
   constructor() { }
 
   ngOnInit() {
 
-    this.SubHeading =[
+    this.SubHeading = [
       // {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/ampeross/qetto-2/128/settings-icon.png"},
       {"ModuleName":"Request an Appointment","IconUrl":"http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-appointment-new-icon.png"},
       {"ModuleName":"Request for Refill","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png"}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Route, Router} from "@angular/router";
+import {ActivatedRoute, Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-sub-header',
@@ -8,12 +8,11 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 })
 export class SubHeaderComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
-  OnClick()
-  {
+  OnClick() {
     this.route.navigate(["/Home"]);
   }
 
