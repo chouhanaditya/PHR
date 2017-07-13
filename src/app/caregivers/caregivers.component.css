@@ -1,15 +1,15 @@
 a:active
 {
+  color: #AD122A;
+  box-shadow: 2px 3px 2px 2px rgba(173,18,42, .1);
   font-weight: bold;
-  color: darkred;
-  border-bottom: solid 5px #005E63!important;
-  background-color: grey;
+  border-right: 3px solid #AD122A;;
+  border-bottom-left-radius: 15px;
+  border-left: 3px solid #AD122A;
+  padding: 7px;
+  background-color: blue;
 }
 
-/*a:link*/
-/*{*/
-  /*color:darkred;*/
-/*}*/
 
 .ul-shadow{
   -moz-box-shadow:    3px 1px 2px 1px #ccc;
@@ -30,19 +30,7 @@ a:active
   padding: 7px;
 }
 
-li:active{
-  color: #AD122A;
-  box-shadow: 2px 3px 2px 2px rgba(173,18,42, .1);
-  font-weight: bold;
-  border-right: 3px solid #AD122A;;
-  border-bottom-left-radius: 15px;
-  border-left: 3px solid #AD122A;
-  padding: 7px;
-  background-color: blue;
-
-}
-
-li:hover{
+a:hover{
   padding-left: 8px;
   color: black /*#AD122A*/;
   font-weight: bold;

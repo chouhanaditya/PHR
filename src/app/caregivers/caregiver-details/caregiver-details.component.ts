@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
-import {caregiver} from "../caregiver.Model";
-import {caregiverService} from "../caregiver.Service";
+import {ActivatedRoute, Params} from '@angular/router';
+import {caregiver} from '../caregiver.Model';
+import {caregiverService} from '../caregiver.Service';
 
 @Component({
   selector: 'app-caregiver-details',
@@ -9,28 +9,32 @@ import {caregiverService} from "../caregiver.Service";
   styleUrls: ['./caregiver-details.component.css']
 })
 export class CaregiverDetailsComponent implements OnInit {
-  IsPersonalDetailsEditable : boolean = false;
-  IsPrivelagesEditable :boolean = false;
-  Relationships:string[] = [ 'Son',
-  'Daughter',
-  'Brother',
-  'Sister',
-  'Friend',
-  'Father',
-  'Mother',
-  'Husband',
-  'Wife',
-  'GrandSon',
-  'GrandDaughter',
-  'GrandFather',
-  'GrandMother'];
 
-  SelectedCaregiverId : number;
-  SelectedCaregiver : caregiver;
-  IsPersonalSaveDialog : boolean = false;
-  IsPrivelagesSaveDialog : boolean = false;
+  IsPersonalDetailsEditable: boolean = false;
+  IsPrivelagesEditable: boolean = false;
+  IsPersonalSaveDialog: boolean = false;
+  IsPrivelagesSaveDialog: boolean = false;
 
-  constructor(private route : ActivatedRoute, public objCaregiverService : caregiverService) { }
+
+  Relationships : string [] = [ 'Son',
+                                'Daughter',
+                                'Brother',
+                                'Sister',
+                                'Friend',
+                                'Father',
+                                'Mother',
+                                'Husband',
+                                'Wife',
+                                'GrandSon',
+                                'GrandDaughter',
+                                'GrandFather',
+                                'GrandMother'
+                              ];
+
+  SelectedCaregiverId: number;
+  SelectedCaregiver: caregiver;
+
+  constructor(private route: ActivatedRoute, public objCaregiverService : caregiverService) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -55,7 +59,8 @@ export class CaregiverDetailsComponent implements OnInit {
   {
     this.IsPrivelagesEditable = true;
   }
-  OnPrivelagesSaveClick(){
+  OnPrivelagesSaveClick()
+  {
     this.IsPrivelagesEditable = false;
     this.IsPrivelagesSaveDialog = true;
   }

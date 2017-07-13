@@ -9,7 +9,7 @@ export class AddCaregiverComponent implements OnInit {
   relationships : string [] = [ 'Father', 'Mother', 'Brother','Sister','Child','Maternal Grandfather','Paternal Grandmother','Paternal Grandfather','Maternal Grandmother','Friend',
     'GrandSon','Husband','Wife','Spouse','GrandDaughter' ];
 
-  constructor() { }
+ constructor() { }
 
   ngOnInit() {
   }

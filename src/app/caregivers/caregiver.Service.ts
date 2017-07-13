@@ -22,4 +22,5 @@ export class caregiverService{
     getCaregiverDetails(index: number) {
        return this.caregiversList[index-1];
     }
+
 }
