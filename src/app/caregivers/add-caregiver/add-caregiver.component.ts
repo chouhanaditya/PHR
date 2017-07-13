@@ -19,10 +19,10 @@ export class AddCaregiverComponent implements OnInit {
  }
 
   ngOnInit() {
-    // this.Newcaregiver = ( 4, "", "","","","",false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false);
+   // this.Newcaregiver = ( 4, "", "","","","",false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false);
   }
 
-  // OnSaveClick() {
-  //  this.objCaregiverService.newCaregiver(this.Newcaregiver);
-  // }
+  OnSaveClick() {
+   //this.objCaregiverService.newCaregiver(this.Newcaregiver);
+  }
 }
