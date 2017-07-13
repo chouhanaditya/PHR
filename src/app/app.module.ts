@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {UiSwitchModule} from '../../node_modules/angular2-ui-switch/src';
+import {UiSwitchModule} from 'ngx-ui-switch/src';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,7 +15,7 @@ import {caregiverService} from './caregivers/caregiver.Service';
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
 
 
-const appRoutes: Routes =[
+const appRoutes: Routes = [
   {  path: '', redirectTo: '/Home', pathMatch : 'full'},
   { path: 'Home', component: MainComponent},
   { path : 'Caregivers', component : CaregiversComponent,
