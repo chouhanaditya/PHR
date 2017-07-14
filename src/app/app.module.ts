@@ -13,6 +13,7 @@ import { SubHeaderComponent } from './caregivers/sub-header/sub-header.component
 import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregiver-details.component';
 import {CaregiverService} from './caregivers/caregiver.Service';
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const appRoutes: Routes = [
@@ -23,6 +24,9 @@ const appRoutes: Routes = [
       { path : 'new', component : AddCaregiverComponent },
       { path : ':id', component : CaregiverDetailsComponent }
     ]},
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: '/not-found' }
+
   ];
 
 @NgModule({
@@ -33,7 +37,8 @@ const appRoutes: Routes = [
     CaregiversComponent,
     SubHeaderComponent,
     CaregiverDetailsComponent,
-    AddCaregiverComponent
+    AddCaregiverComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
