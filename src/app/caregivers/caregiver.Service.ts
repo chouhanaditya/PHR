@@ -1,6 +1,9 @@
 import {Caregiver} from './caregiver.Model';
+import { Subject } from 'rxjs/Subject';
 
 export class CaregiverService {
+
+  caregiversListChanged = new Subject<Caregiver[]>();
 
   private caregiversList: Caregiver [] = [
     new Caregiver( 1, "Tom", "","Tom.Windle@unmc.edu","(402) 987- 3241","Friend",false,true,true,true,true,false,true,true,false,true,false,true,true,true,false,true,true,false),
@@ -15,15 +18,21 @@ export class CaregiverService {
       return this.caregiversList.slice();
     }
 
-    getCaregiverGeneralDescription()
-    {
-      return this.caregiverGeneralDescription;
+    setCaregiversList(caregiversList: Caregiver[]) {
+      this.caregiversList = caregiversList;
+      this.caregiversListChanged.next(this.caregiversList.slice());
+    }
+
+    addCaregiver(newcaregiver: Caregiver) {
+    this.caregiversList.push(newcaregiver);
+    this.caregiversListChanged.next(this.caregiversList.slice());
+  }
+
+    getCaregiverGeneralDescription() {
+        return this.caregiverGeneralDescription;
     }
 
     getCaregiverDetails(index: number) {
        return this.caregiversList[index - 1];
-    }
-    newCaregiver(newcaregiver: Caregiver) {
-      this.caregiversList.push(newcaregiver);
     }
 }

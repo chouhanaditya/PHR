@@ -1,6 +1,6 @@
 <div class="container-fluid">
+  <form [formGroup]="caregiverForm" (ngSubmit)="onSubmit()">
 
-      <br>
       <!--Personal Details-->
       <div class="row table-bordered">
 
@@ -16,23 +16,23 @@
           <div class="row table">
                 <div class="col-sm-3">
                       <label style="font-size: large"> Name: </label>
-                      <input type="text" class="form-inline" >
+                      <input type="text" class="form-inline" formControlName="Name">
                 </div>
 
                 <div class="col-sm-3">
                       <label style="font-size: large"> Email Id: </label>
-                      <input type="email" class="form-inline"   >
+                      <input type="email" class="form-inline" formControlName="EmailId" >
 
                 </div>
 
                 <div class="col-sm-3">
                         <label style="font-size: large"> Contact Details: </label>
-                        <input type="text" class="form-inline" >
+                        <input type="text" class="form-inline" formControlName="PhoneNumber" >
                 </div>
 
                 <div class="col-sm-3">
                         <label style="font-size: large"> Relationship: </label>
-                  <input type="text" class="form-inline" >
+                  <input type="text" class="form-inline" formControlName="Relationship" >
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">--Select--
                           <span class="caret"></span></button>
                         <ul class="dropdown-menu" >
@@ -45,14 +45,14 @@
 
       </div>
 
-      <br>
-      <br>
       <!--Privelages-->
       <div class="row table-bordered">
+
+          <!--Privelages Header-->
           <div class="row table">
                     <div class="col-sm-6">
                           <h3>Select Privelages</h3>
-                          <br>
+
                     </div>
 
                     <div class="col-sm-6">
@@ -64,12 +64,12 @@
           <div class="row table">
 
                     <div class="col-sm-3">
-                          <div class="form-group table-bordered">
+                          <div class="form-group table-bordered" style="font-size: large">
                                 <label style="font-size: large"> Power of Attorney: </label>&nbsp;
 
-                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                                <!--<span class="glyphicon glyphicon-ok"  style="zoom:1.5"></span>-->
-                                <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                <ui-switch color="darkred" style="float:right" formControlName="IsPowerofAttorney"></ui-switch>
+                                <span class="glyphicon glyphicon-ok" *ngIf="IsPowerofAttorney == true"></span>
+                                <span class="glyphicon glyphicon-remove"  *ngIf="IsPowerofAttorney == false" ></span>
                           </div>
                     </div>
 
@@ -78,11 +78,11 @@
                     </div>
 
                     <div class="col-sm-3">
-                          <div class="form-group table-bordered">
+                          <div class="form-group table-bordered" style="font-size: large">
                                 <label style="font-size: large"> View Reports: </label>&nbsp;
-                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                                <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                <ui-switch color="darkred" style="float:right" formControlName="ViewReports"></ui-switch>
+                                <span class="glyphicon glyphicon-ok" ></span>
+                                <span class="glyphicon glyphicon-remove" ></span>
                           </div>
                     </div>
 
@@ -91,11 +91,11 @@
                       </div>
 
                     <div class="col-sm-3">
-                          <div class="form-group table-bordered">
+                          <div class="form-group table-bordered" style="font-size: large">
                                 <label style="font-size: large"> View AVS: </label>&nbsp;
-                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                               <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>&nbsp; &nbsp;-->
+                                <ui-switch color="darkred" style="float:right" formControlName="ViewAVS"></ui-switch>
+                                <span class="glyphicon glyphicon-ok" ></span>
+                                <span class="glyphicon glyphicon-remove"  ></span>&nbsp; &nbsp;
                           </div>
                     </div>
           </div>
@@ -110,16 +110,15 @@
                                     <label> Providers: </label>
                                     <ul class="list-group" style="font-size: large">
                                           <li class="list-group-item">
-                                                <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Providers
-                                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                                               <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" style="zoom:1.5" ></span>-->
+                                                <span class="glyphicon glyphicon-remove" ></span>
+                                                <span class="glyphicon glyphicon-ok" ></span>
+                                                &nbsp;View Providers
+                                                <ui-switch color="darkred" style="float:right" formControlName="ViewProviders"></ui-switch>
                                           </li>
                                           <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-ok" ></span>
                                                 <span class="glyphicon glyphicon-remove"></span> &nbsp;Manage Providers
-                                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                                               <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" style="zoom:1.5" ></span>-->
+                                                <ui-switch color="darkred" style="float:right" formControlName="ManageProviders"></ui-switch>
                                           </li>
                                     </ul>
                               </div>
@@ -134,16 +133,14 @@
                                     <label> Messages: </label>
                                     <ul class="list-group">
                                           <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-ok" ></span>
                                                 <span class="glyphicon glyphicon-remove" ></span> &nbsp;Read Messages
-                                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                                               <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" style="zoom:1.5" ></span>-->
+                                                <ui-switch color="darkred" style="float:right" formControlName="ViewMessages"></ui-switch>
                                           </li>
                                           <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-ok" ></span>
                                                 <span class="glyphicon glyphicon-remove" ></span>  &nbsp;Send/ Reply Messages
-                                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                                                <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" style="zoom:1.5" ></span>-->
+                                                <ui-switch color="darkred" style="float:right" formControlName="SendMessages"></ui-switch>
                                           </li>
                                     </ul>
                               </div>
@@ -158,16 +155,14 @@
                                   <label> Health at a Glance: </label>
                                   <ul class="list-group">
                                         <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-ok" ></span>
                                               <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Health at a Glance
-                                              <ui-switch color="darkred" style="float:right"></ui-switch>
-                                              <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                              <ui-switch color="darkred" style="float:right" formControlName="ViewHealthGlance"></ui-switch>
                                         </li>
                                         <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-ok" ></span>
                                               <span class="glyphicon glyphicon-remove"></span>  &nbsp;Edit View Health at a Glance
-                                              <ui-switch color="darkred" style="float:right"></ui-switch>
-                                             <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                              <ui-switch color="darkred" style="float:right" formControlName="EditHealthGlance"></ui-switch>
                                         </li>
                                   </ul>
                             </div>
@@ -185,16 +180,14 @@
                                       <label style="font-size: large"> Payments: </label>
                                       <ul class="list-group">
                                             <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-ok" ></span>
                                                   <span class="glyphicon glyphicon-remove"></span> &nbsp;View Bills
-                                                  <ui-switch color="darkred" style="float:right"></ui-switch>
-                                                  <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove" style="zoom:1.5" ></span>-->
+                                                  <ui-switch color="darkred" style="float:right" formControlName="ViewBills"></ui-switch>
                                             </li>
                                             <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-ok" ></span>
                                                   <span class="glyphicon glyphicon-remove" ></span> &nbsp;Pay Bills
-                                                  <ui-switch color="darkred" style="float:right"></ui-switch>
-                                                 <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                                  <ui-switch color="darkred" style="float:right" formControlName="PayBills"></ui-switch>
                                             </li>
                                       </ul>
                               </div>
@@ -209,16 +202,14 @@
                                     <label style="font-size: large"> Medications: </label>
                                     <ul class="list-group">
                                           <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-ok" ></span>
                                                 <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Medication
-                                                <ui-switch color="darkred" style="float:right"></ui-switch>
-                                               <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                                <ui-switch color="darkred" style="float:right" formControlName="ViewMedications"></ui-switch>
                                           </li>
                                           <li class="list-group-item">
+                                                <span class="glyphicon glyphicon-ok" ></span>
                                                 <span class="glyphicon glyphicon-remove" ></span> &nbsp;Request for refill
-                                                <ui-switch color="darkred"style="float:right"></ui-switch>
-                                                <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                                <ui-switch color="darkred"style="float:right" formControlName="RefillMedication"></ui-switch>
                                           </li>
                                     </ul>
                               </div>
@@ -233,16 +224,14 @@
                                 <label style="font-size: large"> Patient Plan: </label>
                                 <ul class="list-group">
                                         <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-ok" ></span>
                                               <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Patient Plan
-                                              <ui-switch color="darkred" style="float:right"></ui-switch>
-                                             <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                              <ui-switch color="darkred" style="float:right" formControlName="ViewPatientPlan"></ui-switch>
                                         </li>
                                         <li class="list-group-item">
+                                              <span class="glyphicon glyphicon-ok" ></span>
                                               <span class="glyphicon glyphicon-remove" ></span> &nbsp;Edit Patient Plan
-                                              <ui-switch color="darkred" style="float:right"></ui-switch>
-                                              <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove" style="zoom:1.5" ></span>-->
+                                              <ui-switch color="darkred" style="float:right" formControlName="EditPatientPlan"></ui-switch>
                                         </li>
                                 </ul>
                               </div>
@@ -259,22 +248,19 @@
                                       <label style="font-size: large"> Appointments: </label>
                                       <ul class="list-group">
                                             <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-ok" ></span>
                                                   <span class="glyphicon glyphicon-remove" ></span> &nbsp;View Appointments
-                                                  <ui-switch color="darkred" style="float:right"></ui-switch>
-                                                  <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                                  <ui-switch color="darkred" style="float:right" formControlName="ViewAppointments"></ui-switch>
                                             </li>
                                             <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-ok" ></span>
                                                   <span class="glyphicon glyphicon-remove" ></span> &nbsp;Schedule Appointments
-                                                  <ui-switch color="darkred" style="float:right"></ui-switch>
-                                                  <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove"  style="zoom:1.5" ></span>-->
+                                                  <ui-switch color="darkred" style="float:right" formControlName="ScheduleAppointments"></ui-switch>
                                             </li>
                                             <li class="list-group-item">
+                                                  <span class="glyphicon glyphicon-ok" ></span>
                                                   <span class="glyphicon glyphicon-remove" ></span> &nbsp;Fill Questionnaire
-                                                  <ui-switch color="darkred" style="float:right"></ui-switch>
-                                                 <!--<span class="glyphicon glyphicon-ok" style="zoom:1.5"></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove" style="zoom:1.5" ></span>-->
+                                                  <ui-switch color="darkred" style="float:right" formControlName="FillQuestionnaire"></ui-switch>
                                             </li>
                                       </ul>
                               </div>
@@ -282,10 +268,22 @@
 
           </div>
 
+        <div class="row table" *ngIf="IsFormSaved">
+          <div class="col-sm-9">
+            <div class="alert alert-success alert-dismissable" >
+                  <a class="close"  data-dismiss="alert" aria-label="close">&times;</a>
+                  <h4> <strong>Success! </strong>Caregiver has been successfully added, you can edit details and privelages by browsing from the navigation bar at left of the screen.</h4>
+            </div>
+          </div>
+        </div>
+
+          <!--Privelages Buttons-->
           <div class="row table">
-            <button class="btn-primary my-pointer" (click)="OnSaveClick()" > Save and Add &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+                  <button type="submit" class="btn-primary my-pointer" [disabled]="!caregiverForm.valid" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+                  <button type="button" class="btn btn-danger my-pointer" (click)="onCancel()">Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
           </div>
 
       </div>
 
+  </form>
 </div>
