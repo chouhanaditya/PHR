@@ -1,31 +1,30 @@
-<br>
-<br>
-<br>
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 1%;padding-bottom: 1%">
   <div class="row">
 
-    <div *ngFor="let module of SubHeading" class="col-sm-4 col-xs-4" align="center">
-      <a routerLink="/{{module.ModuleName}}">
+    <div *ngFor="let module of SubHeading" class="col-sm-3 col-xs-3" align="center">
+      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
         <img
           [src]="module.IconUrl"
           [alt]="module.ModuleName"
           class="img-responsive"
+          style="min-width: 2%;min-height: 2%; max-height: 5%;min-height: 5%"
           >
-        <br>
-        <p> {{module.ModuleName}} </p>
+
+        <h4> {{module.ModuleName}} </h4>
       </a>
      </div>
 
-    <div class="col-sm-4 col-xs-4" align="center"  >
-      <input type="text" placeholder="Enter search string" class="input-lg input-sm">
-      <button type="button" class="btn btn-primary">
-        <span class="glyphicon glyphicon-search" style="zoom: 180%"></span>
-      </button>
+    <div class="col-sm-3 col-xs-3" align="center">
+
+        <input type="text" placeholder="Search" class="input-lg input-sm ">
+
+        <button type="button" class="btn btn-primary ">
+        <span class="glyphicon glyphicon-search" style="zoom: 150%"></span>
+        </button>
 
     </div>
 
   </div>
-  <br>
   <br>
 
  <div class="row">
@@ -37,7 +36,7 @@
           class="img-responsive"
           >
         <br>
-       <p> {{ module.ModuleName }}</p>
+       <h3> {{ module.ModuleName }}</h3>
       </a>
 
     </div>
@@ -54,7 +53,7 @@
           class="img-responsive"
           style="max-height: 200px;" width="200px">
         <br>
-        <p> {{ module.ModuleName }}</p>
+        <h3> {{ module.ModuleName }}</h3>
       </a>
 
     </div>
@@ -71,8 +70,8 @@
           alt="{{ module.ModuleName }}"
           class="img-responsive"
           style="max-height: 200px;" width="200px">
-        <br>
-        <p> {{ module.ModuleName }}</p>
+
+        <h3> {{ module.ModuleName }}</h3>
       </a>
 
     </div>

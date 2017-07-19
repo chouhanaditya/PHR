@@ -20,12 +20,14 @@ export class MainComponent implements OnInit {
     this.SubHeading = [
       // {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/ampeross/qetto-2/128/settings-icon.png"},
       {"ModuleName":"Request an Appointment","IconUrl":"http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-appointment-new-icon.png"},
-      {"ModuleName":"Request for Refill","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png"}
+      {"ModuleName":"Contact My Doctor","IconUrl":"http://icons.iconarchive.com/icons/hopstarter/sleek-xp-basic/128/Mail-icon.png"},
+      {"ModuleName":"Request for Refill","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png"},
+
      ];
 
     this.modules1 = [
       {"ModuleName":"Appointments","IconUrl":"http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/128/Apps-Calendar-Metro-icon.png"},
-      {"ModuleName":"Contact My Doctor","IconUrl":"http://icons.iconarchive.com/icons/hopstarter/sleek-xp-basic/128/Mail-icon.png"},
+      {"ModuleName":"Messages","IconUrl":"http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/128/message-already-read-icon.png"},
       {"ModuleName":"Test Results","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/medical-report-icon.png"},
       {"ModuleName":"Medications","IconUrl":"http://icons.iconarchive.com/icons/medicalwp/medical/128/Pills-blue-icon.png"}
     ];

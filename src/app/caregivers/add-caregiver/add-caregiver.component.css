@@ -1,7 +1,6 @@
 input{
-  /*margin: 15px 25px;*/
+
   width: 200px;
-  /*display: block;*/
   border: none;
   padding-top: 10px;
   border-bottom: solid 1px #1abc9c;
@@ -15,12 +14,28 @@ input{
   font-size: large;
 }
 
+.inputErrored{
+
+  width: 200px;
+  padding-top: 10px;
+  border: solid 2px red;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, red);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%,red);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  font-size: large;
+}
+
 .table-bordered
 {
   padding-left: 1.5%;
   padding-right: 1.5%;
   padding-top: 1.5%;
   padding-bottom: 1.5%;
+  border: none;
 }
 
 .table

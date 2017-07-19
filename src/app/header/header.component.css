@@ -3,6 +3,18 @@
   background-color: silver;
 }
 
-p {
+h1
+{
+  vertical-align: middle;
+  text-align: center;
+  font-size: 3vmin;
+
+}
+
+h3,a
+{
+  vertical-align: middle;
+  text-align: center;
   font-size: 2vmin;
+
 }

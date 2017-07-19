@@ -13,32 +13,40 @@ export class CaregiversComponent implements OnInit, OnDestroy {
 
   caregiverGeneralDescription: string;
   caregiversList: Caregiver[];
-  IsCaregiverHome: boolean = true;
-  subscription: Subscription;
+  activeScreen: string;
+  subscriptionCaregiversList: Subscription;
+  subscriptionActiveScreen: Subscription;
 
   constructor(private route: ActivatedRoute, public objCaregiver: CaregiverService ) { }
 
   ngOnInit() {
-    this.subscription = this.objCaregiver.caregiversListChanged
+    this.subscriptionCaregiversList = this.objCaregiver.caregiversListChanged
       .subscribe(
         (caregiversList: Caregiver[]) => {
           this.caregiversList = caregiversList;
       }
       );
+
+    this.subscriptionActiveScreen = this.objCaregiver.activeScreenChanged
+      .subscribe(
+        (activeScreen: string) => {
+        this.activeScreen = activeScreen;
+        }
+      );
+
     this.caregiversList = this.objCaregiver.getCaregiversList();
     this.caregiverGeneralDescription = this.objCaregiver.getCaregiverGeneralDescription();
-
+    this.activeScreen = this.objCaregiver.getActiveScreen();
   }
 
-  OnDetailsClick()
-  {
-    this.IsCaregiverHome = false;
+  OnDetailsClick()  {
+    this.objCaregiver.setActiveScreen('CaregiverDetails');
   }
-  OnNewClick()
-  {
-    this.IsCaregiverHome = false;
+  OnNewClick() {
+    this.objCaregiver.setActiveScreen('CaregiverNew');
   }
     ngOnDestroy() {
-      this.subscription.unsubscribe();
+      this.subscriptionCaregiversList.unsubscribe();
+      this.subscriptionActiveScreen.unsubscribe();
     }
 }

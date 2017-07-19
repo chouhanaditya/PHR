@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
 @Component({
@@ -25,11 +25,11 @@ export class AddCaregiverComponent implements OnInit {
   ngOnInit() {
    this.caregiverForm = new FormGroup({
                           Id: new FormControl(('4')),
-                          Name: new FormControl(''),
+                          Name: new FormControl('', Validators.required),
                           ImageURL: new FormControl(''),
-                          EmailId: new FormControl(''),
-                          PhoneNumber: new FormControl(''),
-                          Relationship:  new FormControl(''),
+                          EmailId: new FormControl('', [Validators.required, Validators.email]),
+                          PhoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.pattern(/^[1-9]+[0-9]*$/)]),
+                          Relationship:  new FormControl('', Validators.required),
                           IsPowerofAttorney: new FormControl(false),
                           ViewReports: new FormControl(false),
                           ViewAVS: new FormControl(false),
@@ -51,14 +51,18 @@ export class AddCaregiverComponent implements OnInit {
   }
 
   onSubmit() {
-   this.objCaregiverService.addCaregiver(this.caregiverForm.value);
-   this.caregiverForm.reset();
+      this.objCaregiverService.addCaregiver(this.caregiverForm.value);
+      this.caregiverForm.reset();
   }
   onCancel() {
-    this.caregiverForm.reset();
+      this.caregiverForm.reset();
   }
   OnSaveClick() {
-    this.IsFormSaved = true;
+      this.IsFormSaved = true;
+  }
+  OnOkClick() {
+    this.objCaregiverService.setActiveScreen('CaregiverHome');
+    this.route.navigate(['/Caregivers']);
   }
 }
 

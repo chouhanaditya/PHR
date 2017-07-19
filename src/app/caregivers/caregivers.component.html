@@ -2,39 +2,31 @@
 
 <div class="container-fluid">
       <div class="row">
-              <div class="col-sm-2 panel panel-default" >
-
-                        <br> <br> <br>
-
-                        <a routerLink="/Caregivers/new" style="font-size: 26px;padding-left: 10%" (click)="OnNewClick()">
-                            <span class="	glyphicon glyphicon-plus-sign"></span>
-                            <u> Add new Caregiver</u>
-                        </a>
-
-                        <br> <br> <br>
-
-                        <h3 style="padding-left: 10% ">Below are your caregivers- </h3>
+              <div class="col-sm-2 " style="padding-bottom: 2%;padding-top: 1%; " >
+                        <h3 style="padding-left: 10%">Below are your caregivers- </h3>
                         <br>
-
-                        <ul style="padding-left: 10% ">
+                        <ul>
                             <a *ngFor="let caregiver of caregiversList;let i=index"
                                 [routerLink]="['/Caregivers',caregiver.Id]"
                                 (click)="OnDetailsClick()"
-                                [class.clicked]="IsCaregiverSelected"
+
                                 class="list-group-item"
                                 style="font-size: large">
                                 {{caregiver.Name}}
+                            </a>
 
-                                <!--<span class="	glyphicon glyphicon-triangle-right"></span>-->
-
+                            <a routerLink="/Caregivers/new"
+                               style="font-size: large"
+                               (click)="OnNewClick()"
+                               class="list-group-item">
+                               <span class="	glyphicon glyphicon-plus-sign"></span>
+                               <u> Add new Caregiver</u>
                             </a>
                         </ul>
-                        <!--<br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br> <br> <br> <br> <br> <br>  <br>  <br> <br>-->
               </div>
 
               <div class="col-sm-10">
-                    <div class="container-fluid">
-                            <div class="row table-bordered" *ngIf="IsCaregiverHome">
+                  <div class="container-fluid" *ngIf="activeScreen == 'CaregiverHome'">
                                       <br>
                                       <p style="font-size: large">
                                         {{caregiverGeneralDescription}}
@@ -90,10 +82,9 @@
                                         {{caregiverGeneralDescription}}
                                       </p>
                             </div>
-                            <router-outlet *ngIf="!IsCaregiverHome">
 
-                            </router-outlet>
-                      </div>
+                  <router-outlet *ngIf = "activeScreen != 'CaregiverHome'">
+                  </router-outlet>
               </div>
       </div>
 </div>

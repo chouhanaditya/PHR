@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
 
@@ -16,7 +16,7 @@ export class CaregiverDetailsComponent implements OnInit {
   IsPrivelagesSaveDialog: boolean = false;
 
 
-  Relationships : string [] = [ 'Son',
+  Relationships: string [] = [ 'Son',
                                 'Daughter',
                                 'Brother',
                                 'Sister',
@@ -31,10 +31,11 @@ export class CaregiverDetailsComponent implements OnInit {
                                 'GrandMother'
                               ];
 
-  SelectedCaregiverId: number;
+  SelectedCaregiverId: number = 0;
   SelectedCaregiver: Caregiver;
+  IsDeleteDialog: boolean = false;
 
-  constructor(private route: ActivatedRoute, public objCaregiverService: CaregiverService) { }
+  constructor(private route: ActivatedRoute, private route1: Router, public objCaregiverService: CaregiverService) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -45,31 +46,42 @@ export class CaregiverDetailsComponent implements OnInit {
     );
 
   }
-  OnPersonalEditClick()
-    {
+  OnPersonalEditClick() {
       this.IsPersonalDetailsEditable = true;
     }
 
-  OnPersonalSaveClick()
-  {
+  OnPersonalSaveClick() {
     this.IsPersonalDetailsEditable = false;
     this.IsPersonalSaveDialog = true;
   }
-  OnPrivelagesEditClick()
-  {
+  OnPrivelagesEditClick()  {
     this.IsPrivelagesEditable = true;
   }
-  OnPrivelagesSaveClick()
-  {
+  OnPrivelagesSaveClick()  {
     this.IsPrivelagesEditable = false;
     this.IsPrivelagesSaveDialog = true;
   }
-  OnPrivelagesAlertClose()
-  {
+
+  OnDelete()  {
+    this.IsDeleteDialog = true; }
+
+  OnDeleteConfimedClick()  {
+    this.IsDeleteDialog = false;
+    this.objCaregiverService.deleteCaregiver(this.SelectedCaregiverId);
+    this.objCaregiverService.setActiveScreen('CaregiverHome');
+    this.route1.navigate(['/Caregivers']);
+
+  }
+
+  OnDeletecancelledClick()    {
+    this.IsDeleteDialog = false;
+  }
+
+  OnPrivelagesAlertClose()  {
     this.IsPrivelagesSaveDialog = false;
   }
-  OnPersonalAlertClose()
-  {
+
+  OnPersonalAlertClose()  {
     this.IsPersonalSaveDialog = false;
   }
 }

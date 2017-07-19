@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Route, Router} from '@angular/router';
+import {CaregiverService} from '../caregiver.Service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-sub-header',
@@ -8,12 +10,27 @@ import {ActivatedRoute, Route, Router} from '@angular/router';
 })
 export class SubHeaderComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  activeScreen: string;
+  subscriptionActiveScreen: Subscription;
+
+  constructor(private route: Router, private objcaregiver: CaregiverService) { }
 
   ngOnInit() {
+    this.subscriptionActiveScreen = this.objcaregiver.activeScreenChanged
+      .subscribe(
+        (activeScreen: string) => {
+          this.activeScreen = activeScreen;
+        }
+      );
+
+    this.activeScreen = this.objcaregiver.getActiveScreen();
   }
-  OnClick() {
+  OnMainHomeClick() {
+    this.objcaregiver.setActiveScreen('CaregiverHome');
     this.route.navigate(['/Home']);
   }
-
+  OnCaregiverHomeClick() {
+    this.objcaregiver.setActiveScreen('CaregiverHome');
+    this.route.navigate(['/Caregivers']);
+  }
 }
