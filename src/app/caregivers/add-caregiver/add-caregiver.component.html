@@ -2,35 +2,66 @@
   <form [formGroup]="caregiverForm" (ngSubmit)="onSubmit()">
 
       <!--Personal Details-->
-      <div class="row ">
+      <div class="row table">
 
-          <div class="row table">
+          <!--Caregiver error Dialog-->
+          <div class="row " *ngIf="IsError" style="padding-top: 1%">
+            <div class="alert alert-danger alert-dismissable col-sm-12">
+              <div class="col-sm-9">
+                <h4> <strong>Errors! </strong>  </h4>
+
+                <ul *ngFor="let error of AllErrors">
+                  * {{error}}
+                </ul>
+
+              </div>
+              <div class="col-sm-3" align="right">
+                <a type="button" class="btn-danger my-pointer" align="middle"  data-dismiss="alert" aria-label="close" (click)="OnErrorOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
+              </div>
+            </div>
+          </div>
+
+          <!--Caregiver added Dialog-->
+          <div class="row" *ngIf="IsFormSaved" style="padding-top: 1%">
+            <div class="alert alert-success alert-dismissable col-sm-12">
+              <div class="col-sm-9">
+                <!--<a class="close"  data-dismiss="alert" aria-label="close">&times;</a>-->
+                <h4> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</h4>
+              </div>
+              <div class="col-sm-3" align="right">
+                <a type="button" class="btn-success my-pointer" align="middle"  (click)="OnSuccessOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
+              </div>
+            </div>
+          </div>
+
+        <!--Personal Header-->
+          <div class="row ">
                 <div class="col-sm-6">
                   <h3>Personal Details</h3>
                 </div>
-                <div class="col-sm-6">
-                </div>
-
           </div>
 
-          <div class="row table">
+        <!--Personal First Row-->
+          <div class="row">
                 <div class="col-sm-3">
-                      <label style="font-size: large"> Name: </label>
+                      <!--<label style="font-size: large"> Name: </label>-->
                       <input
                         type="text"
+                        placeholder="Name"
                         class="form-inline"
                         [ngClass]="{inputErrored: caregiverForm.controls['Name'].invalid && caregiverForm.controls['Name'].touched}"
                         formControlName="Name"
                       >
-                      <!--<div class="alert-danger" ="caregiverForm.controls['Name'].invalid && caregiverForm.controls['Name'].touched" >-->
-                        <!--Please enter name.-->
+                      <!--<div class="alert-danger" *ngIf="caregiverForm.get('Name').invalid && caregiverForm.controls['Name'].touched ">-->
+                        <!--<strong>Please enter the Name </strong>-->
                       <!--</div>-->
                 </div>
 
                 <div class="col-sm-3">
-                      <label style="font-size: large"> Email Id: </label>
+                      <!--<label style="font-size: large"> Email Id: </label>-->
                       <input
                         type="email"
+                        placeholder="Email Id"
                         class="form-inline"
                         [ngClass]="{inputErrored: caregiverForm.controls['EmailId'].invalid && caregiverForm.controls['EmailId'].touched}"
                         formControlName="EmailId"
@@ -39,9 +70,10 @@
                 </div>
 
                 <div class="col-sm-3">
-                        <label style="font-size: large"> Contact Details: </label>
+                        <!--<label style="font-size: large"> Phone Number: </label>-->
                         <input
                           type="text"
+                          placeholder="Phone Number"
                           class="form-inline"
                           formControlName="PhoneNumber"
                           [ngClass]="{inputErrored: caregiverForm.controls['PhoneNumber'].invalid && caregiverForm.controls['PhoneNumber'].touched}"
@@ -49,19 +81,15 @@
                 </div>
 
                 <div class="col-sm-3">
-                        <label style="font-size: large"> Relationship: </label>
+                        <!--<label style="font-size: large"> Relationship: </label>-->
                         <input
                           type="text"
+                          placeholder="Relationship"
                           class="form-inline"
                           formControlName="Relationship"
                           [ngClass]="{inputErrored: caregiverForm.controls['Relationship'].invalid && caregiverForm.controls['Relationship'].touched}"
+                          auto-complete [source]="relationships"
                         >
-                        <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">&#45;&#45;Select&#45;&#45;-->
-                          <!--<span class="caret"></span></button>-->
-                        <!--<ul class="dropdown-menu" >-->
-                          <!--<li *ngFor="let item of relationships"><a>{{item}}</a></li>-->
-                        <!--</ul>-->
-
                 </div>
 
           </div>
@@ -71,25 +99,21 @@
       <hr>
 
       <!--Privelages-->
-      <div class="row ">
+      <div class="row table ">
 
           <!--Privelages Header-->
-          <div class="row table">
+          <div class="row">
                     <div class="col-sm-6">
                           <h3>Select Privelages</h3>
-
                     </div>
-
-                    <div class="col-sm-6">
-                    </div>
-
           </div>
+          <br>
 
           <!--Privelages First Row-->
-          <div class="row table">
+          <div class="row">
 
                     <div class="col-sm-3">
-                          <div class="form-group table-bordered" style="font-size: large">
+                          <div class="form-group" style="font-size: large">
                                 <label style="font-size: large"> Power of Attorney: </label>&nbsp;
 
                                 <ui-switch color="#656515" style="float:right" formControlName="IsPowerofAttorney">
@@ -104,7 +128,7 @@
                     </div>
 
                     <div class="col-sm-3">
-                          <div class="form-group table-bordered" style="font-size: large">
+                          <div class="form-group" style="font-size: large">
                                 <label style="font-size: large"> View Reports: </label>&nbsp;
                                 <ui-switch color="#656515" style="float:right" formControlName="ViewReports">
                                 </ui-switch>
@@ -113,12 +137,12 @@
                           </div>
                     </div>
 
-                      <div class="col-sm-1">
+                    <div class="col-sm-1">
 
                       </div>
 
                     <div class="col-sm-3">
-                          <div class="form-group table-bordered" style="font-size: large">
+                          <div class="form-group" style="font-size: large">
                                 <label style="font-size: large"> View AVS: </label>&nbsp;
                                 <ui-switch color="#656515" style="float:right" formControlName="ViewAVS" >
                                 </ui-switch>
@@ -131,7 +155,7 @@
           <br>
 
           <!--Privelages Second Row-->
-          <div class="row table">
+          <div class="row">
 
                       <div class="col-sm-3">
                               <div class="form-group" style="font-size: large">
@@ -206,7 +230,7 @@
           <br>
 
           <!--Privelages Third Row-->
-          <div class="row table">
+          <div class="row">
 
                       <div class="col-sm-3">
                               <div class="form-group" style="font-size: large">
@@ -274,9 +298,9 @@
           <br>
 
           <!--Privelages Fourth Row-->
-          <div class="row table">
+          <div class="row">
 
-                      <div class="col-sm-12">
+                      <div class="col-sm-3 col-xs-12">
                               <div class="form-group" style="font-size: large">
                                       <label style="font-size: large"> Appointments: </label>
                                       <ul class="list-group">
@@ -301,22 +325,9 @@
 
           </div>
 
-            <!--Caregiver added Dialog-->
-            <div class="row table" *ngIf="IsFormSaved">
-                <div class="alert alert-success alert-dismissable col-sm-12">
-                      <div class="col-sm-9">
-                          <!--<a class="close"  data-dismiss="alert" aria-label="close">&times;</a>-->
-                          <h4> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</h4>
-                      </div>
-                      <div class="col-sm-3" align="right">
-                          <a type="button" class="btn-success my-pointer" align="middle"  (click)="OnOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
-                      </div>
-                </div>
-            </div>
-
           <!--Privelages Buttons-->
-          <div class="row table">
-                  <button type="submit" class="btn-success my-pointer" [disabled]="!caregiverForm.valid"  (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+          <div class="row">
+                  <button type="submit" class="btn-success my-pointer" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
                   <button type="button" class="btn btn-danger my-pointer" (click)="onCancel()">Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
           </div>
 

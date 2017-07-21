@@ -10,13 +10,10 @@ import {CaregiverService} from '../caregiver.Service';
 })
 export class CaregiverDetailsComponent implements OnInit {
 
-  IsPersonalDetailsEditable: boolean = false;
-  IsPrivelagesEditable: boolean = false;
-  IsPersonalSaveDialog: boolean = false;
-  IsPrivelagesSaveDialog: boolean = false;
+  IsDetailsEditable = false;
 
-
-  Relationships: string [] = [ 'Son',
+  IsSaveDialog = false;
+  Relationships = [ 'Son',
                                 'Daughter',
                                 'Brother',
                                 'Sister',
@@ -31,10 +28,10 @@ export class CaregiverDetailsComponent implements OnInit {
                                 'GrandMother'
                               ];
 
-  SelectedCaregiverId: number = 0;
+  SelectedCaregiverId = 0;
   SelectedCaregiver: Caregiver;
-  IsDeleteDialog: boolean = false;
-
+  IsDeleteDialog = false;
+  ShowDropDown = false;
   constructor(private route: ActivatedRoute, private route1: Router, public objCaregiverService: CaregiverService) { }
 
   ngOnInit() {
@@ -46,24 +43,24 @@ export class CaregiverDetailsComponent implements OnInit {
     );
 
   }
-  OnPersonalEditClick() {
-      this.IsPersonalDetailsEditable = true;
+  OnEdit() {
+      this.IsDeleteDialog = false;
+      this.IsDetailsEditable = true;
+      this.ShowDropDown = false;
     }
 
-  OnPersonalSaveClick() {
-    this.IsPersonalDetailsEditable = false;
-    this.IsPersonalSaveDialog = true;
+  OnSaveClick() {
+    this.IsDetailsEditable = false;
+    this.IsSaveDialog = true;
   }
-  OnPrivelagesEditClick()  {
-    this.IsPrivelagesEditable = true;
+  OnCancelClick(){
+    this.IsDetailsEditable = false;
   }
-  OnPrivelagesSaveClick()  {
-    this.IsPrivelagesEditable = false;
-    this.IsPrivelagesSaveDialog = true;
-  }
-
   OnDelete()  {
-    this.IsDeleteDialog = true; }
+    this.IsDeleteDialog = true;
+    this.IsDetailsEditable = false;
+    this.ShowDropDown = false;
+  }
 
   OnDeleteConfimedClick()  {
     this.IsDeleteDialog = false;
@@ -76,12 +73,7 @@ export class CaregiverDetailsComponent implements OnInit {
   OnDeletecancelledClick()    {
     this.IsDeleteDialog = false;
   }
-
-  OnPrivelagesAlertClose()  {
-    this.IsPrivelagesSaveDialog = false;
-  }
-
-  OnPersonalAlertClose()  {
-    this.IsPersonalSaveDialog = false;
+  OnAlertClose()  {
+    this.IsSaveDialog = false;
   }
 }

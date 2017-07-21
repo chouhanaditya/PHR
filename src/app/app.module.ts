@@ -14,6 +14,7 @@ import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregi
 import {CaregiverService} from './caregivers/caregiver.Service';
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 
 
 const appRoutes: Routes = [
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    NguiAutoCompleteModule,
     UiSwitchModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),

@@ -7,10 +7,10 @@ button{
 
 input{
   /*margin: 15px 25px;*/
-  width: 200px;
+  /*width: 200px;*/
   /*display: block;*/
   border: none;
-  padding-top: 10px;
+  padding-top: 1%;
   border-bottom: solid 1px #1abc9c;
   -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
@@ -59,7 +59,12 @@ input:focus, input:valid {
 .my-pointer{
   cursor: pointer;
   vertical-align: middle;
-  padding: 10px 10px;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%
 }
 
-
+.btn-success {
+  background-color: #656515;
+}
