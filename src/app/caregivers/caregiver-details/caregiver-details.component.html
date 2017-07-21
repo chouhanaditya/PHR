@@ -35,17 +35,19 @@
                                     </a>
                               </li>
                             </ul>-->
-                            <div class=container-fluid *ngIf="ShowDropDown" style="position:absolute;right: 30px;top:52px;z-index: 9999">
-                              <ul>
-                                <li class="list-group-item" style="background-color: aliceblue; text-align: left">
-                              <a type="button" class="my-pointer" (click)="OnEdit()">
-                                <span class="glyphicon glyphicon-edit"></span>&nbsp;Request for Edit
-                              </a></li>
-                                <li class="list-group-item" style="background-color: aliceblue;text-align: left">
-                              <a type="button" class="my-pointer" (click)="OnDelete()">
-                                <span class="glyphicon glyphicon-trash"></span> &nbsp;Request for Delete
-                              </a></li>
-                              </ul>
+                            <div class=container-fluid *ngIf="ShowDropDown" style="position:absolute;right: 40px;top:52px;z-index: 9999">
+                                  <ul>
+                                        <li class="list-group-item" style="background-color: aliceblue; text-align: left">
+                                            <a type="button" class="my-pointer" (click)="OnEdit()">
+                                                <span class="glyphicon glyphicon-edit"></span>&nbsp;Request for Edit
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item" style="background-color: aliceblue;text-align: left">
+                                            <a type="button" class="my-pointer" (click)="OnDelete()">
+                                                <span class="glyphicon glyphicon-trash"></span> &nbsp;Request for Delete
+                                            </a>
+                                        </li>
+                                  </ul>
                             </div>
                       </div>
               </div>
@@ -413,7 +415,7 @@
 
             <!--Privelages Fourth Row-->
             <div class="row table">
-               <div class="col-sm-3">
+                  <div class="col-sm-3">
                         <div class="form-group" style="font-size: large">
                                 <label style="font-size: large"> Appointments </label>
                                 <ul class="list-group">
