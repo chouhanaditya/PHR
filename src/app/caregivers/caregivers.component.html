@@ -26,65 +26,15 @@
               </div>
 
               <div class="col-sm-10">
-                  <div class="container-fluid" *ngIf="activeScreen == 'CaregiverHome'">
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
+                      <div class="container-fluid" *ngIf="activeScreen == 'CaregiverHome'" style="text-align: center;vertical-align: middle">
+                            <br>
+                            <p style="font-size: 2vmin;">
+                                {{caregiverGeneralDescription}}
+                            </p>
+                      </div>
 
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-
-                                      <br>
-                                      <p style="font-size: large">
-                                        {{caregiverGeneralDescription}}
-                                      </p>
-                            </div>
-
-                  <router-outlet *ngIf = "activeScreen != 'CaregiverHome'">
-                  </router-outlet>
+                      <router-outlet *ngIf = "activeScreen != 'CaregiverHome'">
+                      </router-outlet>
               </div>
       </div>
 </div>

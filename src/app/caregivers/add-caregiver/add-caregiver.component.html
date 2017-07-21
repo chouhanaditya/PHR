@@ -44,7 +44,8 @@
         <!--Personal First Row-->
           <div class="row">
                 <div class="col-sm-3">
-                      <!--<label style="font-size: large"> Name: </label>-->
+                      <label style="font-size: large"> Name: </label>
+                      <br>
                       <input
                         type="text"
                         placeholder="Name"
@@ -58,19 +59,21 @@
                 </div>
 
                 <div class="col-sm-3">
-                      <!--<label style="font-size: large"> Email Id: </label>-->
+                      <label style="font-size: large"> Email Address: </label>
+                       <br>
                       <input
                         type="email"
-                        placeholder="Email Id"
+                        placeholder="Email Address"
                         class="form-inline"
-                        [ngClass]="{inputErrored: caregiverForm.controls['EmailId'].invalid && caregiverForm.controls['EmailId'].touched}"
-                        formControlName="EmailId"
+                        [ngClass]="{inputErrored: caregiverForm.controls['EmailAddress'].invalid && caregiverForm.controls['EmailAddress'].touched}"
+                        formControlName="EmailAddress"
                       >
 
                 </div>
 
                 <div class="col-sm-3">
-                        <!--<label style="font-size: large"> Phone Number: </label>-->
+                        <label style="font-size: large"> Phone Number: </label>
+                        <br>
                         <input
                           type="text"
                           placeholder="Phone Number"
@@ -81,7 +84,8 @@
                 </div>
 
                 <div class="col-sm-3">
-                        <!--<label style="font-size: large"> Relationship: </label>-->
+                        <label style="font-size: large"> Relationship: </label>
+                        <br>
                         <input
                           type="text"
                           placeholder="Relationship"

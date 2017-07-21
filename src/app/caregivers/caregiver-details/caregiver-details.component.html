@@ -36,7 +36,7 @@
                               </li>
                             </ul>-->
                             <div class=container-fluid *ngIf="ShowDropDown" style="position:absolute;right: 40px;top:52px;z-index: 9999">
-                                  <ul>
+                                  <ul class="list-group">
                                         <li class="list-group-item" style="background-color: aliceblue; text-align: left">
                                             <a type="button" class="my-pointer" (click)="OnEdit()">
                                                 <span class="glyphicon glyphicon-edit"></span>&nbsp;Request for Edit
@@ -60,22 +60,21 @@
                          <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.Name" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                        </div>
 
-                      <div class="col-sm-3">
-                      <label style="font-size: large"> Relationship: </label>
-                        <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
-                      </div>
-
-                      <div class="col-sm-3">
-                        <label style="font-size: large"> Email Id: </label>
-                        <br>
-                        <input type="email" class="form-inline" [(ngModel)]="SelectedCaregiver.EmailId"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
-
-                      </div>
+                        <div class="col-sm-3">
+                          <label style="font-size: large"> Email Address: </label>
+                          <br>
+                          <input type="email" class="form-inline" [(ngModel)]="SelectedCaregiver.EmailAddress"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
+                        </div>
 
                       <div class="col-sm-3">
                         <label style="font-size: large"> Phone Number: </label>
                         <br>
                         <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.PhoneNumber"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
+                      </div>
+
+                      <div class="col-sm-3">
+                        <label style="font-size: large"> Relationship: </label>
+                        <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                       </div>
               </div>
 

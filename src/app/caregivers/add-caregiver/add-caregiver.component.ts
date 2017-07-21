@@ -11,11 +11,11 @@ import {Router} from '@angular/router';
 })
 export class AddCaregiverComponent implements OnInit {
   caregiverForm: FormGroup;
-  IsFormSaved: boolean = false;
-  IsError: boolean = false;
-  AllErrors: string[] = [];
+  IsFormSaved = false;
+  IsError = false;
+  AllErrors = [];
 
-  relationships: string [] = [ 'Father', 'Mother', 'Brother', 'Sister', 'Child', 'Maternal Grandfather', 'Paternal Grandmother',
+  relationships = [ 'Father', 'Mother', 'Brother', 'Sister', 'Child', 'Maternal Grandfather', 'Paternal Grandmother',
     'Paternal Grandfather', 'Maternal Grandmother', 'Friend',
     'GrandSon', 'Husband', 'Wife', 'Spouse', 'GrandDaughter' ];
 
@@ -29,7 +29,7 @@ export class AddCaregiverComponent implements OnInit {
                           Id: new FormControl(('4')),
                           Name: new FormControl('', Validators.required),
                           ImageURL: new FormControl(''),
-                          EmailId: new FormControl('', [Validators.required, Validators.email]),
+                          EmailAddress: new FormControl('', [Validators.required, Validators.email]),
                           PhoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[1-9]+[0-9]*$/)]),
                           Relationship:  new FormControl('', Validators.required),
                           IsPowerofAttorney: new FormControl(false),

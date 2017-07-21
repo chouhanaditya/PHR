@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
       // {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/ampeross/qetto-2/128/settings-icon.png"},
       {"ModuleName":"Request an Appointment","IconUrl":"http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-appointment-new-icon.png"},
       {"ModuleName":"Contact My Doctor","IconUrl":"http://icons.iconarchive.com/icons/hopstarter/sleek-xp-basic/128/Mail-icon.png"},
-      {"ModuleName":"Request for Refill","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png"},
+      {"ModuleName":"Request for Refill","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png"}
 
      ];
 
@@ -34,16 +34,17 @@ export class MainComponent implements OnInit {
 
     this.modules2 = [
        {"ModuleName":"Health at a Glance","IconUrl":"http://icons.iconarchive.com/icons/mcdo-design/smooth-leopard/128/History-Folder-Lavender-icon.png"},
+       {"ModuleName":"Care Plan","IconUrl":"http://icons.iconarchive.com/icons/icojam/blue-bits/128/document-write-icon.png"},
+       {"ModuleName":"Education","IconUrl":"http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-document-find-icon.png"},
        {"ModuleName":"Patient Health Questionaire","IconUrl":"http://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png"},
-       {"ModuleName":"After Visit Summary","IconUrl":"http://icons.iconarchive.com/icons/umut-pulat/tulliana-2/128/korganizer-icon.png"},
-       {"ModuleName":"Patient Plan","IconUrl":"http://icons.iconarchive.com/icons/icojam/blue-bits/128/document-write-icon.png"}
     ];
 
     this.modules3 = [
       {"ModuleName":"Caregivers","IconUrl":"http://icons.iconarchive.com/icons/aha-soft/software/128/user-group-icon.png"},
       {"ModuleName":"Providers","IconUrl":"http://icons.iconarchive.com/icons/icons-land/vista-people/128/Medical-Nurse-Male-Light-icon.png"},
-      {"ModuleName":"Billing","IconUrl":"http://icons.iconarchive.com/icons/webiconset/application/128/Invoice-icon.png"},
-      {"ModuleName":"Education","IconUrl":"http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-document-find-icon.png"}
+      {"ModuleName":"After Visit Summary","IconUrl":"http://icons.iconarchive.com/icons/umut-pulat/tulliana-2/128/korganizer-icon.png"},
+      {"ModuleName":"Billing","IconUrl":"http://icons.iconarchive.com/icons/webiconset/application/128/Invoice-icon.png"}
+
     ];
 
   }

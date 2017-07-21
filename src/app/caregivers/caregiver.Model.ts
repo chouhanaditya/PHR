@@ -6,7 +6,7 @@ export class Caregiver {
     Id: number;
     Name: string;
     ImageURL: string;
-    EmailId: string ;
+    EmailAddress: string ;
     PhoneNumber: string ;
     Relationship: string ;
     IsPowerofAttorney: boolean ;
@@ -29,7 +29,7 @@ export class Caregiver {
     EditPatientPlan: boolean;
 
 
-  constructor(Id: number, Name: string, ImageURL: string, EmailId: string, PhoneNumber: string, Relationship: string,
+  constructor(Id: number, Name: string, ImageURL: string, EmailAddress: string, PhoneNumber: string, Relationship: string,
               IsPowerofAttorney: boolean, ViewReports: boolean, ViewAVS: boolean, ViewHealthGlance: boolean,
               EditHealthGlance: boolean, ViewProviders: boolean , ManageProviders: boolean , ViewMessages: boolean ,
               SendMessages: boolean, ViewMedications: boolean , RefillMedication: boolean , ViewBills: boolean,
@@ -38,7 +38,7 @@ export class Caregiver {
     this.Id = Id;
     this.Name = Name;
     this.ImageURL = ImageURL;
-    this.EmailId = EmailId ;
+    this.EmailAddress = EmailAddress ;
     this.PhoneNumber = PhoneNumber ;
     this.Relationship = Relationship ;
     this.IsPowerofAttorney = IsPowerofAttorney ;

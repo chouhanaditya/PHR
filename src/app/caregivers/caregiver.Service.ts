@@ -12,11 +12,10 @@ export class CaregiverService {
     new Caregiver( 3, "Aditya", "","achouhan@unomaha.edu","(402) 913- 4882","Father",false,true,true,true,true,true,true,true,false,true,false,true,true,true,true,true,true,false),
     ];
 
-  caregiverGeneralDescription: string =  'Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community. ' +
-  'Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community';
+  caregiverGeneralDescription =  'Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community';
 
     // activeScreen: Possible values= ['CaregiverHome', 'CaregiverDetails', 'CaregiverNew'];
-    private activeScreen: string = 'CaregiverHome' ;
+    private activeScreen = 'CaregiverHome' ;
 
     getActiveScreen() {
       return this.activeScreen;
