@@ -40,7 +40,7 @@
                   <h3>Personal Details</h3>
                 </div>
           </div>
-
+          <br>
         <!--Personal First Row-->
           <div class="row">
                 <div class="col-sm-3">
@@ -48,7 +48,6 @@
                       <br>
                       <input
                         type="text"
-                        placeholder="Name"
                         class="form-inline"
                         [ngClass]="{inputErrored: caregiverForm.controls['Name'].invalid && caregiverForm.controls['Name'].touched}"
                         formControlName="Name"
@@ -63,7 +62,6 @@
                        <br>
                       <input
                         type="email"
-                        placeholder="Email Address"
                         class="form-inline"
                         [ngClass]="{inputErrored: caregiverForm.controls['EmailAddress'].invalid && caregiverForm.controls['EmailAddress'].touched}"
                         formControlName="EmailAddress"
@@ -76,7 +74,6 @@
                         <br>
                         <input
                           type="text"
-                          placeholder="Phone Number"
                           class="form-inline"
                           formControlName="PhoneNumber"
                           [ngClass]="{inputErrored: caregiverForm.controls['PhoneNumber'].invalid && caregiverForm.controls['PhoneNumber'].touched}"
@@ -88,7 +85,6 @@
                         <br>
                         <input
                           type="text"
-                          placeholder="Relationship"
                           class="form-inline"
                           formControlName="Relationship"
                           [ngClass]="{inputErrored: caregiverForm.controls['Relationship'].invalid && caregiverForm.controls['Relationship'].touched}"
