@@ -11,7 +11,7 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class CaregiversComponent implements OnInit, OnDestroy {
 
-  caregiverGeneralDescription: string;
+  // caregiverGeneralDescription: string;
   caregiversList: Caregiver[];
   activeScreen: string;
   subscriptionCaregiversList: Subscription;
@@ -35,7 +35,7 @@ export class CaregiversComponent implements OnInit, OnDestroy {
       );
 
     this.caregiversList = this.objCaregiver.getCaregiversList();
-    this.caregiverGeneralDescription = this.objCaregiver.getCaregiverGeneralDescription();
+    // this.caregiverGeneralDescription = this.objCaregiver.getCaregiverGeneralDescription();
     this.activeScreen = this.objCaregiver.getActiveScreen();
   }
 

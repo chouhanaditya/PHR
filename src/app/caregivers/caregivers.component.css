@@ -56,3 +56,8 @@ a:hover{
 .verticalLine {
   border-left: thick solid #ff0000;
 }
+
+a,h3,p,ul
+{
+font-size: 2vmin;
+}

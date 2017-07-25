@@ -7,12 +7,13 @@ export class CaregiverService {
   activeScreenChanged = new Subject<string>();
 
   private caregiversList: Caregiver [] = [
-    new Caregiver( 1, "Tom", "","Tom.Windle@unmc.edu","(402) 987- 3241","Friend",false,true,true,true,true,false,true,true,false,true,false,true,true,true,false,true,true,false),
-    new Caregiver( 2, "Yves", "","yves@unomaha.edu","(402) 458- 7412","Son",false,true,true,true,true,true,false,true,true,true,false,true,true,true,true,true,true,false),
-    new Caregiver( 3, "Aditya", "","achouhan@unomaha.edu","(402) 913- 4882","Father",false,true,true,true,true,true,true,true,false,true,false,true,true,true,true,true,true,false),
+    new Caregiver( 1, "Tom", "","Tom.Windle@unmc.edu","(402)-987-3241","Friend",false,true,true,true,true,false,true,true,false,true,false,true,true,true,false,true,true,false),
+    new Caregiver( 2, "Yves", "","yves@unomaha.edu","(402)-458-7412","Son",false,true,true,true,true,true,false,true,true,true,false,true,true,true,true,true,true,false),
+    new Caregiver( 3, "Aditya", "","achouhan@unomaha.edu","(402)-913-4882","Father",false,true,true,true,true,true,true,true,false,true,false,true,true,true,true,true,true,false),
     ];
 
-  caregiverGeneralDescription =  'Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community';
+  // caregiverGeneralDescription =  'Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community. ' +
+  //   'Caregivers help navigate health care system, facilitate communication with health care providers, help with complex decision-making. 92-99% of caretakers are family members';
 
     // activeScreen: Possible values= ['CaregiverHome', 'CaregiverDetails', 'CaregiverNew'];
     private activeScreen = 'CaregiverHome' ;
@@ -40,9 +41,9 @@ export class CaregiverService {
     this.caregiversListChanged.next(this.caregiversList.slice());
   }
 
-    getCaregiverGeneralDescription() {
-        return this.caregiverGeneralDescription;
-    }
+    // getCaregiverGeneralDescription() {
+    //     return this.caregiverGeneralDescription;
+    // }
 
     getCaregiverDetails(index: number) {
       console.log('index=' + index);

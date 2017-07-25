@@ -14,7 +14,13 @@ import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregi
 import {CaregiverService} from './caregivers/caregiver.Service';
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import {NguiAutoCompleteModule} from '@ngui/auto-complete';
+import { NguiAutoCompleteModule} from '@ngui/auto-complete';
+import { MedicationSubHeaderComponent } from './medications/medication-sub-header/medication-sub-header.component';
+import { MedicationsComponent } from './medications/medications.component';
+import { ListComponent } from './medications/list/list.component';
+import { RefillComponent } from './medications/refill/refill.component';
+import { HistoryComponent } from './medications/history/history.component';
+import {MedicationService} from './medications/Medication.Service';
 
 
 const appRoutes: Routes = [
@@ -24,6 +30,12 @@ const appRoutes: Routes = [
     children: [
       { path : 'new', component : AddCaregiverComponent },
       { path : ':id', component : CaregiverDetailsComponent }
+    ]},
+  { path : 'Medications', component : MedicationsComponent,
+    children: [
+      { path : 'List', component : ListComponent},
+      { path : 'Refill', component : RefillComponent },
+      { path : 'History', component : HistoryComponent }
     ]},
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
@@ -39,7 +51,12 @@ const appRoutes: Routes = [
     SubHeaderComponent,
     CaregiverDetailsComponent,
     AddCaregiverComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MedicationSubHeaderComponent,
+    MedicationsComponent,
+    ListComponent,
+    RefillComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +67,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [CaregiverService],
+  providers: [CaregiverService, MedicationService],
   bootstrap: [AppComponent]
 })
 

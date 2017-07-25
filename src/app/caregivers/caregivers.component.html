@@ -26,11 +26,37 @@
               </div>
 
               <div class="col-sm-10">
-                      <div class="container-fluid" *ngIf="activeScreen == 'CaregiverHome'" style="text-align: center;vertical-align: middle">
+                      <div class="container-fluid" *ngIf="activeScreen == 'CaregiverHome'">
                             <br>
-                            <p style="font-size: 2vmin;">
-                                {{caregiverGeneralDescription}}
+                            <br>
+                            <p>
+                              Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community.
                             </p>
+                            <p>
+                              Caregivers help navigate health care system, facilitate communication with health care providers, help with complex decision-making.
+                            </p>
+                            <p>
+                              92-99% of caretakers are family members.
+                            </p>
+                        <br>
+                        <br>
+                            <h3>
+                              Potential Benefits of Information Sharing-
+                            </h3>
+                            <ul>
+                                  <li>
+                                    Enhance communication between caregiver and care provider.
+                                  </li>
+                                  <li>
+                                    Enhance patient engagement.
+                                  </li>
+                                  <li>
+                                    Improve health outcomes.
+                                  </li>
+                                  <li>
+                                    Decrease health care costs.
+                                  </li>
+                            </ul>
                       </div>
 
                       <router-outlet *ngIf = "activeScreen != 'CaregiverHome'">
