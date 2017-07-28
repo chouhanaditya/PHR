@@ -22,6 +22,7 @@
     "@angular/router": "^4.0.0",
     "@ngui/auto-complete": "^0.13.3",
     "angular-bootstrap-toggle": "^0.1.2",
+    "angular-ui-scroll": "^1.6.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",

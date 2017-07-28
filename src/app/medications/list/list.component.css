@@ -1,0 +1,45 @@
+button
+{
+  width: 16vmin;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: large;
+}
+
+a
+{
+cursor: pointer;
+}
+p
+{
+  font-size: large;
+}
+
+span
+{
+  zoom: 200%;
+}
+
+.panel-body
+{
+  height: 900px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.activeTab
+{
+  background-color: #AD122A;
+  font-weight: bold;
+  color: white;
+}
+
+li:hover
+{
+  background-color: lightgrey;
+}
+
+h3
+{
+  color: darkred;
+}

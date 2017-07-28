@@ -1,22 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MedicationService} from './Medication.Service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-medications',
   templateUrl: './medications.component.html',
   styleUrls: ['./medications.component.css']
 })
-export class MedicationsComponent implements OnInit {
+export class MedicationsComponent implements OnInit, OnDestroy {
   activeScreen: string;
+  activeScreenSubscription: Subscription;
+
   constructor(public objMedication: MedicationService) { }
 
   ngOnInit() {
-    this.activeScreen = 'MedicationList';
+    this.activeScreenSubscription = this.objMedication.activeScreenChanged.
+    subscribe(
+      (activeScreen: string) => {
+        this.activeScreen = activeScreen;
+      }
+    );
+      this.activeScreen = this.objMedication.getActiveScreen();
+    }
+
+  OnListClick() {
+    this.objMedication.setActiveScreen('MedicationList');
   }
   OnRefillClick()  {
-    this.activeScreen = 'MedicationRefill';
+    this.objMedication.setActiveScreen('MedicationRefill');
   }
   OnHistoryClick() {
-    this.activeScreen = 'MedicationHistory';
+    this.objMedication.setActiveScreen('MedicationHistory');
+  }
+  ngOnDestroy() {
+    this.activeScreenSubscription.unsubscribe();
   }
 }

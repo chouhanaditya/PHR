@@ -21,6 +21,7 @@ import { ListComponent } from './medications/list/list.component';
 import { RefillComponent } from './medications/refill/refill.component';
 import { HistoryComponent } from './medications/history/history.component';
 import {MedicationService} from './medications/Medication.Service';
+import { DetailsComponent } from './medications/list/details/details.component';
 
 
 const appRoutes: Routes = [
@@ -33,7 +34,10 @@ const appRoutes: Routes = [
     ]},
   { path : 'Medications', component : MedicationsComponent,
     children: [
-      { path : 'List', component : ListComponent},
+      { path : 'List', component : ListComponent,
+        children: [
+          { path: ':id', component: DetailsComponent },
+        ]},
       { path : 'Refill', component : RefillComponent },
       { path : 'History', component : HistoryComponent }
     ]},
@@ -56,7 +60,8 @@ const appRoutes: Routes = [
     MedicationsComponent,
     ListComponent,
     RefillComponent,
-    HistoryComponent
+    HistoryComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

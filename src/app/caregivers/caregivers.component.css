@@ -32,7 +32,7 @@ a:active
   padding: 7px;
 }
 
-a:hover{
+.activeTab{
   padding-left: 8px;
   color: darkred;
   font-weight: bold;
@@ -57,7 +57,12 @@ a:hover{
   border-left: thick solid #ff0000;
 }
 
-a,h3,p,ul
+a,h3
 {
 font-size: 2vmin;
+}
+
+ul,p
+{
+  font-size: 1.5vmin;
 }

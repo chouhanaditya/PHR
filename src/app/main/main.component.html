@@ -1,80 +1,90 @@
-<div class="container-fluid" style="padding-top: 1%;padding-bottom: 1%">
-  <div class="row">
+   <!--&lt;!&ndash;Search &ndash;&gt;-->
+    <!--<div class="row">-->
+          <!--<div class="col-sm-3 col-xs-3 col-sm-push-9" align="center">-->
+                <!--<input type="text" placeholder="Search" class="input-lg ">-->
 
-    <div *ngFor="let module of SubHeading" class="col-sm-3 col-xs-3" align="center">
-      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
-        <img
-          [src]="module.IconUrl"
-          [alt]="module.ModuleName"
-          class="img-responsive"
-          style="min-width: 2%;min-height: 2%; max-height: 5%;min-height: 5%"
-          >
+                <!--<button type="button" class="btn btn-primary ">-->
+                <!--<span class="glyphicon glyphicon-search" style="zoom: 100%"></span>-->
+                <!--</button>-->
+          <!--</div>-->
+    <!--</div>-->
+<div class="container-fluid" style="margin-top: 0.2%">
+     <div class="panel-group">
 
-        <h4> {{module.ModuleName}} </h4>
-      </a>
-     </div>
+          <!--Modules Row 1-->
+          <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4>Communications</h4>
+                </div>
+                <div class="panel-body">
+                    <div *ngFor="let module of modulesRow1" class="col-sm-3 col-xs-3" align="center">
+                        <a routerLink="/{{module.ModuleName}}">
+                          <img
+                          [src]="module.IconUrl"
+                          [alt]="module.ModuleName"
+                          class="img-responsive list-group-item"
+                          >
+                          <p> {{module.ModuleName}} </p>
+                        </a>
+                    </div>
+                </div>
+          </div>
 
-    <div class="col-sm-3 col-xs-3" align="center">
+             <!--Modules Row 2-->
+          <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4>Medications and Tests</h4>
+                </div>
+            <div class="panel-body">
+                <div *ngFor="let module of modulesRow2" class="col-sm-3 col-xs-3" align="center">
+                     <a routerLink="/{{module.ModuleName}}">
+                      <img
+                      [src]="module.IconUrl"
+                      alt="{{ module.ModuleName }}"
+                      class="img-responsive list-group-item"
+                      >
+                      <p> {{ module.ModuleName }}</p>
+                    </a>
+                </div>
+            </div>
+          </div>
 
-        <input type="text" placeholder="Search" class="input-lg input-sm ">
+          <!--Modules Row 3-->
+          <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4>Health at a Glance</h4>
+                </div>
+            <div class="panel-body">
+                <div *ngFor="let module of modulesRow3" class="col-sm-3 col-xs-3" align="center">
+                      <a routerLink="/{{module.ModuleName}}">
+                      <img
+                      [src]="module.IconUrl"
+                      alt="{{ module.ModuleName }}"
+                      class="img-responsive list-group-item"
+                      >
+                      <p> {{ module.ModuleName }}</p>
+                      </a>
+                </div>
+            </div>
+          </div>
 
-        <button type="button" class="btn btn-primary ">
-        <span class="glyphicon glyphicon-search" style="zoom: 150%"></span>
-        </button>
-
+          <!--Modules Row 4-->
+          <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4>Care Team</h4>
+                </div>
+                <div class="panel-body">
+                <div *ngFor="let module of modulesRow4" class="col-sm-3 col-xs-3" align="center">
+                        <a routerLink="/{{module.ModuleName}}">
+                        <img
+                        [src]="module.IconUrl"
+                        alt="{{ module.ModuleName }}"
+                        class="img-responsive list-group-item"
+                        >
+                        <p> {{ module.ModuleName }}</p>
+                        </a>
+                  </div>
+            </div>
+          </div>
     </div>
-
-  </div>
-  <br>
-
- <div class="row">
-    <div *ngFor="let module of modules1" class="col-sm-3 col-xs-3" align="center">
-      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
-      <img
-          [src]="module.IconUrl"
-          alt="{{ module.ModuleName }}"
-          class="img-responsive"
-          >
-        <br>
-       <h3> {{ module.ModuleName }}</h3>
-      </a>
-
-    </div>
-  </div>
-  <br>
-  <br>
-
-  <div class="row">
-    <div *ngFor="let module of modules2" class="col-sm-3 col-xs-3" align="center">
-      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
-        <img
-          [src]="module.IconUrl"
-          alt="{{ module.ModuleName }}"
-          class="img-responsive"
-          style="max-height: 200px;" width="200px">
-        <br>
-        <h3> {{ module.ModuleName }}</h3>
-      </a>
-
-    </div>
-  </div>
-  <br>
-  <br>
-
-
-  <div class="row">
-    <div *ngFor="let module of modules3" class="col-sm-3 col-xs-3" align="center">
-      <a routerLink="/{{module.ModuleName}}" class="list-group-item">
-        <img
-          [src]="module.IconUrl"
-          alt="{{ module.ModuleName }}"
-          class="img-responsive"
-          style="max-height: 200px;" width="200px">
-
-        <h3> {{ module.ModuleName }}</h3>
-      </a>
-
-    </div>
-  </div>
-
 </div>

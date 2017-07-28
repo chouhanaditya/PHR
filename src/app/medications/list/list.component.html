@@ -1,3 +1,149 @@
-<p>
-  list works!
-</p>
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'">
+  <!--Medication list Header-->
+    <div class="row" style="padding-top: 0.5%">
+          <div class="col-sm-3">
+              <h3 style="color: darkred;font-weight: bold">{{ activeMedicationListTab}} Medicines List</h3>
+          </div>
+          <div class="col-sm-9" >
+                <ul class="list-inline" style="float: right">
+                   <li style="font-size: x-large">
+                     Filter-
+                   </li>
+                    <li>
+                      <button (click)="AllClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}"> All</button>
+                    </li>
+                    <li>
+                      <button (click)="PrescribedClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">Prescribed</button>
+                    </li>
+                    <li>
+                      <button (click)="OTCClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">Over the Counter</button>
+                    </li>
+              </ul>
+          </div>
+    </div>
+    <br>
+  <!--Medication List Grid-->
+    <div class="row">
+        <div class="panel panel-default">
+          <!--Medication List Grid header-->
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-sm-2" align="center">
+                    <h3>Medicine Information</h3>
+                  </div>
+                  <div class="col-sm-2" align="center">
+                    <h3>Medicine Refill</h3>
+                  </div>
+                  <div class="col-sm-2" align="center">
+                    <h3>Medicine Name</h3>
+                  </div>
+                  <div class="col-sm-2" align="center">
+                    <h3>Frequency of Medicine</h3>
+                  </div>
+                  <div class="col-sm-2" align="center">
+                    <h3>Medicine Dosage</h3>
+                  </div>
+                  <div class="col-sm-2" align="center">
+                    <h3>Medicine Details</h3>
+                  </div>
+                </div>
+              </div>
+
+              <!--Medication List Grid Rows-->
+              <div class="panel-body" *ngIf="activeMedicationListTab == 'All'">
+                <ul class="list-group">
+                  <li *ngFor="let medicine of MedicationList" class="list-group-item">
+                    <div class="row" style="padding-top: 1%">
+                        <div class="col-sm-2" align="center">
+                          <a><span class="glyphicon glyphicon-info-sign"></span></a>
+                        </div>
+                        <div class="col-sm-2" align="center">
+                          <a><span class="glyphicon glyphicon-registration-mark"></span></a>
+                        </div>
+                        <div class="col-sm-2" align="center">
+                          <p>{{medicine.Name}}</p>
+                        </div>
+                        <div class="col-sm-2" align="center">
+                          <p>{{medicine.Frequency}}</p>
+                        </div>
+                        <div class="col-sm-2" align="center">
+                          <p>{{medicine.Dosage}}</p>
+                        </div>
+                        <div class="col-sm-2" align="center">
+                          <a [routerLink]="['/Medications/List',medicine.Id]"
+                            (click)="OnMedicineDetailsClick()">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                          </a>
+                        </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="panel-body" *ngIf="activeMedicationListTab == 'Prescribed'">
+                  <ul class="list-group">
+                        <li *ngFor="let medicine of MedicationListPrescribed" class="list-group-item">
+                            <div class="row" style="padding-top: 1%">
+
+                                    <div class="col-sm-2" align="center">
+                                          <a><span class="glyphicon glyphicon-info-sign"></span></a>
+                                      </div>
+                                      <div class="col-sm-2" align="center">
+                                        <a><span class="glyphicon glyphicon-registration-mark"></span></a>
+                                      </div>
+                                      <div class="col-sm-2" align="center">
+                                        <p>{{medicine.Name}}</p>
+                                      </div>
+                                      <div class="col-sm-2" align="center">
+                                        <p>{{medicine.Frequency}}</p>
+                                      </div>
+                                      <div class="col-sm-2" align="center">
+                                        <p>{{medicine.Dosage}}</p>
+                                      </div>
+                                      <div class="col-sm-2" align="center">
+                                        <a [routerLink]="['/Medications/List',medicine.Id]"
+                                          (click)="OnMedicineDetailsClick()">
+                                          <span class="glyphicon glyphicon-chevron-right"></span>
+                                        </a>
+                                      </div>
+
+                            </div>
+                        </li>
+                    </ul>
+              </div>
+
+              <div class="panel-body" *ngIf="activeMedicationListTab == 'Over the Counter'">
+                <ul class="list-group">
+                  <li *ngFor="let medicine of MedicationListOTC" class="list-group-item">
+                    <div class="row" style="padding-top: 1%">
+
+                          <div class="col-sm-2" align="center">
+                            <a><span class="glyphicon glyphicon-info-sign"></span></a>
+                          </div>
+                          <div class="col-sm-2" align="center">
+                            <a><span class="glyphicon glyphicon-registration-mark"></span></a>
+                          </div>
+                          <div class="col-sm-2" align="center">
+                            <p>{{medicine.Name}}</p>
+                          </div>
+                          <div class="col-sm-2" align="center">
+                            <p>{{medicine.Frequency}}</p>
+                          </div>
+                          <div class="col-sm-2" align="center">
+                            <p>{{medicine.Dosage}}</p>
+                          </div>
+                          <div class="col-sm-2" align="center">
+                            <a [routerLink]="['/Medications/List',medicine.Id]"
+                               (click)="OnMedicineDetailsClick()">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                          </div>
+
+                    </div>
+                  </li>
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
