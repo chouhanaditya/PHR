@@ -12,9 +12,6 @@ export class CaregiverService {
     new Caregiver( 3, "Aditya", "","achouhan@unomaha.edu","(402)-913-4882","Father",false,true,true,true,true,true,true,true,false,true,false,true,true,true,true,true,true,false),
     ];
 
-  // caregiverGeneralDescription =  'Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community. ' +
-  //   'Caregivers help navigate health care system, facilitate communication with health care providers, help with complex decision-making. 92-99% of caretakers are family members';
-
     // activeScreen: Possible values= ['CaregiverHome', 'CaregiverDetails', 'CaregiverNew'];
     private activeScreen = 'CaregiverHome' ;
 
@@ -41,13 +38,8 @@ export class CaregiverService {
     this.caregiversListChanged.next(this.caregiversList.slice());
   }
 
-    // getCaregiverGeneralDescription() {
-    //     return this.caregiverGeneralDescription;
-    // }
-
     getCaregiverDetails(index: number) {
-      console.log('index=' + index);
-       return this.caregiversList[index - 1];
+      return this.caregiversList[index - 1];
     }
 
     deleteCaregiver(index: number) {

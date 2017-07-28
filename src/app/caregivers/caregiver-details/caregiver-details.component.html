@@ -3,9 +3,10 @@
         <div class="row table" *ngIf="IsSaveDialog" style="padding-top: 1%">
           <div class="alert alert-success alert-dismissable col-sm-12">
             <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
-            <h4> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</h4>
+            <p> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</p>
           </div>
         </div>
+
         <!--Personal Details-->
         <div class="row">
 
@@ -21,30 +22,17 @@
                             <button type="button" class="btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" (click)="(ShowDropDown) ? ShowDropDown = false : ShowDropDown = true">
                                 <span class="glyphicon glyphicon-menu-hamburger"></span>
                             </button>
-                            <!--<ul class="dropdown-menu" style="position:absolute; right: 30px;top:52px;">
-                              <li >
-                                    <a type="button" class="my-pointer" (click)="OnEditClick()">
-                                      <span class="glyphicon glyphicon-edit"></span>&nbsp; Request for Edit
-                                    </a>
-                              </li>
-                              <li class="divider" >
-                              </li>
-                              <li >
-                                    <a type="button" class="my-pointer" (click)="OnDelete()">
-                                      <span class="glyphicon glyphicon-trash"></span> &nbsp; Request for Delete
-                                    </a>
-                              </li>
-                            </ul>-->
+
                             <div class=container-fluid *ngIf="ShowDropDown" style="position:absolute;right: 40px;top:52px;z-index: 9999">
                                   <ul class="list-group">
                                         <li class="list-group-item" style="background-color: aliceblue; text-align: left">
                                             <a type="button" class="my-pointer" (click)="OnEdit()">
-                                                <span class="glyphicon glyphicon-edit"></span>&nbsp;Request for Edit
+                                                <span class="glyphicon glyphicon-edit"></span>&nbsp;Request to Edit
                                             </a>
                                         </li>
                                         <li class="list-group-item" style="background-color: aliceblue;text-align: left">
                                             <a type="button" class="my-pointer" (click)="OnDelete()">
-                                                <span class="glyphicon glyphicon-trash"></span> &nbsp;Request for Delete
+                                                <span class="glyphicon glyphicon-trash"></span> &nbsp;Request to Delete
                                             </a>
                                         </li>
                                   </ul>
@@ -55,25 +43,25 @@
               <!--Personal Details First row-->
               <div class="row table">
                        <div class="col-sm-3">
-                         <label style="font-size: large"> Name: </label>
+                         <label > Name: </label>
                          <br>
                          <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.Name" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                        </div>
 
                         <div class="col-sm-3">
-                          <label style="font-size: large"> Email Address: </label>
+                          <label > Email Address: </label>
                           <br>
                           <input type="email" class="form-inline" [(ngModel)]="SelectedCaregiver.EmailAddress"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                         </div>
 
                       <div class="col-sm-3">
-                        <label style="font-size: large"> Phone Number: </label>
+                        <label > Phone Number: </label>
                         <br>
                         <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.PhoneNumber"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                       </div>
 
                       <div class="col-sm-3">
-                        <label style="font-size: large"> Relationship: </label>
+                        <label > Relationship: </label>
                         <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                       </div>
               </div>
@@ -130,14 +118,14 @@
                   <div class="col-sm-3">
                     <div class="form-group">
 
-                        <label style="font-size: large">Power of Attorney: </label>&nbsp;
+                        <label >Power of Attorney: </label>&nbsp;
                         <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
 
-                        <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" style="font-size: large">
+                        <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" >
                           <span class="glyphicon glyphicon-ok"></span> Yes
                         </label>
 
-                        <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline" style="font-size: large">
+                        <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline" >
                           <span class="glyphicon glyphicon-remove"></span> No
                         </label>
                     </div>
@@ -149,14 +137,14 @@
 
                   <div class="col-sm-3">
                     <div class="form-group table-bordered">
-                        <label style="font-size: large"> View Reports: </label>&nbsp;
+                        <label > View Reports: </label>&nbsp;
                         <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewReports" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
 
-                        <label *ngIf="SelectedCaregiver.ViewReports == true" class="form-inline" style="font-size: large">
+                        <label *ngIf="SelectedCaregiver.ViewReports == true" class="form-inline" >
                           <span class="glyphicon glyphicon-ok"></span> Yes
                         </label>
 
-                        <label *ngIf="SelectedCaregiver.ViewReports == false" class="form-inline" style="font-size: large">
+                        <label *ngIf="SelectedCaregiver.ViewReports == false" class="form-inline" >
                           <span class="glyphicon glyphicon-remove"></span> No
                         </label>
                     </div>
@@ -169,14 +157,14 @@
                   <div class="col-sm-3" >
                       <div class="form-group table-bordered">
 
-                            <label style="font-size: large"> View AVS: </label>&nbsp;
+                            <label > View AVS: </label>&nbsp;
                             <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewAVS" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
 
-                            <label *ngIf="SelectedCaregiver.ViewAVS == true" class="form-inline" style="font-size: large">
+                            <label *ngIf="SelectedCaregiver.ViewAVS == true" class="form-inline" >
                             <span class="glyphicon glyphicon-ok"></span> Yes
                             </label>
 
-                            <label *ngIf="SelectedCaregiver.ViewAVS == false" class="form-inline" style="font-size: large">
+                            <label *ngIf="SelectedCaregiver.ViewAVS == false" class="form-inline" >
                             <span class="glyphicon glyphicon-remove"></span> No
                             </label>
 
@@ -189,18 +177,18 @@
             <div class="row table">
 
                   <div class="col-sm-3">
-                      <div class="form-group" style="font-size: large">
+                      <div class="form-group" >
 
                       <label> Providers </label>
 
-                          <ul class="list-group" style="font-size: large">
+                          <ul class="list-group" >
                                 <li class="list-group-item">
                                   View Providers:
-                                  <label *ngIf="SelectedCaregiver.ViewProviders == true" class="form-inline" style="font-size: large">
+                                  <label *ngIf="SelectedCaregiver.ViewProviders == true" class="form-inline" >
                                     <span class="glyphicon glyphicon-ok" ></span>Yes
                                   </label>
 
-                                  <label *ngIf="SelectedCaregiver.ViewProviders == false" class="form-inline" style="font-size: large">
+                                  <label *ngIf="SelectedCaregiver.ViewProviders == false" class="form-inline" >
                                     <span class="glyphicon glyphicon-remove" ></span> No
                                   </label>
 
@@ -210,11 +198,11 @@
 
                             <li class="list-group-item">
                               Manage Providers:
-                              <label *ngIf="SelectedCaregiver.ManageProviders == true " class="form-inline" style="font-size: large">
+                              <label *ngIf="SelectedCaregiver.ManageProviders == true " class="form-inline" >
                                 <span class="glyphicon glyphicon-ok" ></span> Yes
                               </label>
 
-                              <label *ngIf="SelectedCaregiver.ManageProviders == false " class="form-inline" style="font-size: large">
+                              <label *ngIf="SelectedCaregiver.ManageProviders == false " class="form-inline" >
                                 <span class="glyphicon glyphicon-remove" ></span> No
                               </label>
 
@@ -230,17 +218,17 @@
                   </div>
 
                   <div class="col-sm-3">
-                    <div class="form-group" style="font-size: large">
+                    <div class="form-group" >
                       <label> Messages </label>
                       <ul class="list-group">
 
                         <li class="list-group-item">
                               Read Messages:
-                              <label *ngIf="SelectedCaregiver.ViewMessages == true" class="form-inline" style="font-size: large">
+                              <label *ngIf="SelectedCaregiver.ViewMessages == true" class="form-inline" >
                                 <span class="glyphicon glyphicon-ok" ></span> Yes
                               </label>
 
-                              <label *ngIf="SelectedCaregiver.ViewMessages == false" class="form-inline" style="font-size: large">
+                              <label *ngIf="SelectedCaregiver.ViewMessages == false" class="form-inline" >
                                 <span class="glyphicon glyphicon-remove" ></span> No
                               </label>
 
@@ -249,11 +237,11 @@
 
                         <li class="list-group-item">
                               Send/ Reply Messages:
-                              <label *ngIf="SelectedCaregiver.SendMessages == true" class="form-inline" style="font-size: large">
+                              <label *ngIf="SelectedCaregiver.SendMessages == true" class="form-inline" >
                                 <span class="glyphicon glyphicon-ok"></span> Yes
                               </label>
 
-                              <label *ngIf="SelectedCaregiver.SendMessages == false" class="form-inline" style="font-size: large">
+                              <label *ngIf="SelectedCaregiver.SendMessages == false" class="form-inline" >
                                 <span class="glyphicon glyphicon-remove"></span> No
                               </label>
 
@@ -268,16 +256,16 @@
                   </div>
 
                   <div class="col-sm-3">
-                    <div class="form-group" style="font-size: large">
+                    <div class="form-group" >
                       <label> Health at a Glance </label>
                       <ul class="list-group">
 
                           <li class="list-group-item">
                                 View Health at a Glance:
-                                <label *ngIf="SelectedCaregiver.ViewHealthGlance == true" class="form-inline" style="font-size: large">
+                                <label *ngIf="SelectedCaregiver.ViewHealthGlance == true" class="form-inline" >
                                     <span class="glyphicon glyphicon-ok" ></span> Yes
                                 </label>
-                                <label *ngIf="SelectedCaregiver.ViewHealthGlance == false" class="form-inline" style="font-size: large">
+                                <label *ngIf="SelectedCaregiver.ViewHealthGlance == false" class="form-inline" >
                                     <span class="glyphicon glyphicon-remove" ></span> No &nbsp;
                                 </label>
 
@@ -286,11 +274,11 @@
 
                           <li class="list-group-item">
                             Edit Health at a Glance:
-                            <label *ngIf="SelectedCaregiver.EditHealthGlance == true " class="form-inline" style="font-size: large">
+                            <label *ngIf="SelectedCaregiver.EditHealthGlance == true " class="form-inline" >
                                 <span class="glyphicon glyphicon-ok" ></span> Yes
                             </label>
 
-                            <label *ngIf="SelectedCaregiver.EditHealthGlance == false " class="form-inline" style="font-size: large">
+                            <label *ngIf="SelectedCaregiver.EditHealthGlance == false " class="form-inline" >
                                 <span class="glyphicon glyphicon-remove" ></span> No
                             </label>
 
@@ -306,16 +294,16 @@
             <div class="row table">
 
                 <div class="col-sm-3">
-                      <div class="form-group" style="font-size: large">
-                            <label style="font-size: large"> Payments </label>
+                      <div class="form-group" >
+                            <label > Payments </label>
                                 <ul class="list-group">
                                         <li class="list-group-item">
                                               &nbsp;View Bills:
-                                              <label *ngIf="SelectedCaregiver.ViewBills == true " class="form-inline" style="font-size: large">
+                                              <label *ngIf="SelectedCaregiver.ViewBills == true " class="form-inline" >
                                                   <span class="glyphicon glyphicon-ok" ></span> Yes
                                               </label>
 
-                                              <label *ngIf="SelectedCaregiver.ViewBills == false "class="form-inline" style="font-size: large">
+                                              <label *ngIf="SelectedCaregiver.ViewBills == false "class="form-inline" >
                                                   <span class="glyphicon glyphicon-remove" ></span> No
                                               </label>
 
@@ -323,11 +311,11 @@
                                         </li>
                                         <li class="list-group-item">
                                               Pay Bills:
-                                              <label *ngIf="SelectedCaregiver.PayBills == true " class="form-inline" style="font-size: large">
+                                              <label *ngIf="SelectedCaregiver.PayBills == true " class="form-inline" >
                                                  <span class="glyphicon glyphicon-ok" ></span> Yes
                                               </label>
 
-                                              <label *ngIf="SelectedCaregiver.PayBills == false" class="form-inline" style="font-size: large">
+                                              <label *ngIf="SelectedCaregiver.PayBills == false" class="form-inline" >
                                                   <span class="glyphicon glyphicon-remove"></span> No
                                               </label>
 
@@ -342,16 +330,16 @@
                 </div>
 
                 <div class="col-sm-3">
-                      <div class="form-group" style="font-size: large">
-                            <label style="font-size: large"> Medications </label>
+                      <div class="form-group" >
+                            <label > Medications </label>
                             <ul class="list-group">
                                   <li class="list-group-item">
                                         &nbsp;View Medication:
-                                        <label *ngIf="SelectedCaregiver.ViewMedications == true " class="form-inline" style="font-size: large">
+                                        <label *ngIf="SelectedCaregiver.ViewMedications == true " class="form-inline" >
                                             <span class="glyphicon glyphicon-ok" ></span> Yes
                                         </label>
 
-                                        <label *ngIf="SelectedCaregiver.ViewMedications == false" class="form-inline" style="font-size: large">
+                                        <label *ngIf="SelectedCaregiver.ViewMedications == false" class="form-inline" >
                                               <span class="glyphicon glyphicon-remove" ></span> No
                                         </label>
 
@@ -360,10 +348,10 @@
 
                                   <li class="list-group-item">
                                         Request for Refill:
-                                        <label *ngIf="SelectedCaregiver.RefillMedication == true" class="form-inline" style="font-size: large">
+                                        <label *ngIf="SelectedCaregiver.RefillMedication == true" class="form-inline" >
                                         <span class="glyphicon glyphicon-ok" ></span> Yes
                                         </label>
-                                        <label *ngIf="SelectedCaregiver.RefillMedication == false " class="form-inline" style="font-size: large">
+                                        <label *ngIf="SelectedCaregiver.RefillMedication == false " class="form-inline" >
                                         <span class="glyphicon glyphicon-remove" ></span> No
                                         </label>
 
@@ -378,16 +366,16 @@
                 </div>
 
                 <div class="col-sm-3">
-                      <div class="form-group" style="font-size: large">
-                            <label style="font-size: large"> Patient Plan </label>
+                      <div class="form-group" >
+                            <label > Patient Plan </label>
                             <ul class="list-group">
                                   <li class="list-group-item">
                                     View Patient Plan:
-                                    <label *ngIf="SelectedCaregiver.ViewPatientPlan == true " class="form-inline" style="font-size: large">
+                                    <label *ngIf="SelectedCaregiver.ViewPatientPlan == true " class="form-inline" >
                                         <span class="glyphicon glyphicon-ok" ></span> Yes
                                     </label>
 
-                                    <label *ngIf="SelectedCaregiver.ViewPatientPlan == false "class="form-inline" style="font-size: large">
+                                    <label *ngIf="SelectedCaregiver.ViewPatientPlan == false "class="form-inline" >
                                           <span class="glyphicon glyphicon-remove" ></span> No
                                     </label>
 
@@ -396,11 +384,11 @@
 
                                   <li class="list-group-item">
                                     Edit Patient Plan:
-                                    <label *ngIf="SelectedCaregiver.EditPatientPlan == true " class="form-inline" style="font-size: large">
+                                    <label *ngIf="SelectedCaregiver.EditPatientPlan == true " class="form-inline" >
                                           <span class="glyphicon glyphicon-ok" ></span> Yes
                                     </label>
 
-                                    <label *ngIf="SelectedCaregiver.EditPatientPlan == false " class="form-inline" style="font-size: large">
+                                    <label *ngIf="SelectedCaregiver.EditPatientPlan == false " class="form-inline" >
                                           <span class="glyphicon glyphicon-remove" ></span> No
                                     </label>
 
@@ -415,16 +403,16 @@
             <!--Privelages Fourth Row-->
             <div class="row table">
                   <div class="col-sm-3">
-                        <div class="form-group" style="font-size: large">
-                                <label style="font-size: large"> Appointments </label>
+                        <div class="form-group" >
+                                <label > Appointments </label>
                                 <ul class="list-group">
                                       <li class="list-group-item">
                                             View Appointments:
-                                            <label *ngIf="SelectedCaregiver.ViewAppointments == true " class="form-inline" style="font-size: large">
+                                            <label *ngIf="SelectedCaregiver.ViewAppointments == true " class="form-inline" >
                                                 <span class="glyphicon glyphicon-ok" ></span> Yes
                                             </label>
 
-                                            <label *ngIf="SelectedCaregiver.ViewAppointments == false " class="form-inline" style="font-size: large">
+                                            <label *ngIf="SelectedCaregiver.ViewAppointments == false " class="form-inline" >
                                                 <span class="glyphicon glyphicon-remove" ></span> No
                                             </label>
 
@@ -433,11 +421,11 @@
 
                                       <li class="list-group-item">
                                         Schedule Appointments:
-                                          <label *ngIf="SelectedCaregiver.ScheduleAppointments == true " class="form-inline" style="font-size: large">
+                                          <label *ngIf="SelectedCaregiver.ScheduleAppointments == true " class="form-inline" >
                                               <span class="glyphicon glyphicon-ok" ></span> Yes
                                           </label>
 
-                                        <label *ngIf="SelectedCaregiver.ScheduleAppointments == false " class="form-inline" style="font-size: large">
+                                        <label *ngIf="SelectedCaregiver.ScheduleAppointments == false " class="form-inline" >
                                             <span class="glyphicon glyphicon-remove" ></span> No
                                         </label>
 
@@ -446,11 +434,11 @@
 
                                       <li class="list-group-item">
                                             &nbsp;Fill Patient Health Questionnaire:
-                                            <label *ngIf="SelectedCaregiver.FillQuestionnaire == true "class="form-inline" style="font-size: large">
+                                            <label *ngIf="SelectedCaregiver.FillQuestionnaire == true "class="form-inline" >
                                                   <span class="glyphicon glyphicon-ok" ></span> Yes
                                             </label>
 
-                                            <label *ngIf="SelectedCaregiver.FillQuestionnaire == false " class="form-inline" style="font-size: large">
+                                            <label *ngIf="SelectedCaregiver.FillQuestionnaire == false " class="form-inline" >
                                                   <span class="glyphicon glyphicon-remove" ></span> No
                                             </label>
 

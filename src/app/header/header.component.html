@@ -20,20 +20,20 @@
 
                         <a type="button" class=" dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size: 2vmin"
                            (click)="(ShowLogoutDropDown) ? ShowLogoutDropDown = false : ShowLogoutDropDown = true">
-                            Logout <span class="caret" style="zoom: 200%" ></span>
+                            Logout <span class="caret"></span>
                         </a>
 
                         <div class="container-fluid" *ngIf="ShowLogoutDropDown" style="position:absolute;right: 30px;top:48px;z-index: 9999">
                             <ul>
-                                  <li  class="list-group-item" style="background-color: aliceblue; text-align: left">
+                                  <li  class="list-group-item">
                                       <a class="my-pointer"><span class="glyphicon glyphicon-edit"></span>&nbsp; Edit Profile</a>
                                   </li>
 
-                                  <li  class="list-group-item" style="background-color: aliceblue; text-align: left">
+                                  <li  class="list-group-item">
                                       <a class="my-pointer"><span class="glyphicon glyphicon-off"></span>&nbsp; Logout</a>
                                   </li>
 
-                                  <li  class="list-group-item" style="background-color: aliceblue; text-align: left">
+                                  <li  class="list-group-item">
                                     <a  class="my-pointer"><span class="glyphicon glyphicon-cog"></span>&nbsp; Settings</a>
                                   </li>
                             </ul>

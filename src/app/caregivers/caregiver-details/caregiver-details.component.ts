@@ -37,7 +37,7 @@ export class CaregiverDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        this.SelectedCaregiverId = +params['id'];
+        this.SelectedCaregiverId = params['id'];
         this.SelectedCaregiver = this.objCaregiverService.getCaregiverDetails(this.SelectedCaregiverId);
       }
     );
@@ -67,7 +67,6 @@ export class CaregiverDetailsComponent implements OnInit {
     this.objCaregiverService.deleteCaregiver(this.SelectedCaregiverId);
     this.objCaregiverService.setActiveScreen('CaregiverHome');
     this.route1.navigate(['/Caregivers']);
-
   }
 
   OnDeletecancelledClick()    {

@@ -1,23 +1,11 @@
-button
-{
-  width: 16vmin;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  font-size: large;
-}
-
 a
 {
 cursor: pointer;
 }
-p
-{
-  font-size: large;
-}
 
 span
 {
-  zoom: 200%;
+  zoom: 250%;
 }
 
 .panel-body
@@ -34,12 +22,34 @@ span
   color: white;
 }
 
-li:hover
+h3
 {
-  background-color: lightgrey;
+  color: darkred;
+}
+ul,label,a,p
+{
+  font-size: 1.5vmin;
 }
 
 h3
 {
   color: darkred;
+  font-size: 2vmin;
+  vertical-align: middle;
+}
+
+button{
+  width: 16vmin;
+  font-size: 1.5vmin;
+  margin: 5px 5px;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.btn-success {
+  background-color: #656515;
 }

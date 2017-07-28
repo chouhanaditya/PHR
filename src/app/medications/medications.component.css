@@ -7,23 +7,12 @@
   border-right: none;
 }
 
-a,h3,p
-{
-  font-size: 2vmin;
-}
-ul
-{
-font-size: 1.5vmin;
-}
 .activeTab
 {
   padding-left: 8px;
   color: White;
   font-weight: bold;
   border-left: 3px solid #AD122A;
-  /*box-shadow: 15px 0 50px 10px rgba(246, 246, 246, 0.2) inset, 2px 1px 2px 2px rgba(0 ,94, 99, .2);*/
-  /*border-top-right-radius: 20px;*/
-  /*border-bottom-right-radius: 20px;*/
   background-color: #AD122A;
   font-size: large;
   cursor: pointer;
@@ -33,4 +22,31 @@ a:hover
 {
   background-color: lightgrey;
 
+}
+
+ul,label,a,p
+{
+  font-size: 1.5vmin;
+}
+
+h3
+{
+  color: darkred;
+  font-size: 2vmin;
+  vertical-align: middle;
+}
+
+button{
+  font-size: 1.5vmin;
+  margin: 5px 5px;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.btn-success {
+  background-color: #656515;
 }

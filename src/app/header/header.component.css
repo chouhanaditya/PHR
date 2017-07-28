@@ -2,18 +2,27 @@ h1
 {
   vertical-align: middle;
   text-align: center;
-  font-size: 3vmin;
+  font-size: 3.5vmin;
 
 }
 
-h3
+a
 {
-  vertical-align: middle;
-  text-align: center;
   font-size: 2vmin;
 
 }
 .my-pointer{
   cursor: pointer;
   vertical-align: middle;
+}
+
+li
+{
+ background-color: aliceblue;
+  text-align: left;
+}
+
+span
+{
+  zoom: 200%;
 }

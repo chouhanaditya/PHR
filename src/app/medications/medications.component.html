@@ -7,7 +7,7 @@
                          class="list-group-item"
                          [ngClass]="{'activeTab':activeScreen == 'MedicationList'}"
                          (click)="OnListClick()"
-                         style="font-size: large">
+                        >
                           Medication List
                           <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationList'"></span>
                       </a>
@@ -15,7 +15,7 @@
                          class="list-group-item "
                          [ngClass]="{'activeTab':activeScreen == 'MedicationRefill'}"
                          (click)="OnRefillClick()"
-                         style="font-size: large">
+                       >
                           Medication Refill
                           <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationRefill'"></span>
                       </a>
@@ -23,7 +23,7 @@
                          class="list-group-item"
                          [ngClass]="{'activeTab':activeScreen == 'MedicationHistory'}"
                          (click)="OnHistoryClick()"
-                         style="font-size: large">
+                         >
                           Medication History
                           <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationHistory'"></span>
                       </a>

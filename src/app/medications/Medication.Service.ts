@@ -47,5 +47,8 @@ export class MedicationService {
     this.activeMedicationListTab = activeTab;
     this.activeMedicationListTabChanged.next(this.activeMedicationListTab);
   }
+  getMedicineDetails(index: number) {
+    return this.MedicationList[index - 1];
+  }
 
 }

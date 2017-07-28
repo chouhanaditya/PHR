@@ -8,7 +8,7 @@
           <div class="row " *ngIf="IsError" style="padding-top: 1%">
             <div class="alert alert-danger alert-dismissable col-sm-12">
               <div class="col-sm-9">
-                <h4> <strong>Errors! </strong>  </h4>
+                <h3> <strong>Errors! </strong>  </h3>
 
                 <ul *ngFor="let error of AllErrors">
                   * {{error}}
@@ -16,7 +16,7 @@
 
               </div>
               <div class="col-sm-3" align="right">
-                <a type="button" class="btn-danger my-pointer" align="middle"  data-dismiss="alert" aria-label="close" (click)="OnErrorOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
+                <button class="btn-danger " align="middle"  data-dismiss="alert" aria-label="close" (click)="OnErrorOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
               </div>
             </div>
           </div>
@@ -26,10 +26,10 @@
             <div class="alert alert-success alert-dismissable col-sm-12">
               <div class="col-sm-9">
                 <!--<a class="close"  data-dismiss="alert" aria-label="close">&times;</a>-->
-                <h4> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</h4>
+                <h3> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</h3>
               </div>
               <div class="col-sm-3" align="right">
-                <a type="button" class="btn-success my-pointer" align="middle"  (click)="OnSuccessOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
+                <button class="btn-success " align="middle"  (click)="OnSuccessOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@
         <!--Personal First Row-->
           <div class="row">
                 <div class="col-sm-3">
-                      <label style="font-size: large"> Name: </label>
+                      <label> Name: </label>
                       <br>
                       <input
                         type="text"
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="col-sm-3">
-                      <label style="font-size: large"> Email Address: </label>
+                      <label> Email Address: </label>
                        <br>
                       <input
                         type="email"
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="col-sm-3">
-                        <label style="font-size: large"> Phone Number: </label>
+                        <label> Phone Number: </label>
                         <br>
                         <input
                           type="text"
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="col-sm-3">
-                        <label style="font-size: large"> Relationship: </label>
+                        <label> Relationship: </label>
                         <br>
                         <input
                           type="text"
@@ -114,8 +114,8 @@
           <div class="row">
 
                     <div class="col-sm-3">
-                          <div class="form-group" style="font-size: large">
-                                <label style="font-size: large"> Power of Attorney: </label>&nbsp;
+                          <div class="form-group">
+                                <label> Power of Attorney: </label>&nbsp;
 
                                 <ui-switch color="#656515" style="float:right" formControlName="IsPowerofAttorney">
                                 </ui-switch>
@@ -129,8 +129,8 @@
                     </div>
 
                     <div class="col-sm-3">
-                          <div class="form-group" style="font-size: large">
-                                <label style="font-size: large"> View Reports: </label>&nbsp;
+                          <div class="form-group">
+                                <label> View Reports: </label>&nbsp;
                                 <ui-switch color="#656515" style="float:right" formControlName="ViewReports">
                                 </ui-switch>
                                 <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewReports']"></span>-->
@@ -143,8 +143,8 @@
                       </div>
 
                     <div class="col-sm-3">
-                          <div class="form-group" style="font-size: large">
-                                <label style="font-size: large"> View AVS: </label>&nbsp;
+                          <div class="form-group" >
+                                <label > View AVS: </label>&nbsp;
                                 <ui-switch color="#656515" style="float:right" formControlName="ViewAVS" >
                                 </ui-switch>
                                 <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewAVS']" ></span>-->
@@ -159,9 +159,9 @@
           <div class="row">
 
                       <div class="col-sm-3">
-                              <div class="form-group" style="font-size: large">
+                              <div class="form-group" >
                                     <label> Providers: </label>
-                                    <ul class="list-group" style="font-size: large">
+                                    <ul class="list-group" >
                                           <li class="list-group-item">
                                                 <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewProviders']" ></span>-->
                                                 <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewProviders']" ></span>-->
@@ -183,7 +183,7 @@
                       </div>
 
                       <div class="col-sm-3">
-                              <div class="form-group" style="font-size: large">
+                              <div class="form-group" >
                                     <label> Messages: </label>
                                     <ul class="list-group">
                                           <li class="list-group-item">
@@ -207,7 +207,7 @@
                       </div>
 
                       <div class="col-sm-3">
-                            <div class="form-group" style="font-size: large">
+                            <div class="form-group" >
                                   <label> Health at a Glance: </label>
                                   <ul class="list-group">
                                         <li class="list-group-item">
@@ -234,8 +234,8 @@
           <div class="row">
 
                       <div class="col-sm-3">
-                              <div class="form-group" style="font-size: large">
-                                      <label style="font-size: large"> Payments: </label>
+                              <div class="form-group" >
+                                      <label > Payments: </label>
                                       <ul class="list-group">
                                             <li class="list-group-item">
                                                   <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewBills']"></span>-->
@@ -256,8 +256,8 @@
                       </div>
 
                       <div class="col-sm-3">
-                              <div class="form-group" style="font-size: large">
-                                    <label style="font-size: large"> Medications: </label>
+                              <div class="form-group" >
+                                    <label > Medications: </label>
                                     <ul class="list-group">
                                           <li class="list-group-item">
                                                 <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewMedications']"></span>-->
@@ -278,8 +278,8 @@
                       </div>
 
                       <div class="col-sm-3">
-                              <div class="form-group" style="font-size: large">
-                                <label style="font-size: large"> Patient Plan: </label>
+                              <div class="form-group" >
+                                <label > Patient Plan: </label>
                                 <ul class="list-group">
                                         <li class="list-group-item">
                                               <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewPatientPlan']" ></span>-->
@@ -302,8 +302,8 @@
           <div class="row">
 
                       <div class="col-sm-3 col-xs-12">
-                              <div class="form-group" style="font-size: large">
-                                      <label style="font-size: large"> Appointments: </label>
+                              <div class="form-group" >
+                                      <label > Appointments: </label>
                                       <ul class="list-group">
                                             <li class="list-group-item">
                                                   <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewAppointments']" ></span>-->
@@ -328,8 +328,8 @@
 
           <!--Privelages Buttons-->
           <div class="row">
-                  <button type="submit" class="btn-success my-pointer" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
-                  <button type="button" class="btn btn-danger my-pointer" (click)="onCancel()">Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
+                  <button type="submit" class="btn-success" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+                  <button type="button" class="btn btn-danger " (click)="onCancel()">Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
           </div>
 
       </div>

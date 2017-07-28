@@ -2,29 +2,36 @@
 
 <div class="container-fluid">
       <div class="row">
-              <div class="col-sm-2 " style="padding-bottom: 2%;padding-top: 1%; " >
+              <div class="col-sm-2" style="padding-bottom: 2%;padding-top: 1%; " >
                         <h3>Below are your caregivers- </h3>
                         <br>
-                        <ul class="list-group">
-                            <a *ngFor="let caregiver of caregiversList;let i=index"
-                                [routerLink]="['/Caregivers',caregiver.Id]"
-                                (click)="OnDetailsClick()"
-                                class="list-group-item"
-                                style="font-size: large">
-                                {{caregiver.Name}}
-                            </a>
-
-                            <a routerLink="/Caregivers/new"
-                               style="font-size: large"
-                               (click)="OnNewClick()"
-                               class="list-group-item"
-                               [ngClass]="{'activeTab':activeScreen == 'CaregiverNew'}"
-                                >
-                               <span class="	glyphicon glyphicon-plus-sign"></span>
-                               <u> Add new Caregiver</u>
-                              <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'CaregiverNew'"></span>
-                            </a>
-                        </ul>
+                        <div class="list-group">
+                              <div class="row">
+                                    <a *ngFor="let caregiver of caregiversList;let i=index"
+                                        [routerLink]="['/Caregivers',caregiver.Id]"
+                                        (click)="OnDetailsClick()"
+                                        class="list-group-item"
+                                        >
+                                      <!--<div class="col-sm-8">-->
+                                        {{caregiver.Name}}
+                                      <!--</div>-->
+                                      <!--<div class="col-sm-4">-->
+                                        {{caregiver.Name}}
+                                      <!--</div>-->
+                                    </a>
+                              </div>
+                              <div class="row">
+                                        <a routerLink="/Caregivers/new"
+                                           (click)="OnNewClick()"
+                                           class="list-group-item"
+                                           [ngClass]="{'activeTab':activeScreen == 'CaregiverNew'}"
+                                            >
+                                           <span class="	glyphicon glyphicon-plus-sign"></span>
+                                           <u> Add new Caregiver</u>
+                                          <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'CaregiverNew'"></span>
+                                        </a>
+                                </div>
+                        </div>
               </div>
 
               <div class="col-sm-10">
