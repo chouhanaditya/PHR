@@ -6,20 +6,34 @@
                         <h3>Below are your caregivers- </h3>
                         <br>
                         <div class="list-group">
-                              <div class="row">
-                                    <a *ngFor="let caregiver of caregiversList;let i=index"
-                                        [routerLink]="['/Caregivers',caregiver.Id]"
-                                        (click)="OnDetailsClick()"
-                                        class="list-group-item"
-                                        >
-                                      <!--<div class="col-sm-8">-->
-                                        {{caregiver.Name}}
-                                      <!--</div>-->
-                                      <!--<div class="col-sm-4">-->
-                                        {{caregiver.Name}}
-                                      <!--</div>-->
-                                    </a>
+                              <div class="row list-group-item" *ngFor="let caregiver of caregiversList;let i=index">
+                                    <div class="col-sm-6">
+                                        <a  [routerLink]="['/Caregivers',caregiver.Id]"
+                                            (click)="OnDetailsClick()"
+                                            style="color: darkred">
+                                            {{caregiver.Name}}
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6" align="right">
+                                          <a type="button"
+                                             class="my-pointer"
+                                             style="font-size: 1.2vmin"
+                                             [routerLink]="['/Caregivers',caregiver.Id]"
+                                             [queryParams]="{Edit:true}"
+                                             (click)="OnEditClick()">
+                                            <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
+                                          </a>&nbsp;
+                                          <a type="button"
+                                             class="my-pointer"
+                                             [routerLink]="['/Caregivers',caregiver.Id]"
+                                             [queryParams]="{Delete:true}"
+                                             (click)="OnDeleteClick()"
+                                             style="font-size: 1.2vmin">
+                                            <span class="glyphicon glyphicon-trash"></span> Delete
+                                          </a>
+                                    </div>
                               </div>
+
                               <div class="row">
                                         <a routerLink="/Caregivers/new"
                                            (click)="OnNewClick()"
@@ -36,36 +50,38 @@
 
               <div class="col-sm-10">
                       <div class="container-fluid" *ngIf="activeScreen == 'CaregiverHome'">
-                            <br>
-                            <br>
-                            <p>
-                              Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community.
-                            </p>
-                            <p>
-                              Caregivers help navigate health care system, facilitate communication with health care providers, help with complex decision-making.
-                            </p>
-                            <p>
-                              92-99% of caretakers are family members.
-                            </p>
-                        <br>
+                            <div class="row" style="padding-left: 2%">
+                                    <br>
+                                    <br>
+                                    <p>
+                                      Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community.
+                                    </p>
+                                    <p>
+                                      Caregivers help navigate health care system, facilitate communication with health care providers, help with complex decision-making.
+                                    </p>
+                                    <p>
+                                      92-99% of caretakers are family members.
+                                    </p>
+                                    <br>
 
-                            <p style="font-weight: bold">
-                              Potential Benefits of Information Sharing-
-                            </p>    <br>
-                            <ul>
-                                  <li>
-                                    Enhance communication between caregiver and care provider.
-                                  </li>    <br>
-                                  <li>
-                                    Enhance patient engagement.
-                                  </li>    <br>
-                                  <li>
-                                    Improve health outcomes.
-                                  </li>    <br>
-                                  <li>
-                                    Decrease health care costs.
-                                  </li>
-                            </ul>
+                                    <p style="font-weight: bold">
+                                      Potential Benefits of Information Sharing-
+                                    </p>    <br>
+                                    <ul>
+                                          <li>
+                                            Enhance communication between caregiver and care provider.
+                                          </li>    <br>
+                                          <li>
+                                            Enhance patient engagement.
+                                          </li>    <br>
+                                          <li>
+                                            Improve health outcomes.
+                                          </li>    <br>
+                                          <li>
+                                            Decrease health care costs.
+                                          </li>
+                                    </ul>
+                          </div>
                       </div>
 
                       <router-outlet *ngIf = "activeScreen != 'CaregiverHome'">

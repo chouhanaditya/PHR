@@ -43,8 +43,14 @@ export class CaregiversComponent implements OnInit, OnDestroy {
   OnNewClick() {
     this.objCaregiver.setActiveScreen('CaregiverNew');
   }
+  OnEditClick() {
+    this.objCaregiver.setActiveScreen('CaregiverDetails');
+  }
+  OnDeleteClick() {
+    this.objCaregiver.setActiveScreen('CaregiverDetails');
+  }
     ngOnDestroy() {
-      this.subscriptionCaregiversList.unsubscribe();
-      this.subscriptionActiveScreen.unsubscribe();
-    }
+    this.subscriptionCaregiversList.unsubscribe();
+    this.subscriptionActiveScreen.unsubscribe();
+  }
 }

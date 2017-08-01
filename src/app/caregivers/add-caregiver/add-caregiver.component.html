@@ -4,96 +4,96 @@
       <!--Personal Details-->
       <div class="row table">
 
-          <!--Caregiver error Dialog-->
-          <div class="row " *ngIf="IsError" style="padding-top: 1%">
-            <div class="alert alert-danger alert-dismissable col-sm-12">
-              <div class="col-sm-9">
-                <h3> <strong>Errors! </strong>  </h3>
+            <!--Caregiver error Dialog-->
+            <div class="row " *ngIf="IsError" style="padding-top: 1%">
+              <div class="alert alert-danger alert-dismissable col-sm-12">
+                <div class="col-sm-9">
+                  <h3 style="font-size: 1.2vmin"> <strong>Errors! </strong>  </h3>
 
-                <ul *ngFor="let error of AllErrors">
-                  * {{error}}
-                </ul>
+                  <ul *ngFor="let error of AllErrors" style="font-size: 1.2vmin" >
+                    * {{error}}
+                  </ul>
 
-              </div>
-              <div class="col-sm-3" align="right">
-                <button class="btn-danger " align="middle"  data-dismiss="alert" aria-label="close" (click)="OnErrorOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
-              </div>
-            </div>
-          </div>
-
-          <!--Caregiver added Dialog-->
-          <div class="row" *ngIf="IsFormSaved" style="padding-top: 1%">
-            <div class="alert alert-success alert-dismissable col-sm-12">
-              <div class="col-sm-9">
-                <!--<a class="close"  data-dismiss="alert" aria-label="close">&times;</a>-->
-                <h3> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</h3>
-              </div>
-              <div class="col-sm-3" align="right">
-                <button class="btn-success " align="middle"  (click)="OnSuccessOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
+                </div>
+                <div class="col-sm-3" align="right">
+                  <button class="btn-danger " align="middle"  data-dismiss="alert" aria-label="close" (click)="OnErrorOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
+                </div>
               </div>
             </div>
-          </div>
 
-        <!--Personal Header-->
-          <div class="row ">
-                <div class="col-sm-6">
-                  <h3>Personal Details</h3>
+            <!--Caregiver added Dialog-->
+            <div class="row" *ngIf="IsFormSaved" style="padding-top: 1%">
+              <div class="alert alert-success alert-dismissable col-sm-12 ">
+                <div class="col-sm-9">
+                  <!--<a class="close"  data-dismiss="alert" aria-label="close">&times;</a>-->
+                  <ul> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</ul>
                 </div>
-          </div>
-          <br>
-        <!--Personal First Row-->
-          <div class="row">
-                <div class="col-sm-3">
-                      <label> Name: </label>
-                      <br>
-                      <input
-                        type="text"
-                        class="form-inline"
-                        [ngClass]="{inputErrored: caregiverForm.controls['Name'].invalid && caregiverForm.controls['Name'].touched}"
-                        formControlName="Name"
-                      >
-                      <!--<div class="alert-danger" *ngIf="caregiverForm.get('Name').invalid && caregiverForm.controls['Name'].touched ">-->
-                        <!--<strong>Please enter the Name </strong>-->
-                      <!--</div>-->
+                <div class="col-sm-3" align="right">
+                  <button class="btn-success " align="middle"  (click)="OnSuccessOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
                 </div>
+              </div>
+            </div>
 
-                <div class="col-sm-3">
-                      <label> Email Address: </label>
-                       <br>
-                      <input
-                        type="email"
-                        class="form-inline"
-                        [ngClass]="{inputErrored: caregiverForm.controls['EmailAddress'].invalid && caregiverForm.controls['EmailAddress'].touched}"
-                        formControlName="EmailAddress"
-                      >
-
-                </div>
-
-                <div class="col-sm-3">
-                        <label> Phone Number: </label>
-                        <br>
-                        <input
-                          type="text"
-                          placeholder="(___)-___-___"
-                          class="form-inline"
-                          formControlName="PhoneNumber"
-                          [ngClass]="{inputErrored: caregiverForm.controls['PhoneNumber'].invalid && caregiverForm.controls['PhoneNumber'].touched}"
-                        >
-                </div>
-
-                <div class="col-sm-3">
-                        <label> Relationship: </label>
+          <!--Personal Header-->
+            <div class="row ">
+                  <div class="col-sm-6">
+                    <h3>Personal Details</h3>
+                  </div>
+            </div>
+            <br>
+          <!--Personal First Row-->
+            <div class="row">
+                  <div class="col-sm-3">
+                        <label> Name: </label>
                         <br>
                         <input
                           type="text"
                           class="form-inline"
-                          formControlName="Relationship"
-                          [ngClass]="{inputErrored: caregiverForm.controls['Relationship'].invalid && caregiverForm.controls['Relationship'].touched}"
-                          auto-complete [source]="relationships"
+                          [ngClass]="{inputErrored: caregiverForm.controls['Name'].invalid && caregiverForm.controls['Name'].touched}"
+                          formControlName="Name"
                         >
-                </div>
+                        <!--<div class="alert-danger" *ngIf="caregiverForm.get('Name').invalid && caregiverForm.controls['Name'].touched ">-->
+                          <!--<strong>Please enter the Name </strong>-->
+                        <!--</div>-->
+                  </div>
 
-          </div>
+                  <div class="col-sm-3">
+                        <label> Email Address: </label>
+                         <br>
+                        <input
+                          type="email"
+                          class="form-inline"
+                          [ngClass]="{inputErrored: caregiverForm.controls['EmailAddress'].invalid && caregiverForm.controls['EmailAddress'].touched}"
+                          formControlName="EmailAddress"
+                        >
+
+                  </div>
+
+                  <div class="col-sm-3">
+                          <label> Phone Number: </label>
+                          <br>
+                          <input
+                            type="text"
+                            placeholder="(___)-___-___"
+                            class="form-inline"
+                            formControlName="PhoneNumber"
+                            [ngClass]="{inputErrored: caregiverForm.controls['PhoneNumber'].invalid && caregiverForm.controls['PhoneNumber'].touched}"
+                          >
+                  </div>
+
+                  <div class="col-sm-3">
+                          <label> Relationship: </label>
+                          <br>
+                          <input
+                            type="text"
+                            class="form-inline"
+                            formControlName="Relationship"
+                            [ngClass]="{inputErrored: caregiverForm.controls['Relationship'].invalid && caregiverForm.controls['Relationship'].touched}"
+                            auto-complete [source]="relationships"
+                          >
+                  </div>
+
+            </div>
 
       </div>
 

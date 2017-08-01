@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-caregiver-details',
@@ -11,7 +12,6 @@ import {CaregiverService} from '../caregiver.Service';
 export class CaregiverDetailsComponent implements OnInit {
 
   IsDetailsEditable = false;
-
   IsSaveDialog = false;
   Relationships = [ 'Son',
                                 'Daughter',
@@ -31,7 +31,6 @@ export class CaregiverDetailsComponent implements OnInit {
   SelectedCaregiverId = 0;
   SelectedCaregiver: Caregiver;
   IsDeleteDialog = false;
-  ShowDropDown = false;
   constructor(private route: ActivatedRoute, private route1: Router, public objCaregiverService: CaregiverService) { }
 
   ngOnInit() {
@@ -41,38 +40,35 @@ export class CaregiverDetailsComponent implements OnInit {
         this.SelectedCaregiver = this.objCaregiverService.getCaregiverDetails(this.SelectedCaregiverId);
       }
     );
-
+    this.route.queryParams.subscribe(
+      () => {
+             this.IsDeleteDialog = this.route.snapshot.queryParams['Delete'];
+             this.IsDetailsEditable = this.route.snapshot.queryParams['Edit'];
+              }
+              );
   }
-  OnEdit() {
-      this.IsDeleteDialog = false;
-      this.IsDetailsEditable = true;
-      this.ShowDropDown = false;
+   OnSaveClick() {
+      this.IsDetailsEditable = false;
+      this.IsSaveDialog = true;
+      this.route1.navigate(['/Caregivers', this.SelectedCaregiverId]);
+    }
+    OnCancelClick() {
+      this.objCaregiverService.setActiveScreen('CaregiverHome');
+      this.route1.navigate(['/Caregivers']);
+
+    }
+    OnDeleteConfimedClick() {
+      this.objCaregiverService.deleteCaregiver(this.SelectedCaregiverId);
+      this.objCaregiverService.setActiveScreen('CaregiverHome');
+      this.route1.navigate(['/Caregivers']);
     }
 
-  OnSaveClick() {
-    this.IsDetailsEditable = false;
-    this.IsSaveDialog = true;
-  }
-  OnCancelClick(){
-    this.IsDetailsEditable = false;
-  }
-  OnDelete()  {
-    this.IsDeleteDialog = true;
-    this.IsDetailsEditable = false;
-    this.ShowDropDown = false;
-  }
-
-  OnDeleteConfimedClick()  {
-    this.IsDeleteDialog = false;
-    this.objCaregiverService.deleteCaregiver(this.SelectedCaregiverId);
-    this.objCaregiverService.setActiveScreen('CaregiverHome');
-    this.route1.navigate(['/Caregivers']);
-  }
-
-  OnDeletecancelledClick()    {
-    this.IsDeleteDialog = false;
-  }
-  OnAlertClose()  {
-    this.IsSaveDialog = false;
-  }
+    OnDeletecancelledClick()    {
+      this.IsDeleteDialog = false;
+      this.objCaregiverService.setActiveScreen('CaregiverHome');
+      this.route1.navigate(['/Caregivers']);
+    }
+    OnAlertClose()  {
+      this.IsSaveDialog = false;
+    }
 }

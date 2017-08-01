@@ -1,42 +1,32 @@
 <div class="container-fluid">
         <!--Save Dialog Box-->
         <div class="row table" *ngIf="IsSaveDialog" style="padding-top: 1%">
-          <div class="alert alert-success alert-dismissable col-sm-12">
-            <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
-            <p> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</p>
+            <div class="alert alert-success alert-dismissable col-sm-12">
+                <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
+                <p style="font-size: 1.2vmin"> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</p>
+            </div>
+        </div>
+
+        <!--Delete Dialog Box-->
+        <div class="row table" *ngIf="IsDeleteDialog" style="padding-top: 1%">
+          <div class="alert alert-danger alert-dismissable col-sm-12">
+            <div class="col-sm-9">
+              <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. It will delete personal details and all the privelages. Are you sure you want to delete?</h4>
+            </div>
+            <div class="col-sm-3" align="right">
+              <a class="btn-danger my-pointer" align="middle"  (click)="OnDeleteConfimedClick()"> Yes&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
+              <a class="btn-success my-pointer" align="middle" (click)="OnDeletecancelledClick()" > No&nbsp; <span class="glyphicon glyphicon-remove-circle"></span> </a>
+
+            </div>
           </div>
         </div>
 
         <!--Personal Details-->
         <div class="row">
-
               <!--Personal Details Header-->
               <div class="row table">
-                      <div class="col-sm-3">
+                      <div class="col-sm-10">
                         <h3>Caregiver {{ SelectedCaregiver.Name }}: Personal Details</h3>
-                      </div>
-
-                      <div class="col-sm-7"></div>
-
-                      <div class="col-sm-2" align="right" style="position: relative">
-                            <button type="button" class="btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" (click)="(ShowDropDown) ? ShowDropDown = false : ShowDropDown = true">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                            </button>
-
-                            <div class=container-fluid *ngIf="ShowDropDown" style="position:absolute;right: 40px;top:52px;z-index: 9999">
-                                  <ul class="list-group">
-                                        <li class="list-group-item" style="background-color: aliceblue; text-align: left">
-                                            <a type="button" class="my-pointer" (click)="OnEdit()">
-                                                <span class="glyphicon glyphicon-edit"></span>&nbsp;Request to Edit
-                                            </a>
-                                        </li>
-                                        <li class="list-group-item" style="background-color: aliceblue;text-align: left">
-                                            <a type="button" class="my-pointer" (click)="OnDelete()">
-                                                <span class="glyphicon glyphicon-trash"></span> &nbsp;Request to Delete
-                                            </a>
-                                        </li>
-                                  </ul>
-                            </div>
                       </div>
               </div>
 
@@ -65,23 +55,6 @@
                         <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                       </div>
               </div>
-
-              <br *ngIf="IsDeleteDialog">
-
-              <!--Delete Dialog Box-->
-              <div class="row table" *ngIf="IsDeleteDialog">
-                        <div class="alert alert-danger alert-dismissable col-sm-12">
-                              <div class="col-sm-9">
-                                      <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. It will delete personal details and all the privelages. Are you sure you want to delete?</h4>
-                              </div>
-                              <div class="col-sm-3" align="right">
-                                      <a class="btn-danger my-pointer" align="middle"  (click)="OnDeleteConfimedClick()"> Yes&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
-                                      <a class="btn-success my-pointer" align="middle" (click)="OnDeletecancelledClick()" > No&nbsp; <span class="glyphicon glyphicon-remove-circle"></span> </a>
-
-                              </div>
-                        </div>
-              </div>
-
         </div>
 
         <hr>
@@ -94,23 +67,6 @@
                     <h3> Caregiver {{ SelectedCaregiver.Name }}:  Privelages </h3>
                 </div>
             </div>
-                <!--<div class="col-sm-6">-->
-                <!--</div>-->
-
-                <!--<div class="col-sm-3" style="text-align: right">-->
-                  <!--<button *ngIf="!IsDetailsEditable" class="btn-primary my-pointer" align="middle" (click)="OnPrivelagesEditClick()">  Request for Edit&nbsp; <span class="glyphicon glyphicon-edit"></span> </button>-->
-                  <!--<button *ngIf="IsDetailsEditable" class="btn-success my-pointer" align="middle" (click)="OnPrivelagesSaveClick()"> Request for Save &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>-->
-                <!--</div>-->
-
-            <!--&lt;!&ndash;Save Dialog Box&ndash;&gt;-->
-            <!--<div class="row table" *ngIf="IsPrivelagesSaveDialog">-->
-                <!--<div class="alert alert-success alert-dismissable col-sm-12">-->
-                      <!--<a (click)="OnPrivelagesAlertClose()" class="close" data-dismiss="alert" aria-label="close">&times;</a>-->
-                      <!--<h4> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</h4>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<br>-->
 
             <!--Privelages First Row-->
             <div class="row table">
@@ -185,7 +141,7 @@
                                 <li class="list-group-item">
                                   View Providers:
                                   <label *ngIf="SelectedCaregiver.ViewProviders == true" class="form-inline" >
-                                    <span class="glyphicon glyphicon-ok" ></span>Yes
+                                    <span class="glyphicon glyphicon-ok" ></span> Yes
                                   </label>
 
                                   <label *ngIf="SelectedCaregiver.ViewProviders == false" class="form-inline" >
@@ -449,6 +405,7 @@
                   </div>
             </div>
 
+            <!--Buttons-->
             <div class="row table" *ngIf="IsDetailsEditable" >
                 <button type="submit" class="btn-success my-pointer " align="middle"  (click)="OnSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
                 <button type="button" class="btn-default my-pointer " align="middle"  (click)="OnCancelClick()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
