@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
-import {Subscription} from "rxjs/Subscription";
+import {Subscription} from 'rxjs/Subscription';
+declare const jQuery;
 
 @Component({
   selector: 'app-caregiver-details',
@@ -47,10 +48,12 @@ export class CaregiverDetailsComponent implements OnInit {
               }
               );
   }
-   OnSaveClick() {
+  OnSaveClick() {
       this.IsDetailsEditable = false;
       this.IsSaveDialog = true;
-      this.route1.navigate(['/Caregivers', this.SelectedCaregiverId]);
+      setTimeout(
+        () => { this.IsSaveDialog = false;
+      }, 4000);
     }
     OnCancelClick() {
       this.objCaregiverService.setActiveScreen('CaregiverHome');

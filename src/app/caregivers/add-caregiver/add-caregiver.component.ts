@@ -71,17 +71,15 @@ export class AddCaregiverComponent implements OnInit {
     if (this.caregiverForm.valid) {
       this.IsFormSaved = true;
       this.IsError = false;
-    } else {
+      setTimeout(
+        () => { this.IsFormSaved = false;
+        }, 4000);
+      } else {
       this.AllErrors = [];
       this.getFormValidationErrors();
       this.IsError = true;
     }
  }
-
-  OnSuccessOkClick() {
-    this.objCaregiverService.setActiveScreen('CaregiverHome');
-    this.route.navigate(['/Caregivers']);
-  }
   OnErrorOkClick() {
     this.IsError = false;
   }

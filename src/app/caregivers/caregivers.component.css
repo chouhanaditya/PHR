@@ -1,43 +1,3 @@
-a:active
-{
-  background-color: #AD122A;
-  box-shadow: 2px 3px 2px 2px rgba(173,18,42, .1);
-  border-right: 3px solid #AD122A;;
-  border-bottom-left-radius: 15px;
-  border-left: 3px solid #AD122A;
-  padding: 7px;
-  background-color: blue;
-}
-
-
-.ul-shadow{
-  -moz-box-shadow:    3px 1px 2px 1px #ccc;
-  -webkit-box-shadow: 3px 1px 2px 1px #ccc;
-  box-shadow:         3px 1px 2px 1px #ccc;
-  border-bottom-left-radius: 15px;
-  padding-left: 10px; padding-bottom: 5px; padding-top: 5px;
-
-}
-
-/*.clicked{*/
-  /*background-color: #AD122A;*/
-  /*box-shadow: 2px 3px 2px 2px rgba(173,18,42, .1);*/
-  /*border-right: none !important;*/
-  /*border-bottom-left-radius: 15px;*/
-  /*border-left: 3px solid #AD122A;*/
-  /*padding: 7px;*/
-/*}*/
-
-.activeTab{
-  padding-left: 8px;
-  color: darkred;
-  border-left: 3px solid #AD122A;
-  box-shadow: 15px 0 50px 10px rgba(246, 246, 246, 0.2) inset, 2px 1px 2px 2px rgba(0 ,94, 99, .2);
-  /*border-top-right-radius: 20px;*/
-  /*border-bottom-right-radius: 20px;*/
-  background-color: lightgray;
-}
-
 .table-bordered
 {
   padding-left: 1.5%;
@@ -46,14 +6,14 @@ a:active
   padding-bottom: 1.5%;
   border-right: none;
 }
-
 h3,a,ul,p
 {
   font-size: 1.5vmin;
 }
-
-
 .my-pointer{
   cursor: pointer;
   vertical-align: middle;
+}
+.custom-bg {
+  background-color: lightblue!important;
 }

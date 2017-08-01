@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {Caregiver} from './caregiver.Model';
 import {CaregiverService} from './caregiver.Service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
+declare const jQuery: any;
 
 @Component({
   selector: 'app-caregivers',
@@ -16,7 +17,7 @@ export class CaregiversComponent implements OnInit, OnDestroy {
   subscriptionCaregiversList: Subscription;
   subscriptionActiveScreen: Subscription;
 
-  constructor(private route: ActivatedRoute, public objCaregiver: CaregiverService ) { }
+  constructor(private route: ActivatedRoute, public objCaregiver: CaregiverService, private el: ElementRef ) { }
 
   ngOnInit() {
     this.subscriptionCaregiversList = this.objCaregiver.caregiversListChanged
@@ -37,16 +38,32 @@ export class CaregiversComponent implements OnInit, OnDestroy {
     this.activeScreen = this.objCaregiver.getActiveScreen();
   }
 
-  OnDetailsClick()  {
+  OnDetailsClick(i)  {
     this.objCaregiver.setActiveScreen('CaregiverDetails');
+    for (let x = 0; x < this.caregiversList.length; x++) {
+      jQuery(this.el.nativeElement).find('#caregiver_' + x).removeClass('custom-bg');
+    }
+    jQuery(this.el.nativeElement).find('#caregiver_' + i).addClass('custom-bg');
   }
   OnNewClick() {
+    for (let x = 0; x < this.caregiversList.length; x++) {
+      jQuery(this.el.nativeElement).find('#caregiver_' + x).removeClass('custom-bg');
+    }
+    jQuery(this.el.nativeElement).find('#newCaregiver').addClass('custom-bg');
     this.objCaregiver.setActiveScreen('CaregiverNew');
   }
-  OnEditClick() {
+  OnEditClick(i) {
+    for (let x = 0; x < this.caregiversList.length; x++) {
+      jQuery(this.el.nativeElement).find('#caregiver_' + x).removeClass('custom-bg');
+    }
+    jQuery(this.el.nativeElement).find('#caregiver_' + i).addClass('custom-bg');
     this.objCaregiver.setActiveScreen('CaregiverDetails');
   }
-  OnDeleteClick() {
+  OnDeleteClick(i) {
+    for (let x = 0; x < this.caregiversList.length; x++) {
+      jQuery(this.el.nativeElement).find('#caregiver_' + x).removeClass('custom-bg');
+    }
+    jQuery(this.el.nativeElement).find('#caregiver_' + i).addClass('custom-bg');
     this.objCaregiver.setActiveScreen('CaregiverDetails');
   }
     ngOnDestroy() {

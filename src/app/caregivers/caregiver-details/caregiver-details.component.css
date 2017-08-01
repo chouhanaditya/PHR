@@ -1,7 +1,4 @@
 input{
-  /*margin: 15px 25px;*/
-  /*width: 200px;*/
-  /*display: block;*/
   border: none;
   padding-top: 1%;
   border-bottom: solid 1px #1abc9c;
@@ -12,7 +9,7 @@ input{
   background-position: -200px 0;
   background-size: 200px 100%;
   background-repeat: no-repeat;
-  font-size: large;
+  font-size: 1.5vmin;
 }
 
 .input-Editable
@@ -76,4 +73,8 @@ button{
 
 .btn-success {
   background-color: #656515;
+}
+.custom-close {
+  display: none !important;
+  visibility: hidden!important;
 }

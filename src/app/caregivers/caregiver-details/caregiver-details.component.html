@@ -63,7 +63,7 @@
         <div class="row">
 
             <div class="row table">
-                <div class="col-sm-3">
+                <div class="col-sm-10">
                     <h3> Caregiver {{ SelectedCaregiver.Name }}:  Privelages </h3>
                 </div>
             </div>
@@ -358,7 +358,7 @@
 
             <!--Privelages Fourth Row-->
             <div class="row table">
-                  <div class="col-sm-3">
+                  <div class="col-sm-4">
                         <div class="form-group" >
                                 <label > Appointments </label>
                                 <ul class="list-group">
@@ -407,8 +407,10 @@
 
             <!--Buttons-->
             <div class="row table" *ngIf="IsDetailsEditable" >
-                <button type="submit" class="btn-success my-pointer " align="middle"  (click)="OnSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
-                <button type="button" class="btn-default my-pointer " align="middle"  (click)="OnCancelClick()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
+                <div class="col-sm-5">
+                    <button type="submit" class="btn-success my-pointer " align="middle"  (click)="OnSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+                    <button type="button" class="btn-danger my-pointer " align="middle"  (click)="OnCancelClick()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
+                </div>
             </div>
 
           </div>

@@ -24,21 +24,15 @@
             <!--Caregiver added Dialog-->
             <div class="row" *ngIf="IsFormSaved" style="padding-top: 1%">
               <div class="alert alert-success alert-dismissable col-sm-12 ">
-                <div class="col-sm-9">
-                  <!--<a class="close"  data-dismiss="alert" aria-label="close">&times;</a>-->
-                  <ul> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</ul>
-                </div>
-                <div class="col-sm-3" align="right">
-                  <button class="btn-success " align="middle"  (click)="OnSuccessOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
-                </div>
+                   <ul> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</ul>
               </div>
             </div>
 
           <!--Personal Header-->
             <div class="row ">
-                  <div class="col-sm-6">
-                    <h3>Personal Details</h3>
-                  </div>
+                <div class="col-sm-8">
+                      <h3>Personal Details</h3>
+                </div>
             </div>
             <br>
           <!--Personal First Row-->
@@ -66,13 +60,13 @@
                           [ngClass]="{inputErrored: caregiverForm.controls['EmailAddress'].invalid && caregiverForm.controls['EmailAddress'].touched}"
                           formControlName="EmailAddress"
                         >
-
                   </div>
 
                   <div class="col-sm-3">
                           <label> Phone Number: </label>
                           <br>
                           <input
+                            id="PhoneNumber"
                             type="text"
                             placeholder="(___)-___-___"
                             class="form-inline"
@@ -328,8 +322,10 @@
 
           <!--Privelages Buttons-->
           <div class="row">
-                  <button type="submit" class="btn-success" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
-                  <button type="button" class="btn btn-danger " (click)="onCancel()">Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
+                <div class="col-sm-5">
+                        <button type="submit" class="btn-success" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+                        <button type="button" class="btn btn-danger " (click)="onCancel()">Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
+                </div>
           </div>
 
       </div>

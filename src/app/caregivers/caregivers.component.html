@@ -6,11 +6,12 @@
                         <h3>Below are your caregivers- </h3>
                         <br>
                         <div class="list-group">
-                              <div class="row list-group-item" *ngFor="let caregiver of caregiversList;let i=index">
+                              <div class="row list-group-item" *ngFor="let caregiver of caregiversList;let i=index" id="caregiver_{{i}}">
                                     <div class="col-sm-6">
                                         <a  [routerLink]="['/Caregivers',caregiver.Id]"
-                                            (click)="OnDetailsClick()"
-                                            style="color: darkred">
+                                            (click)="OnDetailsClick(i)"
+                                            style="color: darkred"
+                                            title="View Details">
                                             {{caregiver.Name}}
                                         </a>
                                     </div>
@@ -20,29 +21,30 @@
                                              style="font-size: 1.2vmin"
                                              [routerLink]="['/Caregivers',caregiver.Id]"
                                              [queryParams]="{Edit:true}"
-                                             (click)="OnEditClick()">
+                                             (click)="OnEditClick(i)"
+                                              title="Request to Edit">
                                             <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
                                           </a>&nbsp;
                                           <a type="button"
                                              class="my-pointer"
                                              [routerLink]="['/Caregivers',caregiver.Id]"
                                              [queryParams]="{Delete:true}"
-                                             (click)="OnDeleteClick()"
-                                             style="font-size: 1.2vmin">
-                                            <span class="glyphicon glyphicon-trash"></span> Delete
+                                             (click)="OnDeleteClick(i)"
+                                             style="font-size: 1.2vmin"
+                                             title="Request to Delete">
+                                            <span class="glyphicon glyphicon-trash"></span> Del
                                           </a>
                                     </div>
                               </div>
 
-                              <div class="row">
+                              <div class="row" id="newCaregiver">
                                         <a routerLink="/Caregivers/new"
                                            (click)="OnNewClick()"
                                            class="list-group-item"
-                                           [ngClass]="{'activeTab':activeScreen == 'CaregiverNew'}"
-                                            >
+                                           [ngClass]="{'custom-bg':activeScreen == 'CaregiverNew'}"
+                                           title="Request to Add new">
                                            <span class="	glyphicon glyphicon-plus-sign"></span>
-                                           <u> Add new Caregiver</u>
-                                          <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'CaregiverNew'"></span>
+                                           <u> Add new</u>
                                         </a>
                                 </div>
                         </div>

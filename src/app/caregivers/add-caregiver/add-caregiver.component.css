@@ -26,7 +26,7 @@ input{
   background-position: -200px 0;
   background-size: 200px 100%;
   background-repeat: no-repeat;
-  font-size: large;
+  font-size: 1.5vmin;
 }
 
 .table-bordered
