@@ -41,11 +41,11 @@ export class CaregiverService {
   }
 
     getCaregiverDetails(index: number) {
-     return this.caregiversList.filter(x => x.Id == index)[0];
+     return this.caregiversList.filter(x => x.Id === +index)[0];
     }
 
     deleteCaregiver(index: number) {
-      this.caregiversList = this.caregiversList.filter(x => x.Id != index);
+      this.caregiversList = this.caregiversList.filter(x => x.Id !== +index);
       this.caregiversListChanged.next(this.caregiversList.slice());
     }
     getNextCaregiverID() {
