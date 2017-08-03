@@ -1,5 +1,7 @@
 import {Caregiver} from './caregiver.Model';
 import { Subject } from 'rxjs/Subject';
+import {combineAll} from "rxjs/operator/combineAll";
+declare const jQuery;
 
 export class CaregiverService {
 
@@ -7,9 +9,9 @@ export class CaregiverService {
   activeScreenChanged = new Subject<string>();
 
   private caregiversList: Caregiver [] = [
-    new Caregiver( 1, "Tom Windle", "","Tom.Windle@unmc.edu","(402)-987-3241","Friend",false,true,true,true,true,false,true,true,false,true,false,true,true,true,false,true,true,false),
-    new Caregiver( 2, "Yves", "","yves@unomaha.edu","(402)-458-7412","Son",false,true,true,true,true,true,false,true,true,true,false,true,true,true,true,true,true,false),
-    new Caregiver( 3, "Aditya", "","achouhan@unomaha.edu","(402)-913-4882","Father",false,true,true,true,true,true,true,true,false,true,false,true,true,true,true,true,true,false),
+    // new Caregiver( 1, 'Tom Windle', '','Tom.Windle@unmc.edu','(402)-987-3241','Friend',false,true,true,true,true,false,true,true,false,true,false,true,true,true,false,true,true,false),
+    // new Caregiver( 2, 'Yves', '','yves@unomaha.edu','(402)-458-7412','Son',false,true,true,true,true,true,false,true,true,true,false,true,true,true,true,true,true,false),
+    // new Caregiver( 3, 'Aditya', '','achouhan@unomaha.edu','(402)-913-4882','Father',false,true,true,true,true,true,true,true,false,true,false,true,true,true,true,true,true,false),
     ];
 
     // activeScreen: Possible values= ['CaregiverHome', 'CaregiverDetails', 'CaregiverNew'];
@@ -39,11 +41,18 @@ export class CaregiverService {
   }
 
     getCaregiverDetails(index: number) {
-      return this.caregiversList[index - 1];
+     return this.caregiversList.filter(x => x.Id == index)[0];
     }
 
     deleteCaregiver(index: number) {
-      this.caregiversList.splice(index - 1, 1);
+      this.caregiversList = this.caregiversList.filter(x => x.Id != index);
       this.caregiversListChanged.next(this.caregiversList.slice());
+    }
+    getNextCaregiverID() {
+      if (this.caregiversList.length === 0) {
+        return 1;
+      } else {
+        return this.caregiversList.slice(-1).pop()['Id'] + 1;
+      }
     }
 }

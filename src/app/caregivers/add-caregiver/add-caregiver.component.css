@@ -18,7 +18,9 @@ input{
 
   width: 200px;
   padding-top: 10px;
-  border: solid 2px red;
+  border: none;
+  padding-top: 10px;
+  border-bottom: solid 1px red;
   -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, red);
@@ -26,7 +28,7 @@ input{
   background-position: -200px 0;
   background-size: 200px 100%;
   background-repeat: no-repeat;
-  font-size: 1.5vmin;
+  font-size: large;
 }
 
 .table-bordered
@@ -58,7 +60,7 @@ h3
 
 button{
   font-size: 1.5vmin;
-  /*margin: 5px 5px;*/
+  margin: 5px 5px;
   padding-left: 1%;
   padding-right: 1%;
   padding-top: 1%;

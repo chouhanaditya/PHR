@@ -1,7 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {MedicationService} from '../Medication.Service';
 import {Medication} from '../Medication.Model';
 import {Subscription} from 'rxjs/Subscription';
+declare const jQuery: any;
+
 
 @Component({
   selector: 'app-list',
@@ -16,8 +18,11 @@ export class ListComponent implements OnInit, OnDestroy {
   MedicationList = [];
   MedicationListPrescribed = [];
   MedicationListOTC = [];
+  ShowDetailedPanel_All = [];
+  ShowDetailedPanel_Prescribed = [];
+  ShowDetailedPanel_OTC = [];
 
-  constructor(public objMedication: MedicationService) { }
+  constructor(public objMedication: MedicationService, private el: ElementRef) { }
 
   ngOnInit() {
     this.activeScreenSubscription = this.objMedication.activeScreenChanged.
@@ -44,6 +49,11 @@ export class ListComponent implements OnInit, OnDestroy {
         }
       );
     this.activeMedicationListTab = this.objMedication.getActiveMedicationTab();
+    for (let x = 0; x < this.MedicationList.length; x++) {
+      this.ShowDetailedPanel_All[x] = false;
+      this.ShowDetailedPanel_Prescribed[x] = false;
+      this.ShowDetailedPanel_OTC[x] = false;
+    }
   }
   PrescribedClick()  {
     this.objMedication.setActiveMedicationTab('Prescribed');
@@ -54,9 +64,16 @@ export class ListComponent implements OnInit, OnDestroy {
   AllClick()  {
     this.objMedication.setActiveMedicationTab('All');
   }
-  OnMedicineDetailsClick() {
-    this.objMedication.setActiveScreen('MedicationDetails');
+  MedicineDetails_All_Click(i: number) {
+    this.ShowDetailedPanel_All[i] = (this.ShowDetailedPanel_All[i] === true) ? false : true;
   }
+  MedicineDetails_Prescribed_Click(i: number) {
+    this.ShowDetailedPanel_Prescribed[i] = (this.ShowDetailedPanel_Prescribed[i] === true) ? false : true;
+  }
+  MedicineDetails_OTC_Click(i: number) {
+    this.ShowDetailedPanel_OTC[i] = (this.ShowDetailedPanel_OTC[i] === true) ? false : true;
+  }
+
   ngOnDestroy() {
     this.activeScreenSubscription.unsubscribe();
     this.activeMedicationListTabSub.unsubscribe();

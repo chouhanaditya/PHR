@@ -7,17 +7,6 @@
   border-right: none;
 }
 
-.activeTab
-{
-  padding-left: 8px;
-  color: White;
-  font-weight: bold;
-  border-left: 3px solid #AD122A;
-  background-color: #AD122A;
-  font-size: large;
-  cursor: pointer;
-}
-
 a:hover
 {
   background-color: lightgrey;
@@ -49,4 +38,7 @@ button{
 
 .btn-success {
   background-color: #656515;
+}
+.custom-bg {
+  background-color: lightblue!important;
 }

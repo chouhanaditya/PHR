@@ -3,49 +3,52 @@
 <div class="container-fluid">
       <div class="row">
               <div class="col-sm-2" style="padding-bottom: 2%;padding-top: 1%; " >
-                        <h3>Below are your caregivers- </h3>
-                        <br>
-                        <div class="list-group">
-                              <div class="row list-group-item" *ngFor="let caregiver of caregiversList;let i=index" id="caregiver_{{i}}">
-                                    <div class="col-sm-6">
-                                        <a  [routerLink]="['/Caregivers',caregiver.Id]"
-                                            (click)="OnDetailsClick(i)"
-                                            style="color: darkred"
-                                            title="View Details">
-                                            {{caregiver.Name}}
-                                        </a>
+                        <br *ngIf="countCaregivers == '0'">
+                        <h3 *ngIf="countCaregivers != '0'">Below are your caregivers- </h3>
+                        <br *ngIf="countCaregivers != '0'">
+                        <div class="list-group" style="padding-left: 2%">
+                                <div class="row list-group-item" *ngIf="countCaregivers != '0'">
+                                    <div class="row list-group-item" *ngFor="let caregiver of caregiversList;let i=index" id="caregiver_{{i}}">
+                                          <div class="col-sm-6">
+                                              <a  [routerLink]="['/Caregivers',caregiver.Id]"
+                                                  (click)="OnDetailsClick(i)"
+                                                  style="color: darkred"
+                                                  title="View Details">
+                                                  {{caregiver.Name}}
+                                              </a>
+                                          </div>
+                                          <div class="col-sm-6" align="right">
+                                                <a class="my-pointer font-links"
+                                                   [routerLink]="['/Caregivers',caregiver.Id]"
+                                                   [queryParams]="{Edit:true}"
+                                                   (click)="OnEditClick(i)"
+                                                    title="Request to Edit">
+                                                  <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
+                                                </a>&nbsp;
+                                                <a class="my-pointer font-links"
+                                                   [routerLink]="['/Caregivers',caregiver.Id]"
+                                                   [queryParams]="{Delete:true}"
+                                                   (click)="OnDeleteClick(i)"
+                                                   title="Request to Delete">
+                                                  <span class="glyphicon glyphicon-trash"></span> Del
+                                                </a>
+                                          </div>
                                     </div>
-                                    <div class="col-sm-6" align="right">
-                                          <a type="button"
-                                             class="my-pointer"
-                                             style="font-size: 1.2vmin"
-                                             [routerLink]="['/Caregivers',caregiver.Id]"
-                                             [queryParams]="{Edit:true}"
-                                             (click)="OnEditClick(i)"
-                                              title="Request to Edit">
-                                            <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
-                                          </a>&nbsp;
-                                          <a type="button"
-                                             class="my-pointer"
-                                             [routerLink]="['/Caregivers',caregiver.Id]"
-                                             [queryParams]="{Delete:true}"
-                                             (click)="OnDeleteClick(i)"
-                                             style="font-size: 1.2vmin"
-                                             title="Request to Delete">
-                                            <span class="glyphicon glyphicon-trash"></span> Del
+                                </div>
+                                <div class="row list-group-item" *ngIf="countCaregivers == '0'">
+                                    <div class="col-sm-12">
+                                        <p> You do not have caregivers.</p>
+                                    </div>
+                                </div>
+                                <div class="row" id="newCaregiver">
+                                          <a routerLink="/Caregivers/new"
+                                             (click)="OnNewClick()"
+                                             class="list-group-item"
+                                             [ngClass]="{'custom-bg':activeScreen == 'CaregiverNew'}"
+                                             title="Request to Add new">
+                                             <span class="	glyphicon glyphicon-plus-sign"></span>
+                                             <u> Add new Caregiver</u>
                                           </a>
-                                    </div>
-                              </div>
-
-                              <div class="row" id="newCaregiver">
-                                        <a routerLink="/Caregivers/new"
-                                           (click)="OnNewClick()"
-                                           class="list-group-item"
-                                           [ngClass]="{'custom-bg':activeScreen == 'CaregiverNew'}"
-                                           title="Request to Add new">
-                                           <span class="	glyphicon glyphicon-plus-sign"></span>
-                                           <u> Add new</u>
-                                        </a>
                                 </div>
                         </div>
               </div>

@@ -1,334 +1,331 @@
 <div class="container-fluid">
   <form [formGroup]="caregiverForm" (ngSubmit)="onSubmit()">
 
-      <!--Personal Details-->
-      <div class="row table">
+    <!--Personal Details-->
+    <div class="row table">
 
-            <!--Caregiver error Dialog-->
-            <div class="row " *ngIf="IsError" style="padding-top: 1%">
-              <div class="alert alert-danger alert-dismissable col-sm-12">
-                <div class="col-sm-9">
-                  <h3 style="font-size: 1.2vmin"> <strong>Errors! </strong>  </h3>
+      <!--Caregiver error Dialog-->
+      <div class="row " *ngIf="IsError" style="padding-top: 1%">
+        <div class="alert alert-danger alert-dismissable col-sm-12">
+          <div class="col-sm-9">
+            <h3 style="font-size: 1.2vmin"> <strong>Errors! </strong>  </h3>
 
-                  <ul *ngFor="let error of AllErrors" style="font-size: 1.2vmin" >
-                    * {{error}}
-                  </ul>
+            <ul *ngFor="let error of AllErrors" style="font-size: 1.2vmin" >
+              * {{error}}
+            </ul>
 
-                </div>
-                <div class="col-sm-3" align="right">
-                  <button class="btn-danger " align="middle"  data-dismiss="alert" aria-label="close" (click)="OnErrorOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
-                </div>
-              </div>
-            </div>
+          </div>
+          <div class="col-sm-3" align="right">
+            <button class="btn-danger " align="middle"  data-dismiss="alert" aria-label="close" (click)="OnErrorOkClick()"> Ok&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
+          </div>
+        </div>
+      </div>
 
-            <!--Caregiver added Dialog-->
-            <div class="row" *ngIf="IsFormSaved" style="padding-top: 1%">
-              <div class="alert alert-success alert-dismissable col-sm-12 ">
-                   <ul> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</ul>
-              </div>
-            </div>
+      <!--Caregiver added Dialog-->
+      <div class="row" *ngIf="IsFormSaved" style="padding-top: 1%">
+        <div class="alert alert-success alert-dismissable col-sm-12 ">
+          <ul> <strong>Success! </strong>Caregiver has been successfully added, you can edit other details and privelages by browsing from the navigation bar at left of the screen.</ul>
+        </div>
+      </div>
 
-          <!--Personal Header-->
-            <div class="row ">
-                <div class="col-sm-8">
-                      <h3>Personal Details</h3>
-                </div>
-            </div>
-            <br>
-          <!--Personal First Row-->
-            <div class="row">
-                  <div class="col-sm-3">
-                        <label> Name: </label>
-                        <br>
-                        <input
-                          type="text"
-                          class="form-inline"
-                          [ngClass]="{inputErrored: caregiverForm.controls['Name'].invalid && caregiverForm.controls['Name'].touched}"
-                          formControlName="Name"
-                        >
-                        <!--<div class="alert-danger" *ngIf="caregiverForm.get('Name').invalid && caregiverForm.controls['Name'].touched ">-->
-                          <!--<strong>Please enter the Name </strong>-->
-                        <!--</div>-->
-                  </div>
+      <!--Personal Header-->
+      <div class="row ">
+        <div class="col-sm-8">
+          <h3>Personal Details</h3>
+        </div>
+      </div>
+      <br>
+      <!--Personal First Row-->
+      <div class="row">
+        <div class="col-sm-3">
+          <label> Name: </label>
+          <br>
+          <input
+            type="text"
+            class="form-inline"
+            [ngClass]="{inputErrored: caregiverForm.controls['Name'].invalid && caregiverForm.controls['Name'].touched}"
+            formControlName="Name"
+          >
+        </div>
 
-                  <div class="col-sm-3">
-                        <label> Email Address: </label>
-                         <br>
-                        <input
-                          type="email"
-                          class="form-inline"
-                          [ngClass]="{inputErrored: caregiverForm.controls['EmailAddress'].invalid && caregiverForm.controls['EmailAddress'].touched}"
-                          formControlName="EmailAddress"
-                        >
-                  </div>
+        <div class="col-sm-3">
+          <label> Email Address: </label>
+          <br>
+          <input
+            type="email"
+            class="form-inline"
+            [ngClass]="{inputErrored: caregiverForm.controls['EmailAddress'].invalid && caregiverForm.controls['EmailAddress'].touched}"
+            formControlName="EmailAddress"
+          >
+        </div>
 
-                  <div class="col-sm-3">
-                          <label> Phone Number: </label>
-                          <br>
-                          <input
-                            id="PhoneNumber"
-                            type="text"
-                            placeholder="(___)-___-___"
-                            class="form-inline"
-                            formControlName="PhoneNumber"
-                            [ngClass]="{inputErrored: caregiverForm.controls['PhoneNumber'].invalid && caregiverForm.controls['PhoneNumber'].touched}"
-                          >
-                  </div>
+        <div class="col-sm-3">
+          <label> Phone Number: </label>
+          <br>
+          <input
+            id="PhoneNumber"
+            type="text"
+            placeholder="(___)-___-___"
+            class="form-inline"
+            formControlName="PhoneNumber"
+            [ngClass]="{inputErrored: caregiverForm.controls['PhoneNumber'].invalid && caregiverForm.controls['PhoneNumber'].touched}"
+          >
+        </div>
 
-                  <div class="col-sm-3">
-                          <label> Relationship: </label>
-                          <br>
-                          <input
-                            type="text"
-                            class="form-inline"
-                            formControlName="Relationship"
-                            [ngClass]="{inputErrored: caregiverForm.controls['Relationship'].invalid && caregiverForm.controls['Relationship'].touched}"
-                            auto-complete [source]="relationships"
-                          >
-                  </div>
-
-            </div>
+        <div class="col-sm-3">
+          <label> Relationship: </label>
+          <br>
+          <input
+            type="text"
+            class="form-inline"
+            formControlName="Relationship"
+            [ngClass]="{inputErrored: caregiverForm.controls['Relationship'].invalid && caregiverForm.controls['Relationship'].touched}"
+            auto-complete [source]="relationships"
+          >
+        </div>
 
       </div>
 
-      <hr>
+    </div>
 
-      <!--Privelages-->
-      <div class="row table ">
+    <hr>
 
-          <!--Privelages Header-->
-          <div class="row">
-                    <div class="col-sm-6">
-                          <h3>Select Privelages</h3>
-                    </div>
+    <!--Privelages-->
+    <div class="row table ">
+
+      <!--Privelages Header-->
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>Select Privelages</h3>
+        </div>
+      </div>
+      <br>
+
+      <!--Privelages First Row-->
+      <div class="row">
+
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label> Power of Attorney: </label>&nbsp;
+
+            <ui-switch color="#656515" style="float:right" formControlName="IsPowerofAttorney">
+            </ui-switch>
+            <!--<span class="glyphicon glyphicon-ok" *ngIf="switch1" ></span>-->
+            <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['IsPowerofAttorney']"></span>-->
           </div>
-          <br>
+        </div>
 
-          <!--Privelages First Row-->
-          <div class="row">
+        <div class="col-sm-1">
 
-                    <div class="col-sm-3">
-                          <div class="form-group">
-                                <label> Power of Attorney: </label>&nbsp;
+        </div>
 
-                                <ui-switch color="#656515" style="float:right" formControlName="IsPowerofAttorney">
-                                </ui-switch>
-                                <!--<span class="glyphicon glyphicon-ok" *ngIf="switch1" ></span>-->
-                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['IsPowerofAttorney']"></span>-->
-                          </div>
-                    </div>
-
-                    <div class="col-sm-1">
-
-                    </div>
-
-                    <div class="col-sm-3">
-                          <div class="form-group">
-                                <label> View Reports: </label>&nbsp;
-                                <ui-switch color="#656515" style="float:right" formControlName="ViewReports">
-                                </ui-switch>
-                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewReports']"></span>-->
-                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewReports']"></span>-->
-                          </div>
-                    </div>
-
-                    <div class="col-sm-1">
-
-                      </div>
-
-                    <div class="col-sm-3">
-                          <div class="form-group" >
-                                <label > View AVS: </label>&nbsp;
-                                <ui-switch color="#656515" style="float:right" formControlName="ViewAVS" >
-                                </ui-switch>
-                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewAVS']" ></span>-->
-                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewAVS']"   ></span>&nbsp; &nbsp;-->
-                          </div>
-                    </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label> View Reports: </label>&nbsp;
+            <ui-switch color="#656515" style="float:right" formControlName="ViewReports">
+            </ui-switch>
+            <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewReports']"></span>-->
+            <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewReports']"></span>-->
           </div>
+        </div>
 
-          <br>
+        <div class="col-sm-1">
 
-          <!--Privelages Second Row-->
-          <div class="row">
+        </div>
 
-                      <div class="col-sm-3">
-                              <div class="form-group" >
-                                    <label> Providers: </label>
-                                    <ul class="list-group" >
-                                          <li class="list-group-item">
-                                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewProviders']" ></span>-->
-                                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewProviders']" ></span>-->
-                                                &nbsp;View Providers
-                                                <ui-switch color="#656515" style="float:right" formControlName="ViewProviders" ></ui-switch>
-                                          </li>
-                                          <li class="list-group-item">
-                                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ManageProviders']" ></span>-->
-                                                <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ManageProviders']" ></span> &nbsp;-->
-                                                Manage Providers
-                                                <ui-switch color="#656515" style="float:right" formControlName="ManageProviders" ></ui-switch>
-                                          </li>
-                                    </ul>
-                              </div>
-                      </div>
-
-                      <div class="col-sm-1">
-
-                      </div>
-
-                      <div class="col-sm-3">
-                              <div class="form-group" >
-                                    <label> Messages: </label>
-                                    <ul class="list-group">
-                                          <li class="list-group-item">
-                                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewMessages']" ></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewMessages']" ></span> &nbsp;-->
-                                                Read Messages
-                                                <ui-switch color="#656515" style="float:right" formControlName="ViewMessages" ></ui-switch>
-                                          </li>
-                                          <li class="list-group-item">
-                                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['SendMessages']" ></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['SendMessages']" ></span>  &nbsp;-->
-                                                Send/ Reply Messages
-                                                <ui-switch color="#656515" style="float:right" formControlName="SendMessages" ></ui-switch>
-                                          </li>
-                                    </ul>
-                              </div>
-                      </div>
-
-                      <div class="col-sm-1">
-
-                      </div>
-
-                      <div class="col-sm-3">
-                            <div class="form-group" >
-                                  <label> Health at a Glance: </label>
-                                  <ul class="list-group">
-                                        <li class="list-group-item">
-                                              <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewHealthGlance']" ></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewHealthGlance']" ></span> &nbsp;-->
-                                              View Health at a Glance
-                                          <ui-switch color="#656515" style="float:right" formControlName="ViewHealthGlance" ></ui-switch>
-                                        </li>
-                                        <li class="list-group-item">
-                                              <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['EditHealthGlance']" ></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['EditHealthGlance']" ></span>  &nbsp;-->
-                                              Edit View Health at a Glance
-                                          <ui-switch color="#656515" style="float:right" formControlName="EditHealthGlance" ></ui-switch>
-                                        </li>
-                                  </ul>
-                            </div>
-                      </div>
-
+        <div class="col-sm-3">
+          <div class="form-group" >
+            <label > View AVS: </label>&nbsp;
+            <ui-switch color="#656515" style="float:right" formControlName="ViewAVS" >
+            </ui-switch>
+            <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewAVS']" ></span>-->
+            <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewAVS']"   ></span>&nbsp; &nbsp;-->
           </div>
+        </div>
+      </div>
 
-          <br>
+      <br>
 
-          <!--Privelages Third Row-->
-          <div class="row">
+      <!--Privelages Second Row-->
+      <div class="row">
 
-                      <div class="col-sm-3">
-                              <div class="form-group" >
-                                      <label > Payments: </label>
-                                      <ul class="list-group">
-                                            <li class="list-group-item">
-                                                  <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewBills']"></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewBills']"></span> &nbsp;-->
-                                                  View Bills<ui-switch color="#656515" style="float:right" formControlName="ViewBills" ></ui-switch>
-                                            </li>
-                                            <li class="list-group-item">
-                                                  <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['PayBills']"></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['PayBills']"></span> &nbsp;-->
-                                                  Pay Bills<ui-switch color="#656515" style="float:right" formControlName="PayBills" ></ui-switch>
-                                            </li>
-                                      </ul>
-                              </div>
-                      </div>
-
-                      <div class="col-sm-1">
-
-                      </div>
-
-                      <div class="col-sm-3">
-                              <div class="form-group" >
-                                    <label > Medications: </label>
-                                    <ul class="list-group">
-                                          <li class="list-group-item">
-                                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewMedications']"></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewMedications']" ></span> &nbsp;-->
-                                                View Medication<ui-switch color="#656515" style="float:right" formControlName="ViewMedications" ></ui-switch>
-                                          </li>
-                                          <li class="list-group-item">
-                                                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['RefillMedication']" ></span>-->
-                                                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['RefillMedication']"></span> &nbsp;-->
-                                                Request for refill<ui-switch color="#656515"style="float:right" formControlName="RefillMedication" ></ui-switch>
-                                          </li>
-                                    </ul>
-                              </div>
-                      </div>
-
-                      <div class="col-sm-1">
-
-                      </div>
-
-                      <div class="col-sm-3">
-                              <div class="form-group" >
-                                <label > Patient Plan: </label>
-                                <ul class="list-group">
-                                        <li class="list-group-item">
-                                              <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewPatientPlan']" ></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewPatientPlan']" ></span> &nbsp;-->
-                                              View Patient Plan<ui-switch color="#656515" style="float:right" formControlName="ViewPatientPlan" ></ui-switch>
-                                        </li>
-                                        <li class="list-group-item">
-                                              <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['EditPatientPlan']" ></span>-->
-                                              <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['EditPatientPlan']" ></span> &nbsp;-->
-                                          Edit Patient Plan <ui-switch color="#656515" style="float:right" formControlName="EditPatientPlan" ></ui-switch>
-                                        </li>
-                                </ul>
-                              </div>
-                      </div>
+        <div class="col-sm-3">
+          <div class="form-group" >
+            <label> Providers: </label>
+            <ul class="list-group" >
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewProviders']" ></span>-->
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewProviders']" ></span>-->
+                &nbsp;View Providers
+                <ui-switch color="#656515" style="float:right" formControlName="ViewProviders" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ManageProviders']" ></span>-->
+                <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ManageProviders']" ></span> &nbsp;-->
+                Manage Providers
+                <ui-switch color="#656515" style="float:right" formControlName="ManageProviders" ></ui-switch>
+              </li>
+            </ul>
           </div>
+        </div>
 
-          <br>
+        <div class="col-sm-1">
 
-          <!--Privelages Fourth Row-->
-          <div class="row">
+        </div>
 
-                      <div class="col-sm-3 col-xs-12">
-                              <div class="form-group" >
-                                      <label > Appointments: </label>
-                                      <ul class="list-group">
-                                            <li class="list-group-item">
-                                                  <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewAppointments']" ></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewAppointments']" ></span> &nbsp;-->
-                                                  View Appointments<ui-switch color="#656515" style="float:right" formControlName="ViewAppointments" ></ui-switch>
-                                            </li>
-                                            <li class="list-group-item">
-                                                  <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ScheduleAppointments']" ></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ScheduleAppointments']" ></span> &nbsp;-->
-                                                  Schedule Appointments<ui-switch color="#656515" style="float:right" formControlName="ScheduleAppointments" ></ui-switch>
-                                            </li>
-                                            <li class="list-group-item">
-                                                  <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['FillQuestionnaire']" ></span>-->
-                                                  <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['FillQuestionnaire']" ></span> &nbsp;-->
-                                                  Fill Questionnaire<ui-switch color="#656515" style="float:right" formControlName="FillQuestionnaire" ></ui-switch>
-                                            </li>
-                                      </ul>
-                              </div>
-                      </div>
-
+        <div class="col-sm-3">
+          <div class="form-group" >
+            <label> Messages: </label>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewMessages']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewMessages']" ></span> &nbsp;-->
+                Read Messages
+                <ui-switch color="#656515" style="float:right" formControlName="ViewMessages" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['SendMessages']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['SendMessages']" ></span>  &nbsp;-->
+                Send/ Reply Messages
+                <ui-switch color="#656515" style="float:right" formControlName="SendMessages" ></ui-switch>
+              </li>
+            </ul>
           </div>
+        </div>
 
-          <!--Privelages Buttons-->
-          <div class="row">
-                <div class="col-sm-5">
-                        <button type="submit" class="btn-success" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
-                        <button type="button" class="btn btn-danger " (click)="onCancel()">Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
-                </div>
+        <div class="col-sm-1">
+
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-group" >
+            <label> Health at a Glance: </label>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewHealthGlance']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewHealthGlance']" ></span> &nbsp;-->
+                View Health at a Glance
+                <ui-switch color="#656515" style="float:right" formControlName="ViewHealthGlance" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['EditHealthGlance']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['EditHealthGlance']" ></span>  &nbsp;-->
+                Edit View Health at a Glance
+                <ui-switch color="#656515" style="float:right" formControlName="EditHealthGlance" ></ui-switch>
+              </li>
+            </ul>
           </div>
+        </div>
 
       </div>
+
+      <br>
+
+      <!--Privelages Third Row-->
+      <div class="row">
+
+        <div class="col-sm-3">
+          <div class="form-group" >
+            <label > Payments: </label>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewBills']"></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewBills']"></span> &nbsp;-->
+                View Bills<ui-switch color="#656515" style="float:right" formControlName="ViewBills" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['PayBills']"></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['PayBills']"></span> &nbsp;-->
+                Pay Bills<ui-switch color="#656515" style="float:right" formControlName="PayBills" ></ui-switch>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-1">
+
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-group" >
+            <label > Medications: </label>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewMedications']"></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewMedications']" ></span> &nbsp;-->
+                View Medication<ui-switch color="#656515" style="float:right" formControlName="ViewMedications" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['RefillMedication']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['RefillMedication']"></span> &nbsp;-->
+                Request for refill<ui-switch color="#656515"style="float:right" formControlName="RefillMedication" ></ui-switch>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-1">
+
+        </div>
+
+        <div class="col-sm-3">
+          <div class="form-group" >
+            <label > Patient Plan: </label>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewPatientPlan']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewPatientPlan']" ></span> &nbsp;-->
+                View Patient Plan<ui-switch color="#656515" style="float:right" formControlName="ViewPatientPlan" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['EditPatientPlan']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['EditPatientPlan']" ></span> &nbsp;-->
+                Edit Patient Plan <ui-switch color="#656515" style="float:right" formControlName="EditPatientPlan" ></ui-switch>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <!--Privelages Fourth Row-->
+      <div class="row">
+
+        <div class="col-sm-3 col-xs-12">
+          <div class="form-group" >
+            <label > Appointments: </label>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewAppointments']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewAppointments']" ></span> &nbsp;-->
+                View Appointments<ui-switch color="#656515" style="float:right" formControlName="ViewAppointments" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ScheduleAppointments']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ScheduleAppointments']" ></span> &nbsp;-->
+                Schedule Appointments<ui-switch color="#656515" style="float:right" formControlName="ScheduleAppointments" ></ui-switch>
+              </li>
+              <li class="list-group-item">
+                <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['FillQuestionnaire']" ></span>-->
+                <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['FillQuestionnaire']" ></span> &nbsp;-->
+                Fill Questionnaire<ui-switch color="#656515" style="float:right" formControlName="FillQuestionnaire" ></ui-switch>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!--Privelages Buttons-->
+      <div class="row">
+        <div class="col-sm-5">
+          <button type="submit" class="btn-success" (click)="OnSaveClick()"> Add Caregiver &nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+          <button type="button" class="btn btn-danger " (click)="onCancel()"> Reset <span class="glyphicon glyphicon-remove-circle"></span> </button>
+        </div>
+      </div>
+
+    </div>
 
   </form>
 </div>

@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^4.3.2",
     "@angular/cdk": "github:angular/cdk-builds",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -27,6 +28,7 @@
     "angular-ui-scroll": "^1.6.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "hammerjs": "^2.0.8",
     "jquery": "^3.2.1",
     "ng-auto-complete": "^1.3.12",
     "ngx-ui-switch": "^1.3.8",

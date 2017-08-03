@@ -5,7 +5,7 @@ cursor: pointer;
 
 span
 {
-  zoom: 250%;
+  zoom: 200%;
 }
 
 .panel-body
@@ -52,4 +52,14 @@ button{
 
 .btn-success {
   background-color: #656515;
+}
+
+.HidePanel
+{
+  visibility: hidden;
+}
+
+.ShowPanel
+{
+  visibility: visible;
 }

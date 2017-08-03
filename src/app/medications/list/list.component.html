@@ -4,19 +4,20 @@
           <div class="col-sm-3">
               <h3>{{ activeMedicationListTab}} Medicines List</h3>
           </div>
+          <!--Filter-->
           <div class="col-sm-9" >
                 <ul class="list-inline" style="float: right">
                    <li style="font-size: x-large">
                      Filter-
                    </li>
                     <li>
-                      <button (click)="AllClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}"> All</button>
+                      <button title="List All Medicines" (click)="AllClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}"> All</button>
                     </li>
                     <li>
-                      <button (click)="PrescribedClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">Prescribed</button>
+                      <button title="List only Prescribed Medicines" (click)="PrescribedClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">Prescribed</button>
                     </li>
                     <li>
-                      <button (click)="OTCClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">Over the Counter</button>
+                      <button title="List only Over the Counter Medicines" (click)="OTCClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">Over the Counter</button>
                     </li>
               </ul>
           </div>
@@ -27,120 +28,274 @@
         <div class="panel panel-default">
           <!--Medication List Grid header-->
               <div class="panel-heading">
-                <div class="row">
-                  <div class="col-sm-1" align="center">
-                    <h3>Refill</h3>
-                  </div>
-                  <div class="col-sm-3" align="center">
-                    <h3>Name</h3>
-                  </div>
-                  <div class="col-sm-3" align="center">
-                    <h3>Frequency</h3>
-                  </div>
-                  <div class="col-sm-3" align="center">
-                    <h3>Dosage</h3>
-                  </div>
-                  <div class="col-sm-1" align="center">
-                    <h3>Details</h3>
-                  </div>
-                  <div class="col-sm-1" align="center">
-                    <h3>Information</h3>
-                  </div>
-                </div>
+                    <div class="row">
+                          <div class="col-sm-2" align="center">
+                            <h3>Refill</h3>
+                          </div>
+                          <div class="col-sm-3" align="center">
+                            <h3>Name</h3>
+                          </div>
+                          <div class="col-sm-2" align="center">
+                            <h3>Frequency</h3>
+                          </div>
+                          <div class="col-sm-3" align="center">
+                            <h3>Dosage</h3>
+                          </div>
+                          <div class="col-sm-1" align="center">
+                            <h3>Details</h3>
+                          </div>
+                          <div class="col-sm-1" align="center">
+                            <h3>Information</h3>
+                          </div>
+                    </div>
               </div>
 
               <!--Medication List Grid Rows-->
+              <!--Medication List Grid- All Rows-->
               <div class="panel-body" *ngIf="activeMedicationListTab == 'All'">
                 <ul class="list-group">
-                  <li *ngFor="let medicine of MedicationList" class="list-group-item">
-                    <div class="row" style="padding-top: 1%">
-                        <div class="col-sm-1" align="center">
-                          <a><span class="glyphicon glyphicon-registration-mark"></span></a>
+                  <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item">
+                        <div class="row" style="padding-top: 1%">
+                              <div class="col-sm-2" align="center">
+                                <a title="Request Refill"><span class="glyphicon glyphicon-registration-mark"></span> Request Refill</a>
+                              </div>
+                              <a      (click)="MedicineDetails_All_Click(i)"
+                                      style="cursor: pointer"
+                                      title="More Details"
+                              >
+                                          <div class="col-sm-3" align="center">
+                                            <p>{{medicine.Name}}</p>
+                                          </div>
+                                          <div class="col-sm-2" align="center">
+                                            <p>{{medicine.Frequency}}</p>
+                                          </div>
+                                          <div class="col-sm-3" align="center">
+                                            <p>{{medicine.Dosage}}</p>
+                                          </div>
+                                          <div class="col-sm-1" align="center">
+                                              <span class="glyphicon glyphicon-chevron-down" *ngIf="ShowDetailedPanel_All[i] == false"></span>
+                                              <span class="glyphicon glyphicon-chevron-up"  *ngIf="ShowDetailedPanel_All[i] == true"></span>
+                                          </div>
+                              </a>
+                              <div class="col-sm-1" align="center">
+                                    <a title="Medicine Information"><span class="glyphicon glyphicon-info-sign"></span></a>
+                              </div>
                         </div>
-                        <a [routerLink]="['/Medications/List',medicine.Id]"
-                         (click)="OnMedicineDetailsClick()" style="cursor: pointer">
-                                <div class="col-sm-3" align="center">
-                                  <p>{{medicine.Name}}</p>
-                                </div>
-                                <div class="col-sm-3" align="center">
-                                  <p>{{medicine.Frequency}}</p>
-                                </div>
-                                <div class="col-sm-3" align="center">
-                                  <p>{{medicine.Dosage}}</p>
-                                </div>
-                                <div class="col-sm-1" align="center">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                </div>
-                        </a>
-                        <div class="col-sm-1" align="center">
-                              <a><span class="glyphicon glyphicon-info-sign"></span></a>
+
+                        <!--Details Panel- All tab-->
+                        <br *ngIf="ShowDetailedPanel_All[i] == true" >
+                        <div class="panel panel-default" *ngIf="ShowDetailedPanel_All[i] == true" style="background-color: aliceblue">
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                          <div class="col-sm-4">
+                                                <a>
+                                                  {{medicine.Name}} Information
+                                                </a>
+                                          </div>
+                                          <div class="col-sm-4">
+                                                <a>
+                                                  {{medicine.Name}} Precautions
+                                                </a>
+                                          </div>
+                                          <div class="col-sm-4">
+                                                <a>
+                                                  {{medicine.Name}} Contraindications
+                                                </a>
+                                          </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                          <div class="col-sm-4">
+                                            <Label> Generic Name: {{medicine.Name}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Frequency: {{medicine.Frequency}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Dosage: {{medicine.Dosage}}  </Label>
+                                          </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                          <div class="col-sm-4">
+                                            <Label> Route: {{medicine.Route}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Start Date: {{medicine.StartDate}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Stop Date: {{medicine.StopDate}}  </Label>
+                                          </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%;padding-bottom: 1%">
+                                          <div class="col-sm-4">
+                                            <Label> Refill Status: {{medicine.RefillStatus}}  </Label>
+                                          </div>
+                                    </div>
                         </div>
-                    </div>
                   </li>
                 </ul>
               </div>
 
+              <!--Medication List Grid- Prescribed Rows-->
               <div class="panel-body" *ngIf="activeMedicationListTab == 'Prescribed'">
                   <ul class="list-group">
-                        <li *ngFor="let medicine of MedicationListPrescribed" class="list-group-item">
-                            <div class="row" style="padding-top: 1%">
-                                      <div class="col-sm-1" align="center">
-                                        <a><span class="glyphicon glyphicon-registration-mark"></span></a>
+                        <li *ngFor="let medicine of MedicationListPrescribed; let i = index" class="list-group-item">
+                              <div class="row" style="padding-top: 1%">
+                                      <div class="col-sm-2" align="center">
+                                          <a title="Request Refill"><span class="glyphicon glyphicon-registration-mark"></span>Request Refill</a>
                                       </div>
-                                      <a [routerLink]="['/Medications/List',medicine.Id]"
-                                       (click)="OnMedicineDetailsClick()" style="cursor: pointer">
+                                      <a    title="More Details"
+                                            (click)="MedicineDetails_Prescribed_Click(i)" style="cursor: pointer">
                                             <div class="col-sm-3" align="center">
                                               <p>{{medicine.Name}}</p>
                                             </div>
-                                            <div class="col-sm-3" align="center">
+                                            <div class="col-sm-2" align="center">
                                               <p>{{medicine.Frequency}}</p>
                                             </div>
                                             <div class="col-sm-3" align="center">
                                               <p>{{medicine.Dosage}}</p>
                                             </div>
                                             <div class="col-sm-1" align="center">
-                                              <span class="glyphicon glyphicon-chevron-right"></span>
+                                              <span class="glyphicon glyphicon-chevron-down" *ngIf="ShowDetailedPanel_Prescribed[i] == false"></span>
+                                              <span class="glyphicon glyphicon-chevron-up" *ngIf="ShowDetailedPanel_Prescribed[i] == true"></span>
                                             </div>
                                        </a>
                                       <div class="col-sm-1" align="center">
-                                            <a><span class="glyphicon glyphicon-info-sign"></span></a>
+                                            <a title="Medicine Information"><span class="glyphicon glyphicon-info-sign"></span></a>
                                       </div>
+                              </div>
 
-                            </div>
+                              <!--Details Panel- Prescribed tab-->
+                              <br *ngIf="ShowDetailedPanel_Prescribed[i] == true" >
+                              <div class="panel panel-default" *ngIf="ShowDetailedPanel_Prescribed[i] == true" style="background-color: aliceblue">
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                          <div class="col-sm-4">
+                                            <a>
+                                              {{medicine.Name}} Information
+                                            </a>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <a>
+                                              {{medicine.Name}} Precautions
+                                            </a>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <a>
+                                              {{medicine.Name}} Contraindications
+                                            </a>
+                                          </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                          <div class="col-sm-4">
+                                            <Label> Generic Name: {{medicine.Name}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Frequency: {{medicine.Frequency}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Dosage: {{medicine.Dosage}}  </Label>
+                                          </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                          <div class="col-sm-4">
+                                            <Label> Route: {{medicine.Route}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Start Date: {{medicine.StartDate}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> Stop Date: {{medicine.StopDate}}  </Label>
+                                          </div>
+                                    </div>
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%;padding-bottom: 1%">
+                                          <div class="col-sm-4">
+                                            <Label> Refill Status: {{medicine.RefillStatus}}  </Label>
+                                          </div>
+                                    </div>
+                              </div>
                         </li>
                     </ul>
               </div>
 
+              <!--Medication List Grid- OTC Rows-->
               <div class="panel-body" *ngIf="activeMedicationListTab == 'Over the Counter'">
-                <ul class="list-group">
-                  <li *ngFor="let medicine of MedicationListOTC" class="list-group-item">
-                    <div class="row" style="padding-top: 1%">
-                          <div class="col-sm-1" align="center">
-                            <a><span class="glyphicon glyphicon-registration-mark"></span></a>
-                          </div>
-                          <a [routerLink]="['/Medications/List',medicine.Id]"
-                             (click)="OnMedicineDetailsClick()" style="cursor: pointer">
-                                  <div class="col-sm-3" align="center">
-                                    <p>{{medicine.Name}}</p>
-                                  </div>
-                                  <div class="col-sm-3" align="center">
-                                    <p>{{medicine.Frequency}}</p>
-                                  </div>
-                                  <div class="col-sm-3" align="center">
-                                    <p>{{medicine.Dosage}}</p>
-                                  </div>
-                                  <div class="col-sm-1" align="center">
-                                        <span class="glyphicon glyphicon-chevron-right"></span>
-                                  </div>
-                          </a>
-                          <div class="col-sm-1" align="center">
-                            <a><span class="glyphicon glyphicon-info-sign"></span></a>
-                          </div>
-                    </div>
-                  </li>
-                </ul>
+                    <ul class="list-group">
+                          <li *ngFor="let medicine of MedicationListOTC; let i = index" class="list-group-item">
+                                <div class="row" style="padding-top: 1%">
+                                      <div class="col-sm-2" align="center">
+                                        <a title="Request Refill"><span class="glyphicon glyphicon-registration-mark"></span>Request Refill</a>
+                                      </div>
+                                      <a title="More Details"
+                                         (click)="MedicineDetails_OTC_Click(i)" style="cursor: pointer">
+                                              <div class="col-sm-3" align="center">
+                                                <p>{{medicine.Name}}</p>
+                                              </div>
+                                              <div class="col-sm-2" align="center">
+                                                <p>{{medicine.Frequency}}</p>
+                                              </div>
+                                              <div class="col-sm-3" align="center">
+                                                <p>{{medicine.Dosage}}</p>
+                                              </div>
+                                              <div class="col-sm-1" align="center">
+                                                  <span class="glyphicon glyphicon-chevron-down" *ngIf="ShowDetailedPanel_OTC[i] == false"></span>
+                                                  <span class="glyphicon glyphicon-chevron-up" *ngIf="ShowDetailedPanel_OTC[i] == true"></span>
+                                              </div>
+                                      </a>
+                                      <div class="col-sm-1" align="center">
+                                            <a title="Medicine Information"><span class="glyphicon glyphicon-info-sign"></span></a>
+                                      </div>
+                                </div>
+                            <!--Details Panel- OTC tab-->
+                            <br *ngIf="ShowDetailedPanel_OTC[i] == true" >
+                            <div class="panel panel-default" *ngIf="ShowDetailedPanel_OTC[i] == true" style="background-color: aliceblue">
+                              <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                <div class="col-sm-4">
+                                  <a>
+                                    {{medicine.Name}} Information
+                                  </a>
+                                </div>
+                                <div class="col-sm-4">
+                                  <a>
+                                    {{medicine.Name}} Precautions
+                                  </a>
+                                </div>
+                                <div class="col-sm-4">
+                                  <a>
+                                    {{medicine.Name}} Contraindications
+                                  </a>
+                                </div>
+                              </div>
+                              <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                <div class="col-sm-4">
+                                  <Label> Generic Name: {{medicine.Name}}  </Label>
+                                </div>
+                                <div class="col-sm-4">
+                                  <Label> Frequency: {{medicine.Frequency}}  </Label>
+                                </div>
+                                <div class="col-sm-4">
+                                  <Label> Dosage: {{medicine.Dosage}}  </Label>
+                                </div>
+                              </div>
+                              <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                <div class="col-sm-4">
+                                  <Label> Route: {{medicine.Route}}  </Label>
+                                </div>
+                                <div class="col-sm-4">
+                                  <Label> Start Date: {{medicine.StartDate}}  </Label>
+                                </div>
+                                <div class="col-sm-4">
+                                  <Label> Stop Date: {{medicine.StopDate}}  </Label>
+                                </div>
+                              </div>
+                              <div class="row" style="padding-left: 1%;padding-top: 1%;padding-bottom: 1%">
+                                <div class="col-sm-4">
+                                  <Label> Refill Status: {{medicine.RefillStatus}}  </Label>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                    </ul>
               </div>
+
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>
+<router-outlet ></router-outlet>

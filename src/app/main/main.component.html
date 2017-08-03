@@ -55,16 +55,37 @@
                   <h4>Health at a Glance</h4>
                 </div>
             <div class="panel-body">
-                <div *ngFor="let module of modulesRow3" class="col-sm-3 col-xs-3" align="center">
-                      <a routerLink="/{{module.ModuleName}}">
+                  <div *ngFor="let module of modulesRow3" class="col-sm-3 col-xs-3" align="center">
+                        <a routerLink="/{{module.ModuleName}}">
+                        <img
+                        [src]="module.IconUrl"
+                        alt="{{ module.ModuleName }}"
+                        class="img-responsive list-group-item"
+                        >
+                        <p> {{ module.ModuleName }}</p>
+                        </a>
+                  </div>
+                  <div class="col-sm-3 col-xs-3" align="center">
+                    <a href='https://skyv04.github.io/EHR_RP/previsit_questionnaire'>
                       <img
-                      [src]="module.IconUrl"
-                      alt="{{ module.ModuleName }}"
-                      class="img-responsive list-group-item"
+                        [src]="'https://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png'"
+                        alt="Patient Health Questionaire"
+                        class="img-responsive list-group-item"
                       >
-                      <p> {{ module.ModuleName }}</p>
-                      </a>
-                </div>
+                      <p>Patient Health Questionaire</p>
+                    </a>
+                  </div>
+                  <div class="col-sm-3 col-xs-3" align="center">
+                    <a routerLink="/After Visit Summary">
+                      <img
+                        [src]="'https://icons.iconarchive.com/icons/umut-pulat/tulliana-2/128/korganizer-icon.png'"
+                        alt="After Visit Summary"
+                        class="img-responsive list-group-item"
+                      >
+                      <p>After Visit Summary</p>
+                    </a>
+                  </div>
+
             </div>
           </div>
 

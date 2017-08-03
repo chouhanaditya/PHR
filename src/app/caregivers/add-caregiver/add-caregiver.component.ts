@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {MdButtonModule, MdInputModule} from '@angular/material';
+declare const jQuery: any;
 
 @Component({
   selector: 'app-add-caregiver',
@@ -21,12 +23,13 @@ export class AddCaregiverComponent implements OnInit {
 
  Newcaregiver: Caregiver;
 
- constructor(public objCaregiverService: CaregiverService, private route: Router) {
+ constructor(public objCaregiverService: CaregiverService, private route: Router, private el: ElementRef) {
  }
 
   ngOnInit() {
-   this.caregiverForm = new FormGroup({
-                          Id: new FormControl(('4')),
+     console.log('New id' + this.objCaregiverService.getNextCaregiverID());
+     this.caregiverForm = new FormGroup({
+                          Id: new FormControl(''),
                           Name: new FormControl('', Validators.required),
                           ImageURL: new FormControl(''),
                           EmailAddress: new FormControl('', [Validators.required, Validators.email]),
@@ -54,6 +57,7 @@ export class AddCaregiverComponent implements OnInit {
 
   onSubmit() {
    if (this.caregiverForm.valid) {
+     this.caregiverForm.controls['Id'].setValue(this.objCaregiverService.getNextCaregiverID());
      this.objCaregiverService.addCaregiver(this.caregiverForm.value);
      this.caregiverForm.reset();
      this.IsError = false;
@@ -73,6 +77,8 @@ export class AddCaregiverComponent implements OnInit {
       this.IsError = false;
       setTimeout(
         () => { this.IsFormSaved = false;
+          this.objCaregiverService.setActiveScreen('CaregiverHome');
+          this.route.navigate(['/Caregivers']);
         }, 4000);
       } else {
       this.AllErrors = [];
@@ -83,6 +89,7 @@ export class AddCaregiverComponent implements OnInit {
   OnErrorOkClick() {
     this.IsError = false;
   }
+
   getFormValidationErrors() {
     Object.keys(this.caregiverForm.controls).forEach(key => {
 

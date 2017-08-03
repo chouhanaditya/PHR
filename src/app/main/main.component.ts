@@ -35,8 +35,8 @@ export class MainComponent implements OnInit {
     this.modulesRow3 = [
       {"ModuleName":"My Goals","IconUrl":"http://icons.iconarchive.com/icons/icojam/blue-bits/128/document-write-icon.png"},
       {"ModuleName":"My History","IconUrl":"http://icons.iconarchive.com/icons/mcdo-design/smooth-leopard/128/History-Folder-Lavender-icon.png"},
-      {"ModuleName":"Patient Health Questionaire","IconUrl":"http://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png"},
-      {"ModuleName":"After Visit Summary","IconUrl":"http://icons.iconarchive.com/icons/umut-pulat/tulliana-2/128/korganizer-icon.png"},
+      // {"ModuleName":"Patient Health Questionaire","IconUrl":"http://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png"},
+      // {"ModuleName":"After Visit Summary","IconUrl":"http://icons.iconarchive.com/icons/umut-pulat/tulliana-2/128/korganizer-icon.png"},
     ];
 
     this.modulesRow4 = [

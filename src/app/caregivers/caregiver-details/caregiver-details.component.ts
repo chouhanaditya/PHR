@@ -39,6 +39,7 @@ export class CaregiverDetailsComponent implements OnInit {
       (params: Params) => {
         this.SelectedCaregiverId = params['id'];
         this.SelectedCaregiver = this.objCaregiverService.getCaregiverDetails(this.SelectedCaregiverId);
+        console.log(this.SelectedCaregiver);
       }
     );
     this.route.queryParams.subscribe(
@@ -54,6 +55,7 @@ export class CaregiverDetailsComponent implements OnInit {
       setTimeout(
         () => { this.IsSaveDialog = false;
       }, 4000);
+      this.route1.navigate(['/Caregivers', this.SelectedCaregiverId]);
     }
     OnCancelClick() {
       this.objCaregiverService.setActiveScreen('CaregiverHome');

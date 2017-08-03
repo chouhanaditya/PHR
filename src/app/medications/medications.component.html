@@ -5,7 +5,7 @@
                 <div class="list-group">
                       <a [routerLink]="['/Medications/List']"
                          class="list-group-item"
-                         [ngClass]="{'activeTab':activeScreen == 'MedicationList'}"
+                         [ngClass]="{'custom-bg':activeScreen == 'MedicationList'}"
                          (click)="OnListClick()"
                         >
                           Medication List
@@ -13,7 +13,7 @@
                       </a>
                       <a [routerLink]="['/Medications/Refill']"
                          class="list-group-item "
-                         [ngClass]="{'activeTab':activeScreen == 'MedicationRefill'}"
+                         [ngClass]="{'custom-bg':activeScreen == 'MedicationRefill'}"
                          (click)="OnRefillClick()"
                        >
                           Medication Refill
@@ -21,7 +21,7 @@
                       </a>
                       <a [routerLink]="['/Medications/History']"
                          class="list-group-item"
-                         [ngClass]="{'activeTab':activeScreen == 'MedicationHistory'}"
+                         [ngClass]="{'custom-bg':activeScreen == 'MedicationHistory'}"
                          (click)="OnHistoryClick()"
                          >
                           Medication History
@@ -53,7 +53,7 @@
                  </ul>
 
                 </div>
-                <router-outlet>
+                <router-outlet *ngIf="activeScreen != 'MedicationHome'">
                 </router-outlet>
           </div>
     </div>

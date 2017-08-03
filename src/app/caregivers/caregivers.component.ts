@@ -16,7 +16,7 @@ export class CaregiversComponent implements OnInit, OnDestroy {
   activeScreen: string;
   subscriptionCaregiversList: Subscription;
   subscriptionActiveScreen: Subscription;
-
+  countCaregivers = 0;
   constructor(private route: ActivatedRoute, public objCaregiver: CaregiverService, private el: ElementRef ) { }
 
   ngOnInit() {
@@ -24,6 +24,7 @@ export class CaregiversComponent implements OnInit, OnDestroy {
       .subscribe(
         (caregiversList: Caregiver[]) => {
           this.caregiversList = caregiversList;
+          this.countCaregivers = caregiversList.length;
       }
       );
 
@@ -35,6 +36,7 @@ export class CaregiversComponent implements OnInit, OnDestroy {
       );
 
     this.caregiversList = this.objCaregiver.getCaregiversList();
+    this.countCaregivers = this.caregiversList.length;
     this.activeScreen = this.objCaregiver.getActiveScreen();
   }
 

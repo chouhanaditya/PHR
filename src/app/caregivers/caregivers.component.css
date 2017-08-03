@@ -17,3 +17,7 @@ h3,a,ul,p
 .custom-bg {
   background-color: lightblue!important;
 }
+
+.font-links {
+  font-size: 1.2vmin;
+}
