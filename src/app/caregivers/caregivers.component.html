@@ -7,7 +7,7 @@
                         <h3 *ngIf="countCaregivers != 0">Below are your caregivers- </h3>
                         <br *ngIf="countCaregivers != 0">
                         <div class="list-group" style="padding-left: 2%">
-                                <div class="row list-group-item" *ngIf="countCaregivers != 0">
+                                <div *ngIf="countCaregivers != 0">
                                     <div class="row list-group-item" *ngFor="let caregiver of caregiversList;let i=index" id="caregiver_{{i}}">
                                           <div class="col-sm-6">
                                               <a  [routerLink]="['/Caregivers',caregiver.Id]"

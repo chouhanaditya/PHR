@@ -1,44 +1,44 @@
-  <div class="container-fluid" style="background-color: silver">
-       <div class="row panel-heading">
-                    <div class="col-sm-2 ">
-                         <a routerLink="/Home"><img
-                                src="http://brandwise.unmc.edu/wp-content/uploads/sites/6/2014/07/overview-1.png"
-                                alt="UNMC Logo"
-                                style="max-height: 5vmin;"
-                                >
-                         </a>
+<div class="container-fluid" style="background-color: silver">
+  <div class="row">
+    <div class="col-sm-2 ">
+      <a routerLink="/Home"><img
+        src="http://brandwise.unmc.edu/wp-content/uploads/sites/6/2014/07/overview-1.png"
+        alt="UNMC Logo"
+        style="max-height: 5vmin;"
+      >
+      </a>
 
-                    </div>
+    </div>
 
-                  <div class="col-sm-8" align="center">
-                       <h1 style="color: darkred">
-                          MyChart
-                       </h1>
-                   </div>
+    <div class="col-sm-8" align="center">
+      <h1 style="color: darkred">
+        MyChart
+      </h1>
+    </div>
 
-                  <div class="col-sm-2" align="right" style="position: relative">
+    <div class="col-sm-2" align="right" style="position: relative">
 
-                        <a type="button" class=" dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size: 2vmin"
-                           (click)="(ShowLogoutDropDown) ? ShowLogoutDropDown = false : ShowLogoutDropDown = true">
-                            Logout <span class="caret"></span>
-                        </a>
+      <a type="button" class=" dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size: 2vmin"
+         (click)="(ShowLogoutDropDown) ? ShowLogoutDropDown = false : ShowLogoutDropDown = true">
+        Logout <span class="caret"></span>
+      </a>
 
-                        <div class="container-fluid" *ngIf="ShowLogoutDropDown" style="position:absolute;right: 30px;top:48px;z-index: 9999">
-                            <ul>
-                                  <li  class="list-group-item">
-                                      <a class="my-pointer"><span class="glyphicon glyphicon-edit"></span>&nbsp; Edit Profile</a>
-                                  </li>
+      <div class="container-fluid" *ngIf="ShowLogoutDropDown" style="position:absolute;right: 30px;top:48px;z-index: 9999">
+        <ul>
+          <li  class="list-group-item">
+            <a class="my-pointer"><span class="glyphicon glyphicon-edit"></span>&nbsp; Edit Profile</a>
+          </li>
 
-                                  <li  class="list-group-item">
-                                      <a class="my-pointer"><span class="glyphicon glyphicon-off"></span>&nbsp; Logout</a>
-                                  </li>
+          <li  class="list-group-item">
+            <a class="my-pointer"><span class="glyphicon glyphicon-off"></span>&nbsp; Logout</a>
+          </li>
 
-                                  <li  class="list-group-item">
-                                    <a  class="my-pointer"><span class="glyphicon glyphicon-cog"></span>&nbsp; Settings</a>
-                                  </li>
-                            </ul>
-                        </div>
-                 </div>
+          <li  class="list-group-item">
+            <a  class="my-pointer"><span class="glyphicon glyphicon-cog"></span>&nbsp; Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-        </div>
- </div>
+  </div>
+</div>
