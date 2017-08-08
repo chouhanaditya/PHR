@@ -27,7 +27,6 @@ export class AddCaregiverComponent implements OnInit {
  }
 
   ngOnInit() {
-     console.log('New id' + this.objCaregiverService.getNextCaregiverID());
      this.caregiverForm = new FormGroup({
                           Id: new FormControl(''),
                           Name: new FormControl('', Validators.required),
@@ -36,23 +35,26 @@ export class AddCaregiverComponent implements OnInit {
                           PhoneNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern(/^[1-9]+[0-9]*$/)]),
                           Relationship:  new FormControl('', Validators.required),
                           IsPowerofAttorney: new FormControl(false),
-                          ViewReports: new FormControl(false),
-                          ViewAVS: new FormControl(false),
-                          ViewHealthGlance: new FormControl(false),
-                          EditHealthGlance: new FormControl(false),
-                          ViewProviders: new FormControl(false),
-                          ManageProviders: new FormControl(false),
                           ViewMessages: new FormControl(false),
                           SendMessages: new FormControl(false),
-                          ViewMedications: new FormControl(false),
-                          RefillMedication: new FormControl(false),
-                          ViewBills: new FormControl(false),
-                          PayBills: new FormControl(false),
                           ViewAppointments: new FormControl(false),
                           ScheduleAppointments: new FormControl(false),
+                          ViewMedications: new FormControl(false),
+                          RefillMedication: new FormControl(false),
+                          ViewReports: new FormControl(false),
+                          SaveReports: new FormControl(false),
+                          ViewPatientGoals: new FormControl(false),
+                          EditPatientGoals: new FormControl(false),
+                          ViewHistory: new FormControl(false),
+                          SaveHistory: new FormControl(false),
                           FillQuestionnaire: new FormControl(false),
-                          ViewPatientPlan: new FormControl(false),
-                          EditPatientPlan: new FormControl(false)});
+                          SaveQuestionnaire: new FormControl(false),
+                          ViewAVS: new FormControl(false),
+                          SaveAVS: new FormControl(false),
+                          ViewProviders: new FormControl(false),
+                          ManageProviders: new FormControl(false),
+                          ViewBills: new FormControl(false),
+                          PayBills: new FormControl(false)});
   }
 
   onSubmit() {

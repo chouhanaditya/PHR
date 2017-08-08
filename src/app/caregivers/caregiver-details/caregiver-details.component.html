@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid" style="padding-top: 1%">
         <!--Save Dialog Box-->
         <div class="row table" *ngIf="IsSaveDialog" style="padding-top: 1%">
             <div class="alert alert-success alert-dismissable col-sm-12">
                 <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
-                <p style="font-size: 1.2vmin"> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</p>
+                <label style="font-size: 1.2vmin"> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</label>
             </div>
         </div>
 
@@ -11,7 +11,7 @@
         <div class="row table" *ngIf="IsDeleteDialog" style="padding-top: 1%">
           <div class="alert alert-danger alert-dismissable col-sm-12">
             <div class="col-sm-9">
-              <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. It will delete personal details and all the privelages. Are you sure you want to delete?</h4>
+              <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. It will delete personal details and all the Privilege. Are you sure you want to delete?</h4>
             </div>
             <div class="col-sm-3" align="right">
               <a class="btn-danger my-pointer" align="middle"  (click)="OnDeleteConfimedClick()"> Yes&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></a>
@@ -21,398 +21,395 @@
           </div>
         </div>
 
-        <!--Personal Details-->
-        <div class="row">
-              <!--Personal Details Header-->
-              <div class="row table">
-                      <div class="col-sm-10">
-                        <h3>Caregiver {{ SelectedCaregiver.Name }}: Personal Details</h3>
-                      </div>
+
+        <div class="panel panel-default">
+
+          <!--Personal Details-->
+              <div class="panel-heading table" style="background-color: antiquewhite">
+                  <div class="row col-sm-5">
+                       <p style="text-align: left">{{ SelectedCaregiver.Name }}: Personal Details</p>
+                  </div>
+              </div>
+              <div class="panel-body">
+                  <div class="row">
+                           <div class="col-sm-3">
+                                 <label > Name: </label>
+                                 <br>
+                                 <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.Name" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
+                           </div>
+
+                            <div class="col-sm-3">
+                                  <label > Email Address: </label>
+                                  <br>
+                                  <input type="email" class="form-inline" [(ngModel)]="SelectedCaregiver.EmailAddress"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
+                            </div>
+
+                          <div class="col-sm-2">
+                                <label > Phone Number: </label>
+                                <br>
+                                <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.PhoneNumber"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
+                          </div>
+
+                          <div class="col-sm-2">
+                               <label > Relationship: </label>
+                                <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
+                          </div>
+                          <div class="col-sm-2">
+                                <label >Power of Attorney: </label><br>
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" >Yes</label>
+                                <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline" style="color: darkred" >No</label>
+                          </div>
+                  </div>
               </div>
 
-              <!--Personal Details First row-->
-              <div class="row table">
-                       <div class="col-sm-3">
-                         <label > Name: </label>
-                         <br>
-                         <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.Name" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
-                       </div>
+              <br>
+              <br>
 
-                        <div class="col-sm-3">
-                          <label > Email Address: </label>
-                          <br>
-                          <input type="email" class="form-inline" [(ngModel)]="SelectedCaregiver.EmailAddress"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
-                        </div>
-
-                      <div class="col-sm-3">
-                        <label > Phone Number: </label>
-                        <br>
-                        <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.PhoneNumber"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
-                      </div>
-
-                      <div class="col-sm-3">
-                        <label > Relationship: </label>
-                        <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
-                      </div>
+              <div class="panel-heading table" style="background-color: antiquewhite">
+              <div class="row col-sm-5">
+                <p style="text-align: left">{{ SelectedCaregiver.Name }}: Privileges</p>
               </div>
-        </div>
-
-        <hr>
-
-        <!--Privelages-->
-        <div class="row">
-
-            <div class="row table">
-                <div class="col-sm-10">
-                    <h3> Caregiver {{ SelectedCaregiver.Name }}:  Privelages </h3>
-                </div>
-            </div>
-
-            <!--Privelages First Row-->
-            <div class="row table">
-
-                  <div class="col-sm-3">
-                    <div class="form-group">
-
-                        <label >Power of Attorney: </label>&nbsp;
-                        <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-
-                        <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" >
-                          <span class="glyphicon glyphicon-ok"></span> Yes
-                        </label>
-
-                        <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline" >
-                          <span class="glyphicon glyphicon-remove"></span> No
-                        </label>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-1">
-
-                  </div>
-
-                  <div class="col-sm-3">
-                    <div class="form-group table-bordered">
-                        <label > View Reports: </label>&nbsp;
-                        <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewReports" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-
-                        <label *ngIf="SelectedCaregiver.ViewReports == true" class="form-inline" >
-                          <span class="glyphicon glyphicon-ok"></span> Yes
-                        </label>
-
-                        <label *ngIf="SelectedCaregiver.ViewReports == false" class="form-inline" >
-                          <span class="glyphicon glyphicon-remove"></span> No
-                        </label>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-1">
-
-                  </div>
-
-                  <div class="col-sm-3" >
-                      <div class="form-group table-bordered">
-
-                            <label > View AVS: </label>&nbsp;
-                            <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewAVS" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-
-                            <label *ngIf="SelectedCaregiver.ViewAVS == true" class="form-inline" >
-                            <span class="glyphicon glyphicon-ok"></span> Yes
-                            </label>
-
-                            <label *ngIf="SelectedCaregiver.ViewAVS == false" class="form-inline" >
-                            <span class="glyphicon glyphicon-remove"></span> No
-                            </label>
-
-                       </div>
-                  </div>
-
-            </div>
-
-            <!--Privelages Second Row-->
-            <div class="row table">
-
-                  <div class="col-sm-3">
-                      <div class="form-group" >
-
-                      <label> Providers </label>
-
-                          <ul class="list-group" >
-                                <li class="list-group-item">
-                                  View Providers:
-                                  <label *ngIf="SelectedCaregiver.ViewProviders == true" class="form-inline" >
-                                    <span class="glyphicon glyphicon-ok" ></span> Yes
-                                  </label>
-
-                                  <label *ngIf="SelectedCaregiver.ViewProviders == false" class="form-inline" >
-                                    <span class="glyphicon glyphicon-remove" ></span> No
-                                  </label>
-
-                                  <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewProviders" *ngIf="IsDetailsEditable" style="float: right"></ui-switch>
-
-                            </li>
-
-                            <li class="list-group-item">
-                              Manage Providers:
-                              <label *ngIf="SelectedCaregiver.ManageProviders == true " class="form-inline" >
-                                <span class="glyphicon glyphicon-ok" ></span> Yes
-                              </label>
-
-                              <label *ngIf="SelectedCaregiver.ManageProviders == false " class="form-inline" >
-                                <span class="glyphicon glyphicon-remove" ></span> No
-                              </label>
-
-                                 <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ManageProviders" *ngIf="IsDetailsEditable" style="float: right"></ui-switch>
-                            </li>
-                          </ul>
-
-                      </div>
-                  </div>
-
-                  <div class="col-sm-1">
-
-                  </div>
-
-                  <div class="col-sm-3">
-                    <div class="form-group" >
-                      <label> Messages </label>
-                      <ul class="list-group">
-
-                        <li class="list-group-item">
-                              Read Messages:
-                              <label *ngIf="SelectedCaregiver.ViewMessages == true" class="form-inline" >
-                                <span class="glyphicon glyphicon-ok" ></span> Yes
-                              </label>
-
-                              <label *ngIf="SelectedCaregiver.ViewMessages == false" class="form-inline" >
-                                <span class="glyphicon glyphicon-remove" ></span> No
-                              </label>
-
-                              <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewMessages" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                        </li>
-
-                        <li class="list-group-item">
-                              Send/ Reply Messages:
-                              <label *ngIf="SelectedCaregiver.SendMessages == true" class="form-inline" >
-                                <span class="glyphicon glyphicon-ok"></span> Yes
-                              </label>
-
-                              <label *ngIf="SelectedCaregiver.SendMessages == false" class="form-inline" >
-                                <span class="glyphicon glyphicon-remove"></span> No
-                              </label>
-
-                              <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.SendMessages" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-1">
-
-                  </div>
-
-                  <div class="col-sm-3">
-                    <div class="form-group" >
-                      <label> Health at a Glance </label>
-                      <ul class="list-group">
-
-                          <li class="list-group-item">
-                                View Health at a Glance:
-                                <label *ngIf="SelectedCaregiver.ViewHealthGlance == true" class="form-inline" >
-                                    <span class="glyphicon glyphicon-ok" ></span> Yes
-                                </label>
-                                <label *ngIf="SelectedCaregiver.ViewHealthGlance == false" class="form-inline" >
-                                    <span class="glyphicon glyphicon-remove" ></span> No &nbsp;
-                                </label>
-
-                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewHealthGlance" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                          </li>
-
-                          <li class="list-group-item">
-                            Edit Health at a Glance:
-                            <label *ngIf="SelectedCaregiver.EditHealthGlance == true " class="form-inline" >
-                                <span class="glyphicon glyphicon-ok" ></span> Yes
-                            </label>
-
-                            <label *ngIf="SelectedCaregiver.EditHealthGlance == false " class="form-inline" >
-                                <span class="glyphicon glyphicon-remove" ></span> No
-                            </label>
-
-                            <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.EditHealthGlance" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                          </li>
-                      </ul>
-                    </div>
-                  </div>
-
-            </div>
-
-            <!--Privelages Third Row-->
-            <div class="row table">
-
-                <div class="col-sm-3">
-                      <div class="form-group" >
-                            <label > Payments </label>
-                                <ul class="list-group">
-                                        <li class="list-group-item">
-                                              &nbsp;View Bills:
-                                              <label *ngIf="SelectedCaregiver.ViewBills == true " class="form-inline" >
-                                                  <span class="glyphicon glyphicon-ok" ></span> Yes
-                                              </label>
-
-                                              <label *ngIf="SelectedCaregiver.ViewBills == false "class="form-inline" >
-                                                  <span class="glyphicon glyphicon-remove" ></span> No
-                                              </label>
-
-                                              <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewBills" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                        </li>
-                                        <li class="list-group-item">
-                                              Pay Bills:
-                                              <label *ngIf="SelectedCaregiver.PayBills == true " class="form-inline" >
-                                                 <span class="glyphicon glyphicon-ok" ></span> Yes
-                                              </label>
-
-                                              <label *ngIf="SelectedCaregiver.PayBills == false" class="form-inline" >
-                                                  <span class="glyphicon glyphicon-remove"></span> No
-                                              </label>
-
-                                          <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.PayBills" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                        </li>
-                                </ul>
-                      </div>
-                </div>
-
-                <div class="col-sm-1">
-
-                </div>
-
-                <div class="col-sm-3">
-                      <div class="form-group" >
-                            <label > Medications </label>
-                            <ul class="list-group">
-                                  <li class="list-group-item">
-                                        &nbsp;View Medication:
-                                        <label *ngIf="SelectedCaregiver.ViewMedications == true " class="form-inline" >
-                                            <span class="glyphicon glyphicon-ok" ></span> Yes
-                                        </label>
-
-                                        <label *ngIf="SelectedCaregiver.ViewMedications == false" class="form-inline" >
-                                              <span class="glyphicon glyphicon-remove" ></span> No
-                                        </label>
-
-                                        <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewMedications" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                  </li>
-
-                                  <li class="list-group-item">
-                                        Request for Refill:
-                                        <label *ngIf="SelectedCaregiver.RefillMedication == true" class="form-inline" >
-                                        <span class="glyphicon glyphicon-ok" ></span> Yes
-                                        </label>
-                                        <label *ngIf="SelectedCaregiver.RefillMedication == false " class="form-inline" >
-                                        <span class="glyphicon glyphicon-remove" ></span> No
-                                        </label>
-
-                                        <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.RefillMedication" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                  </li>
-                            </ul>
-                      </div>
-                </div>
-
-                <div class="col-sm-1">
-
-                </div>
-
-                <div class="col-sm-3">
-                      <div class="form-group" >
-                            <label > Patient Plan </label>
-                            <ul class="list-group">
-                                  <li class="list-group-item">
-                                    View Patient Plan:
-                                    <label *ngIf="SelectedCaregiver.ViewPatientPlan == true " class="form-inline" >
-                                        <span class="glyphicon glyphicon-ok" ></span> Yes
-                                    </label>
-
-                                    <label *ngIf="SelectedCaregiver.ViewPatientPlan == false "class="form-inline" >
-                                          <span class="glyphicon glyphicon-remove" ></span> No
-                                    </label>
-
-                                    <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewPatientPlan" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                  </li>
-
-                                  <li class="list-group-item">
-                                    Edit Patient Plan:
-                                    <label *ngIf="SelectedCaregiver.EditPatientPlan == true " class="form-inline" >
-                                          <span class="glyphicon glyphicon-ok" ></span> Yes
-                                    </label>
-
-                                    <label *ngIf="SelectedCaregiver.EditPatientPlan == false " class="form-inline" >
-                                          <span class="glyphicon glyphicon-remove" ></span> No
-                                    </label>
-
-                                    <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.EditPatientPlan" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                  </li>
-                            </ul>
-                      </div>
-                </div>
-
-            </div>
-
-            <!--Privelages Fourth Row-->
-            <div class="row table">
-                  <div class="col-sm-3">
-                        <div class="form-group" >
-                                <label > Appointments </label>
-                                <ul class="list-group">
-                                      <li class="list-group-item">
-                                            View Appointments:
-                                            <label *ngIf="SelectedCaregiver.ViewAppointments == true " class="form-inline" >
-                                                <span class="glyphicon glyphicon-ok" ></span> Yes
-                                            </label>
-
-                                            <label *ngIf="SelectedCaregiver.ViewAppointments == false " class="form-inline" >
-                                                <span class="glyphicon glyphicon-remove" ></span> No
-                                            </label>
-
-                                        <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewAppointments" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                      </li>
-
-                                      <li class="list-group-item">
-                                        Schedule Appointments:
-                                          <label *ngIf="SelectedCaregiver.ScheduleAppointments == true " class="form-inline" >
-                                              <span class="glyphicon glyphicon-ok" ></span> Yes
-                                          </label>
-
-                                        <label *ngIf="SelectedCaregiver.ScheduleAppointments == false " class="form-inline" >
-                                            <span class="glyphicon glyphicon-remove" ></span> No
-                                        </label>
-
-                                        <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ScheduleAppointments" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                      </li>
-
-                                      <li class="list-group-item">
-                                            &nbsp;Fill Patient Health Questionnaire:
-                                            <label *ngIf="SelectedCaregiver.FillQuestionnaire == true "class="form-inline" >
-                                                  <span class="glyphicon glyphicon-ok" ></span> Yes
-                                            </label>
-
-                                            <label *ngIf="SelectedCaregiver.FillQuestionnaire == false " class="form-inline" >
-                                                  <span class="glyphicon glyphicon-remove" ></span> No
-                                            </label>
-
-                                            <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.FillQuestionnaire" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
-                                      </li>
-                                </ul>
-                        </div>
-                  </div>
-            </div>
-
-            <!--Buttons-->
-            <div class="row table" *ngIf="IsDetailsEditable" >
-                <div class="col-sm-5">
-                    <button type="submit" class="btn-success my-pointer " align="middle"  (click)="OnSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
-                    <button type="button" class="btn-danger my-pointer " align="middle"  (click)="OnCancelClick()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
-                </div>
-            </div>
-
           </div>
 
+          <!--Privilege First Row- Communications-->
+              <div class="panel-heading">
+                <p style="text-align: left">Communications</p>
+              </div>
+              <div class="panel-body">
+                  <div class="row">
+                      <div class="col-sm-6">
+                            <!--<label> Messages </label>-->
+                            <ul class="list-group">
+
+                              <li class="list-group-item">
+                                Read Messages:
+                                <label *ngIf="SelectedCaregiver.ViewMessages == true" class="form-inline" > Yes
+                                </label>
+
+                                <label *ngIf="SelectedCaregiver.ViewMessages == false" class="form-inline"  style="color: darkred" >
+                                 No
+                                </label>
+
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewMessages" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                              </li>
+
+                              <li class="list-group-item">
+                                Send/ Reply Messages:
+                                <label *ngIf="SelectedCaregiver.SendMessages == true" class="form-inline" >
+                                  Yes
+                                </label>
+
+                                <label *ngIf="SelectedCaregiver.SendMessages == false" class="form-inline"  style="color: darkred" >
+                                   No
+                                </label>
+
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.SendMessages" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                              </li>
+                            </ul>
+                      </div>
+                      <div class="col-sm-6">
+                            <!--<label > Appointments </label>-->
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    View Appointments:
+                                    <label *ngIf="SelectedCaregiver.ViewAppointments == true " class="form-inline" >
+                                      Yes
+                                    </label>
+
+                                    <label *ngIf="SelectedCaregiver.ViewAppointments == false " class="form-inline" style="color: darkred" >
+                                      No
+                                    </label>
+
+                                    <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewAppointments" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                </li>
+                                <li class="list-group-item">
+                                    Schedule Appointments:
+                                    <label *ngIf="SelectedCaregiver.ScheduleAppointments == true " class="form-inline" >
+                                      Yes
+                                    </label>
+
+                                    <label *ngIf="SelectedCaregiver.ScheduleAppointments == false " class="form-inline" style="color: darkred">
+                                      No
+                                    </label>
+
+                                    <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ScheduleAppointments" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                </li>
+                            </ul>
+                        </div>
+                  </div>
+              </div>
+
+          <!--Privilege Second Row Medications and Tests-->
+              <div class="panel-heading" >
+                  <p style="text-align: left"> Medications and Tests</p>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!--<label > Medications </label>-->
+                          <ul class="list-group">
+                                <li class="list-group-item">
+                                  &nbsp;View Medication:
+                                  <label *ngIf="SelectedCaregiver.ViewMedications == true " class="form-inline" >
+                                    Yes
+                                  </label>
+
+                                  <label *ngIf="SelectedCaregiver.ViewMedications == false" class="form-inline" style="color: darkred">
+                                    No
+                                  </label>
+
+                                  <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewMedications" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                </li>
+
+                                <li class="list-group-item">
+                                  Request for Refill:
+                                  <label *ngIf="SelectedCaregiver.RefillMedication == true" class="form-inline" >
+                                    Yes
+                                  </label>
+                                  <label *ngIf="SelectedCaregiver.RefillMedication == false " class="form-inline" style="color: darkred">
+                                    No
+                                  </label>
+
+                                  <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.RefillMedication" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                </li>
+                          </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <!--<label > Test Results </label>-->
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                 View Reports:
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewReports" *ngIf="IsDetailsEditable "style="float: right"></ui-switch>
+
+                                <label *ngIf="SelectedCaregiver.ViewReports == true" class="form-inline" >
+                                  Yes
+                                </label>
+
+                                <label *ngIf="SelectedCaregiver.ViewReports == false" class="form-inline" style="color: darkred" >
+                                   No
+                                </label>
+                            </li>
+                            <li class="list-group-item">
+                               Save Reports:
+                              <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.SaveReports" *ngIf="IsDetailsEditable "style="float: right"></ui-switch>
+
+                              <label *ngIf="SelectedCaregiver.SaveReports == true" class="form-inline" >
+                                Yes
+                              </label>
+
+                              <label *ngIf="SelectedCaregiver.SaveReports == false" class="form-inline" style="color: darkred">
+                                 No
+                              </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+
+          <!--Privilege Third Row Health at a Glance-->
+               <div class="panel-heading" >
+                  <p style="text-align: left">Health at a Glance</p>
+              </div>
+               <div class="panel-body">
+                  <div class="row">
+                      <div class="col-sm-3">
+                            <!--<label > Patient Goals </label>-->
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                  View Patient Goals:
+                                  <label *ngIf="SelectedCaregiver.ViewPatientGoals == true " class="form-inline" >
+                                    Yes
+                                  </label>
+
+                                  <label *ngIf="SelectedCaregiver.ViewPatientGoals == false "class="form-inline" style="color: darkred">
+                                    No
+                                  </label>
+
+                                  <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewPatientGoals" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                </li>
+
+                                <li class="list-group-item">
+                                  Edit Patient Goals:
+                                  <label *ngIf="SelectedCaregiver.EditPatientGoals == true " class="form-inline" >
+                                    Yes
+                                  </label>
+
+                                  <label *ngIf="SelectedCaregiver.EditPatientGoals == false " class="form-inline" style="color: darkred" >
+                                    No
+                                  </label>
+
+                                  <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.EditPatientGoals" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                </li>
+                            </ul>
+                      </div>
+                      <div class="col-sm-3">
+                        <!--<label > Patient History </label>-->
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                               View Patient History:
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewHistory" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+
+                                <label *ngIf="SelectedCaregiver.ViewHistory == true" class="form-inline" >
+                                  Yes
+                                </label>
+
+                                <label *ngIf="SelectedCaregiver.ViewHistory == false" class="form-inline"  style="color: darkred" >
+                                   No
+                                </label>
+                            </li>
+                            <li class="list-group-item">
+                             Save Patient History:
+                              <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.SaveHistory" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+
+                              <label *ngIf="SelectedCaregiver.SaveHistory == true" class="form-inline" >
+                                Yes
+                              </label>
+
+                              <label *ngIf="SelectedCaregiver.SaveHistory == false" class="form-inline"  style="color: darkred" >
+                                 No
+                              </label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-sm-3">
+                      <!--<label > Patient Health Questionnaire </label>-->
+                      <ul class="list-group">
+                          <li class="list-group-item">
+                              Fill Patient Health Questionnaire:
+                              <label *ngIf="SelectedCaregiver.FillQuestionnaire == true "class="form-inline" >
+                              Yes
+                              </label>
+
+                              <label *ngIf="SelectedCaregiver.FillQuestionnaire == false " class="form-inline" style="color: darkred">
+                              No
+                              </label>
+
+                              <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.FillQuestionnaire" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                          </li>
+                          <li class="list-group-item">
+                              Save Patient Health Questionnaire:
+                              <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.SaveQuestionnaire" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+
+                              <label *ngIf="SelectedCaregiver.SaveQuestionnaire == true" class="form-inline" >
+                                Yes
+                              </label>
+
+                              <label *ngIf="SelectedCaregiver.SaveQuestionnaire == false" class="form-inline" style="color: darkred" >
+                                 No
+                              </label>
+                          </li>
+                      </ul>
+                    </div>
+                      <div class="col-sm-3">
+                          <!--<label > After Visit Summary </label>-->
+                          <ul class="list-group">
+                            <li class="list-group-item">
+                                View After Visit Summary:
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewAVS" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+
+                                <label *ngIf="SelectedCaregiver.ViewAVS == true" class="form-inline" >
+                                  Yes
+                                </label>
+
+                                <label *ngIf="SelectedCaregiver.ViewAVS == false" class="form-inline" style="color: darkred">
+                                   No
+                                </label>
+                            </li>
+                            <li class="list-group-item">
+                                Save After Visit Summary:
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.SaveAVS" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+
+                                <label *ngIf="SelectedCaregiver.SaveAVS == true" class="form-inline" >
+                                  Yes
+                                </label>
+
+                                <label *ngIf="SelectedCaregiver.SaveAVS == false" class="form-inline" style="color: darkred" >
+                                   No
+                                </label>
+                            </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+
+          <!--Privilege Fourth Row Care Team-->
+              <div class="panel-heading" >
+                  <p style="text-align: left">Care Team</p>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-sm-6">
+                      <!--<label> Providers </label>-->
+
+                      <ul class="list-group" >
+                          <li class="list-group-item">
+                            View Providers:
+                            <label *ngIf="SelectedCaregiver.ViewProviders == true" class="form-inline" >
+                              Yes
+                            </label>
+
+                            <label *ngIf="SelectedCaregiver.ViewProviders == false" class="form-inline" style="color: darkred">
+                              No
+                            </label>
+
+                            <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewProviders" *ngIf="IsDetailsEditable" style="float: right"></ui-switch>
+
+                          </li>
+
+                          <li class="list-group-item">
+                            Manage Providers:
+                            <label *ngIf="SelectedCaregiver.ManageProviders == true " class="form-inline" >
+                              Yes
+                            </label>
+
+                            <label *ngIf="SelectedCaregiver.ManageProviders == false " class="form-inline" style="color: darkred">
+                              No
+                            </label>
+
+                            <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ManageProviders" *ngIf="IsDetailsEditable" style="float: right"></ui-switch>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="col-sm-6">
+                      <!--<label > Payments </label>-->
+                      <ul class="list-group">
+                          <li class="list-group-item">
+                            &nbsp;View Bills:
+                            <label *ngIf="SelectedCaregiver.ViewBills == true " class="form-inline" >
+                              Yes
+                            </label>
+
+                            <label *ngIf="SelectedCaregiver.ViewBills == false "class="form-inline" style="color: darkred">
+                              No
+                            </label>
+
+                            <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.ViewBills" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                          </li>
+                          <li class="list-group-item">
+                            Pay Bills:
+                            <label *ngIf="SelectedCaregiver.PayBills == true " class="form-inline" >
+                              Yes
+                            </label>
+
+                            <label *ngIf="SelectedCaregiver.PayBills == false" class="form-inline" style="color: darkred">
+                               No
+                            </label>
+
+                            <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.PayBills" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                          </li>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+
+        <!--Buttons-->
+        <div class="table" *ngIf="IsDetailsEditable" >
+            <div class="col-sm-5">
+              <button type="submit" class="btn-success my-pointer " align="middle"  (click)="OnSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
+              <button type="button" class="btn-danger my-pointer " align="middle"  (click)="OnCancelClick()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
+            </div>
+        </div>
 </div>

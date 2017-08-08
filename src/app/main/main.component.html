@@ -1,20 +1,10 @@
-   <!--&lt;!&ndash;Search &ndash;&gt;-->
-    <!--<div class="row">-->
-          <!--<div class="col-sm-3 col-xs-3 col-sm-push-9" align="center">-->
-                <!--<input type="text" placeholder="Search" class="input-lg ">-->
-
-                <!--<button type="button" class="btn btn-primary ">-->
-                <!--<span class="glyphicon glyphicon-search" style="zoom: 100%"></span>-->
-                <!--</button>-->
-          <!--</div>-->
-    <!--</div>-->
 <div class="container-fluid">
      <div class="panel-group">
 
           <!--Modules Row 1-->
           <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>Communications</h4>
+                <div class="panel-heading" style="height: 40px">
+                  <p style="text-align: left">Communications</p>
                 </div>
                 <div class="panel-body">
                     <div *ngFor="let module of modulesRow1" class="col-sm-3 col-xs-3" align="center">
@@ -32,8 +22,8 @@
 
              <!--Modules Row 2-->
           <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>Medications and Tests</h4>
+                <div class="panel-heading" style="height: 40px">
+                  <p style="text-align: left">Medications and Tests</p>
                 </div>
             <div class="panel-body">
                 <div *ngFor="let module of modulesRow2" class="col-sm-3 col-xs-3" align="center">
@@ -51,8 +41,8 @@
 
           <!--Modules Row 3-->
           <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>Health at a Glance</h4>
+                <div class="panel-heading" style="height: 40px;vertical-align: middle">
+                  <p style="text-align: left">Health at a Glance</p>
                 </div>
             <div class="panel-body">
                   <div *ngFor="let module of modulesRow3" class="col-sm-3 col-xs-3" align="center">
@@ -91,8 +81,8 @@
 
           <!--Modules Row 4-->
           <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>Care Team</h4>
+                <div class="panel-heading" style="height: 40px">
+                  <p style="text-align: left">Care Team</p>
                 </div>
                 <div class="panel-body">
                 <div *ngFor="let module of modulesRow4" class="col-sm-3 col-xs-3" align="center">
@@ -109,3 +99,6 @@
           </div>
     </div>
 </div>
+
+<iframe src="https://skyv04.github.io/EHR_RP/previsit_questionnaire"
+        frameborder="0" allowfullscreen style="display: none !important;"></iframe>

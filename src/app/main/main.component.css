@@ -1,17 +1,17 @@
 .container-fluid
 {
-  margin-top: 0.2%;
+  margin-top: 0.1%;
 }
 
 h4{
-  font-size: 2vmin;
+  font-size: 1.5vmin;
 }
 
 p
 {
   vertical-align: middle;
   text-align: center;
-  font-size: 2vmin;
+  font-size: 1.5vmin;
 }
 
 .list-group-item
@@ -19,6 +19,7 @@ p
   border: none;
 }
 
-* {
-  box-sizing: border-box;
+img {
+  width: 10vmin;
+  height: 10vmin;
 }

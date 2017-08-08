@@ -1,13 +1,15 @@
-<div class="container-fluid" style="background-color: silver">
+<div class="container-fluid" style="padding-top: 0.1%">
   <div class="row">
-    <div class="col-sm-2 ">
-      <a routerLink="/Home"><img
-        src="http://brandwise.unmc.edu/wp-content/uploads/sites/6/2014/07/overview-1.png"
-        alt="UNMC Logo"
-        style="max-height: 5vmin;"
-      >
-      </a>
-
+    <div class="col-sm-2">
+          <a routerLink="/Home"><img
+            src="http://brandwise.unmc.edu/wp-content/uploads/sites/6/2014/07/overview-1.png"
+            alt="UNMC Logo"
+            style="max-height: 4vmin;">
+          </a>
+          &nbsp;&nbsp;
+          <a routerLink="/Home">
+              <span class="glyphicon glyphicon-home"></span> Home
+          </a>
     </div>
 
     <div class="col-sm-8" align="center">
@@ -16,25 +18,25 @@
       </h1>
     </div>
 
-    <div class="col-sm-2" align="right" style="position: relative">
+    <div class="col-sm-2" align="right" style="position: relative; padding-top: 1%">
 
-      <a type="button" class=" dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size: 2vmin"
-         (click)="(ShowLogoutDropDown) ? ShowLogoutDropDown = false : ShowLogoutDropDown = true">
-        Logout <span class="caret"></span>
+      <a class="my-pointer" href="https://skyv04.github.io/EHR_RP/login"><span class="glyphicon glyphicon-off"></span>&nbsp;
+        Logout</a>
+      &nbsp;
+      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" (click)="(ShowLogoutDropDown) ? ShowLogoutDropDown = false : ShowLogoutDropDown = true" style="float: right">
+        Username <span class="caret"></span>
       </a>
+
+
 
       <div class="container-fluid" *ngIf="ShowLogoutDropDown" style="position:absolute;right: 30px;top:48px;z-index: 9999">
         <ul>
           <li  class="list-group-item">
-            <a class="my-pointer"><span class="glyphicon glyphicon-edit"></span>&nbsp; Edit Profile</a>
+            <a class="my-pointer"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a>
           </li>
 
           <li  class="list-group-item">
-            <a class="my-pointer"><span class="glyphicon glyphicon-off"></span>&nbsp; Logout</a>
-          </li>
-
-          <li  class="list-group-item">
-            <a  class="my-pointer"><span class="glyphicon glyphicon-cog"></span>&nbsp; Settings</a>
+            <a  class="my-pointer"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</a>
           </li>
         </ul>
       </div>

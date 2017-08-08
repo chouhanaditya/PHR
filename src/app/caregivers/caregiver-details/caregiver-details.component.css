@@ -12,23 +12,23 @@ input{
 
 .input-Editable
 {
-   background: #dddddd;
-   color: #0e6252;
+  background: #dddddd;
+  color: #0e6252;
 }
 
 .table-bordered
 {
-  padding-left: 1.5%;
-  padding-right: 1.5%;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
   border: none;
 }
 
 .table
 {
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 input:focus, input:valid {
@@ -37,24 +37,15 @@ input:focus, input:valid {
   background-position: 0 0;
 }
 
-.my-pointer{
-  cursor: pointer;
-  vertical-align: middle;
-  padding-left: 1%;
-  padding-right: 1%;
-  padding-top: 1%;
-  padding-bottom: 1%
-}
-
-ul,label,p
+ul,label
 {
   font-size: 1.5vmin;
 }
 
-h3
+p
 {
   color: darkred;
-  font-size: 2vmin;
+  font-size: 1.5vmin;
   vertical-align: middle;
 }
 
@@ -63,8 +54,8 @@ button{
   margin: 5px 5px;
   padding-left: 1%;
   padding-right: 1%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 0.7%;
+  padding-bottom: 0.7%;
   cursor: pointer;
   vertical-align: middle;
 }
@@ -75,4 +66,13 @@ button{
 .custom-close {
   display: none !important;
   visibility: hidden!important;
+}
+
+.panel-body
+{
+  padding-bottom: 5px;
+}
+.panel-heading
+{
+  height: 40px;
 }

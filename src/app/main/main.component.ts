@@ -43,7 +43,7 @@ export class MainComponent implements OnInit {
       {"ModuleName":"Caregivers","IconUrl":"http://icons.iconarchive.com/icons/aha-soft/software/128/user-group-icon.png"},
       {"ModuleName":"My Providers","IconUrl":"http://icons.iconarchive.com/icons/icons-land/vista-people/128/Medical-Nurse-Male-Light-icon.png"},
       {"ModuleName":"Billing","IconUrl":"http://icons.iconarchive.com/icons/webiconset/application/128/Invoice-icon.png"},
-      {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/ampeross/qetto-2/128/settings-icon.png"},
+      {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/cornmanthe3rd/plex/128/System-settings-icon.png"},
     ];
 
   }

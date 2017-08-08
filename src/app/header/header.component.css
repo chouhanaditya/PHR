@@ -2,7 +2,7 @@ h1
 {
   vertical-align: middle;
   text-align: center;
-  font-size: 3.5vmin;
+  font-size: 3vmin;
 
 }
 
@@ -22,7 +22,7 @@ li
   text-align: left;
 }
 
-span
-{
-  zoom: 150%;
-}
+/*span*/
+/*{*/
+  /*zoom: 120%;*/
+/*}*/

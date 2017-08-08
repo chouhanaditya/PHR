@@ -10,31 +10,30 @@ export class Caregiver {
     PhoneNumber: string ;
     Relationship: string ;
     IsPowerofAttorney: boolean ;
-    ViewReports: boolean ;
-    ViewAVS: boolean ;
-    ViewHealthGlance: boolean ;
-    EditHealthGlance: boolean;
-    ViewProviders: boolean ;
-    ManageProviders: boolean ;
     ViewMessages: boolean ;
     SendMessages: boolean ;
-    ViewMedications: boolean ;
-    RefillMedication: boolean ;
-    ViewBills: boolean ;
-    PayBills: boolean ;
     ViewAppointments: boolean ;
     ScheduleAppointments: boolean ;
+    ViewMedications: boolean ;
+    RefillMedication: boolean ;
+    ViewReports: boolean ;
+    SaveReports: boolean;
+    ViewPatientGoals: boolean;
+    EditPatientGoals: boolean;
+    ViewHistory: boolean ;
+    SaveHistory: boolean;
     FillQuestionnaire: boolean ;
-    ViewPatientPlan: boolean;
-    EditPatientPlan: boolean;
-
-
-  constructor(Id: number, Name: string, ImageURL: string, EmailAddress: string, PhoneNumber: string, Relationship: string,
-              IsPowerofAttorney: boolean, ViewReports: boolean, ViewAVS: boolean, ViewHealthGlance: boolean,
-              EditHealthGlance: boolean, ViewProviders: boolean , ManageProviders: boolean , ViewMessages: boolean ,
-              SendMessages: boolean, ViewMedications: boolean , RefillMedication: boolean , ViewBills: boolean,
-              PayBills: boolean , ViewAppointments: boolean , ScheduleAppointments: boolean , FillQuestionnaire: boolean,
-              ViewPatientPlan: boolean, EditPatientPlan: boolean ) {
+    SaveQuestionnaire: boolean ;
+    ViewAVS: boolean ;
+    SaveAVS: boolean;
+    ViewProviders: boolean ;
+    ManageProviders: boolean ;
+    ViewBills: boolean ;
+    PayBills: boolean ;
+    constructor(Id: number, Name: string, ImageURL: string, EmailAddress: string, PhoneNumber: string, Relationship: string, IsPowerofAttorney: boolean,
+                ViewMessages: boolean, SendMessages: boolean,  ViewAppointments: boolean , ScheduleAppointments: boolean , ViewMedications: boolean , RefillMedication: boolean ,
+                ViewReports: boolean, SaveReports: boolean,  ViewPatientGoals: boolean, EditPatientGoals: boolean, ViewHistory: boolean, SaveHistory: boolean,
+               FillQuestionnaire: boolean, SaveQuestionnaire: boolean, ViewAVS: boolean, SaveAVS: boolean,  ViewProviders: boolean , ManageProviders: boolean , ViewBills: boolean, PayBills: boolean) {
     this.Id = Id;
     this.Name = Name;
     this.ImageURL = ImageURL;
@@ -43,9 +42,11 @@ export class Caregiver {
     this.Relationship = Relationship ;
     this.IsPowerofAttorney = IsPowerofAttorney ;
     this.ViewReports = ViewReports ;
+    this.SaveReports = SaveReports;
     this.ViewAVS = ViewAVS ;
-    this.ViewHealthGlance = ViewHealthGlance ;
-    this.EditHealthGlance = EditHealthGlance;
+    this.SaveAVS = SaveAVS;
+    this.ViewHistory = ViewHistory ;
+    this.SaveHistory = SaveHistory;
     this.ViewProviders = ViewProviders ;
     this.ManageProviders = ManageProviders ;
     this.ViewMessages  = ViewMessages ;
@@ -57,8 +58,9 @@ export class Caregiver {
     this.ViewAppointments = ViewAppointments ;
     this.ScheduleAppointments = ScheduleAppointments ;
     this.FillQuestionnaire = FillQuestionnaire ;
-    this.ViewPatientPlan = ViewPatientPlan;
-    this.EditPatientPlan = EditPatientPlan;
+    this.SaveQuestionnaire = SaveQuestionnaire;
+    this.ViewPatientGoals = ViewPatientGoals;
+    this.EditPatientGoals = EditPatientGoals;
 
   }
 }

@@ -1,8 +1,9 @@
-<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'">
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'" style="background-color: #F6F6F6">
   <!--Medication list Header-->
     <div class="row" style="padding-top: 0.5%">
           <div class="col-sm-3">
-              <h3>Your {{ activeMedicationListTab}} Medicines List</h3>
+              <h3 *ngIf="activeMedicationListTab == 'All'">Your Medicines List</h3>
+              <h3 *ngIf="activeMedicationListTab != 'All'">Your {{ activeMedicationListTab}} Medicines List</h3>
           </div>
           <!--Filter-->
           <div class="col-sm-9" >
@@ -25,26 +26,26 @@
     <br>
   <!--Medication List Grid-->
     <div class="row">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="background-color: #F6F6F6" >
           <!--Medication List Grid header-->
               <div class="panel-heading">
                     <div class="row">
-                          <div class="col-sm-2" align="center">
-                            <h3>Refill</h3>
+                          <div class="col-sm-2" style="padding-left: 1.5%">
+                            <h3 >Refill</h3>
                           </div>
-                          <div class="col-sm-3" align="center">
+                          <div class="col-sm-2" >
                             <h3>Name</h3>
                           </div>
-                          <div class="col-sm-2" align="center">
+                          <div class="col-sm-2" >
                             <h3>Frequency</h3>
                           </div>
-                          <div class="col-sm-3" align="center">
+                          <div class="col-sm-2" >
                             <h3>Dosage</h3>
                           </div>
-                          <div class="col-sm-1" align="center">
+                          <div class="col-sm-2">
                             <h3>Details</h3>
                           </div>
-                          <div class="col-sm-1" align="center">
+                          <div class="col-sm-1" style="padding-left: 2%">
                             <h3>Information</h3>
                           </div>
                     </div>
@@ -56,25 +57,25 @@
                 <ul class="list-group">
                   <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item">
                         <div class="row" style="padding-top: 1%">
-                              <div class="col-sm-2" align="center">
+                              <div class="col-sm-2" >
                                 <a title="Request Refill"><span class="glyphicon glyphicon-registration-mark"></span> Request Refill</a>
                               </div>
                               <a      (click)="MedicineDetails_All_Click(i)"
                                       style="cursor: pointer"
                                       title="More Details"
                               >
-                                          <div class="col-sm-3" align="center">
+                                          <div class="col-sm-2" >
                                             <p>{{medicine.Name}}</p>
                                           </div>
-                                          <div class="col-sm-2" align="center">
+                                          <div class="col-sm-2">
                                             <p>{{medicine.Frequency}}</p>
                                           </div>
-                                          <div class="col-sm-3" align="center">
+                                          <div class="col-sm-2" >
                                             <p>{{medicine.Dosage}}</p>
                                           </div>
-                                          <div class="col-sm-1" align="center">
-                                              <p *ngIf="ShowDetailedPanel_All[i] == false"><span class="glyphicon glyphicon-chevron-down" ></span> More</p>
-                                              <p *ngIf="ShowDetailedPanel_All[i] == true"><span class="glyphicon glyphicon-chevron-up"  ></span>Less</p>
+                                          <div class="col-sm-2" style="padding-left: 2.2%" >
+                                              <p *ngIf="ShowDetailedPanel_All[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
+                                              <p *ngIf="ShowDetailedPanel_All[i] == true"><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
                                           </div>
                               </a>
                               <div class="col-sm-1" align="center">
@@ -139,23 +140,23 @@
                   <ul class="list-group">
                         <li *ngFor="let medicine of MedicationListPrescribed; let i = index" class="list-group-item">
                               <div class="row" style="padding-top: 1%">
-                                      <div class="col-sm-2" align="center">
+                                      <div class="col-sm-2" >
                                           <a title="Request Refill"><span class="glyphicon glyphicon-registration-mark"></span> Request Refill</a>
                                       </div>
                                       <a    title="More Details"
                                             (click)="MedicineDetails_Prescribed_Click(i)" style="cursor: pointer">
-                                            <div class="col-sm-3" align="center">
+                                            <div class="col-sm-2" >
                                               <p>{{medicine.Name}}</p>
                                             </div>
-                                            <div class="col-sm-2" align="center">
+                                            <div class="col-sm-2" >
                                               <p>{{medicine.Frequency}}</p>
                                             </div>
-                                            <div class="col-sm-3" align="center">
+                                            <div class="col-sm-2">
                                               <p>{{medicine.Dosage}}</p>
                                             </div>
-                                            <div class="col-sm-1" align="center">
-                                              <span class="glyphicon glyphicon-chevron-down" *ngIf="ShowDetailedPanel_Prescribed[i] == false"></span>
-                                              <span class="glyphicon glyphicon-chevron-up" *ngIf="ShowDetailedPanel_Prescribed[i] == true"></span>
+                                            <div class="col-sm-2" style="padding-left: 2.2%" >
+                                              <p *ngIf="ShowDetailedPanel_Prescribed[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
+                                              <p *ngIf="ShowDetailedPanel_Prescribed[i] == true"><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
                                             </div>
                                        </a>
                                       <div class="col-sm-1" align="center">
@@ -220,21 +221,21 @@
                     <ul class="list-group">
                           <li *ngFor="let medicine of MedicationListOTC; let i = index" class="list-group-item">
                                 <div class="row" style="padding-top: 1%">
-                                      <div class="col-sm-2" align="center">
+                                      <div class="col-sm-2" >
                                         <a title="Request Refill"><span class="glyphicon glyphicon-registration-mark"></span> Request Refill</a>
                                       </div>
                                       <a title="More Details"
                                          (click)="MedicineDetails_OTC_Click(i)" style="cursor: pointer">
-                                              <div class="col-sm-3" align="center">
+                                              <div class="col-sm-2">
                                                 <p>{{medicine.Name}}</p>
                                               </div>
-                                              <div class="col-sm-2" align="center">
+                                              <div class="col-sm-2" >
                                                 <p>{{medicine.Frequency}}</p>
                                               </div>
-                                              <div class="col-sm-3" align="center">
+                                              <div class="col-sm-2">
                                                 <p>{{medicine.Dosage}}</p>
                                               </div>
-                                              <div class="col-sm-1" align="center">
+                                              <div class="col-sm-2" style="padding-left: 2.2%">
                                                  <p *ngIf="ShowDetailedPanel_OTC[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
                                                  <p *ngIf="ShowDetailedPanel_OTC[i] == true"><span class="glyphicon glyphicon-minus-sign" ></span> Less</p>
                                               </div>
