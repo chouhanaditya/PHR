@@ -1,19 +1,23 @@
 <div class="container-fluid" style="padding-top: 1%">
         <!--Save Dialog Box-->
         <div class="row table" *ngIf="IsSaveDialog" style="padding-top: 1%">
-            <div class="alert alert-success alert-dismissable col-sm-12">
+            <div class="alert alert-success alert-dismissable col-md-12" role="alert">
                 <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
-                <label style="font-size: 1.2vmin"> <strong>Success! </strong>Request for made changes has been accepted and changes would reflect after getting approved.</label>
+                  <h4 class="alert-heading">Success!</h4>
+
+                    Request for made changes has been accepted and changes would reflect after getting approved.
+                    <br>
+                    This dialog will autoclose in {{redirectCounter  }} seconds...
             </div>
         </div>
 
         <!--Delete Dialog Box-->
         <div class="row table" *ngIf="IsDeleteDialog" style="padding-top: 1%">
-          <div class="alert alert-danger alert-dismissable col-sm-12">
-            <div class="col-sm-9">
+          <div class="alert alert-danger alert-dismissable col-md-12">
+            <div class="col-md-9">
               <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. It will delete personal details and all the Privilege. Are you sure you want to delete?</h4>
             </div>
-            <div class="col-sm-3" align="right">
+            <div class="col-md-3" align="right">
               <button class="btn-danger my-pointer" align="middle"  (click)="OnDeleteConfimedClick()"> Yes&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
               <button class="btn-success my-pointer" align="middle" (click)="OnDeletecancelledClick()" > No&nbsp; <span class="glyphicon glyphicon-remove-circle"></span> </button>
 
@@ -26,35 +30,35 @@
 
           <!--Personal Details-->
               <div class="panel-heading table" style="background-color: antiquewhite">
-                  <div class="row col-sm-5">
+                  <div class="row col-md-5">
                        <p style="text-align: left">{{ SelectedCaregiver.Name }}: Personal Details</p>
                   </div>
               </div>
               <div class="panel-body">
                   <div class="row">
-                           <div class="col-sm-3">
+                           <div class="col-md-3">
                                  <label > Name: </label>
                                  <br>
                                  <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.Name" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                            </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-md-3">
                                   <label > Email Address: </label>
                                   <br>
                                   <input type="email" class="form-inline" [(ngModel)]="SelectedCaregiver.EmailAddress"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                             </div>
 
-                          <div class="col-sm-2">
+                          <div class="col-md-2">
                                 <label > Phone Number: </label>
                                 <br>
                                 <input type="text" class="form-inline" [(ngModel)]="SelectedCaregiver.PhoneNumber"  [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                           </div>
 
-                          <div class="col-sm-2">
+                          <div class="col-md-2">
                                <label > Relationship: </label>
                                 <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                           </div>
-                          <div class="col-sm-2">
+                          <div class="col-md-2">
                                 <label >Power of Attorney: </label><br>
                                 <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
                                 <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" >Yes</label>
@@ -67,7 +71,7 @@
               <br>
 
               <div class="panel-heading table" style="background-color: antiquewhite">
-              <div class="row col-sm-5">
+              <div class="row col-md-5">
                 <p style="text-align: left">{{ SelectedCaregiver.Name }}: Privileges</p>
               </div>
           </div>
@@ -78,7 +82,7 @@
               </div>
               <div class="panel-body">
                   <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-md-6">
                             <!--<label> Messages </label>-->
                             <ul class="list-group">
 
@@ -108,7 +112,7 @@
                               </li>
                             </ul>
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-md-6">
                             <!--<label > Appointments </label>-->
                             <ul class="list-group">
                                 <li class="list-group-item">
@@ -146,7 +150,7 @@
               </div>
               <div class="panel-body">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <!--<label > Medications </label>-->
                           <ul class="list-group">
                                 <li class="list-group-item">
@@ -175,7 +179,7 @@
                                 </li>
                           </ul>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <!--<label > Test Results </label>-->
                         <ul class="list-group">
                             <li class="list-group-item">
@@ -213,7 +217,7 @@
               </div>
                <div class="panel-body">
                   <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-md-3">
                             <!--<label > Patient Goals </label>-->
                             <ul class="list-group">
                                 <li class="list-group-item">
@@ -243,7 +247,7 @@
                                 </li>
                             </ul>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-md-3">
                         <!--<label > Patient History </label>-->
                         <ul class="list-group">
                             <li class="list-group-item">
@@ -272,7 +276,7 @@
                           </li>
                         </ul>
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-md-3">
                       <!--<label > Patient Health Questionnaire </label>-->
                       <ul class="list-group">
                           <li class="list-group-item">
@@ -301,7 +305,7 @@
                           </li>
                       </ul>
                     </div>
-                      <div class="col-sm-3">
+                      <div class="col-md-3">
                           <!--<label > After Visit Summary </label>-->
                           <ul class="list-group">
                             <li class="list-group-item">
@@ -339,7 +343,7 @@
               </div>
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-md-6">
                       <!--<label> Providers </label>-->
 
                       <ul class="list-group" >
@@ -371,7 +375,7 @@
                           </li>
                       </ul>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-md-6">
                       <!--<label > Payments </label>-->
                       <ul class="list-group">
                           <li class="list-group-item">
@@ -406,10 +410,10 @@
         </div>
 
         <!--Buttons-->
-        <div class="table" *ngIf="IsDetailsEditable" >
-            <div class="col-sm-5">
+        <div class="col-md-12 mt-1" *ngIf="IsDetailsEditable" >
+            <!--<div class="col-md-5">-->
               <button type="submit" class="btn-success my-pointer " align="middle"  (click)="OnSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
               <button type="button" class="btn-danger my-pointer " align="middle"  (click)="OnCancelClick()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
-            </div>
+            <!--</div>-->
         </div>
 </div>

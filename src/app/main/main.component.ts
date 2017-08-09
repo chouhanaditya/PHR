@@ -28,8 +28,8 @@ export class MainComponent implements OnInit {
 
       {"ModuleName":"Request a Refill","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png"},
       {"ModuleName":"Medications","IconUrl":"http://icons.iconarchive.com/icons/medicalwp/medical/128/Pills-blue-icon.png"},
-      {"ModuleName":"Test Results","IconUrl":"http://icons.iconarchive.com/icons/dapino/medical/128/medical-report-icon.png"},
-      {"ModuleName":"Education","IconUrl":"http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-document-find-icon.png"},
+      {"ModuleName":"Test Results","IconUrl":"http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Categories-applications-education-science-icon.png"},
+      {"ModuleName":"Education","IconUrl":"http://sleeponit.com/wp-content/uploads/2013/04/brain.jpg"},
     ];
 
     this.modulesRow3 = [

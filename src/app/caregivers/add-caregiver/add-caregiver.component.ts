@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
@@ -11,15 +11,17 @@ declare const jQuery: any;
   templateUrl: './add-caregiver.component.html',
   styleUrls: ['./add-caregiver.component.css']
 })
-export class AddCaregiverComponent implements OnInit {
+export class AddCaregiverComponent implements OnInit, OnDestroy {
   caregiverForm: FormGroup;
+  redirectCounter = 7;
+  counterInterval: any;
   IsFormSaved = false;
   IsError = false;
   AllErrors = [];
 
   relationships = [ 'Father', 'Mother', 'Brother', 'Sister', 'Child', 'Maternal Grandfather', 'Paternal Grandmother',
     'Paternal Grandfather', 'Maternal Grandmother', 'Friend',
-    'GrandSon', 'Husband', 'Wife', 'Spouse', 'GrandDaughter' ];
+    'GrandSon', 'Husband', 'Wife', 'Spouse', 'GrandDaughter', 'Partner', 'Other'];
 
  Newcaregiver: Caregiver;
 
@@ -71,17 +73,43 @@ export class AddCaregiverComponent implements OnInit {
   onCancel() {
       this.caregiverForm.reset();
       this.IsError = false;
+      this.caregiverForm.controls['IsPowerofAttorney'].setValue(false);
+      this.caregiverForm.controls['ViewMessages'].setValue(false);
+      this.caregiverForm.controls['SendMessages'].setValue(false);
+      this.caregiverForm.controls['ViewMessages'].setValue(false);
+      this.caregiverForm.controls['ViewAppointments'].setValue(false);
+      this.caregiverForm.controls['ScheduleAppointments'].setValue(false);
+      this.caregiverForm.controls['ViewMedications'].setValue(false);
+      this.caregiverForm.controls['RefillMedication'].setValue(false);
+      this.caregiverForm.controls['ViewReports'].setValue(false);
+      this.caregiverForm.controls['SaveReports'].setValue(false);
+      this.caregiverForm.controls['ViewPatientGoals'].setValue(false);
+      this.caregiverForm.controls['EditPatientGoals'].setValue(false);
+      this.caregiverForm.controls['ViewHistory'].setValue(false);
+      this.caregiverForm.controls['SaveHistory'].setValue(false);
+      this.caregiverForm.controls['FillQuestionnaire'].setValue(false);
+      this.caregiverForm.controls['SaveQuestionnaire'].setValue(false);
+      this.caregiverForm.controls['ViewAVS'].setValue(false);
+      this.caregiverForm.controls['SaveAVS'].setValue(false);
+      this.caregiverForm.controls['ViewProviders'].setValue(false);
+      this.caregiverForm.controls['ManageProviders'].setValue(false);
+      this.caregiverForm.controls['ViewBills'].setValue(false);
+      this.caregiverForm.controls['PayBills'].setValue(false);
   }
 
   OnSaveClick() {
     if (this.caregiverForm.valid) {
       this.IsFormSaved = true;
       this.IsError = false;
+      window.scrollTo(0, 0);
+      this.counterInterval = setInterval(() => {
+        this.redirectCounter--;
+      }, 1000);
       setTimeout(
         () => { this.IsFormSaved = false;
           this.objCaregiverService.setActiveScreen('CaregiverHome');
           this.route.navigate(['/Caregivers']);
-        }, 4000);
+        }, 7000);
       } else {
       this.AllErrors = [];
       this.getFormValidationErrors();
@@ -89,6 +117,7 @@ export class AddCaregiverComponent implements OnInit {
     }
  }
   OnErrorOkClick() {
+    window.scrollTo(0, 0);
     this.IsError = false;
   }
 
@@ -120,6 +149,9 @@ export class AddCaregiverComponent implements OnInit {
         });
       }
     });
+  }
+  ngOnDestroy() {
+    clearInterval(this.counterInterval);
   }
 }
 

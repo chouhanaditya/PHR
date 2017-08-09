@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
@@ -10,7 +10,7 @@ declare const jQuery;
   templateUrl: './caregiver-details.component.html',
   styleUrls: ['./caregiver-details.component.css']
 })
-export class CaregiverDetailsComponent implements OnInit {
+export class CaregiverDetailsComponent implements OnInit, OnDestroy {
 
   IsDetailsEditable = false;
   IsSaveDialog = false;
@@ -26,10 +26,14 @@ export class CaregiverDetailsComponent implements OnInit {
                                 'GrandSon',
                                 'GrandDaughter',
                                 'GrandFather',
-                                'GrandMother'
+                                'GrandMother',
+                                'Other',
+                                'Partner'
                               ];
 
   SelectedCaregiverId = 0;
+  redirectCounter = 7;
+  counterInterval: any;
   SelectedCaregiver: Caregiver;
   IsDeleteDialog = false;
   constructor(private route: ActivatedRoute, private route1: Router, public objCaregiverService: CaregiverService) { }
@@ -51,9 +55,13 @@ export class CaregiverDetailsComponent implements OnInit {
   OnSaveClick() {
       this.IsDetailsEditable = false;
       this.IsSaveDialog = true;
+      window.scrollTo(0, 0);
+      this.counterInterval = setInterval(() => {
+      this.redirectCounter--;
+    }, 1000);
       setTimeout(
         () => { this.IsSaveDialog = false;
-      }, 4000);
+      }, 7000);
       this.route1.navigate(['/Caregivers', this.SelectedCaregiverId]);
     }
     OnCancelClick() {
@@ -75,4 +83,7 @@ export class CaregiverDetailsComponent implements OnInit {
     OnAlertClose()  {
       this.IsSaveDialog = false;
     }
+  ngOnDestroy() {
+    clearInterval(this.counterInterval);
+  }
 }
