@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-sm-2" align="left">
       <div>
-        <button class="btn-primary" (click)="ToMainHome()" *ngIf="activeScreen == 'MedicationHome'"> <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back  </button>
-        <button class="btn-primary" (click)="ToMedicationsHome()" *ngIf="activeScreen == 'MedicationList' || activeScreen == 'MedicationRefill' || activeScreen == 'MedicationHistory'">
-          <span class="glyphicon glyphicon-circle-arrow-left"> </span>
-          &nbsp;Back
-        </button>
-        <button class="btn-primary" (click)="ToMedicationsList()" *ngIf="activeScreen == 'MedicationDetails'">
-          <span class="glyphicon glyphicon-circle-arrow-left"> </span>
-          &nbsp;Back
-        </button>
+            <button class="btn-primary" (click)="ToMainHome()" *ngIf="activeScreen == 'MedicationHome'">
+              <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
+            </button>
+            <button class="btn-primary" (click)="ToMedicationsHome()" *ngIf="activeScreen == 'MedicationList' || activeScreen == 'MedicationRefill' || activeScreen == 'MedicationHistory'">
+              <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
+            </button>
+            <button class="btn-primary" (click)="ToMedicationsList()" *ngIf="activeScreen == 'MedicationDetails'">
+              <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
+            </button>
       </div>
     </div>
 

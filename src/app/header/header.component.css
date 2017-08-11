@@ -1,28 +1,49 @@
-h1
-{
-  vertical-align: middle;
-  text-align: center;
-  font-size: 3vmin;
-
+#navigation-top{
+  border-bottom: solid 1px whitesmoke;
 }
 
-a
-{
-  font-size: 1.2vmin;
-
+.nav-link{
+  color: black;
 }
-.my-pointer{
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-li
-{
- background-color: aliceblue;
-  text-align: left;
-}
-
-/*span*/
-/*{*/
-  /*zoom: 120%;*/
+/*.nav-item{*/
+  /*margin: 0 5px;*/
 /*}*/
+a.nav-link:hover {
+  color: #005E63 !important;
+}
+.navbar{
+  height: 69px;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.navbar .navbar-toggler .navbar-toggler-icon {
+
+}
+
+.navbar-brand{
+//background-color: white!important;
+  padding: 9px 35px;
+  left:0 !important;
+//border: solid 1px #005E63;
+}
+.navbar-collapse {
+  background: #f6f6f6;
+  z-index: 1;
+}
+
+.logout-button {
+  float: right!important;
+  position: absolute;
+  right: 150px;
+  top: 15px;
+}
+#navbarNav {
+  position: relative;
+}
+.dropdown-menu{
+  max-width:120px;
+}
+.dropdown-menu>.dropdown-custom-item{
+  padding: 3px 5px 3px 0;
+  margin-left: 15px;
+}

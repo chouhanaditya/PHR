@@ -22,25 +22,14 @@ span
   color: white;
 }
 
-h3
+h3,h4
 {
   color: darkred;
-}
-ul,label,a,p
-{
-  font-size: 1.5vmin;
-}
-
-h3
-{
-  color: darkred;
-  font-size: 2vmin;
-  vertical-align: middle;
 }
 
 button{
   width: 16vmin;
-  font-size: 1.5vmin;
+  /*font-size: 1.5vmin;*/
   margin: 5px 5px;
   padding-left: 1%;
   padding-right: 1%;
@@ -62,4 +51,15 @@ button{
 .ShowPanel
 {
   visibility: visible;
+}
+hr
+{
+  /*width: 100%;*/
+  color: black;
+  height: 1px;
+  background-color:darkblue;
+}
+.disabled
+{
+  cursor: not-allowed;
 }

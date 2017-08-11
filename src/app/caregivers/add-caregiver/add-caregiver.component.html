@@ -5,9 +5,9 @@
     <div class="row table" *ngIf="IsError" style="padding-top: 1%">
       <div class="alert alert-danger alert-dismissable col-md-12">
         <div class="col-md-9">
-          <p style="font-size: 1.2vmin"> <strong>Errors! </strong>  </p>
-
-          <ul *ngFor="let error of AllErrors" style="font-size: 1.2vmin" >
+          <p> <strong>Errors! </strong>  </p>
+          <hr>
+          <ul *ngFor="let error of AllErrors" >
             * {{error}}
           </ul>
 
@@ -21,13 +21,10 @@
     <!--Caregiver added Dialog-->
     <div class="row table" *ngIf="IsFormSaved" style="padding-top: 1%">
       <div class="alert alert-success alert-dismissable col-md-12 ">
-        <label style="font-size: 1.2vmin">
             <strong>Success! </strong>
-            <br>
-            <br>
+            <hr>
             Caregiver has been successfully added, you can edit other details and Privileges by browsing from the navigation bar at left of the screen.<br>
             You would be redirected to the Caregivers Home screen in {{redirectCounter}} seconds...
-        </label>
       </div>
     </div>
 
@@ -67,7 +64,7 @@
                 <input
                   id="PhoneNumber"
                   type="text"
-                  placeholder="(___)-___-___"
+                  placeholder="(___)___-____"
                   class="form-inline"
                   formControlName="PhoneNumber"
                   [ngClass]="{inputErrored: caregiverForm.controls['PhoneNumber'].invalid && caregiverForm.controls['PhoneNumber'].touched}"

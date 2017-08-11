@@ -10,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { CaregiversComponent } from './caregivers/caregivers.component';
 import { RouterModule, Routes} from '@angular/router';
 import { SubHeaderComponent } from './caregivers/sub-header/sub-header.component';
+
 import { CaregiverDetailsComponent } from './caregivers/caregiver-details/caregiver-details.component';
 import {CaregiverService} from './caregivers/caregiver.Service';
 import { AddCaregiverComponent } from './caregivers/add-caregiver/add-caregiver.component';
@@ -18,11 +19,13 @@ import { NguiAutoCompleteModule} from '@ngui/auto-complete';
 import { MedicationSubHeaderComponent } from './medications/medication-sub-header/medication-sub-header.component';
 import { MedicationsComponent } from './medications/medications.component';
 import { ListComponent } from './medications/list/list.component';
-import { RefillComponent } from './medications/refill/refill.component';
 import { HistoryComponent } from './medications/history/history.component';
+import { ReconcillationComponent } from './medications/reconcillation/reconcillation.component';
+import { RefillComponent } from './medications/list/refill/refill.component';
 import {MedicationService} from './medications/Medication.Service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdInputModule} from '@angular/material';
+
 
 
 const appRoutes: Routes = [
@@ -37,9 +40,9 @@ const appRoutes: Routes = [
     children: [
       { path : 'List', component : ListComponent,
         children: [
-          // { path: ':id', component: DetailsComponent },
+          { path: 'Refill', component: RefillComponent },
         ]},
-      { path : 'Refill', component : RefillComponent },
+      { path : 'Reconcillation', component : ReconcillationComponent },
       { path : 'History', component : HistoryComponent }
     ]},
   { path: 'not-found', component: NotFoundComponent },
@@ -61,7 +64,8 @@ const appRoutes: Routes = [
     MedicationsComponent,
     ListComponent,
     RefillComponent,
-    HistoryComponent
+    HistoryComponent,
+    ReconcillationComponent
   ],
   imports: [
     BrowserModule,

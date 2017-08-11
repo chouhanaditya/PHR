@@ -15,18 +15,18 @@ a:hover
 
 ul,label,a,p
 {
-  font-size: 1.5vmin;
+  /*font-size: 1.5vmin;*/
 }
 
 h3
 {
   color: darkred;
-  font-size: 2vmin;
+  /*font-size: 2vmin;*/
   vertical-align: middle;
 }
 
 button{
-  font-size: 1.5vmin;
+  /*font-size: 1.5vmin;*/
   margin: 5px 5px;
   padding-left: 1%;
   padding-right: 1%;

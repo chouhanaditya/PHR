@@ -7,7 +7,7 @@ input{
   background-position: -200px 0;
   background-size: 300px 100%;
   background-repeat: no-repeat;
-  font-size: 1.5vmin;
+  /*font-size: 1.5vmin;*/
 }
 
 .input-Editable
@@ -39,19 +39,18 @@ input:focus, input:valid {
 
 ul,label
 {
-  font-size: 1.5vmin;
+  /*font-size: 1.5vmin;*/
 }
 
 p
 {
   color: darkred;
-  font-size: 1.5vmin;
   vertical-align: middle;
 }
 
 button{
-  font-size: 1.5vmin;
-  margin: 5px 5px;
+  /*font-size: 1.5vmin;*/
+  /*margin: 5px 5px;*/
   padding-left: 1%;
   padding-right: 1%;
   padding-top: 0.7%;

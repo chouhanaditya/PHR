@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {Caregiver} from '../caregiver.Model';
 import {CaregiverService} from '../caregiver.Service';
 import {FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
@@ -11,7 +11,7 @@ declare const jQuery: any;
   templateUrl: './add-caregiver.component.html',
   styleUrls: ['./add-caregiver.component.css']
 })
-export class AddCaregiverComponent implements OnInit, OnDestroy {
+export class AddCaregiverComponent implements OnInit, OnDestroy, AfterViewInit {
   caregiverForm: FormGroup;
   redirectCounter = 7;
   counterInterval: any;
@@ -152,6 +152,9 @@ export class AddCaregiverComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     clearInterval(this.counterInterval);
+  }
+  ngAfterViewInit()  {
+    // jQuery(this.el.nativeElement).find('#PhoneNumber').mask('(999) 999-9999');
   }
 }
 

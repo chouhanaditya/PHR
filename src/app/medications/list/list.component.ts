@@ -2,6 +2,7 @@ import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {MedicationService} from '../Medication.Service';
 import {Medication} from '../Medication.Model';
 import {Subscription} from 'rxjs/Subscription';
+import {forEach} from "@angular/router/src/utils/collection";
 declare const jQuery: any;
 
 
@@ -21,6 +22,7 @@ export class ListComponent implements OnInit, OnDestroy {
   ShowDetailedPanel_All = [];
   ShowDetailedPanel_Prescribed = [];
   ShowDetailedPanel_OTC = [];
+  Refill_button_active = false;
 
   constructor(public objMedication: MedicationService, private el: ElementRef) { }
 
@@ -54,6 +56,11 @@ export class ListComponent implements OnInit, OnDestroy {
       this.ShowDetailedPanel_Prescribed[x] = false;
       this.ShowDetailedPanel_OTC[x] = false;
     }
+    for (const medicine of this.MedicationList){
+      if (medicine.RefillStatus) {
+        this.Refill_button_active = true;
+      }
+    }
   }
   PrescribedClick()  {
     this.objMedication.setActiveMedicationTab('Prescribed');
@@ -73,7 +80,9 @@ export class ListComponent implements OnInit, OnDestroy {
   MedicineDetails_OTC_Click(i: number) {
     this.ShowDetailedPanel_OTC[i] = (this.ShowDetailedPanel_OTC[i] === true) ? false : true;
   }
+  OnRefillClick() {
 
+  }
   ngOnDestroy() {
     this.activeScreenSubscription.unsubscribe();
     this.activeMedicationListTabSub.unsubscribe();

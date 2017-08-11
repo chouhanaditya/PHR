@@ -2,13 +2,13 @@
   <!--Medication list Header-->
     <div class="row" style="padding-top: 0.5%">
           <div class="col-sm-3">
-              <h3 *ngIf="activeMedicationListTab == 'All'">Your Medicines List</h3>
-              <h3 *ngIf="activeMedicationListTab != 'All'">Your {{ activeMedicationListTab}} Medicines List</h3>
+              <h4 *ngIf="activeMedicationListTab == 'All'">Your Medicines List</h4>
+              <h4 *ngIf="activeMedicationListTab != 'All'">Your {{ activeMedicationListTab}} Medicines List</h4>
           </div>
           <!--Filter-->
           <div class="col-sm-9" >
                 <ul class="list-inline" style="float: right">
-                   <li style="font-size: x-large">
+                   <li>
                      Filter-
                    </li>
                     <li>
@@ -24,6 +24,7 @@
           </div>
     </div>
     <br>
+
   <!--Medication List Grid-->
     <div class="row">
         <div class="panel panel-default" style="background-color: #F6F6F6" >
@@ -31,34 +32,37 @@
               <div class="panel-heading">
                     <div class="row">
                           <div class="col-sm-2" style="padding-left: 1.5%">
-                            <h3 >Refill</h3>
+                            <h4 >Request Refill?</h4>
+                          </div>
+                          <div class="col-sm-2" style="padding-left: 1.5%">
+                            <h4>Name</h4>
                           </div>
                           <div class="col-sm-2" >
-                            <h3>Name</h3>
+                            <h4>Frequency</h4>
                           </div>
                           <div class="col-sm-2" >
-                            <h3>Frequency</h3>
-                          </div>
-                          <div class="col-sm-2" >
-                            <h3>Dosage</h3>
+                            <h4>Dosage</h4>
                           </div>
                           <div class="col-sm-2">
-                            <h3>Details</h3>
+                            <h4>Details</h4>
                           </div>
                           <div class="col-sm-1" style="padding-left: 2%">
-                            <h3>Information</h3>
+                            <h4>Information</h4>
                           </div>
                     </div>
               </div>
 
               <!--Medication List Grid Rows-->
+
               <!--Medication List Grid- All Rows-->
               <div class="panel-body" *ngIf="activeMedicationListTab == 'All'">
                 <ul class="list-group">
                   <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item">
                         <div class="row" style="padding-top: 1%">
                               <div class="col-sm-2" >
-                                <a title="Request Refill"><span class="glyphicon glyphicon-registration-mark"></span> Request Refill</a>
+                                  <ui-switch [(ngModel)]="medicine.RefillStatus" color="#656515" title="Request Refill for {{medicine.Name}} medicine"></ui-switch>
+                                  <label class="form-inline" *ngIf="medicine.RefillStatus == true" > Yes </label>
+                                  <label class="form-inline"  *ngIf="medicine.RefillStatus == false" style="color: darkred" > No </label>
                               </div>
                               <a      (click)="MedicineDetails_All_Click(i)"
                                       style="cursor: pointer"
@@ -73,7 +77,7 @@
                                           <div class="col-sm-2" >
                                             <p>{{medicine.Dosage}}</p>
                                           </div>
-                                          <div class="col-sm-2" style="padding-left: 2.2%" >
+                                          <div class="col-sm-2" style="padding-left: 1.8%" >
                                               <p *ngIf="ShowDetailedPanel_All[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
                                               <p *ngIf="ShowDetailedPanel_All[i] == true"><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
                                           </div>
@@ -86,24 +90,25 @@
                         <!--Details Panel- All tab-->
                         <br *ngIf="ShowDetailedPanel_All[i] == true" >
                         <div class="panel panel-default" *ngIf="ShowDetailedPanel_All[i] == true" style="background-color: aliceblue">
-                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
-                                          <div class="col-sm-4">
+                                    <div class="row" style="padding-left: 1%;padding-top: 1%;">
+                                          <div class="col-sm-4" >
                                                 <a>
-                                                  {{medicine.Name}} Information
+                                                  <span class="glyphicon glyphicon-info-sign"></span> {{medicine.Name}} Information
                                                 </a>
                                           </div>
                                           <div class="col-sm-4">
                                                 <a>
-                                                  {{medicine.Name}} Precautions
+                                                  <span class="glyphicon glyphicon-question-sign"></span> {{medicine.Name}} Precautions
                                                 </a>
                                           </div>
                                           <div class="col-sm-4">
                                                 <a>
-                                                  {{medicine.Name}} Contraindications
+                                                  <span class="glyphicon glyphicon-copyright-mark"></span> {{medicine.Name}} Contraindications
                                                 </a>
                                           </div>
                                     </div>
-                                    <div class="row" style="padding-left: 1%;padding-top: 1%">
+                                    <hr>
+                                    <div class="row" style="padding-left: 1%">
                                           <div class="col-sm-4">
                                             <Label> Generic Name: {{medicine.Name}}  </Label>
                                           </div>
@@ -119,15 +124,23 @@
                                             <Label> Route: {{medicine.Route}}  </Label>
                                           </div>
                                           <div class="col-sm-4">
-                                            <Label> Start Date: {{medicine.StartDate}}  </Label>
+                                            <Label> <span class="glyphicon glyphicon-time" ></span> Start Date: {{medicine.StartDate}}  </Label>
                                           </div>
                                           <div class="col-sm-4">
-                                            <Label> Stop Date: {{medicine.StopDate}}  </Label>
+                                            <Label> <span class="glyphicon glyphicon-time" ></span> Stop Date: {{medicine.StopDate}}  </Label>
                                           </div>
                                     </div>
-                                    <div class="row" style="padding-left: 1%;padding-top: 1%;padding-bottom: 1%">
+                                    <hr>
+                                    <div class="row" style="padding-left: 1%;padding-bottom: 1%">
                                           <div class="col-sm-4">
-                                            <Label> Refill Status: {{medicine.RefillStatus}}  </Label>
+                                            <Label> Pharmacy Name: <br>{{medicine.PharmacyName}}  </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> <span class="glyphicon glyphicon-globe"></span> Pharmacy Address: <br> {{medicine.PharmacyAddressLine1}} <br> {{medicine.PharmacyCity}} <br> {{medicine.PharmacyState}}
+                                            </Label>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <Label> <span class="glyphicon glyphicon-phone-alt"></span> Pharmacy Phone Number: <br> {{medicine.PharmacyPhoneNumber}}  </Label>
                                           </div>
                                     </div>
                         </div>
@@ -154,12 +167,12 @@
                                             <div class="col-sm-2">
                                               <p>{{medicine.Dosage}}</p>
                                             </div>
-                                            <div class="col-sm-2" style="padding-left: 2.2%" >
+                                            <div class="col-sm-2" style="padding-left: 1%" >
                                               <p *ngIf="ShowDetailedPanel_Prescribed[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
                                               <p *ngIf="ShowDetailedPanel_Prescribed[i] == true"><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
                                             </div>
                                        </a>
-                                      <div class="col-sm-1" align="center">
+                                      <div class="col-sm-1" align="center" >
                                             <a title="Medicine Information"><span class="glyphicon glyphicon-info-sign"></span></a>
                                       </div>
                               </div>
@@ -170,17 +183,17 @@
                                     <div class="row" style="padding-left: 1%;padding-top: 1%">
                                           <div class="col-sm-4">
                                             <a>
-                                              {{medicine.Name}} Information
+                                              <span class="glyphicon glyphicon-info-sign"></span> {{medicine.Name}} Information
                                             </a>
                                           </div>
                                           <div class="col-sm-4">
                                             <a>
-                                              {{medicine.Name}} Precautions
+                                              <span class="glyphicon glyphicon-question-sign"></span> {{medicine.Name}} Precautions
                                             </a>
                                           </div>
                                           <div class="col-sm-4">
                                             <a>
-                                              {{medicine.Name}} Contraindications
+                                              <span class="glyphicon glyphicon-copyright-mark"></span> {{medicine.Name}} Contraindications
                                             </a>
                                           </div>
                                     </div>
@@ -235,7 +248,7 @@
                                               <div class="col-sm-2">
                                                 <p>{{medicine.Dosage}}</p>
                                               </div>
-                                              <div class="col-sm-2" style="padding-left: 2.2%">
+                                              <div class="col-sm-2" style="padding-left: 1%">
                                                  <p *ngIf="ShowDetailedPanel_OTC[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
                                                  <p *ngIf="ShowDetailedPanel_OTC[i] == true"><span class="glyphicon glyphicon-minus-sign" ></span> Less</p>
                                               </div>
@@ -250,17 +263,17 @@
                               <div class="row" style="padding-left: 1%;padding-top: 1%">
                                 <div class="col-sm-4">
                                   <a>
-                                    {{medicine.Name}} Information
+                                    <span class="glyphicon glyphicon-info-sign"></span> {{medicine.Name}} Information
                                   </a>
                                 </div>
                                 <div class="col-sm-4">
                                   <a>
-                                    {{medicine.Name}} Precautions
+                                    <span class="glyphicon glyphicon-question-sign"></span> {{medicine.Name}} Precautions
                                   </a>
                                 </div>
                                 <div class="col-sm-4">
                                   <a>
-                                    {{medicine.Name}} Contraindications
+                                    <span class="glyphicon glyphicon-copyright-mark"></span> {{medicine.Name}} Contraindications
                                   </a>
                                 </div>
                               </div>
@@ -298,5 +311,12 @@
 
         </div>
     </div>
+</div>
+
+<div>
+    <button type="submit" class="btn-success" [disabled]= "Refill_button_active != true" [ngClass]="{disabled: Refill_button_active != true}" align="middle"  (click)="OnRefillClick()" title="Request refill for all above selected medicines">
+        Request for Refill&nbsp;
+        <span class="glyphicon glyphicon-registration-mark"></span>
+    </button>
 </div>
 <router-outlet ></router-outlet>

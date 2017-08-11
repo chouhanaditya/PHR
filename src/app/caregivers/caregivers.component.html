@@ -9,7 +9,7 @@
                         <div class="list-group" style="padding-left: 2%">
                                 <div *ngIf="countCaregivers != 0">
                                     <div class="row list-group-item" *ngFor="let caregiver of caregiversList;let i=index" id="caregiver_{{i}}">
-                                          <div class="col-sm-6">
+                                          <div class="col-sm-6 d-inline-block">
                                               <a  [routerLink]="['/Caregivers',caregiver.Id]"
                                                   (click)="OnDetailsClick(i)"
                                                   style="color: darkred"
@@ -17,15 +17,15 @@
                                                   {{caregiver.Name}}
                                               </a>
                                           </div>
-                                          <div class="col-sm-6" align="right">
-                                                <a class="my-pointer font-links"
+                                          <div class="col-sm-6 d-inline-block" align="right">
+                                                <a class="my-pointer font-links d-inline-block"
                                                    [routerLink]="['/Caregivers',caregiver.Id]"
                                                    [queryParams]="{Edit:true}"
                                                    (click)="OnEditClick(i)"
                                                     title="Request to Edit">
                                                   <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
                                                 </a>&nbsp;
-                                                <a class="my-pointer font-links"
+                                                <a class="my-pointer font-links d-inline-block"
                                                    [routerLink]="['/Caregivers',caregiver.Id]"
                                                    [queryParams]="{Delete:true}"
                                                    (click)="OnDeleteClick(i)"

@@ -4,24 +4,21 @@
             <div class="alert alert-success alert-dismissable col-md-12" role="alert">
                 <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
                   <h4 class="alert-heading">Success!</h4>
-
                     Request for made changes has been accepted and changes would reflect after getting approved.
                     <br>
-                    This dialog will autoclose in {{redirectCounter  }} seconds...
+                    This dialog will automatically close in {{redirectCounter  }} seconds...
             </div>
         </div>
 
         <!--Delete Dialog Box-->
         <div class="row table" *ngIf="IsDeleteDialog" style="padding-top: 1%">
           <div class="alert alert-danger alert-dismissable col-md-12">
-            <div class="col-md-9">
-              <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. It will delete personal details and all the Privilege. Are you sure you want to delete?</h4>
-            </div>
-            <div class="col-md-3" align="right">
-              <button class="btn-danger my-pointer" align="middle"  (click)="OnDeleteConfimedClick()"> Yes&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
+              <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. </h4>
+              <hr>
+              <p>It will delete personal details and all the assigned privileges. Are you sure you want to delete?</p>
+              <br>
+              <button class="btn-danger my-pointer" align="middle"  (click)="OnDeleteConfimedClick()" > Yes&nbsp; <span class="	glyphicon glyphicon-ok-circle"></span></button>
               <button class="btn-success my-pointer" align="middle" (click)="OnDeletecancelledClick()" > No&nbsp; <span class="glyphicon glyphicon-remove-circle"></span> </button>
-
-            </div>
           </div>
         </div>
 
@@ -60,7 +57,7 @@
                           </div>
                           <div class="col-md-2">
                                 <label >Power of Attorney: </label><br>
-                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"style="float: right"></ui-switch>
+                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"></ui-switch>
                                 <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" >Yes</label>
                                 <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline" style="color: darkred" >No</label>
                           </div>

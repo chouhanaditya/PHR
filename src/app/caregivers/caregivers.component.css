@@ -8,7 +8,7 @@
 }
 h3,a,ul,p
 {
-  font-size: 1.5vmin;
+  /*font-size: 1.5vmin;*/
 }
 .my-pointer{
   cursor: pointer;
@@ -19,5 +19,5 @@ h3,a,ul,p
 }
 
 .font-links {
-  font-size: 1.2vmin;
+  /*font-size: 1.2vmin;*/
 }

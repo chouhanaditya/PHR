@@ -32,7 +32,7 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
                               ];
 
   SelectedCaregiverId = 0;
-  redirectCounter = 7;
+  redirectCounter = 5;
   counterInterval: any;
   SelectedCaregiver: Caregiver;
   IsDeleteDialog = false;
@@ -61,7 +61,7 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
     }, 1000);
       setTimeout(
         () => { this.IsSaveDialog = false;
-      }, 7000);
+      }, 5000);
       this.route1.navigate(['/Caregivers', this.SelectedCaregiverId]);
     }
     OnCancelClick() {
@@ -70,9 +70,11 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
 
     }
     OnDeleteConfimedClick() {
-      this.objCaregiverService.deleteCaregiver(this.SelectedCaregiverId);
-      this.objCaregiverService.setActiveScreen('CaregiverHome');
-      this.route1.navigate(['/Caregivers']);
+      setTimeout(
+        () => {  this.objCaregiverService.deleteCaregiver(this.SelectedCaregiverId);
+        this.objCaregiverService.setActiveScreen('CaregiverHome');
+          this.route1.navigate(['/Caregivers']);
+        }, 2000);
     }
 
     OnDeletecancelledClick()    {
