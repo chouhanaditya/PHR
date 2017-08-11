@@ -8,7 +8,7 @@ declare const jQuery;
 })
 export class HeaderComponent implements OnInit, OnDestroy{
 
-  // ShowLogoutDropDown= false;
+  ShowLogoutDropDown= false;
   showLogout = false; loadHome = false; loginPage = false;
   toggleTabs = false;
   constructor(private el: ElementRef) { }
