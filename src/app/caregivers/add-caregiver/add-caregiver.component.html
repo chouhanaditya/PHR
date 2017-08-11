@@ -86,7 +86,7 @@
               <div class="col-md-2 list-group-item">
                 <label> Power Of Attorney: </label>
                 <label *ngIf="caregiverForm.controls['IsPowerofAttorney'].value == true" class="form-inline" >Yes</label>
-                <label  *ngIf="caregiverForm.controls['IsPowerofAttorney'].value == false" class="form-inline" style="color: darkred" >No</label>
+                <label  *ngIf="caregiverForm.controls['IsPowerofAttorney'].value == false" class="form-inline"  >No</label>
                 <br>
                 <ui-switch color="#656515"  formControlName="IsPowerofAttorney">
                 </ui-switch>
@@ -117,7 +117,7 @@
                       <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewMessages']" ></span> &nbsp;-->
                       Read Messages:
                       <label *ngIf="caregiverForm.controls['ViewMessages'].value == true" class="form-inline" >Yes</label>
-                      <label  *ngIf="caregiverForm.controls['ViewMessages'].value == false" class="form-inline" style="color: darkred" >No</label>
+                      <label  *ngIf="caregiverForm.controls['ViewMessages'].value == false" class="form-inline"  >No</label>
                       <ui-switch color="#656515" style="float:right" formControlName="ViewMessages" ></ui-switch>
                     </li>
                     <li class="list-group-item">
@@ -125,7 +125,7 @@
                       <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['SendMessages']" ></span>  &nbsp;-->
                       Send/ Reply Messages:
                       <label *ngIf="caregiverForm.controls['SendMessages'].value == true" class="form-inline" >Yes</label>
-                      <label  *ngIf="caregiverForm.controls['SendMessages'].value == false" class="form-inline" style="color: darkred" >No</label>
+                      <label  *ngIf="caregiverForm.controls['SendMessages'].value == false" class="form-inline"  >No</label>
                       <ui-switch color="#656515" style="float:right" formControlName="SendMessages" ></ui-switch>
                     </li>
                   </ul>
@@ -138,7 +138,7 @@
                       <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewAppointments']" ></span> &nbsp;-->
                       View Appointments:
                       <label *ngIf="caregiverForm.controls['ViewAppointments'].value == true" class="form-inline" >Yes</label>
-                      <label  *ngIf="caregiverForm.controls['ViewAppointments'].value == false" class="form-inline" style="color: darkred" >No</label>
+                      <label  *ngIf="caregiverForm.controls['ViewAppointments'].value == false" class="form-inline"  >No</label>
                       <ui-switch color="#656515" style="float:right" formControlName="ViewAppointments" ></ui-switch>
                     </li>
                     <li class="list-group-item">
@@ -146,7 +146,7 @@
                       <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ScheduleAppointments']" ></span> &nbsp;-->
                       Schedule Appointments:
                       <label *ngIf="caregiverForm.controls['ScheduleAppointments'].value == true" class="form-inline" >Yes</label>
-                      <label  *ngIf="caregiverForm.controls['ScheduleAppointments'].value == false" class="form-inline" style="color: darkred" >No</label>
+                      <label  *ngIf="caregiverForm.controls['ScheduleAppointments'].value == false" class="form-inline"  >No</label>
                       <ui-switch color="#656515" style="float:right" formControlName="ScheduleAppointments" ></ui-switch>
                     </li>
                     <!--<li class="list-group-item">-->
@@ -173,7 +173,7 @@
                       <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewMedications']" ></span> &nbsp;-->
                       View Medication:
                       <label *ngIf="caregiverForm.controls['ViewMedications'].value == true" class="form-inline" >Yes</label>
-                      <label  *ngIf="caregiverForm.controls['ViewMedications'].value == false" class="form-inline" style="color: darkred" >No</label>
+                      <label  *ngIf="caregiverForm.controls['ViewMedications'].value == false" class="form-inline"  >No</label>
                       <ui-switch color="#656515" style="float:right" formControlName="ViewMedications" ></ui-switch>
                     </li>
                     <li class="list-group-item">
@@ -181,7 +181,7 @@
                       <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['RefillMedication']"></span> &nbsp;-->
                       Request for refill:
                       <label *ngIf="caregiverForm.controls['RefillMedication'].value == true" class="form-inline" >Yes</label>
-                      <label  *ngIf="caregiverForm.controls['RefillMedication'].value == false" class="form-inline" style="color: darkred" >No</label>
+                      <label  *ngIf="caregiverForm.controls['RefillMedication'].value == false" class="form-inline"  >No</label>
                       <ui-switch color="#656515"style="float:right" formControlName="RefillMedication" ></ui-switch>
                     </li>
                   </ul>
@@ -192,14 +192,14 @@
                   <li class="list-group-item">
                     View Reports:
                     <label *ngIf="caregiverForm.controls['ViewReports'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['ViewReports'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['ViewReports'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="ViewReports">
                     </ui-switch>
                   </li>
                   <li class="list-group-item">
                     Save Reports:
                     <label *ngIf="caregiverForm.controls['SaveReports'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['SaveReports'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['SaveReports'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="SaveReports">
                     </ui-switch>
                   </li>
@@ -222,7 +222,7 @@
                     <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewPatientPlan']" ></span> &nbsp;-->
                     View Patient Goals:
                     <label *ngIf="caregiverForm.controls['ViewPatientGoals'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['ViewPatientGoals'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['ViewPatientGoals'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="ViewPatientGoals" ></ui-switch>
                   </li>
                   <li class="list-group-item">
@@ -230,7 +230,7 @@
                     <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['EditPatientPlan']" ></span> &nbsp;-->
                     Edit Patient Goals:
                     <label *ngIf="caregiverForm.controls['EditPatientGoals'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['EditPatientGoals'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['EditPatientGoals'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="EditPatientGoals" ></ui-switch>
                   </li>
                 </ul>
@@ -241,13 +241,13 @@
                   <li class="list-group-item">
                     View Patient History:
                     <label *ngIf="caregiverForm.controls['ViewHistory'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['ViewHistory'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['ViewHistory'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="ViewHistory" ></ui-switch>
                   </li>
                   <li class="list-group-item">
                     Save Patient History:
                     <label *ngIf="caregiverForm.controls['SaveHistory'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['SaveHistory'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['SaveHistory'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="SaveHistory" ></ui-switch>
                   </li>
                 </ul>
@@ -258,13 +258,13 @@
                   <li class="list-group-item">
                     Fill Patient Health Questionnaire:
                     <label *ngIf="caregiverForm.controls['FillQuestionnaire'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['FillQuestionnaire'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['FillQuestionnaire'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="FillQuestionnaire" ></ui-switch>
                   </li>
                   <li class="list-group-item">
                     Save Patient Health Questionnaire:
                     <label *ngIf="caregiverForm.controls['SaveQuestionnaire'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['SaveQuestionnaire'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['SaveQuestionnaire'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="SaveQuestionnaire" ></ui-switch>
                   </li>
                 </ul>
@@ -275,13 +275,13 @@
                   <li class="list-group-item">
                     View After Visit Summary:
                     <label *ngIf="caregiverForm.controls['ViewAVS'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['ViewAVS'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['ViewAVS'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="ViewAVS" ></ui-switch>
                   </li>
                   <li class="list-group-item">
                     Save After Visit Summary:
                     <label *ngIf="caregiverForm.controls['SaveAVS'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['SaveAVS'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['SaveAVS'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="SaveAVS" ></ui-switch>
                   </li>
                 </ul>
@@ -303,7 +303,7 @@
                     <!--<span class="glyphicon glyphicon-ok" *ngIf="caregiverForm.controls['ViewProviders']" ></span>-->
                     View Providers:
                     <label *ngIf="caregiverForm.controls['ViewProviders'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['ViewProviders'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['ViewProviders'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="ViewProviders" ></ui-switch>
                   </li>
                   <li class="list-group-item">
@@ -311,7 +311,7 @@
                     <!--&lt;!&ndash;<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ManageProviders']" ></span> &nbsp;-->
                     Manage Providers:
                     <label *ngIf="caregiverForm.controls['ManageProviders'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['ManageProviders'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['ManageProviders'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="ManageProviders" ></ui-switch>
                   </li>
                 </ul>
@@ -324,7 +324,7 @@
                     <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['ViewBills']"></span> &nbsp;-->
                     View Bills:
                     <label *ngIf="caregiverForm.controls['ViewBills'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['ViewBills'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['ViewBills'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="ViewBills" ></ui-switch>
                   </li>
                   <li class="list-group-item">
@@ -332,7 +332,7 @@
                     <!--<span class="glyphicon glyphicon-remove" *ngIf="!caregiverForm.controls['PayBills']"></span> &nbsp;-->
                     Pay Bills:
                     <label *ngIf="caregiverForm.controls['PayBills'].value == true" class="form-inline" >Yes</label>
-                    <label  *ngIf="caregiverForm.controls['PayBills'].value == false" class="form-inline" style="color: darkred" >No</label>
+                    <label  *ngIf="caregiverForm.controls['PayBills'].value == false" class="form-inline"  >No</label>
                     <ui-switch color="#656515" style="float:right" formControlName="PayBills" ></ui-switch>
                   </li>
                 </ul>

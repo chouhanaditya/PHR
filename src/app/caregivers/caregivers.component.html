@@ -12,22 +12,24 @@
                                           <div class="col-sm-6 d-inline-block">
                                               <a  [routerLink]="['/Caregivers',caregiver.Id]"
                                                   (click)="OnDetailsClick(i)"
-                                                  style="color: darkred"
+                                                  style="color: darkred; font-size: x-large"
                                                   title="View Details">
                                                   {{caregiver.Name}}
                                               </a>
                                           </div>
-                                          <div class="col-sm-6 d-inline-block" align="right">
-                                                <a class="my-pointer font-links d-inline-block"
+                                          <div class="col-sm-6 " align="right" style="vertical-align: bottom!important;">
+                                                <a class="my-pointer font-links"
                                                    [routerLink]="['/Caregivers',caregiver.Id]"
+                                                    style="vertical-align: bottom !important;"
                                                    [queryParams]="{Edit:true}"
                                                    (click)="OnEditClick(i)"
                                                     title="Request to Edit">
                                                   <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
                                                 </a>&nbsp;
-                                                <a class="my-pointer font-links d-inline-block"
+                                                <a class="my-pointer font-links "
                                                    [routerLink]="['/Caregivers',caregiver.Id]"
                                                    [queryParams]="{Delete:true}"
+                                                   style="vertical-align: bottom!important;"
                                                    (click)="OnDeleteClick(i)"
                                                    title="Request to Delete">
                                                   <span class="glyphicon glyphicon-trash"></span> Del
@@ -44,6 +46,7 @@
                                           <a routerLink="/Caregivers/new"
                                              (click)="OnNewClick()"
                                              class="list-group-item"
+                                             style="font-size: x-large"
                                              [ngClass]="{'custom-bg':activeScreen == 'CaregiverNew'}"
                                              title="Request to Add new">
                                              <span class="	glyphicon glyphicon-plus-sign"></span>

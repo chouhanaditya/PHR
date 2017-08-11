@@ -11,14 +11,6 @@
                           Medication List
                           <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationList'"></span>
                       </a>
-                      <a [routerLink]="['/Medications/Reconcillation']"
-                         class="list-group-item "
-                         [ngClass]="{'custom-bg':activeScreen == 'MedicationRefill'}"
-                         (click)="OnRefillClick()"
-                       >
-                          Medication Reconciliation
-                          <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationReconciliation'"></span>
-                      </a>
                       <a [routerLink]="['/Medications/History']"
                          class="list-group-item"
                          [ngClass]="{'custom-bg':activeScreen == 'MedicationHistory'}"
@@ -26,6 +18,14 @@
                          >
                           Medication History
                           <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationHistory'"></span>
+                      </a>
+                      <a [routerLink]="['/Medications/Reconcillation']"
+                         class="list-group-item "
+                         [ngClass]="{'custom-bg':activeScreen == 'MedicationRefill'}"
+                         (click)="OnRefillClick()"
+                      >
+                        Medication Reconciliation
+                        <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationReconciliation'"></span>
                       </a>
                 </div>
           </div>

@@ -55,11 +55,11 @@
                                <label > Relationship: </label>
                                 <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                           </div>
-                          <div class="col-md-2">
+                          <div class="col-md-2 list-group-item">
                                 <label >Power of Attorney: </label><br>
                                 <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"></ui-switch>
                                 <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" >Yes</label>
-                                <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline" style="color: darkred" >No</label>
+                                <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline"  >No</label>
                           </div>
                   </div>
               </div>
@@ -88,7 +88,7 @@
                                 <label *ngIf="SelectedCaregiver.ViewMessages == true" class="form-inline" > Yes
                                 </label>
 
-                                <label *ngIf="SelectedCaregiver.ViewMessages == false" class="form-inline"  style="color: darkred" >
+                                <label *ngIf="SelectedCaregiver.ViewMessages == false" class="form-inline"   >
                                  No
                                 </label>
 
@@ -101,7 +101,7 @@
                                   Yes
                                 </label>
 
-                                <label *ngIf="SelectedCaregiver.SendMessages == false" class="form-inline"  style="color: darkred" >
+                                <label *ngIf="SelectedCaregiver.SendMessages == false" class="form-inline"   >
                                    No
                                 </label>
 
@@ -118,7 +118,7 @@
                                       Yes
                                     </label>
 
-                                    <label *ngIf="SelectedCaregiver.ViewAppointments == false " class="form-inline" style="color: darkred" >
+                                    <label *ngIf="SelectedCaregiver.ViewAppointments == false " class="form-inline"  >
                                       No
                                     </label>
 
@@ -130,7 +130,7 @@
                                       Yes
                                     </label>
 
-                                    <label *ngIf="SelectedCaregiver.ScheduleAppointments == false " class="form-inline" style="color: darkred">
+                                    <label *ngIf="SelectedCaregiver.ScheduleAppointments == false " class="form-inline" >
                                       No
                                     </label>
 
@@ -156,7 +156,7 @@
                                     Yes
                                   </label>
 
-                                  <label *ngIf="SelectedCaregiver.ViewMedications == false" class="form-inline" style="color: darkred">
+                                  <label *ngIf="SelectedCaregiver.ViewMedications == false" class="form-inline" >
                                     No
                                   </label>
 
@@ -168,7 +168,7 @@
                                   <label *ngIf="SelectedCaregiver.RefillMedication == true" class="form-inline" >
                                     Yes
                                   </label>
-                                  <label *ngIf="SelectedCaregiver.RefillMedication == false " class="form-inline" style="color: darkred">
+                                  <label *ngIf="SelectedCaregiver.RefillMedication == false " class="form-inline" >
                                     No
                                   </label>
 
@@ -187,7 +187,7 @@
                                   Yes
                                 </label>
 
-                                <label *ngIf="SelectedCaregiver.ViewReports == false" class="form-inline" style="color: darkred" >
+                                <label *ngIf="SelectedCaregiver.ViewReports == false" class="form-inline"  >
                                    No
                                 </label>
                             </li>
@@ -199,7 +199,7 @@
                                 Yes
                               </label>
 
-                              <label *ngIf="SelectedCaregiver.SaveReports == false" class="form-inline" style="color: darkred">
+                              <label *ngIf="SelectedCaregiver.SaveReports == false" class="form-inline" >
                                  No
                               </label>
                             </li>
@@ -223,7 +223,7 @@
                                     Yes
                                   </label>
 
-                                  <label *ngIf="SelectedCaregiver.ViewPatientGoals == false "class="form-inline" style="color: darkred">
+                                  <label *ngIf="SelectedCaregiver.ViewPatientGoals == false "class="form-inline" >
                                     No
                                   </label>
 
@@ -236,7 +236,7 @@
                                     Yes
                                   </label>
 
-                                  <label *ngIf="SelectedCaregiver.EditPatientGoals == false " class="form-inline" style="color: darkred" >
+                                  <label *ngIf="SelectedCaregiver.EditPatientGoals == false " class="form-inline"  >
                                     No
                                   </label>
 
@@ -255,7 +255,7 @@
                                   Yes
                                 </label>
 
-                                <label *ngIf="SelectedCaregiver.ViewHistory == false" class="form-inline"  style="color: darkred" >
+                                <label *ngIf="SelectedCaregiver.ViewHistory == false" class="form-inline"   >
                                    No
                                 </label>
                             </li>
@@ -267,7 +267,7 @@
                                 Yes
                               </label>
 
-                              <label *ngIf="SelectedCaregiver.SaveHistory == false" class="form-inline"  style="color: darkred" >
+                              <label *ngIf="SelectedCaregiver.SaveHistory == false" class="form-inline"   >
                                  No
                               </label>
                           </li>
@@ -282,7 +282,7 @@
                               Yes
                               </label>
 
-                              <label *ngIf="SelectedCaregiver.FillQuestionnaire == false " class="form-inline" style="color: darkred">
+                              <label *ngIf="SelectedCaregiver.FillQuestionnaire == false " class="form-inline" >
                               No
                               </label>
 
@@ -296,7 +296,7 @@
                                 Yes
                               </label>
 
-                              <label *ngIf="SelectedCaregiver.SaveQuestionnaire == false" class="form-inline" style="color: darkred" >
+                              <label *ngIf="SelectedCaregiver.SaveQuestionnaire == false" class="form-inline"  >
                                  No
                               </label>
                           </li>
@@ -313,7 +313,7 @@
                                   Yes
                                 </label>
 
-                                <label *ngIf="SelectedCaregiver.ViewAVS == false" class="form-inline" style="color: darkred">
+                                <label *ngIf="SelectedCaregiver.ViewAVS == false" class="form-inline" >
                                    No
                                 </label>
                             </li>
@@ -325,7 +325,7 @@
                                   Yes
                                 </label>
 
-                                <label *ngIf="SelectedCaregiver.SaveAVS == false" class="form-inline" style="color: darkred" >
+                                <label *ngIf="SelectedCaregiver.SaveAVS == false" class="form-inline"  >
                                    No
                                 </label>
                             </li>
@@ -350,7 +350,7 @@
                               Yes
                             </label>
 
-                            <label *ngIf="SelectedCaregiver.ViewProviders == false" class="form-inline" style="color: darkred">
+                            <label *ngIf="SelectedCaregiver.ViewProviders == false" class="form-inline" >
                               No
                             </label>
 
@@ -364,7 +364,7 @@
                               Yes
                             </label>
 
-                            <label *ngIf="SelectedCaregiver.ManageProviders == false " class="form-inline" style="color: darkred">
+                            <label *ngIf="SelectedCaregiver.ManageProviders == false " class="form-inline" >
                               No
                             </label>
 
@@ -381,7 +381,7 @@
                               Yes
                             </label>
 
-                            <label *ngIf="SelectedCaregiver.ViewBills == false "class="form-inline" style="color: darkred">
+                            <label *ngIf="SelectedCaregiver.ViewBills == false "class="form-inline" >
                               No
                             </label>
 
@@ -393,7 +393,7 @@
                               Yes
                             </label>
 
-                            <label *ngIf="SelectedCaregiver.PayBills == false" class="form-inline" style="color: darkred">
+                            <label *ngIf="SelectedCaregiver.PayBills == false" class="form-inline" >
                                No
                             </label>
 
