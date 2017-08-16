@@ -14,7 +14,7 @@ declare const jQuery: any;
 export class AddCaregiverComponent implements OnInit, OnDestroy, AfterViewInit {
   caregiverForm: FormGroup;
   NewCaregiverId: any;
-  redirectCounter = 15;
+  redirectCounter = 10;
   counterInterval: any;
   IsFormSaved = false;
   IsError = false;
@@ -111,7 +111,7 @@ export class AddCaregiverComponent implements OnInit, OnDestroy, AfterViewInit {
         () => { this.IsFormSaved = false;
           this.objCaregiverService.setActiveScreen('CaregiverDetails');
           this.route.navigate(['/Caregivers', this.NewCaregiverId]);
-        }, 15000);
+        }, 10000);
       } else {
       this.AllErrors = [];
       this.getFormValidationErrors();

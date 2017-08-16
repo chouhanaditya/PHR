@@ -5,7 +5,7 @@ input{
   -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   background-position: -200px 0;
-  background-size: 300px 100%;
+  background-size: 400px 100%;
   background-repeat: no-repeat;
   /*font-size: 1.5vmin;*/
 }
