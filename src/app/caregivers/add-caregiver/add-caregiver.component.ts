@@ -13,7 +13,8 @@ declare const jQuery: any;
 })
 export class AddCaregiverComponent implements OnInit, OnDestroy, AfterViewInit {
   caregiverForm: FormGroup;
-  redirectCounter = 7;
+  NewCaregiverId: any;
+  redirectCounter = 15;
   counterInterval: any;
   IsFormSaved = false;
   IsError = false;
@@ -61,6 +62,7 @@ export class AddCaregiverComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onSubmit() {
    if (this.caregiverForm.valid) {
+     this.NewCaregiverId = this.objCaregiverService.getNextCaregiverID();
      this.caregiverForm.controls['Id'].setValue(this.objCaregiverService.getNextCaregiverID());
      this.objCaregiverService.addCaregiver(this.caregiverForm.value);
      this.caregiverForm.reset();
@@ -107,9 +109,9 @@ export class AddCaregiverComponent implements OnInit, OnDestroy, AfterViewInit {
       }, 1000);
       setTimeout(
         () => { this.IsFormSaved = false;
-          this.objCaregiverService.setActiveScreen('CaregiverHome');
-          this.route.navigate(['/Caregivers']);
-        }, 7000);
+          this.objCaregiverService.setActiveScreen('CaregiverDetails');
+          this.route.navigate(['/Caregivers', this.NewCaregiverId]);
+        }, 15000);
       } else {
       this.AllErrors = [];
       this.getFormValidationErrors();

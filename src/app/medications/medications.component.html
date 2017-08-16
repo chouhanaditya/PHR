@@ -21,8 +21,8 @@
                       </a>
                       <a [routerLink]="['/Medications/Reconcillation']"
                          class="list-group-item "
-                         [ngClass]="{'custom-bg':activeScreen == 'MedicationRefill'}"
-                         (click)="OnRefillClick()"
+                         [ngClass]="{'custom-bg':activeScreen == 'MedicationReconciliation'}"
+                         (click)="OnReconciliationClick()"
                       >
                         Medication Reconciliation
                         <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationReconciliation'"></span>

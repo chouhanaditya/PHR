@@ -32,7 +32,7 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
                               ];
 
   SelectedCaregiverId = 0;
-  redirectCounter = 5;
+  redirectCounter = 10;
   counterInterval: any;
   SelectedCaregiver: Caregiver;
   IsDeleteDialog = false;
@@ -61,7 +61,7 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
     }, 1000);
       setTimeout(
         () => { this.IsSaveDialog = false;
-      }, 5000);
+      }, 10000);
       this.route1.navigate(['/Caregivers', this.SelectedCaregiverId]);
     }
     OnCancelClick() {

@@ -28,11 +28,9 @@ h3,h4
 }
 
 button{
-  width: 16vmin;
-  /*font-size: 1.5vmin;*/
-  margin: 5px 5px;
-  padding-left: 1%;
-  padding-right: 1%;
+  width: 170px;
+  padding-left: 0.7%;
+  padding-right: 0.7%;
   padding-top: 1%;
   padding-bottom: 1%;
   cursor: pointer;
@@ -54,7 +52,6 @@ button{
 }
 hr
 {
-  /*width: 100%;*/
   color: black;
   height: 1px;
   background-color:darkblue;
@@ -62,4 +59,15 @@ hr
 .disabled
 {
   cursor: not-allowed;
+  background-color: lightgray;
+}
+
+.btn-info {
+  width: 70px;
+  padding-left: 0.7%;
+  padding-right: 0.7%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  cursor: pointer;
+  vertical-align: middle;
 }

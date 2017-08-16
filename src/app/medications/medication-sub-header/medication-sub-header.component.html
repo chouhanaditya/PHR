@@ -1,17 +1,15 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2" align="left">
-      <div>
-            <button class="btn-primary" (click)="ToMainHome()" *ngIf="activeScreen == 'MedicationHome'">
+            <button class="btn-primary" (click)="ToMainHome()" *ngIf="activeScreen == 'MedicationHome'" style="vertical-align: middle">
               <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
             </button>
-            <button class="btn-primary" (click)="ToMedicationsHome()" *ngIf="activeScreen == 'MedicationList' || activeScreen == 'MedicationRefill' || activeScreen == 'MedicationHistory'">
+            <button class="btn-primary" (click)="ToMedicationsHome()" *ngIf="activeScreen == 'MedicationList' || activeScreen == 'MedicationReconciliation' || activeScreen == 'MedicationHistory'" style="vertical-align: middle">
               <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
             </button>
-            <button class="btn-primary" (click)="ToMedicationsList()" *ngIf="activeScreen == 'MedicationDetails'">
+            <button class="btn-primary" (click)="ToMedicationsList()" *ngIf="activeScreen == 'MedicationRefill'" style="vertical-align: middle">
               <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
             </button>
-      </div>
     </div>
 
     <div class="col-sm-8" style="text-align: center; vertical-align: middle">

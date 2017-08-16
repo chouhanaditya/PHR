@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Module} from "./Module.Model";
+import {MedicationService} from "../medications/Medication.Service";
+import {CaregiverService} from "../caregivers/caregiver.Service";
 
 @Component({
   selector: 'app-main',
@@ -13,7 +15,7 @@ export class MainComponent implements OnInit {
   modulesRow3: Module[];
   modulesRow4: Module[];
 
-  constructor() { }
+  constructor(public objMedication: MedicationService, public objCaregiver: CaregiverService) { }
 
   ngOnInit() {
 
@@ -46,6 +48,17 @@ export class MainComponent implements OnInit {
       {"ModuleName":"Settings","IconUrl":"http://icons.iconarchive.com/icons/cornmanthe3rd/plex/128/System-settings-icon.png"},
     ];
 
+  }
+  OnRow2_MenuClick(index: number) {
+    if (index === 1) {
+      this.objMedication.setActiveScreen('MedicationHome');
+    }
+  }
+
+  OnRow4_MenuClick(index: number) {
+    if (index === 0) {
+     this.objCaregiver.setActiveScreen('CaregiverHome');
+    }
   }
 
 }

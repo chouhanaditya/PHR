@@ -26,8 +26,8 @@ export class MedicationsComponent implements OnInit, OnDestroy {
   OnListClick() {
     this.objMedication.setActiveScreen('MedicationList');
   }
-  OnRefillClick()  {
-    this.objMedication.setActiveScreen('MedicationRefill');
+  OnReconciliationClick()  {
+    this.objMedication.setActiveScreen('MedicationReconciliation');
   }
   OnHistoryClick() {
     this.objMedication.setActiveScreen('MedicationHistory');
