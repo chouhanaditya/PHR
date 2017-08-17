@@ -22,6 +22,7 @@ export class ListComponent implements OnInit, OnDestroy {
   ShowContraindicationsPanel = [];
   activeMedicationListTab = 'All';
   Refill_button_active = false;
+  RefillSelected_Medicines = '';
   @ViewChild('btnSubmit') btnSubmit: ElementRef;
 
   constructor(public objMedication: MedicationService, private el: ElementRef, private route: Router) { }
@@ -70,14 +71,22 @@ export class ListComponent implements OnInit, OnDestroy {
     if (this.MedicationList[index].RefillStatus === false) {
      this.Refill_button_active = true;
      this.btnSubmit.nativeElement.title = 'Request refill for all above selected medicines';
+     this.MedicationList[index].RefillStatus = true;
     } else {
      this.Refill_button_active = false;
       this.btnSubmit.nativeElement.title = 'Please select atleast one medicine for refill.';
     }
   }
   OnRequestRefillClick() {
+    this.RefillSelected_Medicines = '';
+    for (const medicine of this.MedicationList){
+      if (medicine.RefillStatus) {
+        this.RefillSelected_Medicines = this.RefillSelected_Medicines + medicine.Id + ',';
+       }
+    }
     this.objMedication.setActiveScreen('MedicationRefill');
-      this.route.navigate(['/Medications/List/Refill']);
+    this.route.navigate(['/Medications/List', this.RefillSelected_Medicines]);
+
   }
   ngOnDestroy() {
     this.activeScreenSubscription.unsubscribe();

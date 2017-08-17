@@ -3,8 +3,8 @@
 
           <!--Modules Row 1-->
           <div class="panel panel-default">
-                <div class="panel-heading" style="height: 50px;vertical-align: middle">
-                  <h4 style="text-align: left">Communications</h4>
+                <div class="panel-heading" >
+                  <h4 class="heading">Communications</h4>
                 </div>
                 <div class="panel-body">
                     <div *ngFor="let module of modulesRow1" class="col-sm-3 col-xs-3" align="center">
@@ -22,30 +22,30 @@
 
              <!--Modules Row 2-->
           <div class="panel panel-default">
-                <div class="panel-heading" style="height: 50px;vertical-align: middle">
-                  <h4 style="text-align: left">Medications and Tests</h4>
+                <div class="panel-heading" >
+                  <h4 class="heading">Medications and Tests</h4>
                 </div>
-            <div class="panel-body">
-                <div *ngFor="let module of modulesRow2;let i = index" class="col-sm-3 col-xs-3" align="center">
-                     <a routerLink="/{{module.ModuleName}}">
-                      <img
-                      [src]="module.IconUrl"
-                      alt="{{ module.ModuleName }}"
-                      class="img-responsive list-group-item"
-                      (click)="OnRow2_MenuClick(i)"
-                      >
-                      <h4> {{ module.ModuleName }}</h4>
-                    </a>
+                <div class="panel-body">
+                    <div *ngFor="let module of modulesRow2;let i = index" class="col-sm-3 col-xs-3" align="center">
+                         <a routerLink="/{{module.ModuleName}}">
+                          <img
+                          [src]="module.IconUrl"
+                          alt="{{ module.ModuleName }}"
+                          class="img-responsive list-group-item"
+                          (click)="OnRow2_MenuClick(i)"
+                          >
+                          <h4> {{ module.ModuleName }}</h4>
+                        </a>
+                    </div>
                 </div>
-            </div>
           </div>
 
           <!--Modules Row 3-->
           <div class="panel panel-default">
-                <div class="panel-heading" style="height: 50px;vertical-align: middle">
-                  <h4 style="text-align: left">Health at a Glance</h4>
+                <div class="panel-heading" >
+                  <h4 class="heading">Health at a Glance</h4>
                 </div>
-            <div class="panel-body">
+                <div class="panel-body">
                   <div *ngFor="let module of modulesRow3; let i = index" class="col-sm-3 col-xs-3" align="center">
                         <a routerLink="/{{module.ModuleName}}">
                         <img
@@ -82,8 +82,8 @@
 
           <!--Modules Row 4-->
           <div class="panel panel-default">
-                <div class="panel-heading" style="height: 50px;vertical-align: middle">
-                  <h4 style="text-align: left">Care Team</h4>
+                <div class="panel-heading" >
+                  <h4 class="heading">Care Team</h4>
                 </div>
                 <div class="panel-body">
                 <div *ngFor="let module of modulesRow4; let i = index" class="col-sm-3 col-xs-3" align="center">

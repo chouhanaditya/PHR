@@ -1,6 +1,140 @@
 <div class="container-fluid">
-  <div class="row">
-    <h4>Below is the list of medicine(s) which are ready for refill-</h4>
 
+  <!--Save Dialog Box-->
+  <div class="row table" *ngIf="IsSaveDialog" style="padding-top: 1%; width: 77%">
+    <div class="alert alert-success alert-dismissable col-md-12" role="alert">
+      <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
+      <h3 class="alert-heading">Success!</h3>
+      Request for medicine refill has been accepted.
+      <br>
+      This dialog will automatically close in {{redirectCounter}} seconds...
+    </div>
+  </div>
+
+
+  <div class="row">
+    <h4 style="padding-top: 1%">Below medicines are ready for refill-</h4>
+    <br>
+    <div class="panel panel-default" style="background-color: #F6F6F6; width: 75%" >
+        <!--Refill Medicatines Grid header-->
+        <div class="panel-heading" style="background-color:#F6F6F6 ">
+          <div class="row">
+            <div class="col-sm-5">
+              <h4 >Medicine Name</h4>
+            </div>
+            <div class="col-sm-5">
+              <h4>Prescribed Number of Pills</h4>
+            </div>
+            <div class="col-sm-2" >
+              <h4>Refill?</h4>
+            </div>
+          </div>
+        </div>
+
+        <!--Refill Medicatines Grid Body-->
+        <div class="panel-body" style="background-color: #F6F6F6">
+            <ul class="list-group">
+                <li *ngFor="let medicine of Refill_Medicines;" class="list-group-item">
+                      <div class="row" style="padding-top: 1%">
+                            <div class="col-sm-5">
+                                <p>{{medicine.Name}}</p>
+                            </div>
+                            <div class="col-sm-5">
+                              <p>{{medicine.NumberofPills}}</p>
+                            </div>
+                            <div class="col-sm-2">
+                              <ui-switch
+                                [(ngModel)]="medicine.RefillStatus"
+                                color="#656515"
+                                title="Request Refill for {{medicine.Name}} medicine"
+                                style="vertical-align: middle"
+                                style="float: right;"
+                              >
+                              </ui-switch>
+                              <p style="display: inline-block" *ngIf="medicine.RefillStatus == true"> Yes </p>
+                              <p *ngIf="medicine.RefillStatus == false"> No </p>
+                            </div>
+                      </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="panel panel-default" style="background-color: #F6F6F6; width: 75%" >
+        <div class="row">
+          <!--Pickup options-->
+          <div class="col-sm-6">
+              <!--Pickup options header-->
+              <div class="panel-heading" style="background-color:#F6F6F6 ">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h4>Pickup Options</h4>
+                  </div>
+                </div>
+              </div>
+              <!--Pickup options Body-->
+              <div class="panel-body" style="background-color: #F6F6F6">
+                  <ul class="list-group">
+                      <li class="list-group-item radio-inline">
+                          <div class="row" style="padding-top: 1%">
+                                <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="Pickup_Option"> Store Pickup
+                                        </label>
+                                </div>
+                                <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                          <input type="radio" name="Pickup_Option"> Home Delivery
+                                        </label>
+                                </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <!--Payment options-->
+          <div class="col-sm-6">
+            <!--Payment options header-->
+            <div class="panel-heading" style="background-color:#F6F6F6 ">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h4>Payment Options</h4>
+                </div>
+              </div>
+            </div>
+            <!--Payment options Body-->
+            <div class="panel-body" style="background-color: #F6F6F6">
+              <ul class="list-group">
+                <li class="list-group-item checkbox-inline">
+                    <div class="row" style="padding-top: 1%">
+                          <div class="col-sm-6">
+                              <label class="radio-inline">
+                                <input type="radio" name="Payment_Option"> Cash on Delivery
+                              </label>
+                          </div>
+                          <div class="col-sm-6">
+                              <label class="radio-inline">
+                                <input type="radio" name="Payment_Option"> Make Payment now
+                              </label>
+                          </div>
+                    </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" style="padding-left: 2%;padding-bottom: 1%">
+                <ui-switch [(ngModel)]= "SendPrescription" color="#656515" title="Do you want to send subscription along with this refill request." size="small" style="float: left;"></ui-switch>&nbsp;
+                <label *ngIf="SendPrescription == true"> Yes, Send prescription along with this refill request. </label>
+                <label *ngIf="SendPrescription == false"> No, Do not send prescription along with this refill request. </label>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-success" (click)="OnSaveClick()"  align="middle"> Proceed for Refill&nbsp;
+        <span class="glyphicon glyphicon-registration-mark"></span>
+    </button>
   </div>
 </div>

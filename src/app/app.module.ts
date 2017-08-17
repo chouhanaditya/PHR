@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     children: [
       { path : 'List', component : ListComponent,
         children: [
-          { path: 'Refill', component: RefillComponent },
+          { path: ':id', component: RefillComponent },
         ]},
       { path : 'Reconcillation', component : ReconcillationComponent },
       { path : 'History', component : HistoryComponent }

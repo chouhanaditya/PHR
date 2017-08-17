@@ -6,7 +6,6 @@ p
 {
   vertical-align: middle;
   text-align: center;
-  /*font-size: 1.5vmin;*/
 }
 
 .list-group-item
@@ -14,7 +13,16 @@ p
   border: none;
 }
 
-/*img {*/
-  /*width: 15px;*/
-  /*height: 15px;*/
-/*}*/
+.panel-heading
+{
+  height: 30px;
+  vertical-align: middle;
+  margin: 0;
+}
+.heading
+{
+  text-align: left;
+  color: darkred;
+  padding-top: 0;
+  margin: 0;
+}

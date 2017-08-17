@@ -58,17 +58,24 @@
                   <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item">
                         <div class="row" style="padding-top: 1%">
                               <div class="col-sm-2" >
-                                  <ui-switch
+                                  <p style="display: inline-block" *ngIf="medicine.RefillStatus == true">  <ui-switch
                                     [(ngModel)]="medicine.RefillStatus"
                                     color="#656515"
                                     title="Request Refill for {{medicine.Name}} medicine"
                                     style="vertical-align: middle"
                                     (change)="OnRefillSwitchClick(i)"
-                                    >
-
-                                  </ui-switch>
-                                  <label style="display: inline-block" *ngIf="medicine.RefillStatus == true"> Yes </label>
-                                  <label *ngIf="medicine.RefillStatus == false"> No </label>
+                                    #RefillSwitch
+                                  >
+                                  </ui-switch> Yes </p>
+                                  <p *ngIf="medicine.RefillStatus == false">  <ui-switch
+                                    [(ngModel)]="medicine.RefillStatus"
+                                    color="#656515"
+                                    title="Request Refill for {{medicine.Name}} medicine"
+                                    style="vertical-align: middle"
+                                    (change)="OnRefillSwitchClick(i)"
+                                    #RefillSwitch
+                                  >
+                                  </ui-switch> No </p>
                               </div>
                               <a      (click)="(ShowDetailedPanel[i]) ? ShowDetailedPanel[i] = false : ShowDetailedPanel[i] = true"
                                       style="cursor: pointer"
@@ -156,7 +163,7 @@
 
                         <!--Information Panel-->
                         <br *ngIf="ShowInformationPanel[i] == true" >
-                        <div class="panel panel-body" *ngIf="ShowInformationPanel[i] == true" style="height: 700px; background-color: aliceblue">
+                        <div class="panel panel-body" *ngIf="ShowInformationPanel[i] == true" style="height: 550px; background-color: aliceblue">
                           <div class="row">
                             <div class="col-sm-10">
                                 <strong>{{ medicine.Name}} Information </strong>
@@ -173,7 +180,7 @@
                               Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
                             </div>
                             <div class="row">
-                              <iframe src="http://roycesite.com/" target="_parent" width="100%" height="580px">
+                              <iframe src="https://youtube.com/embed/FM7MFYoylVs" target="_parent" width="100%" height="580px">
                                 <p>Your browser does not support iframes.</p>
                               </iframe>
                             </div>
@@ -182,7 +189,7 @@
 
                         <!--Precautions Panel-->
                         <br *ngIf="ShowPrecautionsPanel[i] == true" >
-                        <div class="panel panel-body" *ngIf="ShowPrecautionsPanel[i] == true" style="height: 700px; background-color: aliceblue">
+                        <div class="panel panel-body" *ngIf="ShowPrecautionsPanel[i] == true" style="height: 550px; background-color: aliceblue">
                           <div class="row">
                             <div class="col-sm-10">
                               <strong>{{ medicine.Name}} Precautions </strong>
@@ -199,7 +206,7 @@
                                 Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
                             </div>
                             <div class="row">
-                              <iframe src="http://roycesite.com/" target="_parent" width="100%" height="580px">
+                              <iframe src="https://youtube.com/embed/1G4isv_Fylg" target="_parent" width="100%" height="580px">
                                 <p>Your browser does not support iframes.</p>
                               </iframe>
                             </div>
@@ -208,7 +215,7 @@
 
                         <!--Contraindications Panel-->
                         <br *ngIf="ShowContraindicationsPanel[i] == true" >
-                        <div class="panel panel-body" *ngIf="ShowContraindicationsPanel[i] == true" style="height: 700px; background-color: aliceblue">
+                        <div class="panel panel-body" *ngIf="ShowContraindicationsPanel[i] == true" style="height: 550px; background-color: aliceblue">
                           <div class="row">
                             <div class="col-sm-10">
                               <strong>{{ medicine.Name}} Contraindications </strong>
@@ -225,7 +232,7 @@
                                 Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
                             </div>
                             <div class="row">
-                              <iframe src="http://roycesite.com/" target="_parent" width="100%" height="580px">
+                              <iframe src="https://youtube.com/embed/YykjpeuMNEk" target="_parent" width="100%" height="580px">
                                 <p>Your browser does not support iframes.</p>
                               </iframe>
                             </div>

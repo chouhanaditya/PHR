@@ -10,7 +10,7 @@ span
 
 .panel-body
 {
-  height: 900px;
+  height: 580px;
   overflow-y: auto;
   overflow-x: hidden;
 }
