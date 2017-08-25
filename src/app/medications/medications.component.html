@@ -1,28 +1,34 @@
 <app-medication-sub-header></app-medication-sub-header>
 <div class="container-fluid"  style="background-color: #F6F6F6">
     <div class="row">
-          <div class="col-sm-2 " style="padding-bottom: 2%;padding-top: 1%; " >
+          <div class="col-sm-3 " style="padding-bottom: 2%;padding-top: 1%; " >
                 <div class="list-group">
                       <a [routerLink]="['/Medications/List']"
                          class="list-group-item"
                          [ngClass]="{'custom-bg':activeScreen == 'MedicationList'}"
                          (click)="OnListClick()"
+                         title="This section will list all your medicines, both prescribed and over the counter medicines. You can view details of any medicine- refill status, frequency, dosage, start & stop date and many relevent information.
+                     You can also view information, precautions and contraindications associated with any medicine. Also you can request for refill of any medicine."
                         >
-                          Medication List
+                          <span class="glyphicon glyphicon-ok-circle" style="float: left;color:#656515" ></span>
+                          &nbsp;Medication List
                           <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationList'"></span>
                       </a>
                       <a [routerLink]="['/Medications/History']"
                          class="list-group-item"
                          [ngClass]="{'custom-bg':activeScreen == 'MedicationHistory'}"
                          (click)="OnHistoryClick()"
+                         title="This section will help you viewing your medication history. You can view your last one month, six month or 12 months medication. You can also check for your medication list in any selected time period."
                          >
-                          Medication History
+                           <span class="glyphicon glyphicon-ban-circle" style="float: left;color: #AD122A" ></span>
+                        &nbsp;Medication History
                           <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationHistory'"></span>
                       </a>
                       <a [routerLink]="['/Medications/Reconcillation']"
                          class="list-group-item "
                          [ngClass]="{'custom-bg':activeScreen == 'MedicationReconciliation'}"
                          (click)="OnReconciliationClick()"
+                         title=" This section is basically single view of all your medicines. You can view all your medicines on one page."
                       >
                         Medication Reconciliation
                         <span class="glyphicon glyphicon-play" style="float: right" *ngIf="activeScreen == 'MedicationReconciliation'"></span>
@@ -30,7 +36,7 @@
                 </div>
           </div>
 
-          <div class="col-sm-10">
+          <div class="col-sm-9">
 
                 <div class="container-fluid" *ngIf="activeScreen == 'MedicationHome'" >
                   <br>
@@ -51,7 +57,7 @@
                      <strong>Medication Reconcillation: </strong> This section is basically single view of all your medicines. You can view all your medicines on one page.
                    </li>
                  </ul>
-
+                  <br>
                 </div>
                 <router-outlet *ngIf="activeScreen != 'MedicationHome'">
                 </router-outlet>

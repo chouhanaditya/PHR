@@ -1,52 +1,66 @@
-<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'" style="background-color: #F6F6F6">
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'">
   <!--Medication list Header-->
-    <div class="row" style="padding-top: 0.5%">
-          <div class="col-sm-3">
-              <h4 *ngIf="activeMedicationListTab == 'All'">Your Medicines List</h4>
-              <h4 *ngIf="activeMedicationListTab != 'All'"> Your {{ activeMedicationListTab}} Medicines List</h4>
+    <div class="row" style="padding-top: 0.5%;background-color:#DCDDDF ">
+          <div class="col-md-5" >
+              <h4 *ngIf="activeMedicationListTab == 'All'" style="padding-top: 2%">Your Active Medicines List</h4>
+              <h4 *ngIf="activeMedicationListTab != 'All'" style="padding-top: 2%"> Your Active {{ activeMedicationListTab}} Medicines List</h4>
           </div>
           <!--Filter-->
-          <div class="col-sm-9" >
-                <ul class="list-inline" style="float: right">
-                   <li>
-                     Filter-
-                   </li>
-                    <li>
-                      <button title="List All Medicines" (click)="AllClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}"> All</button>
-                    </li>
-                    <li>
-                      <button title="List only Prescribed Medicines" (click)="PrescribedClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">Prescribed</button>
-                    </li>
-                    <li>
-                      <button title="List only Over the Counter Medicines" (click)="OTCClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">Over the Counter</button>
-                    </li>
+          <div class="col-md-7">
+                <ul class="list-inline" style="float: right;">
+                   <!--<li style="padding-top: 3%">-->
+                     <!--<strong  style="color: darkred">Show-</strong>-->
+                   <!--</li>-->
+                  <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}">
+                    <label class="radio-inline" >
+                      <input type="radio" name="Filter_Medicine" (click)="AllClick()" checked> All
+                    </label>
+                  </li>
+                  <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">
+                    <label class="radio-inline" >
+                      <input type="radio" name="Filter_Medicine" (click)="PrescribedClick()"> Prescribed
+                    </label>
+                  </li>
+                  <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">
+                    <label class="radio-inline" >
+                      <input type="radio" name="Filter_Medicine" (click)="OTCClick()"> Over the Counter
+                    </label>
+                  </li>
+                    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<button title="List All Medicines" (click)="AllClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}"> All</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--<li>-->
+                      <!--<button title="List only Prescribed Medicines" (click)="PrescribedClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">Prescribed</button>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                      <!--<button title="List only Over the Counter Medicines" (click)="OTCClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">Over the Counter</button>-->
+                    <!--</li>-->
               </ul>
           </div>
     </div>
-    <br>
 
-  <!--Medication List Grid-->
-    <div class="row">
-        <div class="panel panel-default" style="background-color: #F6F6F6" >
+    <!--Medication List Grid-->
+    <div class="row" style="padding-top: 1%">
+        <div class="panel panel-default">
           <!--Medication List Grid header-->
               <div class="panel-heading">
                     <div class="row">
-                          <div class="col-sm-2">
+                          <div class="col-md-2">
                             <h4 >Request Refill?</h4>
                           </div>
-                          <div class="col-sm-2">
+                          <div class="col-md-2">
                             <h4>Name</h4>
                           </div>
-                          <div class="col-sm-2">
+                          <div class="col-md-2">
                             <h4>Frequency</h4>
                           </div>
-                          <div class="col-sm-2" style="padding-left: 0" >
+                          <div class="col-md-2" style="padding-left: 0" >
                             <h4>Dosage</h4>
                           </div>
-                          <div class="col-sm-2" style="padding-left: 0">
+                          <div class="col-md-2" style="padding-left: 0">
                             <h4>Details</h4>
                           </div>
-                          <div class="col-sm-1" style="padding-left: 0" >
+                          <div class="col-md-1" style="padding-left: 0" >
                             <h4>Information</h4>
                           </div>
                     </div>
@@ -55,9 +69,9 @@
               <!--Medication List Grid Rows-->
               <div class="panel-body">
                 <ul class="list-group">
-                  <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item">
+                  <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item" id="medicine_{{i}}">
                         <div class="row" style="padding-top: 1%">
-                              <div class="col-sm-2" >
+                              <div class="col-md-2" >
                                   <p style="display: inline-block" *ngIf="medicine.RefillStatus == true">  <ui-switch
                                     [(ngModel)]="medicine.RefillStatus"
                                     color="#656515"
@@ -77,44 +91,44 @@
                                   >
                                   </ui-switch> No </p>
                               </div>
-                              <a      (click)="(ShowDetailedPanel[i]) ? ShowDetailedPanel[i] = false : ShowDetailedPanel[i] = true"
+                              <a      (click)="OnMedicineDetailsSelection(i)"
                                       style="cursor: pointer"
                                       title="More Details"
                               >
-                                          <div class="col-sm-2" style="padding-left: 0" >
+                                          <div class="col-md-2" style="padding-left: 0" >
                                             <p>{{medicine.Name}}</p>
                                           </div>
-                                          <div class="col-sm-2">
+                                          <div class="col-md-2">
                                             <p>{{medicine.Frequency}}</p>
                                           </div>
-                                          <div class="col-sm-2">
+                                          <div class="col-md-2">
                                             <p>{{medicine.Dosage}}</p>
                                           </div>
-                                          <div class="col-sm-2">
+                                          <div class="col-md-2">
                                               <p *ngIf="ShowDetailedPanel[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
                                               <p *ngIf="ShowDetailedPanel[i] == true"><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
                                           </div>
                               </a>
-                              <div class="col-sm-1">
-                                    <a title="Medicine Information" (click)="(ShowInformationPanel[i]) ? ShowInformationPanel[i] = false : ShowInformationPanel[i] = true"><span class="glyphicon glyphicon-info-sign"></span></a>
+                              <div class="col-md-1">
+                                    <a title="Medicine Information" (click)="OnMedicineInfoSelection(i)"><span class="glyphicon glyphicon-info-sign"></span></a>
                               </div>
                         </div>
 
                         <!--Details Panel-->
                         <br *ngIf="ShowDetailedPanel[i] == true" >
-                        <div class="panel panel-default" *ngIf="ShowDetailedPanel[i] == true" style="background-color: aliceblue">
+                        <div class="panel panel-default" *ngIf="ShowDetailedPanel[i] == true" style="background-color: #DAEFF0">
                                     <div class="row" style="padding-left: 1%;padding-top: 1%;padding-right: 0.5%">
-                                          <div class="col-sm-4" >
+                                          <div class="col-md-4" >
                                                 <a (click)="(ShowInformationPanel[i]) ? ShowInformationPanel[i] = false : ShowInformationPanel[i] = true">
                                                   <span class="glyphicon glyphicon-info-sign"></span> {{medicine.Name}} Information
                                                 </a>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                                 <a (click)="(ShowPrecautionsPanel[i]) ? ShowPrecautionsPanel[i] = false : ShowPrecautionsPanel[i] = true">
                                                   <span class="glyphicon glyphicon-question-sign"></span> {{medicine.Name}} Precautions
                                                 </a>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                                 <a (click)="(ShowContraindicationsPanel[i]) ? ShowContraindicationsPanel[i] = false : ShowContraindicationsPanel[i] = true">
                                                   <span class="glyphicon glyphicon-copyright-mark"></span> {{medicine.Name}} Contraindications
                                                 </a>
@@ -125,37 +139,37 @@
                                     </div>
                                     <hr>
                                     <div class="row" style="padding-left: 1%">
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> Generic Name: {{medicine.Name}}  </Label>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> Frequency: {{medicine.Frequency}}  </Label>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> Dosage: {{medicine.Dosage}}  </Label>
                                           </div>
                                     </div>
                                     <div class="row" style="padding-left: 1%;padding-top: 1%">
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> Route: {{medicine.Route}}  </Label>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> <span class="glyphicon glyphicon-time" ></span> Start Date: {{medicine.StartDate}}  </Label>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> <span class="glyphicon glyphicon-time" ></span> Stop Date: {{medicine.StopDate}}  </Label>
                                           </div>
                                     </div>
                                     <hr>
                                     <div class="row" style="padding-left: 1%;padding-bottom: 1%">
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> Pharmacy Name: <br>{{medicine.PharmacyName}}  </Label>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> <span class="glyphicon glyphicon-globe"></span> Pharmacy Address: <br> {{medicine.PharmacyAddressLine1}} <br> {{medicine.PharmacyCity}} <br> {{medicine.PharmacyState}}
                                             </Label>
                                           </div>
-                                          <div class="col-sm-4">
+                                          <div class="col-md-4">
                                             <Label> <span class="glyphicon glyphicon-phone-alt"></span> Pharmacy Phone Number: <br> {{medicine.PharmacyPhoneNumber}}  </Label>
                                           </div>
                                     </div>
@@ -163,9 +177,9 @@
 
                         <!--Information Panel-->
                         <br *ngIf="ShowInformationPanel[i] == true" >
-                        <div class="panel panel-body" *ngIf="ShowInformationPanel[i] == true" style="height: 550px; background-color: aliceblue">
+                        <div class="panel panel-body" *ngIf="ShowInformationPanel[i] == true" style="height: 550px; background-color: #DAEFF0">
                           <div class="row">
-                            <div class="col-sm-10">
+                            <div class="col-md-10">
                                 <strong>{{ medicine.Name}} Information </strong>
                                 <!--<p> You would be navigated away from this website and redirected to the third party. Are you sure you want to leave this website and view this medicine information. </p>-->
                                 <p> Below information is from the third party website- ABC.com. UNMC does not own any of this information. You may consult your Doctor if you need additional details.  </p>
@@ -175,7 +189,7 @@
                                 <!--<button type="button" class="btn-danger btn-info" align="middle" (click)="OnInfo_No_Click()" >-->
                                   <!--No&nbsp;</button>-->
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-md-2">
                               <a type="button" class="btn-danger btn-info" align="middle" (click)="ShowInformationPanel[i] = false" style="float: right">
                               Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
                             </div>
@@ -189,9 +203,9 @@
 
                         <!--Precautions Panel-->
                         <br *ngIf="ShowPrecautionsPanel[i] == true" >
-                        <div class="panel panel-body" *ngIf="ShowPrecautionsPanel[i] == true" style="height: 550px; background-color: aliceblue">
+                        <div class="panel panel-body" *ngIf="ShowPrecautionsPanel[i] == true" style="height: 550px; background-color: #DAEFF0">
                           <div class="row">
-                            <div class="col-sm-10">
+                            <div class="col-md-10">
                               <strong>{{ medicine.Name}} Precautions </strong>
                               <!--<p> You would be navigated away from this website and redirected to the third party. Are you sure you want to leave this website and view this medicine information. </p>-->
                               <p> Below information is from the third party website- ABC.com. UNMC does not own any of this information. You may consult your Doctor if you need additional details.  </p>
@@ -201,7 +215,7 @@
                               <!--<button type="button" class="btn-danger btn-info" align="middle" (click)="OnInfo_No_Click()" >-->
                               <!--No&nbsp;</button>-->
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-md-2">
                               <a type="button" class="btn-danger btn-info" align="middle" (click)="ShowPrecautionsPanel[i] = false" style="float: right">
                                 Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
                             </div>
@@ -215,9 +229,9 @@
 
                         <!--Contraindications Panel-->
                         <br *ngIf="ShowContraindicationsPanel[i] == true" >
-                        <div class="panel panel-body" *ngIf="ShowContraindicationsPanel[i] == true" style="height: 550px; background-color: aliceblue">
+                        <div class="panel panel-body" *ngIf="ShowContraindicationsPanel[i] == true" style="height: 550px; background-color: #DAEFF0">
                           <div class="row">
-                            <div class="col-sm-10">
+                            <div class="col-md-10">
                               <strong>{{ medicine.Name}} Contraindications </strong>
                               <!--<p> You would be navigated away from this website and redirected to the third party. Are you sure you want to leave this website and view this medicine information. </p>-->
                               <p> Below information is from the third party website- ABC.com. UNMC does not own any of this information. You may consult your Doctor if you need additional details.  </p>
@@ -227,7 +241,7 @@
                               <!--<button type="button" class="btn-danger btn-info" align="middle" (click)="OnInfo_No_Click()" >-->
                               <!--No&nbsp;</button>-->
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-md-2">
                               <a type="button" class="btn-danger btn-info" align="middle" (click)="ShowContraindicationsPanel[i] = false" style="float: right">
                                 Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
                             </div>

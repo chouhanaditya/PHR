@@ -7,7 +7,7 @@
                   <h4 class="heading">Communications</h4>
                 </div>
                 <div class="panel-body">
-                    <div *ngFor="let module of modulesRow1" class="col-sm-3 col-xs-3" align="center">
+                    <div *ngFor="let module of modulesRow1" class="col-sm-3 " align="center">
                         <a routerLink="/{{module.ModuleName}}">
                           <img
                           [src]="module.IconUrl"
@@ -26,7 +26,7 @@
                   <h4 class="heading">Medications and Tests</h4>
                 </div>
                 <div class="panel-body">
-                    <div *ngFor="let module of modulesRow2;let i = index" class="col-sm-3 col-xs-3" align="center">
+                    <div *ngFor="let module of modulesRow2;let i = index" class="col-sm-3 " align="center">
                          <a routerLink="/{{module.ModuleName}}">
                           <img
                           [src]="module.IconUrl"
@@ -46,7 +46,7 @@
                   <h4 class="heading">Health at a Glance</h4>
                 </div>
                 <div class="panel-body">
-                  <div *ngFor="let module of modulesRow3; let i = index" class="col-sm-3 col-xs-3" align="center">
+                  <div *ngFor="let module of modulesRow3; let i = index" class="col-sm-3 " align="center">
                         <a routerLink="/{{module.ModuleName}}">
                         <img
                         [src]="module.IconUrl"
@@ -56,8 +56,8 @@
                         <h4> {{ module.ModuleName }}</h4>
                         </a>
                   </div>
-                  <div class="col-sm-3 col-xs-3" align="center">
-                    <a href='https://skyv04.github.io/EHR_RP/previsit_questionnaire'>
+                  <div class="col-sm-3 " align="center">
+                    <a href='https://bit.ly/previsit_unmc'>
                       <img
                         [src]="'https://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png'"
                         alt="Patient Health Questionaire"
@@ -66,7 +66,7 @@
                       <h4>Patient Health Questionaire</h4>
                     </a>
                   </div>
-                  <div class="col-sm-3 col-xs-3" align="center">
+                  <div class="col-sm-3 " align="center">
                     <a routerLink="/After Visit Summary">
                       <img
                         [src]="'http://icons.iconarchive.com/icons/saki/nuoveXT-2/128/Actions-document-find-icon.png'"
@@ -86,7 +86,7 @@
                   <h4 class="heading">Care Team</h4>
                 </div>
                 <div class="panel-body">
-                <div *ngFor="let module of modulesRow4; let i = index" class="col-sm-3 col-xs-3" align="center">
+                <div *ngFor="let module of modulesRow4; let i = index" class="col-sm-3 " align="center">
                         <a routerLink="/{{module.ModuleName}}">
                         <img
                         [src]="module.IconUrl"
@@ -102,5 +102,5 @@
     </div>
 </div>
 
-<!--<iframe src="https://skyv04.github.io/EHR_RP/previsit_questionnaire"-->
+<!--<iframe src="https://bit.ly/previsit_unmc"-->
         <!--frameborder="0" allowfullscreen style="display: none !important;"></iframe>-->

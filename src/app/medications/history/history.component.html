@@ -1,3 +1,275 @@
-<p>
-  history works!
-</p>
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationHistory'" >
+  <!--Filter Criteria-->
+  <div class="row" style="padding-top:2%;border: 0.5px solid;background-color:#DCDDDF ">
+    <ul class="list-inline">
+            <li style="padding-left: 1%">
+                <h5 style="color: darkred">Show medicines from-</h5>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 1 month'}">
+                <label class="radio-inline">
+                    <input type="radio" name="Filter_Medicine" checked="checked" (click)="OnLast1MonthClick()"> Last 1 month
+                </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 3 months'}">
+                <label class="radio-inline">
+                    <input type="radio" name="Filter_Medicine" (click)="OnLast3MonthsClick()"> Last 3 months
+                </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 6 months'}">
+                <label class="radio-inline">
+                    <input type="radio" name="Filter_Medicine" (click)="OnLast6MonthsClick()"> Last 6 months
+                </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 1 Year'}">
+                <label class="radio-inline">
+                    <input type="radio" name="Filter_Medicine" (click)="OnLast1YearClick()"> Last 1 Year
+                </label>
+            </li>
+            <!--<li style="padding-left: 1%">-->
+              <!--<strong>Or</strong>-->
+            <!--</li>-->
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Select Date range'}">
+                <label class="radio-inline">
+                    <input type="radio" name="Filter_Medicine" (click)="OnDateRangeClick()" > Select Date range
+                    <span style="zoom: 120%" *ngIf="!ShowDateRange" class="glyphicon glyphicon-plus-sign" ></span>
+                    <span style="zoom: 120%" *ngIf="ShowDateRange" class="glyphicon glyphicon-minus-sign" ></span>
+                </label>
+            </li>
+            <li class="list-group-item" *ngIf="ShowDateRange">
+                <div style="width:200px;height: 100px">
+                  <label>From Date: </label>
+                  <label>To Date: </label>
+                </div>
+            </li>
+      </ul>
+  </div>
+  <!--Sort Criteria-->
+  <div class="row" style="padding-top:2%;border: 0.5px solid;background-color:#DCDDDF ">
+      <ul class="list-inline">
+            <li style="padding-left: 1%">
+              <h5 style="color: darkred">Sort medicines by-</h5>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StartDateAsc'}">
+              <label class="radio-inline">
+                <input type="radio" name="Sort_Medicine" checked="checked" (click)="OnStartDateAsc()"> Start Date Ascending
+                <span class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
+              </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StartDateDesc'}">
+              <label class="radio-inline">
+                <input type="radio" name="Sort_Medicine" (click)="OnStartDateDesc()"> Start Date Descending
+                <span class="glyphicon glyphicon-arrow-down" style="zoom:70%"></span>
+              </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StopDateAsc'}">
+              <label class="radio-inline">
+                <input type="radio" name="Sort_Medicine" (click)="OnStopDateAsc()">Stop Date Ascending
+                <span class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
+              </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StopDateDesc'}">
+              <label class="radio-inline">
+                <input type="radio" name="Sort_Medicine" (click)="OnStopDateDesc()"> Stop Date Descending
+                <span class="glyphicon glyphicon-arrow-down" style="zoom:70%"></span>
+              </label>
+            </li>
+      </ul>
+  </div>
+  <!--Medicines grid-->
+  <div class="row">
+    <div class="panel panel-default" >
+      <!--Medication List Grid header-->
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 style="padding-left: 3%">Name</h4>
+          </div>
+          <div class="col-md-3">
+            <h4><span class="glyphicon glyphicon-time"></span> Start Date
+                <span *ngIf="SortCriteria == 'StartDateAsc'" class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
+                <span  *ngIf="SortCriteria == 'StartDateDesc'" class="glyphicon glyphicon-arrow-down" style="zoom:70%" ></span>
+            </h4>
+          </div>
+          <div class="col-md-3">
+            <h4><span class="glyphicon glyphicon-time" ></span> Stop Date
+              <span *ngIf="SortCriteria == 'StopDateAsc'" class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
+              <span *ngIf="SortCriteria == 'StopDateDesc'" class="glyphicon glyphicon-arrow-down" style="zoom:70%"></span>
+            </h4>
+          </div>
+          <div class="col-md-2">
+            <h4>Details</h4>
+          </div>
+        </div>
+      </div>
+
+      <!--Medication List Grid Rows-->
+      <div class="panel-body">
+        <div class="list-group" *ngFor="let medicine of MedicationList; let i = index" class="list-group-item" id="medicine_{{i}}">
+              <a
+                      style="cursor: pointer"
+                      title="More Details"
+                      (click)="OnDetailsClick(i)"
+              >
+                <div class="row">
+                    <div class="col-md-4">
+                      <p>{{medicine.Name}}</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p>{{medicine.StartDate}}</p>
+                    </div>
+                    <div class="col-md-3">
+                      <p>{{medicine.StopDate}}</p>
+                    </div>
+                    <div class="col-md-2" style="padding-left: 3%">
+                      <p *ngIf="ShowDetailedPanel[i] == false" ><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
+                      <p *ngIf="ShowDetailedPanel[i] == true" ><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
+                    </div>
+                </div>
+
+            </a>
+
+              <!--Details Panel-->
+              <br *ngIf="ShowDetailedPanel[i] == true" >
+              <div class="panel panel-default" *ngIf="ShowDetailedPanel[i] == true" style="background-color: aliceblue">
+                <div class="row" style="padding-left: 1%;padding-top: 1%;padding-right: 0.5%">
+                  <div class="col-md-4" >
+                    <a (click)="(ShowInformationPanel[i]) ? ShowInformationPanel[i] = false : ShowInformationPanel[i] = true">
+                      <span class="glyphicon glyphicon-info-sign"></span> {{medicine.Name}} Information
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a (click)="(ShowPrecautionsPanel[i]) ? ShowPrecautionsPanel[i] = false : ShowPrecautionsPanel[i] = true">
+                      <span class="glyphicon glyphicon-question-sign"></span> {{medicine.Name}} Precautions
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a (click)="(ShowContraindicationsPanel[i]) ? ShowContraindicationsPanel[i] = false : ShowContraindicationsPanel[i] = true">
+                      <span class="glyphicon glyphicon-copyright-mark"></span> {{medicine.Name}} Contraindications
+                    </a>
+                    <a type="button" class="btn-danger btn-info" align="middle" (click)="ShowDetailedPanel[i] = false" style="float: right">
+                      Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span>
+                    </a>
+                  </div>
+                </div>
+                <hr>
+                <div class="row" style="padding-left: 1%">
+                  <div class="col-md-4">
+                    <Label> Generic Name: {{medicine.Name}}  </Label>
+                  </div>
+                  <div class="col-md-4">
+                    <Label> Frequency: {{medicine.Frequency}}  </Label>
+                  </div>
+                  <div class="col-md-4">
+                    <Label> Dosage: {{medicine.Dosage}}  </Label>
+                  </div>
+                </div>
+                <div class="row" style="padding-left: 1%;padding-top: 1%">
+                  <div class="col-md-4">
+                    <Label> Route: {{medicine.Route}}  </Label>
+                  </div>
+                  <div class="col-md-4">
+                    <Label> <span class="glyphicon glyphicon-time" ></span> Start Date: {{medicine.StartDate}}  </Label>
+                  </div>
+                  <div class="col-md-4">
+                    <Label> <span class="glyphicon glyphicon-time" ></span> Stop Date: {{medicine.StopDate}}  </Label>
+                  </div>
+                </div>
+                <!--<hr>-->
+                <!--<div class="row" style="padding-left: 1%;padding-bottom: 1%">-->
+                  <!--<div class="col-md-4">-->
+                    <!--<Label> Pharmacy Name: <br>{{medicine.PharmacyName}}  </Label>-->
+                  <!--</div>-->
+                  <!--<div class="col-md-4">-->
+                    <!--<Label> <span class="glyphicon glyphicon-globe"></span> Pharmacy Address: <br> {{medicine.PharmacyAddressLine1}} <br> {{medicine.PharmacyCity}} <br> {{medicine.PharmacyState}}-->
+                    <!--</Label>-->
+                  <!--</div>-->
+                  <!--<div class="col-md-4">-->
+                    <!--<Label> <span class="glyphicon glyphicon-phone-alt"></span> Pharmacy Phone Number: <br> {{medicine.PharmacyPhoneNumber}}  </Label>-->
+                  <!--</div>-->
+                <!--</div>-->
+              </div>
+
+              <!--Information Panel-->
+              <br *ngIf="ShowInformationPanel[i] == true" >
+              <div class="panel panel-body" *ngIf="ShowInformationPanel[i] == true" style="height: 550px; background-color: aliceblue">
+                <div class="row">
+                  <div class="col-md-10">
+                    <strong>{{ medicine.Name}} Information </strong>
+                    <!--<p> You would be navigated away from this website and redirected to the third party. Are you sure you want to leave this website and view this medicine information. </p>-->
+                    <p> Below information is from the third party website- ABC.com. UNMC does not own any of this information. You may consult your Doctor if you need additional details.  </p>
+                    <br>
+                    <!--<button type="button" class="btn-success btn-info" align="middle" (click)="OnInfo_Yes_Click()">-->
+                    <!--Yes&nbsp;</button>-->
+                    <!--<button type="button" class="btn-danger btn-info" align="middle" (click)="OnInfo_No_Click()" >-->
+                    <!--No&nbsp;</button>-->
+                  </div>
+                  <div class="col-md-2">
+                    <a type="button" class="btn-danger btn-info" align="middle" (click)="ShowInformationPanel[i] = false" style="float: right">
+                      Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
+                  </div>
+                  <div class="row">
+                    <iframe src="https://youtube.com/embed/FM7MFYoylVs" target="_parent" width="100%" height="580px">
+                      <p>Your browser does not support iframes.</p>
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+
+              <!--Precautions Panel-->
+              <br *ngIf="ShowPrecautionsPanel[i] == true" >
+              <div class="panel panel-body" *ngIf="ShowPrecautionsPanel[i] == true" style="height: 550px; background-color: aliceblue">
+                <div class="row">
+                  <div class="col-md-10">
+                    <strong>{{ medicine.Name}} Precautions </strong>
+                    <!--<p> You would be navigated away from this website and redirected to the third party. Are you sure you want to leave this website and view this medicine information. </p>-->
+                    <p> Below information is from the third party website- ABC.com. UNMC does not own any of this information. You may consult your Doctor if you need additional details.  </p>
+                    <br>
+                    <!--<button type="button" class="btn-success btn-info" align="middle" (click)="OnInfo_Yes_Click()">-->
+                    <!--Yes&nbsp;</button>-->
+                    <!--<button type="button" class="btn-danger btn-info" align="middle" (click)="OnInfo_No_Click()" >-->
+                    <!--No&nbsp;</button>-->
+                  </div>
+                  <div class="col-md-2">
+                    <a type="button" class="btn-danger btn-info" align="middle" (click)="ShowPrecautionsPanel[i] = false" style="float: right">
+                      Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
+                  </div>
+                  <div class="row">
+                    <iframe src="https://youtube.com/embed/1G4isv_Fylg" target="_parent" width="100%" height="580px">
+                      <p>Your browser does not support iframes.</p>
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+  <!---->
+              <!--Contraindications Panel-->
+              <br *ngIf="ShowContraindicationsPanel[i] == true" >
+              <div class="panel panel-body" *ngIf="ShowContraindicationsPanel[i] == true" style="height: 550px; background-color: aliceblue">
+                <div class="row">
+                  <div class="col-md-10">
+                    <strong>{{ medicine.Name}} Contraindications </strong>
+                    <!--<p> You would be navigated away from this website and redirected to the third party. Are you sure you want to leave this website and view this medicine information. </p>-->
+                    <p> Below information is from the third party website- ABC.com. UNMC does not own any of this information. You may consult your Doctor if you need additional details.  </p>
+                    <br>
+                    <!--<button type="button" class="btn-success btn-info" align="middle" (click)="OnInfo_Yes_Click()">-->
+                    <!--Yes&nbsp;</button>-->
+                    <!--<button type="button" class="btn-danger btn-info" align="middle" (click)="OnInfo_No_Click()" >-->
+                    <!--No&nbsp;</button>-->
+                  </div>
+                  <div class="col-md-2">
+                    <a type="button" class="btn-danger btn-info" align="middle" (click)="ShowContraindicationsPanel[i] = false" style="float: right">
+                      Close&nbsp; <span class="glyphicon glyphicon-remove-sign"></span></a>
+                  </div>
+                  <div class="row">
+                    <iframe src="https://youtube.com/embed/YykjpeuMNEk" target="_parent" width="100%" height="580px">
+                      <p>Your browser does not support iframes.</p>
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

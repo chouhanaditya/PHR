@@ -55,11 +55,13 @@
                                <label > Relationship: </label>
                                 <input type="text" class="form-inline" auto-complete [source]="Relationships" [(ngModel)]="SelectedCaregiver.Relationship" [readonly]="IsDetailsEditable == false" [ngClass]="{'input-Editable':IsDetailsEditable == true}">
                           </div>
-                          <div class="col-md-2 list-group-item">
-                                <label >Power of Attorney: </label><br>
-                                <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"></ui-switch>
-                                <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" >Yes</label>
-                                <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline"  >No</label>
+                          <div class="col-md-2" >
+                              <div style="border: 0.5px solid;width: 150px">
+                                  <label style="padding-left: 2%"> Power of Attorney: </label><br>
+                                  <ui-switch  color="#656515" [(ngModel)]="SelectedCaregiver.IsPowerofAttorney" *ngIf="IsDetailsEditable"></ui-switch>
+                                  <label *ngIf="SelectedCaregiver.IsPowerofAttorney == true" class="form-inline" style="padding-left: 2%"> Yes</label>
+                                  <label *ngIf="SelectedCaregiver.IsPowerofAttorney == false" class="form-inline" style="padding-left: 2%" > No</label>
+                              </div>
                           </div>
                   </div>
               </div>

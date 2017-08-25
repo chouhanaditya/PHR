@@ -8,6 +8,7 @@ export class Medication {
   Frequency: string;
   Dosage: string;
   Route: string;
+  IsActive: boolean;
   StartDate: string;
   StopDate: string;
   IsPrescribed: boolean;
@@ -18,7 +19,7 @@ export class Medication {
   PharmacyCity: string;
   PharmacyState: string;
 
-  constructor(Id: number, Name: string, GenericName: string, RefillStatus: boolean, NumberofPills: number, Frequency: string, Dosage: string, Route: string, StartDate: string, StopDate: string, IsPrescribed: boolean,
+  constructor(Id: number, Name: string, GenericName: string, RefillStatus: boolean, NumberofPills: number, Frequency: string, Dosage: string, Route: string,IsActive: boolean, StartDate: string, StopDate: string, IsPrescribed: boolean,
               PharmacyName: string, PharmacyPhoneNumber: string, PharmacyAddressLine1: string, PharmacyAddressLine2: string, PharmacyCity: string, PharmacyState: string ) {
     this.Id = Id;
     this.Name = Name;
@@ -28,6 +29,7 @@ export class Medication {
     this.Frequency = Frequency;
     this.Dosage  = Dosage;
     this.Route = Route;
+    this.IsActive = IsActive;
     this.StartDate = StartDate;
     this.StopDate = StopDate;
     this.IsPrescribed = IsPrescribed;

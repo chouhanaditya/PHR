@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid" style="padding-bottom: 1%">
 
   <!--Save Dialog Box-->
-  <div class="row table" *ngIf="IsSaveDialog" style="padding-top: 1%; width: 77%">
-    <div class="alert alert-success alert-dismissable col-md-12" role="alert">
-      <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
+  <div class="row" >
+    <div class="alert alert-success alert-dismissable col-md-12" role="alert" *ngIf="IsSaveDialog" style="width: 77%">
+      <!--<a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>-->
       <h3 class="alert-heading">Success!</h3>
       Request for medicine refill has been accepted.
       <br>
@@ -11,11 +11,9 @@
     </div>
   </div>
 
-
   <div class="row">
-    <h4 style="padding-top: 1%">Below medicines are ready for refill-</h4>
-    <br>
-    <div class="panel panel-default" style="background-color: #F6F6F6; width: 75%" >
+    <h4 style="padding-top: 1%" >Below medicines are ready for refill-</h4>
+    <div class="panel panel-default">
         <!--Refill Medicatines Grid header-->
         <div class="panel-heading" style="background-color:#F6F6F6 ">
           <div class="row">
@@ -61,7 +59,7 @@
 
     </div>
 
-    <div class="panel panel-default" style="background-color: #F6F6F6; width: 75%" >
+    <div class="panel panel-default" >
         <div class="row">
           <!--Pickup options-->
           <div class="col-sm-6">
@@ -126,7 +124,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12" style="padding-left: 2%;padding-bottom: 1%">
-                <ui-switch [(ngModel)]= "SendPrescription" color="#656515" title="Do you want to send subscription along with this refill request." size="small" style="float: left;"></ui-switch>&nbsp;
+                <ui-switch [(ngModel)]= "SendPrescription" color="#656515" title="Do you want to send subscription along with this refill request." style="float: left;"></ui-switch>&nbsp;
                 <label *ngIf="SendPrescription == true"> Yes, Send prescription along with this refill request. </label>
                 <label *ngIf="SendPrescription == false"> No, Do not send prescription along with this refill request. </label>
             </div>

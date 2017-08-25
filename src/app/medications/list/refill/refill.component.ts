@@ -36,8 +36,8 @@ export class RefillComponent implements OnInit, OnDestroy {
       }, 1000);
       setTimeout(
         () => { this.IsSaveDialog = false;
-          this.objMedicineService.setActiveScreen('MedicationHome');
-          this.route1.navigate(['/Medications']);
+          this.objMedicineService.setActiveScreen('MedicationList');
+          this.route1.navigate(['/Medications/List']);
         }, 7000);
       }
   ngOnDestroy() {

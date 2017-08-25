@@ -1,0 +1,70 @@
+/***/
+/*{*/
+  /*box-sizing: border-box;*/
+/*}*/
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+.container-fluid
+{
+  background-color: #F6F6F6; padding-bottom: 0.5%;
+  padding-top: 1%;
+}
+.activeTab
+{
+  background-color: #AD122A;
+  font-weight: bold;
+  color: white;
+}
+span
+{
+  zoom: 110%;
+  /*color: black;*/
+}
+
+.panel-body
+{
+  height: 425px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+h3,h4
+{
+  color: darkred;
+}
+
+button{
+  width: 170px;
+  padding-left: 0.7%;
+  padding-right: 0.7%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.btn-success {
+  background-color: #656515;
+}
+.activeMedicine
+{
+  background-color: #DCDDDF;
+}
