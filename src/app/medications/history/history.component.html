@@ -1,80 +1,122 @@
-<div class="container-fluid" *ngIf="activeScreen == 'MedicationHistory'" >
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationHistory'" style="padding-left: 2%" >
+  <a (click)="(ShowFilterPanel) ? ShowFilterPanel = false : ShowFilterPanel = true" style="padding-bottom: 1%">
+    <span *ngIf="ShowFilterPanel == false" class="glyphicon glyphicon-plus-sign"  ></span>
+    <span *ngIf="ShowFilterPanel == true" class="glyphicon glyphicon-minus-sign" ></span>
+      Filter Medicines By
+  </a>
   <!--Filter Criteria-->
-  <div class="row" style="padding-top:2%;border: 0.5px solid;background-color:#DCDDDF ">
+  <div class="row" style="padding-top:1%;border: 0.5px solid;background-color:#DCDDDF " *ngIf="ShowFilterPanel == true">
     <ul class="list-inline">
-            <li style="padding-left: 1%">
-                <h5 style="color: darkred">Show medicines from-</h5>
+            <li>
+
             </li>
-            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 1 month'}">
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'No Filter'}">
+              <label class="radio-inline">
+                <input type="radio" name="Filter_Medicine" checked="checked" (click)="OnNoFilterClick()">
+                <span class="glyphicon glyphicon-ban-circle"></span> No Filter
+              </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'Last 1 month'}">
                 <label class="radio-inline">
-                    <input type="radio" name="Filter_Medicine" checked="checked" (click)="OnLast1MonthClick()"> Last 1 month
+                    <input type="radio" name="Filter_Medicine" (click)="OnLast1MonthClick()">
+                    <span class="glyphicon glyphicon-filter"></span> Last 1 month
                 </label>
             </li>
-            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 3 months'}">
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'Last 3 months'}">
                 <label class="radio-inline">
-                    <input type="radio" name="Filter_Medicine" (click)="OnLast3MonthsClick()"> Last 3 months
+                    <input type="radio" name="Filter_Medicine" (click)="OnLast3MonthsClick()">
+                    <span class="glyphicon glyphicon-filter"></span> Last 3 months
                 </label>
             </li>
-            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 6 months'}">
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'Last 6 months'}">
                 <label class="radio-inline">
-                    <input type="radio" name="Filter_Medicine" (click)="OnLast6MonthsClick()"> Last 6 months
+                    <input type="radio" name="Filter_Medicine" (click)="OnLast6MonthsClick()">
+                    <span class="glyphicon glyphicon-filter"></span> Last 6 months
                 </label>
             </li>
-            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Last 1 Year'}">
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'Last 1 Year'}">
                 <label class="radio-inline">
-                    <input type="radio" name="Filter_Medicine" (click)="OnLast1YearClick()"> Last 1 Year
+                    <input type="radio" name="Filter_Medicine" (click)="OnLast1YearClick()">
+                    <span class="glyphicon glyphicon-filter"></span> Last 1 Year
                 </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'Last 3 Years'}">
+              <label class="radio-inline">
+                <input type="radio" name="Filter_Medicine" (click)="OnLast3YearsClick()">
+                <span class="glyphicon glyphicon-filter"></span> Last 3 Years
+              </label>
             </li>
             <!--<li style="padding-left: 1%">-->
               <!--<strong>Or</strong>-->
             <!--</li>-->
-            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeTab == 'Select Date range'}">
-                <label class="radio-inline">
-                    <input type="radio" name="Filter_Medicine" (click)="OnDateRangeClick()" > Select Date range
-                    <span style="zoom: 120%" *ngIf="!ShowDateRange" class="glyphicon glyphicon-plus-sign" ></span>
-                    <span style="zoom: 120%" *ngIf="ShowDateRange" class="glyphicon glyphicon-minus-sign" ></span>
-                </label>
-            </li>
-            <li class="list-group-item" *ngIf="ShowDateRange">
-                <div style="width:200px;height: 100px">
-                  <label>From Date: </label>
-                  <label>To Date: </label>
-                </div>
-            </li>
+            <!--<li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'Select Date range'}">-->
+                <!--<label class="radio-inline">-->
+                    <!--<input type="radio" name="Filter_Medicine" (click)="OnDateRangeClick()" > Select Date range-->
+                    <!--&lt;!&ndash;<span style="zoom: 120%" *ngIf="!ShowDateRange" class="glyphicon glyphicon-plus-sign" ></span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span style="zoom: 120%" *ngIf="ShowDateRange" class="glyphicon glyphicon-minus-sign" ></span>&ndash;&gt;-->
+                <!--</label>-->
+            <!--</li>-->
+            <!--<li class="list-group-item" *ngIf="ShowDateRange">-->
+                <!--<div style="width:200px;height: 100px">-->
+                  <!--<label>From Date: </label>-->
+                  <!--<label>To Date: </label>-->
+                <!--</div>-->
+            <!--</li>-->
       </ul>
   </div>
+  <br>
+  <br *ngIf="ShowFilterPanel == false">
+  <a (click)="(ShowSortPanel) ? ShowSortPanel = false : ShowSortPanel = true" style="padding-bottom: 1%">
+    <span *ngIf="ShowSortPanel == false" class="glyphicon glyphicon-plus-sign" ></span>
+    <span *ngIf="ShowSortPanel == true" class="glyphicon glyphicon-minus-sign" ></span>
+     Sort Medicines By
+
+  </a>
   <!--Sort Criteria-->
-  <div class="row" style="padding-top:2%;border: 0.5px solid;background-color:#DCDDDF ">
+  <div class="row" style="padding-top:1%;border: 0.5px solid;background-color:#DCDDDF " *ngIf="ShowSortPanel == true">
       <ul class="list-inline">
-            <li style="padding-left: 1%">
-              <h5 style="color: darkred">Sort medicines by-</h5>
+            <li>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'NameAsc'}">
+              <label class="radio-inline">
+                <input type="radio" name="Sort_Medicine" checked="checked" (click)="OnNameAsc()"> Name- 'A First'
+                <span class="glyphicon glyphicon-sort-by-alphabet" ></span>
+              </label>
+            </li>
+            <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'NameDesc'}">
+              <label class="radio-inline">
+                <input type="radio" name="Sort_Medicine" (click)="OnNameDesc()"> Name- 'Z First'
+                <span class="glyphicon glyphicon-sort-by-alphabet-alt" ></span>
+              </label>
             </li>
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StartDateAsc'}">
               <label class="radio-inline">
-                <input type="radio" name="Sort_Medicine" checked="checked" (click)="OnStartDateAsc()"> Start Date Ascending
-                <span class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
+                <input type="radio" name="Sort_Medicine" (click)="OnStartDateAsc()"> Start Date- Ascending
+                <span class="glyphicon glyphicon-sort-by-attributes" ></span>
               </label>
             </li>
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StartDateDesc'}">
               <label class="radio-inline">
-                <input type="radio" name="Sort_Medicine" (click)="OnStartDateDesc()"> Start Date Descending
-                <span class="glyphicon glyphicon-arrow-down" style="zoom:70%"></span>
+                <input type="radio" name="Sort_Medicine" (click)="OnStartDateDesc()"> Start Date- Descending
+                <span class="glyphicon glyphicon-sort-by-attributes-alt" ></span>
               </label>
             </li>
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StopDateAsc'}">
               <label class="radio-inline">
-                <input type="radio" name="Sort_Medicine" (click)="OnStopDateAsc()">Stop Date Ascending
-                <span class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
+                <input type="radio" name="Sort_Medicine" (click)="OnStopDateAsc()">Stop Date- Ascending
+                <span class="glyphicon glyphicon-sort-by-attributes" ></span>
               </label>
             </li>
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StopDateDesc'}">
               <label class="radio-inline">
-                <input type="radio" name="Sort_Medicine" (click)="OnStopDateDesc()"> Stop Date Descending
-                <span class="glyphicon glyphicon-arrow-down" style="zoom:70%"></span>
+                <input type="radio" name="Sort_Medicine" (click)="OnStopDateDesc()"> Stop Date- Descending
+                <span class="glyphicon glyphicon-sort-by-attributes-alt" ></span>
               </label>
             </li>
       </ul>
   </div>
+  <br *ngIf="ShowSortPanel == false && ShowFilterPanel == false">
+  <br>
   <!--Medicines grid-->
   <div class="row">
     <div class="panel panel-default" >
@@ -82,18 +124,21 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-md-4">
-            <h4 style="padding-left: 3%">Name</h4>
+            <h4 style="padding-left: 3%">Name
+                <span *ngIf="SortCriteria == 'NameAsc'" class="glyphicon glyphicon-sort-by-alphabet" ></span>
+                <span  *ngIf="SortCriteria == 'NameDesc'" class="glyphicon glyphicon-sort-by-alphabet-alt"  ></span>
+            </h4>
           </div>
           <div class="col-md-3">
             <h4><span class="glyphicon glyphicon-time"></span> Start Date
-                <span *ngIf="SortCriteria == 'StartDateAsc'" class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
-                <span  *ngIf="SortCriteria == 'StartDateDesc'" class="glyphicon glyphicon-arrow-down" style="zoom:70%" ></span>
+                <span *ngIf="SortCriteria == 'StartDateAsc'" class="glyphicon glyphicon-sort-by-attributes" ></span>
+                <span  *ngIf="SortCriteria == 'StartDateDesc'" class="glyphicon glyphicon-sort-by-attributes-alt"  ></span>
             </h4>
           </div>
           <div class="col-md-3">
             <h4><span class="glyphicon glyphicon-time" ></span> Stop Date
-              <span *ngIf="SortCriteria == 'StopDateAsc'" class="glyphicon glyphicon-arrow-up" style="zoom:70%"></span>
-              <span *ngIf="SortCriteria == 'StopDateDesc'" class="glyphicon glyphicon-arrow-down" style="zoom:70%"></span>
+              <span *ngIf="SortCriteria == 'StopDateAsc'" class="glyphicon glyphicon-sort-by-attributes" ></span>
+              <span *ngIf="SortCriteria == 'StopDateDesc'" class="glyphicon glyphicon-sort-by-attributes-alt" ></span>
             </h4>
           </div>
           <div class="col-md-2">
@@ -101,9 +146,8 @@
           </div>
         </div>
       </div>
-
       <!--Medication List Grid Rows-->
-      <div class="panel-body">
+      <div class="panel-body" [ngClass]="{'panel-body_reduced': ShowSortPanel == true || ShowFilterPanel == true,'panel-body_MoreReduced': ShowSortPanel == true && ShowFilterPanel == true}">
         <div class="list-group" *ngFor="let medicine of MedicationList; let i = index" class="list-group-item" id="medicine_{{i}}">
               <a
                       style="cursor: pointer"
@@ -117,7 +161,7 @@
                     <div class="col-md-3">
                       <p>{{medicine.StartDate}}</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3" style="padding-left: 2%">
                       <p>{{medicine.StopDate}}</p>
                     </div>
                     <div class="col-md-2" style="padding-left: 3%">

@@ -31,18 +31,7 @@
   border-right: none;
 }
 
-a:hover
-{
-  background-color: lightgrey;
-
-}
-
-ul,label,a,p
-{
-  /*font-size: 1.5vmin;*/
-}
-
-h3
+h3,h4
 {
   color: darkred;
   /*font-size: 2vmin;*/
@@ -64,5 +53,6 @@ button{
   background-color: #656515;
 }
 .custom-bg {
-  background-color: lightblue!important;
+  font-weight: bold;
+  background-color: #DCDDDF!important;
 }

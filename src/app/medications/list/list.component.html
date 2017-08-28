@@ -1,43 +1,36 @@
-<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'">
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'" style="padding-left: 2%">
   <!--Medication list Header-->
-    <div class="row" style="padding-top: 0.5%;background-color:#DCDDDF ">
-          <div class="col-md-5" >
-              <h4 *ngIf="activeMedicationListTab == 'All'" style="padding-top: 2%">Your Active Medicines List</h4>
-              <h4 *ngIf="activeMedicationListTab != 'All'" style="padding-top: 2%"> Your Active {{ activeMedicationListTab}} Medicines List</h4>
-          </div>
-          <!--Filter-->
-          <div class="col-md-7">
-                <ul class="list-inline" style="float: right;">
-                   <!--<li style="padding-top: 3%">-->
-                     <!--<strong  style="color: darkred">Show-</strong>-->
-                   <!--</li>-->
-                  <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}">
-                    <label class="radio-inline" >
-                      <input type="radio" name="Filter_Medicine" (click)="AllClick()" checked> All
-                    </label>
-                  </li>
-                  <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">
-                    <label class="radio-inline" >
-                      <input type="radio" name="Filter_Medicine" (click)="PrescribedClick()"> Prescribed
-                    </label>
-                  </li>
-                  <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">
-                    <label class="radio-inline" >
-                      <input type="radio" name="Filter_Medicine" (click)="OTCClick()"> Over the Counter
-                    </label>
-                  </li>
-                    <!--&lt;!&ndash;<li>&ndash;&gt;-->
-                      <!--&lt;!&ndash;<button title="List All Medicines" (click)="AllClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}"> All</button>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
-                    <!--<li>-->
-                      <!--<button title="List only Prescribed Medicines" (click)="PrescribedClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">Prescribed</button>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                      <!--<button title="List only Over the Counter Medicines" (click)="OTCClick()" class="btn-default" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">Over the Counter</button>-->
-                    <!--</li>-->
-              </ul>
-          </div>
-    </div>
+    <a (click)="(ShowFilterPanel) ? ShowFilterPanel = false : ShowFilterPanel = true" style="padding-bottom: 1%">
+    <span *ngIf="ShowFilterPanel == false" class="glyphicon glyphicon-plus-sign"  ></span>
+    <span *ngIf="ShowFilterPanel == true" class="glyphicon glyphicon-minus-sign" ></span>
+    Filter Medicines By
+  </a>
+    <!--Filter Criteria-->
+    <div class="row" style="padding-top:1%;border: 0.5px solid;background-color:#DCDDDF " *ngIf="ShowFilterPanel == true">
+        <ul class="list-inline">
+            <li>
+
+            </li>
+             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}">
+                <label class="radio-inline" >
+                  <input type="radio" name="Filter_Medicine" (click)="AllClick()" checked>
+                  <span class="glyphicon glyphicon-ban-circle"></span> No Filter
+                </label>
+              </li>
+              <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">
+                <label class="radio-inline" >
+                  <input type="radio" name="Filter_Medicine" (click)="PrescribedClick()">
+                  <span class="glyphicon glyphicon-filter"></span> Prescribed
+                </label>
+              </li>
+              <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'Over the Counter'}">
+                <label class="radio-inline" >
+                  <input type="radio" name="Filter_Medicine" (click)="OTCClick()">
+                  <span class="glyphicon glyphicon-filter"></span> Over the Counter
+                </label>
+              </li>
+        </ul>
+  </div>
 
     <!--Medication List Grid-->
     <div class="row" style="padding-top: 1%">
@@ -67,7 +60,7 @@
               </div>
 
               <!--Medication List Grid Rows-->
-              <div class="panel-body">
+              <div class="panel-body" [ngClass]="{'panel-body_reduced': ShowFilterPanel == true}">
                 <ul class="list-group">
                   <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item" id="medicine_{{i}}">
                         <div class="row" style="padding-top: 1%">
@@ -261,7 +254,7 @@
     </div>
 
     <div>
-    <button type="submit"
+      <button type="submit"
             class="btn-success"
             #btnSubmit
             [disabled]= "Refill_button_active != true"
@@ -272,7 +265,7 @@
     > Request for Refill&nbsp;
       <span class="glyphicon glyphicon-registration-mark"></span>
     </button>
-  </div>
+    </div>
 
 </div>
 <router-outlet ></router-outlet>

@@ -16,6 +16,7 @@ export class ListComponent implements OnInit, OnDestroy {
   activeScreen: string;
   activeScreenSubscription: Subscription;
   SelectedMedicine = true;
+  ShowFilterPanel = false;
   MedicationList = [];
   ShowDetailedPanel = [];
   ShowInformationPanel = [];

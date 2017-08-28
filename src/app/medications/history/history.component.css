@@ -38,7 +38,10 @@ span
   zoom: 110%;
   /*color: black;*/
 }
-
+a
+{
+  cursor: pointer;
+}
 .panel-body
 {
   height: 425px;
@@ -46,6 +49,23 @@ span
   overflow-x: hidden;
 }
 
+.panel-body_MoreReduced
+{
+  height: 290px!important;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.panel-body_reduced
+{
+  height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.col-sm-4
+{
+  border: 0.5px solid;
+  cursor: pointer;
+}
 h3,h4
 {
   color: darkred;

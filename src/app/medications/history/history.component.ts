@@ -14,10 +14,11 @@ export class HistoryComponent implements OnInit {
   activeScreen: string;
   activeScreenSubscription: Subscription;
   ShowDateRange = false;
-  activeTab = 'Last 1 month';
-  SortCriteria = 'StartDateAsc'; // 'StartDateAsc', 'StartDateDesc', 'StopDateAsc', 'StopDateDesc'
+  FilterCriteria = 'No Filter';
+  SortCriteria = 'NameAsc'; // 'NameAsc','NameDesc','StartDateAsc', 'StartDateDesc', 'StopDateAsc', 'StopDateDesc'
+  ShowSortPanel = false;
+  ShowFilterPanel = false;
   MedicationList = [];
-  // FilteredList = [];
   ShowDetailedPanel = [];
   ShowInformationPanel = [];
   ShowPrecautionsPanel = [];
@@ -33,36 +34,62 @@ export class HistoryComponent implements OnInit {
     );
     this.activeScreen = this.objMedication.getActiveScreen();
     this.MedicationList = this.objMedication.getStoppedMedicationList();
-    this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
-      return Medicine.StopDate !== '';
-    }).slice();
-    //Sorting by Start Date Ascending
     this.SortMedicationList(this.MedicationList, this.SortCriteria);
-
     for (let x = 0; x < this.MedicationList.length; x++) {
       this.ShowDetailedPanel[x] = false;
       this.ShowInformationPanel[x] = false;
       this.ShowContraindicationsPanel[x] = false;
       this.ShowPrecautionsPanel[x] = false;
     }
-    console.log(this.MedicationList);
-
+  }
+  OnNoFilterClick() {
+    this.ShowDateRange = false;
+    this.FilterCriteria = 'No Filter';
+    this.MedicationList = this.objMedication.getStoppedMedicationList();
   }
   OnLast1MonthClick() {
-    this.activeTab = 'Last 1 month';
+    this.ShowDateRange = false;
+    this.FilterCriteria = 'Last 1 month';
+    this.MedicationList = this.objMedication.getStoppedMedicationList();
+    this.FilterMedicationList(this.MedicationList, this.FilterCriteria);
   }
   OnLast3MonthsClick() {
-    this.activeTab = 'Last 3 months';
+    this.ShowDateRange = false;
+    this.FilterCriteria = 'Last 3 months';
+    this.MedicationList = this.objMedication.getStoppedMedicationList();
+    this.FilterMedicationList(this.MedicationList, this.FilterCriteria);
   }
   OnLast6MonthsClick() {
-    this.activeTab = 'Last 6 months';
+    this.ShowDateRange = false;
+    this.FilterCriteria = 'Last 6 months';
+    this.MedicationList = this.objMedication.getStoppedMedicationList();
+    this.FilterMedicationList(this.MedicationList, this.FilterCriteria);
   }
   OnLast1YearClick() {
-    this.activeTab = 'Last 1 Year';
+    this.ShowDateRange = false;
+    this.FilterCriteria = 'Last 1 Year';
+    this.MedicationList = this.objMedication.getStoppedMedicationList();
+    this.FilterMedicationList(this.MedicationList, this.FilterCriteria);
   }
-  OnDateRangeClick() {
-    this.activeTab = 'Select Date range';
-    (this.ShowDateRange === true) ? this.ShowDateRange = false : this.ShowDateRange = true;
+  OnLast3YearsClick() {
+    this.ShowDateRange = false;
+    this.FilterCriteria = 'Last 3 Years';
+    this.MedicationList = this.objMedication.getStoppedMedicationList();
+    this.FilterMedicationList(this.MedicationList, this.FilterCriteria);
+  }
+  // OnDateRangeClick() {
+  //   (this.ShowDateRange === true) ? this.ShowDateRange = false : this.ShowDateRange = true;
+  //   this.FilterCriteria = 'Select Date range';
+  //   this.MedicationList = this.objMedication.getStoppedMedicationList();
+  //   this.FilterMedicationList(this.MedicationList, this.FilterCriteria);
+  // }
+  OnNameAsc() {
+    this.SortCriteria = 'NameAsc';
+    this.SortMedicationList(this.MedicationList, this.SortCriteria);
+  }
+  OnNameDesc() {
+    this.SortCriteria = 'NameDesc';
+    this.SortMedicationList(this.MedicationList, this.SortCriteria);
   }
   OnStartDateAsc() {
     this.SortCriteria = 'StartDateAsc';
@@ -91,23 +118,70 @@ export class HistoryComponent implements OnInit {
   SortMedicationList(MedicationList: Medication[], SortCriteria: string) {
     if (SortCriteria === 'StopDateDesc') {
       this.MedicationList = this.MedicationList.sort(function (a, b) {
-        return new Date(a.StopDate).getTime() - new Date(b.StopDate).getTime()
+        return new Date(b.StopDate).getTime() - new Date(a.StopDate).getTime()
       });
     }
     if (SortCriteria === 'StopDateAsc') {
       this.MedicationList = this.MedicationList.sort(function (a, b) {
-        return new Date(b.StopDate).getTime() - new Date(a.StopDate).getTime()
+        return new Date(a.StopDate).getTime() - new Date(b.StopDate).getTime()
       });
     }
     if (SortCriteria === 'StartDateDesc') {
       this.MedicationList = this.MedicationList.sort(function (a, b) {
-        return new Date(a.StartDate).getTime() - new Date(b.StartDate).getTime()
+        return new Date(b.StartDate).getTime() - new Date(a.StartDate).getTime()
       });
     }
     if (SortCriteria === 'StartDateAsc') {
       this.MedicationList = this.MedicationList.sort(function (a, b) {
-        return new Date(b.StartDate).getTime() - new Date(a.StartDate).getTime()
+        return new Date(a.StartDate).getTime() - new Date(b.StartDate).getTime()
       });
+    }
+    if (SortCriteria === 'NameAsc') {
+      this.MedicationList = this.MedicationList.sort(function (a, b) {
+        return a.Name.localeCompare(b.Name);
+      });
+    }
+    if (SortCriteria === 'NameDesc') {
+      this.MedicationList = this.MedicationList.sort(function (a, b) {
+        return b.Name.localeCompare(a.Name);
+      });
+    }
+  }
+  FilterMedicationList(MedicationList: Medication[], FilterCriteria: string) {
+    if (FilterCriteria === 'Last 1 month') {
+        this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
+        const compareDate = new Date().setDate(new Date().getDate() - 30);
+        const StopDate = new Date(Medicine.StopDate);
+        return StopDate >= new Date(compareDate);
+      }).slice();
+      }
+    if (FilterCriteria === 'Last 3 months') {
+        this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
+        const compareDate = new Date().setDate(new Date().getDate() - 91);
+        const StopDate = new Date(Medicine.StopDate);
+        return StopDate >= new Date(compareDate);
+      }).slice();
+    }
+    if (FilterCriteria === 'Last 6 months') {
+        this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
+        const compareDate = new Date().setDate(new Date().getDate() - 183);
+        const StopDate = new Date(Medicine.StopDate);
+        return StopDate >= new Date(compareDate);
+      }).slice();
+    }
+    if (FilterCriteria === 'Last 1 Year') {
+        this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
+        const compareDate = new Date().setDate(new Date().getDate() - 365);
+        const StopDate = new Date(Medicine.StopDate);
+        return StopDate >= new Date(compareDate);
+      }).slice();
+    }
+    if (FilterCriteria === 'Last 3 Years') {
+      this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
+        const compareDate = new Date().setDate(new Date().getDate() - 1095);
+        const StopDate = new Date(Medicine.StopDate);
+        return StopDate >= new Date(compareDate);
+      }).slice();
     }
   }
 }

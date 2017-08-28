@@ -37,6 +37,9 @@ export class MedicationService {
       return Medicine.IsActive === false;
     }).slice();
   }
+  getAllMedicationList() {
+    return this.MedicationList.slice();
+  }
   getActiveScreen() {
     return this.activeScreen;
   }

@@ -34,11 +34,16 @@ span
 
 .panel-body
 {
-  height: 475px;
+  height: 410px;
   overflow-y: auto;
   overflow-x: hidden;
 }
-
+.panel-body_reduced
+{
+  height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .activeTab
 {
   background-color: #AD122A;
@@ -101,5 +106,5 @@ hr
 }
 label.radio-inline
 {
-  width:130px;
+  width:160px;
 }
