@@ -1,4 +1,3 @@
-
 *
 {
   box-sizing: border-box;
@@ -49,24 +48,11 @@ input{
   padding-bottom: 1%;
   border: none;
 }
-
-.table
-{
-  padding-left: 1%;
-  padding-right: 1%;
-}
-
 input:focus, input:valid {
   box-shadow: none;
   outline: none;
   background-position: 0 0;
 }
-
-ul,label
-{
-  /*font-size: 1.5vmin;*/
-}
-
 p
 {
   color: darkred;
@@ -75,7 +61,6 @@ p
 }
 
 button{
-  /*font-size: 1.5vmin;*/
   margin: 5px 5px;
   padding-left: 1%;
   padding-right: 1%;
@@ -93,11 +78,15 @@ button{
   visibility: hidden!important;
 }
 
-.panel-body
+.MainHeading
 {
-  padding-bottom: 5px;
+  height: 35px;
+  background-color: antiquewhite;
 }
-.panel-heading
+.FixLayout
 {
-  height: 40px;
+  height: 400px;
+  overflow-y: auto;
+  overflow-x:hidden ;
+  width: 100%;
 }

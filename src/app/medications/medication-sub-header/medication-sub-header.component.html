@@ -1,18 +1,18 @@
 <div class="container-fluid" style="background-color: #DCDDDF">
   <div class="row">
-    <div class="col-sm-2" align="left">
-            <button class="btn-primary" (click)="ToMainHome()" *ngIf="activeScreen == 'MedicationHome'" style="vertical-align: middle">
+    <div class="col-sm-2" align="left" style="padding-top: 0.5%">
+            <button class="btn-primary" (click)="ToMainHome()" *ngIf="activeScreen == 'MedicationHome'" >
               <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
             </button>
-            <button class="btn-primary" (click)="ToMedicationsHome()" *ngIf="activeScreen == 'MedicationList' || activeScreen == 'MedicationReconciliation' || activeScreen == 'MedicationHistory'" style="vertical-align: middle">
+            <button class="btn-primary" (click)="ToMedicationsHome()" *ngIf="activeScreen == 'MedicationList' || activeScreen == 'MedicationReconciliation' || activeScreen == 'MedicationHistory'" >
               <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
             </button>
-            <button class="btn-primary" (click)="ToMedicationsList()" *ngIf="activeScreen == 'MedicationRefill'" style="vertical-align: middle">
+            <button class="btn-primary" (click)="ToMedicationsList()" *ngIf="activeScreen == 'MedicationRefill'" >
               <span class="glyphicon glyphicon-circle-arrow-left"> </span>&nbsp;Back
             </button>
     </div>
 
-    <div class="col-sm-8" style="text-align: center; vertical-align: middle">
+    <div class="col-sm-8" style="text-align: center">
       <h3> Medications</h3>
     </div>
 

@@ -1,4 +1,3 @@
-
 *
 {
   box-sizing: border-box;
@@ -32,7 +31,6 @@ input{
   background-position: -200px 0;
   background-size: 400px 100%;
   background-repeat: no-repeat;
-  /*font-size: 1.5vmin;*/
 }
 
 .input-Editable
@@ -41,30 +39,10 @@ input{
   color: #0e6252;
 }
 
-.table-bordered
-{
-  padding-left: 1%;
-  padding-right: 1%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  border: none;
-}
-
-.table
-{
-  padding-left: 1%;
-  padding-right: 1%;
-}
-
 input:focus, input:valid {
   box-shadow: none;
   outline: none;
   background-position: 0 0;
-}
-
-ul,label
-{
-  /*font-size: 1.5vmin;*/
 }
 
 p
@@ -74,8 +52,6 @@ p
 }
 
 button{
-  /*font-size: 1.5vmin;*/
-  /*margin: 5px 5px;*/
   padding-left: 1%;
   padding-right: 1%;
   padding-top: 0.7%;
@@ -91,12 +67,22 @@ button{
   display: none !important;
   visibility: hidden!important;
 }
-
-.panel-body
+.MainHeading
 {
-  padding-bottom: 5px;
+  height: 35px;
+  background-color: antiquewhite;
 }
-.panel-heading
+.FixLayout
 {
-  height: 40px;
+  height: 410px;
+  overflow-y: auto;
+  overflow-x:hidden ;
+  width: 100%;
 }
+/*.FixLayout_reduced*/
+/*{*/
+  /*height: 350px;*/
+  /*overflow-y: auto;*/
+  /*overflow-x:hidden ;*/
+  /*width: 100%;*/
+/*}*/
