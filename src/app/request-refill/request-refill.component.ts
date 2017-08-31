@@ -12,6 +12,7 @@ export class RequestRefillComponent implements OnInit {
   MedicationList = [];
   Refill_button_active = false;
   RefillSelected_Medicines = '';
+  ShowFilterPanel = false;
   @ViewChild('btnSubmit') btnSubmit: ElementRef;
   constructor(public objMedication: MedicationService, private el: ElementRef, private route: Router) { }
 
