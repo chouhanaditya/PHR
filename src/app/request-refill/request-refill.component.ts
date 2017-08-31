@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MedicationService} from "../medications/Medication.Service";
 import {Router} from "@angular/router";
+import {Medication} from "../medications/Medication.Model";
 
 @Component({
   selector: 'app-request-refill',
@@ -23,6 +24,21 @@ export class RequestRefillComponent implements OnInit {
       }
     }
   }
+  PrescribedClick()  {
+    this.MedicationList = this.objMedication.getActiveMedicationList();
+    this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
+      return Medicine.IsPrescribed === true;
+    }).slice();
+  }
+  OTCClick()  {
+    this.MedicationList = this.objMedication.getActiveMedicationList();
+    this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
+      return Medicine.IsPrescribed === false;
+    }).slice();
+  }
+  AllClick()  {
+    this.MedicationList = this.objMedication.getActiveMedicationList();
+  }
 
   OnRefillSwitchClick(index: number) {
       if (this.MedicationList[index].RefillStatus === false) {
@@ -42,8 +58,7 @@ export class RequestRefillComponent implements OnInit {
         this.RefillSelected_Medicines = this.RefillSelected_Medicines + medicine.Id + ',';
       }
     }
-    this.objMedication.setActiveScreen('MedicationRefill');
-    this.route.navigate(['/Medications/List', this.RefillSelected_Medicines]);
+    this.route.navigate(['/RequestRefill', this.RefillSelected_Medicines]);
 
   }
 }

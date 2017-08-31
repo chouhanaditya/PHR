@@ -78,7 +78,7 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
         () => {  this.objCaregiverService.deleteCaregiver(this.SelectedCaregiverId);
         this.objCaregiverService.setActiveScreen('CaregiverHome');
           this.route1.navigate(['/Caregivers']);
-        }, 2000);
+        }, 1000);
     }
 
     OnDeletecancelledClick()    {

@@ -3,9 +3,8 @@
 <div class="container-fluid" style="background-color: #F6F6F6">
       <div class="row">
               <div class="col-sm-2" style="padding-bottom: 2%" >
-                        <br *ngIf="countCaregivers == 0">
-                        <h4 *ngIf="countCaregivers != 0">Below are your caregivers </h4>
-                        <br *ngIf="countCaregivers != 0">
+
+                        <h4 *ngIf="countCaregivers != 0" style="padding-top: 2%">Below are your caregivers </h4>
                         <ul class="list-group">
                                 <li *ngIf="countCaregivers != 0" class="list-inline">
                                     <ul class="list-group-item list-group" *ngFor="let caregiver of caregiversList;let i=index" id="caregiver_{{i}}">
@@ -17,19 +16,21 @@
                                                       {{caregiver.Name}}
                                                   </a>
                                               </li>
+
                                               <li class="list-inline">
                                                       <a class="my-pointer "
                                                            [routerLink]="['/Caregivers',caregiver.Id]"
                                                            [queryParams]="{Edit:true}"
                                                            (click)="OnEditClick(i)"
+
                                                             title="Request to Edit">
                                                           <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
-                                                      </a>&nbsp;
-
+                                                      </a>
                                                       <a class="my-pointer"
                                                            [routerLink]="['/Caregivers',caregiver.Id]"
                                                            [queryParams]="{Delete:true}"
                                                            (click)="OnDeleteClick(i)"
+
                                                            title="Request to Delete">
                                                           <span class="glyphicon glyphicon-trash"></span> Del
                                                       </a>
@@ -37,7 +38,7 @@
                                     </ul>
                                 </li>
                                 <li class="list-group-item" *ngIf="countCaregivers == 0" class="list-inline">
-                                        <p> You do not have caregivers.</p>
+                                        <p> You do not have any caregiver.</p>
                                 </li>
                                 <li id="newCaregiver" class="list-inline">
                                           <a routerLink="/Caregivers/new"
