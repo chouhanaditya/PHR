@@ -1,4 +1,4 @@
-<div class="container-fluid" style="padding-bottom: 0">
+<div class="container-fluid" style="padding-bottom: 0;background-color: #F6F6F6">
      <div class="panel-group">
 
           <!--Modules Row 1-->
@@ -26,6 +26,16 @@
                   <h4 class="heading">Medications and Tests</h4>
                 </div>
                 <div class="panel-body">
+                    <div class="col-sm-3 " align="center">
+                      <a routerLink="/RequestRefill">
+                        <img
+                          [src]="'http://icons.iconarchive.com/icons/dapino/medical/128/pills-pot-icon.png'"
+                          alt="Request a Refill"
+                          class="img-responsive list-group-item"
+                        >
+                        <h4>Request a Refill</h4>
+                      </a>
+                    </div>
                     <div *ngFor="let module of modulesRow2;let i = index" class="col-sm-3 " align="center">
                          <a routerLink="/{{module.ModuleName}}">
                           <img
@@ -57,7 +67,7 @@
                         </a>
                   </div>
                   <div class="col-sm-3 " align="center">
-                    <a href='https://bit.ly/previsit_unmc'>
+                    <a href='https://bit.ly/previsit_welcome'>
                       <img
                         [src]="'https://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/128/Tests-icon.png'"
                         alt="Patient Health Questionaire"

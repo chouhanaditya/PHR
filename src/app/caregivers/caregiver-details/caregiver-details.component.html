@@ -1,8 +1,8 @@
 <div class="container-fluid" style="padding-top: 1%">
         <!--Save Dialog Box-->
-        <div class="row table" *ngIf="IsSaveDialog" style="padding-top: 1%">
+        <div class="row" *ngIf="IsSaveDialog" style="padding-top: 1%">
             <div class="alert alert-success alert-dismissable col-md-12" role="alert">
-                <a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>
+                <!--<a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>-->
                   <h4 class="alert-heading">Success!</h4>
                     Request for made changes has been accepted and changes would reflect after getting approved.
                     <br>
@@ -11,7 +11,7 @@
         </div>
 
         <!--Delete Dialog Box-->
-        <div class="row table" *ngIf="IsDeleteDialog" style="padding-top: 1%">
+        <div class="row" *ngIf="IsDeleteDialog" style="padding-top: 1%">
           <div class="alert alert-danger alert-dismissable col-md-12">
               <h4> This will remove '{{ SelectedCaregiver.Name}}' as caregiver. </h4>
               <hr>
@@ -21,7 +21,6 @@
               <button class="btn-success my-pointer" align="middle" (click)="OnDeletecancelledClick()" > No&nbsp; <span class="glyphicon glyphicon-remove-circle"></span> </button>
           </div>
         </div>
-
 
         <div class="panel panel-default">
             <!--Personal Details-->

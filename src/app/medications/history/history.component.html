@@ -13,7 +13,7 @@
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'No Filter'}">
               <label class="radio-inline">
                 <input type="radio" name="Filter_Medicine" checked="checked" (click)="OnNoFilterClick()">
-                <span class="glyphicon glyphicon-ban-circle"></span> No Filter
+                <span class="glyphicon glyphicon-ok"></span> All
               </label>
             </li>
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':FilterCriteria == 'Last 1 month'}">
@@ -79,7 +79,7 @@
             </li>
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'NameAsc'}">
               <label class="radio-inline">
-                <input type="radio" name="Sort_Medicine" checked="checked" (click)="OnNameAsc()"> Name- 'A First'
+                <input type="radio" name="Sort_Medicine" (click)="OnNameAsc()"> Name- 'A First'
                 <span class="glyphicon glyphicon-sort-by-alphabet" ></span>
               </label>
             </li>
@@ -103,7 +103,7 @@
             </li>
             <li class="list-group-item radio-inline" [ngClass]="{'activeTab':SortCriteria == 'StopDateAsc'}">
               <label class="radio-inline">
-                <input type="radio" name="Sort_Medicine" (click)="OnStopDateAsc()">Stop Date- Ascending
+                <input type="radio" name="Sort_Medicine" checked="checked" (click)="OnStopDateAsc()">Stop Date- Ascending
                 <span class="glyphicon glyphicon-sort-by-attributes" ></span>
               </label>
             </li>
@@ -123,19 +123,26 @@
       <!--Medication List Grid header-->
       <div class="panel-heading">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-2">
             <h4 style="padding-left: 3%">Name
                 <span *ngIf="SortCriteria == 'NameAsc'" class="glyphicon glyphicon-sort-by-alphabet" ></span>
                 <span  *ngIf="SortCriteria == 'NameDesc'" class="glyphicon glyphicon-sort-by-alphabet-alt"  ></span>
             </h4>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
+            <h4 style="padding-left: 3%">Dosage</h4>
+          </div>
+          <div class="col-md-2">
+            <h4 style="padding-left: 3%">Frequency
+            </h4>
+          </div>
+          <div class="col-md-2">
             <h4><span class="glyphicon glyphicon-time"></span> Start Date
                 <span *ngIf="SortCriteria == 'StartDateAsc'" class="glyphicon glyphicon-sort-by-attributes" ></span>
                 <span  *ngIf="SortCriteria == 'StartDateDesc'" class="glyphicon glyphicon-sort-by-attributes-alt"  ></span>
             </h4>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <h4><span class="glyphicon glyphicon-time" ></span> Stop Date
               <span *ngIf="SortCriteria == 'StopDateAsc'" class="glyphicon glyphicon-sort-by-attributes" ></span>
               <span *ngIf="SortCriteria == 'StopDateDesc'" class="glyphicon glyphicon-sort-by-attributes-alt" ></span>
@@ -155,18 +162,24 @@
                       (click)="OnDetailsClick(i)"
               >
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                       <p>{{medicine.Name}}</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
+                      <p>{{medicine.Dosage}}</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>{{medicine.Frequency}}</p>
+                    </div>
+                    <div class="col-md-2" style="padding-left: 2%">
                       <p>{{medicine.StartDate}}</p>
                     </div>
-                    <div class="col-md-3" style="padding-left: 2%">
+                    <div class="col-md-2" style="padding-left: 3%">
                       <p>{{medicine.StopDate}}</p>
                     </div>
                     <div class="col-md-2" style="padding-left: 3%">
-                      <p *ngIf="ShowDetailedPanel[i] == false" ><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
-                      <p *ngIf="ShowDetailedPanel[i] == true" ><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
+                      <p *ngIf="ShowDetailedPanel[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
+                      <p *ngIf="ShowDetailedPanel[i] == true"><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
                     </div>
                 </div>
 

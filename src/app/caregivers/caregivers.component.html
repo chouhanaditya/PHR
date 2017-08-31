@@ -2,7 +2,7 @@
 
 <div class="container-fluid" style="background-color: #F6F6F6">
       <div class="row">
-              <div class="col-sm-2" style="padding-bottom: 2%;padding-top: 1%; " >
+              <div class="col-sm-2" style="padding-bottom: 2%" >
                         <br *ngIf="countCaregivers == 0">
                         <h4 *ngIf="countCaregivers != 0">Below are your caregivers </h4>
                         <br *ngIf="countCaregivers != 0">
@@ -53,11 +53,9 @@
                         </ul>
               </div>
 
-              <div class="col-sm-10" >
+              <div class="col-sm-10" style="padding-top: 1%">
                       <div class="container-fluid" *ngIf="activeScreen == 'CaregiverHome'">
-                            <div class="row">
-                                    <br>
-                                    <br>
+
                                     <p>
                                       Caregivers are the individuals which help patients with the basic life functions, manage medical care, help people  maintain health and remain in their home or community.
                                     </p>
@@ -90,7 +88,7 @@
                                     <p>
                                       You can view details of any caregiver by selecting name from the left side of the screen.
                                     </p>
-                          </div>
+
                       </div>
 
                       <router-outlet *ngIf = "activeScreen != 'CaregiverHome'">

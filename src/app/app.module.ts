@@ -25,6 +25,7 @@ import { RefillComponent } from './medications/list/refill/refill.component';
 import {MedicationService} from './medications/Medication.Service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdInputModule} from '@angular/material';
+import { RequestRefillComponent } from './request-refill/request-refill.component';
 
 
 
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
       { path : 'Reconcillation', component : ReconcillationComponent },
       { path : 'History', component : HistoryComponent }
     ]},
+  { path : 'RequestRefill', component : RequestRefillComponent},
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     ListComponent,
     RefillComponent,
     HistoryComponent,
-    ReconcillationComponent
+    ReconcillationComponent,
+    RequestRefillComponent
   ],
   imports: [
     BrowserModule,

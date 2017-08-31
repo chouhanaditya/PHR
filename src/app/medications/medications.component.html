@@ -1,6 +1,6 @@
 <app-medication-sub-header style="padding-bottom: 1%"></app-medication-sub-header>
 <div class="container-fluid"  style="background-color: #F6F6F6">
-    <div class="row" style="height: 35px">
+    <div class="row">
         <div class="col-sm-4" align="center" style="border: 0.5px solid;cursor: pointer" [ngClass]="{'custom-bg':activeScreen == 'MedicationList'}"
              (click)="OnListClick()" [routerLink]="['/Medications/List']">
           <h4
@@ -35,7 +35,7 @@
 
       </div>
     </div>
-    <div class="row" style="padding-top: 2%;">
+    <div class="row">
         <div class="container-fluid" *ngIf="activeScreen == 'MedicationHome'" >
           <br>
           <br>

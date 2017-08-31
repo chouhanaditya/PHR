@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'" style="padding-left: 2%">
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationList'" style="padding-left: 2%;padding-top: 2%">
   <!--Medication list Header-->
     <a (click)="(ShowFilterPanel) ? ShowFilterPanel = false : ShowFilterPanel = true" style="padding-bottom: 1%">
     <span *ngIf="ShowFilterPanel == false" class="glyphicon glyphicon-plus-sign"  ></span>
@@ -14,7 +14,7 @@
              <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'All'}">
                 <label class="radio-inline" >
                   <input type="radio" name="Filter_Medicine" (click)="AllClick()" checked>
-                  <span class="glyphicon glyphicon-ban-circle"></span> No Filter
+                  <span class="glyphicon glyphicon-ok"></span> Show All
                 </label>
               </li>
               <li class="list-group-item radio-inline" [ngClass]="{'activeTab':activeMedicationListTab == 'Prescribed'}">
@@ -45,15 +45,15 @@
                             <h4>Name</h4>
                           </div>
                           <div class="col-md-2">
-                            <h4>Frequency</h4>
-                          </div>
-                          <div class="col-md-2" style="padding-left: 0" >
                             <h4>Dosage</h4>
+                          </div>
+                          <div class="col-md-2">
+                            <h4>Frequency</h4>
                           </div>
                           <div class="col-md-2" style="padding-left: 0">
                             <h4>Details</h4>
                           </div>
-                          <div class="col-md-1" style="padding-left: 0" >
+                          <div class="col-md-1">
                             <h4>Information</h4>
                           </div>
                     </div>
@@ -92,17 +92,17 @@
                                             <p>{{medicine.Name}}</p>
                                           </div>
                                           <div class="col-md-2">
-                                            <p>{{medicine.Frequency}}</p>
+                                            <p>{{medicine.Dosage}}</p>
                                           </div>
                                           <div class="col-md-2">
-                                            <p>{{medicine.Dosage}}</p>
+                                            <p>{{medicine.Frequency}}</p>
                                           </div>
                                           <div class="col-md-2">
                                               <p *ngIf="ShowDetailedPanel[i] == false"><span class="glyphicon glyphicon-plus-sign" ></span> More</p>
                                               <p *ngIf="ShowDetailedPanel[i] == true"><span class="glyphicon glyphicon-minus-sign"  ></span> Less</p>
                                           </div>
                               </a>
-                              <div class="col-md-1">
+                              <div class="col-md-1" style="padding-left: 3%">
                                     <a title="Medicine Information" (click)="OnMedicineInfoSelection(i)"><span class="glyphicon glyphicon-info-sign"></span></a>
                               </div>
                         </div>

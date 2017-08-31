@@ -47,10 +47,14 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
     );
     this.route.queryParams.subscribe(
       () => {
-             this.IsDeleteDialog = this.route.snapshot.queryParams['Delete'];
-             this.IsDetailsEditable = this.route.snapshot.queryParams['Edit'];
-              }
-              );
+        if (this.route.snapshot.queryParams['Delete']) {
+          this.IsDeleteDialog = true;
+        }
+        if (this.route.snapshot.queryParams['Edit']) {
+          this.IsDetailsEditable = true;
+        }
+      }
+      );
   }
   OnSaveClick() {
       this.IsDetailsEditable = false;
@@ -82,9 +86,11 @@ export class CaregiverDetailsComponent implements OnInit, OnDestroy {
       this.objCaregiverService.setActiveScreen('CaregiverHome');
       this.route1.navigate(['/Caregivers']);
     }
-    OnAlertClose()  {
-      this.IsSaveDialog = false;
-    }
+    // OnAlertClose()  {
+    //   this.IsSaveDialog = false;
+    //   this.redirectCounter = 10;
+    //   clearInterval(this.counterInterval);
+    // }
   ngOnDestroy() {
     clearInterval(this.counterInterval);
   }

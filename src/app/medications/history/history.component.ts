@@ -14,8 +14,8 @@ export class HistoryComponent implements OnInit {
   activeScreen: string;
   activeScreenSubscription: Subscription;
   ShowDateRange = false;
-  FilterCriteria = 'No Filter';
-  SortCriteria = 'NameAsc'; // 'NameAsc','NameDesc','StartDateAsc', 'StartDateDesc', 'StopDateAsc', 'StopDateDesc'
+  FilterCriteria = 'All';
+  SortCriteria = 'StopDateAsc'; // 'NameAsc','NameDesc','StartDateAsc', 'StartDateDesc', 'StopDateAsc', 'StopDateDesc'
   ShowSortPanel = false;
   ShowFilterPanel = false;
   MedicationList = [];
@@ -44,7 +44,7 @@ export class HistoryComponent implements OnInit {
   }
   OnNoFilterClick() {
     this.ShowDateRange = false;
-    this.FilterCriteria = 'No Filter';
+    this.FilterCriteria = 'All';
     this.MedicationList = this.objMedication.getStoppedMedicationList();
   }
   OnLast1MonthClick() {

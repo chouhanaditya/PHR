@@ -30,7 +30,7 @@
 
 .container-fluid
 {
-  margin-top: 0.1%;
+  margin-top: 0.2%;
 }
 p
 {
@@ -45,7 +45,7 @@ p
 
 .panel-heading
 {
-  height: 30px;
+  height: 35px;
   vertical-align: middle;
   margin: 0;
 }
@@ -58,6 +58,11 @@ p
 }
 img
 {
-  width: 80px;
-  height: 72px;
+  width: 85px;
+  height: 75px;
+}
+
+.panel-body
+{
+  padding-bottom: 2px;
 }
