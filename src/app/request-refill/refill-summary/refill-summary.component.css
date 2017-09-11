@@ -1,7 +1,7 @@
-/***/
-/*{*/
-  /*box-sizing: border-box;*/
-/*}*/
+*
+{
+  box-sizing: border-box;
+}
 /* For desktop: */
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -22,53 +22,24 @@
     width: 100%;
   }
 }
-.container-fluid
-{
-  background-color: #F6F6F6; padding-bottom: 0.5%;
-  padding-top: 1%;
-}
-.activeTab
-{
-  background-color: #AD122A;
-  font-weight: bold;
-  color: white;
-}
-span
-{
-  zoom: 110%;
-  /*color: black;*/
-}
-a
-{
-  cursor: pointer;
-}
-.panel-body
-{
-  height: 445px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.panel-body_MoreReduced
-{
-  height: 310px!important;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.panel-body_reduced
-{
-  height: 375px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-.col-sm-4
-{
-  border: 0.5px solid;
-  cursor: pointer;
-}
-h3,h4
+h4
 {
   color: darkred;
+}
+
+.MainPanel
+{
+  height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0;
+}
+.MainPanel_reduced
+{
+  height: 125px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0;
 }
 
 button{
@@ -80,11 +51,11 @@ button{
   cursor: pointer;
   vertical-align: middle;
 }
-
 .btn-success {
   background-color: #656515;
 }
-.activeMedicine
+.panel-default
 {
-  background-color: #DCDDDF;
+  background-color: #F6F6F6;
+  width: 98%;
 }

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MedicationService} from '../Medication.Service';
 import {Medication} from '../Medication.Model';
 import {Subscription} from 'rxjs/Subscription';
@@ -12,7 +12,7 @@ declare const jQuery: any;
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit, OnDestroy {
+export class ListComponent implements OnInit, OnDestroy, AfterViewInit {
   activeScreen: string;
   activeScreenSubscription: Subscription;
   SelectedMedicine = true;
@@ -44,12 +44,15 @@ export class ListComponent implements OnInit, OnDestroy {
       this.ShowContraindicationsPanel[x] = false;
       this.ShowPrecautionsPanel[x] = false;
     }
+  }
+  ngAfterViewInit() {
     for (const medicine of this.MedicationList){
-      if (medicine.RefillStatus) {
-        this.Refill_button_active = true;
-        this.btnSubmit.nativeElement.title = 'Request refill for all above selected medicines';
-      }
+    if (medicine.RefillStatus) {
+      this.Refill_button_active = true;
+      this.btnSubmit.nativeElement.title = 'Request refill for all above selected medicines';
     }
+  }
+
   }
   PrescribedClick()  {
     this.MedicationList = this.objMedication.getActiveMedicationList();
@@ -104,7 +107,6 @@ export class ListComponent implements OnInit, OnDestroy {
     }
     this.objMedication.setActiveScreen('MedicationRefill');
     this.route.navigate(['/Medications/List', this.RefillSelected_Medicines]);
-
   }
   ngOnDestroy() {
     this.activeScreenSubscription.unsubscribe();

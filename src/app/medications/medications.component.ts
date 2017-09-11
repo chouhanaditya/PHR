@@ -20,7 +20,7 @@ export class MedicationsComponent implements OnInit, OnDestroy {
         this.activeScreen = activeScreen;
       }
     );
-      this.activeScreen = this.objMedication.getActiveScreen();
+    this.activeScreen = this.objMedication.getActiveScreen();
     }
 
   OnListClick() {

@@ -43,5 +43,20 @@ button{
 .panel-default
 {
   background-color: #F6F6F6;
-  width: 77%;
+  width: 98%;
+}
+.MainPanel
+{
+  height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #F6F6F6;
+  padding-bottom: 0;
+}
+.MainPanel_reduced
+{
+  height: 135px;
+  background-color: #F6F6F6;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

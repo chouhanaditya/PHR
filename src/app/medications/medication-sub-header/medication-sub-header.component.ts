@@ -36,4 +36,8 @@ export class MedicationSubHeaderComponent implements OnInit {
     this.route.navigate(['/Medications/List']);
     this.objMedication.setActiveScreen('MedicationList');
   }
+  ToMedicationsRefillHome() {
+    this.route.navigate(['/RequestRefill']);
+    this.objMedication.setActiveScreen('MedicationHome');
+  }
 }

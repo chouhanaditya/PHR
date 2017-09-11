@@ -34,13 +34,13 @@ span
 
 .panel-body
 {
-  height: 410px;
+  height: 480px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 .panel-body_reduced
 {
-  height: 380px;
+  height: 415px;
   overflow-y: auto;
   overflow-x: hidden;
 }

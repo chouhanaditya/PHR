@@ -1,8 +1,8 @@
-<div class="container-fluid" style="padding-bottom: 1%;padding-left: 3%">
+<div class="container-fluid" style="padding-left: 3%">
 
   <!--Save Dialog Box-->
   <div class="row" >
-    <div class="alert alert-success alert-dismissable col-md-12" role="alert" *ngIf="IsSaveDialog" style="width: 77%">
+    <div class="alert alert-success alert-dismissable col-md-12" role="alert" *ngIf="IsSaveDialog">
       <!--<a class="close" (click)="OnAlertClose()" data-dismiss="alert" aria-label="close">&times;</a>-->
       <h3 class="alert-heading">Success!</h3>
       Request for medicine refill has been accepted.
@@ -17,28 +17,34 @@
         <!--Refill Medicatines Grid header-->
         <div class="panel-heading" style="background-color:#F6F6F6 ">
           <div class="row">
-            <div class="col-sm-5">
-              <h4 >Medicine Name</h4>
-            </div>
-            <div class="col-sm-5">
-              <h4>Prescribed Number of Pills</h4>
-            </div>
-            <div class="col-sm-2" >
-              <h4>Refill?</h4>
-            </div>
+              <div class="col-sm-4">
+                <h4 >Medicine Name</h4>
+              </div>
+              <div class="col-sm-3">
+                <h4>Prescribed Number of Pills</h4>
+              </div>
+                <div class="col-sm-3">
+                  <h4>Last Refill Date</h4>
+                </div>
+              <div class="col-sm-2" >
+                <h4>Refill?</h4>
+              </div>
           </div>
         </div>
 
         <!--Refill Medicatines Grid Body-->
-        <div class="panel-body" style="background-color: #F6F6F6">
+        <div class="panel-body MainPanel" [ngClass]="{'MainPanel_reduced': IsSaveDialog == true}">
             <ul class="list-group">
                 <li *ngFor="let medicine of Refill_Medicines;" class="list-group-item">
                       <div class="row" style="padding-top: 1%">
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <p>{{medicine.Name}}</p>
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-3">
                               <p>{{medicine.NumberofPills}}</p>
+                            </div>
+                            <div class="col-sm-3">
+                              <p>{{medicine.LastRefillDate}}</p>
                             </div>
                             <div class="col-sm-2">
                               <ui-switch
@@ -49,7 +55,7 @@
                                 style="float: right;"
                               >
                               </ui-switch>
-                              <p style="display: inline-block" *ngIf="medicine.RefillStatus == true"> Yes </p>
+                              <p *ngIf="medicine.RefillStatus == true"> Yes </p>
                               <p *ngIf="medicine.RefillStatus == false"> No </p>
                             </div>
                       </div>
@@ -72,7 +78,7 @@
                 </div>
               </div>
               <!--Pickup options Body-->
-              <div class="panel-body" style="background-color: #F6F6F6">
+              <div class="panel-body" style="background-color: #F6F6F6; padding-top: 0;padding-bottom: 0">
                   <ul class="list-group">
                       <li class="list-group-item radio-inline">
                           <div class="row" style="padding-top: 1%">
@@ -102,7 +108,7 @@
               </div>
             </div>
             <!--Payment options Body-->
-            <div class="panel-body" style="background-color: #F6F6F6">
+            <div class="panel-body" style="background-color: #F6F6F6; padding-top: 0;padding-bottom: 0">
               <ul class="list-group">
                 <li class="list-group-item checkbox-inline">
                     <div class="row" style="padding-top: 1%">

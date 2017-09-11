@@ -1,6 +1,6 @@
 <app-medication-sub-header style="padding-bottom: 1%"></app-medication-sub-header>
 <div class="container-fluid"  style="background-color: #F6F6F6">
-    <div class="row">
+    <div class="row"  *ngIf="activeScreen == 'MedicationList' || activeScreen == 'MedicationReconciliation' || activeScreen == 'MedicationHistory' || activeScreen == 'MedicationHome'">
         <div class="col-sm-4" align="center" style="border: 0.5px solid;cursor: pointer" [ngClass]="{'custom-bg':activeScreen == 'MedicationList'}"
              (click)="OnListClick()" [routerLink]="['/Medications/List']">
           <h4

@@ -1,5 +1,5 @@
 <app-medication-sub-header style="padding-bottom: 1%"></app-medication-sub-header>
-<div class="container-fluid"style="padding-left: 2%;padding-top: 2%">
+<div class="container-fluid" *ngIf="activeScreen == 'MedicationHome'" style="padding-left: 2%;padding-top: 2%">
   <!--Medication list Header-->
   <a (click)="(ShowFilterPanel) ? ShowFilterPanel = false : ShowFilterPanel = true" style="padding-bottom: 1%">
     <span *ngIf="ShowFilterPanel == false" class="glyphicon glyphicon-plus-sign"  ></span>
@@ -55,7 +55,7 @@
       </div>
 
       <!--Medication List Grid Rows-->
-      <div class="panel-body" [ngClass]="{'panel-body_reduced': ShowFilterPanel == true}">
+      <div class="panel-body MainPanel" [ngClass]="{'panel-body_reduced': ShowFilterPanel == true}">
         <ul class="list-group">
           <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item" id="medicine_{{i}}">
             <div class="row" style="padding-top: 1%">
@@ -112,4 +112,4 @@
   </div>
 
 </div>
-<router-outlet ></router-outlet>
+<router-outlet *ngIf="activeScreen != 'MedicationHome'" ></router-outlet>
