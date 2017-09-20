@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MedicationService} from "../medications/Medication.Service";
 import {Router} from "@angular/router";
 import {Medication} from "../medications/Medication.Model";
@@ -9,7 +9,7 @@ import {Subscription} from "rxjs/Subscription";
   templateUrl: './request-refill.component.html',
   styleUrls: ['./request-refill.component.css']
 })
-export class RequestRefillComponent implements OnInit {
+export class RequestRefillComponent implements OnInit, AfterViewInit {
   activeScreen: string;
   activeMedicationListTab = 'All';
   activeScreenSubscription: Subscription;
@@ -29,13 +29,22 @@ export class RequestRefillComponent implements OnInit {
     );
     this.activeScreen = this.objMedication.getActiveScreen();
     this.MedicationList = this.objMedication.getActiveMedicationList();
-    for (const medicine of this.MedicationList) {
+    //Sorting based on last refill date
+    this.MedicationList = this.MedicationList.sort(function (a, b) {
+      return new Date(b.LastRefillDate).getTime() - new Date(a.LastRefillDate).getTime()
+    });
+  }
+
+  ngAfterViewInit() {
+    for (const medicine of this.MedicationList){
       if (medicine.RefillStatus) {
         this.Refill_button_active = true;
         this.btnSubmit.nativeElement.title = 'Request refill for all above selected medicines';
       }
     }
+
   }
+
   PrescribedClick()  {
     this.MedicationList = this.objMedication.getActiveMedicationList();
     this.MedicationList = this.MedicationList.filter((Medicine: Medication) => {
@@ -56,14 +65,21 @@ export class RequestRefillComponent implements OnInit {
   }
 
   OnRefillSwitchClick(index: number) {
-      if (this.MedicationList[index].RefillStatus === false) {
+    if (this.MedicationList[index].RefillStatus === false) {
+      this.MedicationList[index].RefillStatus = true;
+    } else {
+      this.MedicationList[index].RefillStatus = false;
+    }
+    for (const medicine of this.MedicationList){
+      if (medicine.RefillStatus) {
         this.Refill_button_active = true;
         this.btnSubmit.nativeElement.title = 'Request refill for all above selected medicines';
-        this.MedicationList[index].RefillStatus = true;
+        break;
       } else {
         this.Refill_button_active = false;
         this.btnSubmit.nativeElement.title = 'Please select atleast one medicine for refill.';
       }
+    }
     }
 
   OnRequestRefillClick() {

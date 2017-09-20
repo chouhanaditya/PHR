@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="padding-bottom: 0">
           <!--Personal Details-->
           <div class="panel-heading MainHeading">
             <div class="row col-md-12">
@@ -105,7 +105,7 @@
               <p>Set Privileges</p>
             </div>
           </div>
-          <div class="FixLayout">
+          <div class="FixLayout" [ngClass]="{'FixLayout_reduced':IsFormSaved == true || IsError == true}">
               <!--Privilege First Row- Communications-->
               <div class="panel-heading" style="height: 35px" >
                 <p >Communications</p>

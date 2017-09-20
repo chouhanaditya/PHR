@@ -74,15 +74,17 @@ button{
 }
 .FixLayout
 {
-  height: 400px;
+  height: 460px;
   overflow-y: auto;
   overflow-x:hidden ;
   width: 100%;
+  margin-bottom: 0;
 }
-/*.FixLayout_reduced*/
-/*{*/
-  /*height: 350px;*/
-  /*overflow-y: auto;*/
-  /*overflow-x:hidden ;*/
-  /*width: 100%;*/
-/*}*/
+.FixLayout_reduced
+{
+  height: 415px;
+  overflow-y: auto;
+  overflow-x:hidden ;
+  width: 100%;
+  margin-bottom: 0;
+}

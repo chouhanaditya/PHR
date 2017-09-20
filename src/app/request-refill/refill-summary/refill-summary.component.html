@@ -15,7 +15,7 @@
       <!--Refill Medicatines Grid header-->
       <div class="panel-heading" style="background-color:#F6F6F6 ">
         <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <h4 >Medicine Name</h4>
           </div>
           <div class="col-sm-3">
@@ -24,7 +24,7 @@
           <div class="col-sm-3">
             <h4>Last Refill Date</h4>
           </div>
-          <div class="col-sm-2" >
+          <div class="col-sm-3" >
             <h4>Refill?</h4>
           </div>
         </div>
@@ -35,7 +35,7 @@
         <ul class="list-group">
           <li *ngFor="let medicine of Refill_Medicines;" class="list-group-item">
             <div class="row" style="padding-top: 1%">
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <p>{{medicine.Name}}</p>
               </div>
               <div class="col-sm-3">
@@ -44,12 +44,12 @@
               <div class="col-sm-3">
                 <p style="padding-left: 3%">{{medicine.LastRefillDate}}</p>
               </div>
-              <div class="col-sm-2" style="padding-left: 3%">
+              <div class="col-sm-3" style="padding-left: 3%">
                 <ui-switch
                   [(ngModel)]="medicine.RefillStatus"
                   color="#656515"
                   title="Request Refill for {{medicine.Name}} medicine"
-                  style="vertical-align: middle; float: right"
+                  style="vertical-align: middle;"
                   (change)="OnRefillSwitchClick(medicine.Id)"
                  >
                 </ui-switch>

@@ -22,7 +22,7 @@
           </div>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="padding-bottom: 0">
             <!--Personal Details-->
             <div class="panel-heading MainHeading">
                 <div class="row col-sm-12">
@@ -70,7 +70,7 @@
                     <p>{{ SelectedCaregiver.Name }}: Privileges</p>
                 </div>
             </div>
-            <div class="FixLayout">
+            <div class="FixLayout" >
             <!--Privilege First Row- Communications-->
                 <div class="panel-heading" style="height: 35px">
                   <p>Communications</p>
@@ -405,10 +405,10 @@
         </div>
 
         <!--Buttons-->
-        <div class="col-md-12 mt-1" *ngIf="IsDetailsEditable" >
-            <!--<div class="col-md-5">-->
+        <div class="row" *ngIf="IsDetailsEditable" >
+            <div class="col-md-12">
               <button type="submit" class="btn-success my-pointer " align="middle"  (click)="OnSaveClick()"> Request for Save&nbsp; <span class="glyphicon glyphicon-floppy-save"></span></button>
               <button type="button" class="btn-danger my-pointer " align="middle"  (click)="OnCancelClick()"> Cancel <span class="glyphicon glyphicon-remove-circle"></span> </button>
-            <!--</div>-->
+            </div>
         </div>
 </div>

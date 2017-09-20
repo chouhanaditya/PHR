@@ -40,10 +40,8 @@ export class RefillSummaryComponent implements OnInit, OnDestroy {
 
     if (this.MedicineDetails.RefillStatus === false) {
       this.MedicineDetails.RefillStatus = true;
-      this.MedicineDetails.LastRefillDate = this.TodayDate;
-    } else {
-      this.MedicineDetails.RefillStatus = false;
-    }
+      } else {
+      this.MedicineDetails.RefillStatus = false; }
   }
   OnSaveClick() {
     for (let x = 0; x < this.Refill_Medicines.length; x++) {

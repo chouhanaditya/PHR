@@ -39,17 +39,20 @@
       <!--Medication List Grid header-->
       <div class="panel-heading">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-2">
             <h4>Request Refill?</h4>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <h4>Name</h4>
           </div>
           <div class="col-md-3">
             <h4>Dosage</h4>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-2">
             <h4>Frequency</h4>
+          </div>
+          <div class="col-md-3" >
+            <h4>Last Refill Date</h4>
           </div>
         </div>
       </div>
@@ -59,7 +62,7 @@
         <ul class="list-group">
           <li *ngFor="let medicine of MedicationList; let i = index" class="list-group-item" id="medicine_{{i}}">
             <div class="row" style="padding-top: 1%">
-              <div class="col-md-3" >
+              <div class="col-md-2" >
                 <p style="display: inline-block" *ngIf="medicine.RefillStatus == true">  <ui-switch
                   [(ngModel)]="medicine.RefillStatus"
                   color="#656515"
@@ -79,15 +82,18 @@
                 >
                 </ui-switch> No </p>
               </div>
-              <div class="col-md-3" style="padding-left: 0" >
+              <div class="col-md-2" style="padding-left: 0" >
                   <p>{{medicine.Name}}</p>
                 </div>
               <div class="col-md-3">
                   <p>{{medicine.Dosage}}</p>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                   <p>{{medicine.Frequency}}</p>
                </div>
+              <div class="col-md-3" style="padding-left: 3%" >
+                <p >{{medicine.LastRefillDate}}</p>
+              </div>
             </div>
 
         </li>
@@ -97,7 +103,7 @@
     </div>
   </div>
 
-  <div>
+  <div class="row">
     <button type="submit"
             class="btn-success"
             #btnSubmit

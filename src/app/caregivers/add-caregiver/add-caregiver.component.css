@@ -85,7 +85,14 @@ button{
 }
 .FixLayout
 {
-  height: 390px;
+  height: 410px;
+  overflow-y: auto;
+  overflow-x:hidden ;
+  width: 100%;
+}
+.FixLayout_reduced
+{
+  height: 250px;
   overflow-y: auto;
   overflow-x:hidden ;
   width: 100%;
